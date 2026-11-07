@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "pins": {
+    "osm-extract": {
+      "The extract is rebuilt weekly and on demand": null,
+      "Nothing a pull request or a fork can cause runs the workflow": null,
+      "The regions list": null,
+      "The import's categories": null,
+      "The extract holds exactly what the import's categories select": null,
+      "Each feature's form": null,
+      "The category rules name the garmin-map commit they were copied from": null,
+      "Coordinates are rounded to six decimals": null,
+      "Features are filed into 0.25° cells": null,
+      "A dense cell is split into its four quarters": null,
+      "The output is byte-stable": null,
+      "The manifest describes every region": null,
+      "The manifest lists exactly the files written": null,
+      "The data date is the source's replication time": null,
+      "A region's bounds lie inside its Geofabrik polygon": null,
+      "A clipped region is cut to its bounds": null,
+      "A failed or corrupt download publishes nothing new for the region": null,
+      "No published file is over 20 MiB": null,
+      "The site holds at most 19,000 files": null,
+      "A region job hands its tree to the deploy job and writes nothing": null,
+      "The deploy job accepts only well-formed region trees": null,
+      "A failed region keeps its previous files": null,
+      "Files dropped from the manifest stay one more run": null,
+      "Publishing replaces the site with one orphan commit": null,
+      "The site sets its CORS and cache headers": null,
+      "A missing file is a real 404": null,
+      "The extract carries its licence notice": null,
+      "Only the deploy job can write the repository": null,
+      "The workflow uses no secret and only pinned actions": null,
+      "Each region job reports its size": null
+    }
+  }
+}
