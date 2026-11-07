@@ -28,7 +28,7 @@
 
 ## 7. Reviews and decisions
 
-- [ ] 7.1 ADRs 0001–0007 in `docs/decisions/`, added to its index
+- [x] 7.1 ADRs 0001–0007 in `docs/decisions/`, added to its index
 - [ ] 7.2 `/security-review` of the workflow and scripts; findings fixed through the spec
 - [ ] 7.3 Attack test: a fork pull request runs nothing; a pull request that edits the workflow can't push `data`; only the deploy job writes; no secrets referenced. Done with a throwaway pull request if feasible, otherwise reasoned and recorded in `docs/attack-test.md`
 - [ ] 7.4 `/sdd:conformance-review weekly-extract`; findings routed through `/sdd:spec-fix`
