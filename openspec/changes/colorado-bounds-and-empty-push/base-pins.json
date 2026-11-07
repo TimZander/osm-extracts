@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "pins": {
+    "osm-extract": {
+      "A region's bounds lie inside its Geofabrik polygon": "39538b6de113dd216989d1d45af1b1158b4bff209d33a4d2acd4aed4af0302a7",
+      "Publishing replaces the site with one orphan commit": "932a810542e6fe25295e9e1ba507e0b3604fdcf00c4e090c72e46ce7aba3d0d9"
+    }
+  }
+}
