@@ -66,36 +66,21 @@ Checked against the published tree:
 Notes for the follow-ups:
 
 - **The split threshold (ADR 0008).** At 4 MiB, 11 of 518 cells split. The largest quarter, 14.2 MiB,
-  is the closest any file comes to the 20 MiB guard, about 70 % of it. Setting the threshold from
-  this measurement is its own change.
+  is the closest any file comes to the 20 MiB guard, about 70 % of it. Decided: the threshold
+  stays (ADR 0017).
 - **Trails make up 99.5 % of the ways**, which is what drives the size (garmin-map ADR 0220's estimate
   was 120–250 MB).
 
-Open questions for the owner, each with the assumption that holds until it is answered:
+Open questions from this run, now answered:
 
-1. **A 14 MiB file is a heavy download on a phone.** The five largest files are 14.2, 7.3, 6.6, 6.1
-   and 6.1 MiB. They are all in the Denver and Front Range quarters. A search there fetches up to
-   four such quarters. *Assumption:* left as is until the owner decides. Options:
-   - **Keep 4 MiB and accept the 14.2 MiB Denver quarter.** This needs no change. Every file is under
-     the 20 MiB guard and garmin-map's 25 MiB body limit.
-   - **One more split level, so no file is over about 5 MiB.** Split a quarter that is still over the
-     threshold into 0.0625° cells. This needs a change to the consumer contract in garmin-map (one
-     more level in `split`), a spec change here, and more files: about 4 for each such quarter. Seven
-     files are over 5 MiB today.
-   - **A lower threshold alone doesn't get there.** It splits more 0.25° cells, but the 14.2 MiB file
-     is already a quarter, the smallest unit the format has. So a lower threshold works only together
-     with another split level.
-   - **Tighter categories.** Mapped sidewalks make up much of `highway=footway` in cities. Dropping
-     `footway`, or keeping only footways that are named or tagged as a path, would shrink urban cells
-     most. That changes what the import offers, a change in both repositories (ADR 0003).
-   - **Compression.** Pages serves files with gzip or brotli to browsers that ask, so the bytes on the
-     wire are likely 5–10 times smaller than the file. This is unmeasured: `osm.timzander.com` is
-     blocked from the agent container. Measuring it, for example with
-     `curl -sI -H 'Accept-Encoding: br, gzip' https://osm.timzander.com/colorado/158_-420/316_-839.json`,
-     is the cheapest next step.
-2. **The Pages deploy time.** Cloudflare posts no commit status. It does post a **check run**
-   ("Cloudflare Pages", id 128282582824 on `9d56941`), readable through the public API
-   (`/repos/TimZander/osm-extracts/commits/9d56941/check-runs`). That is where the "about 35 s
-   from push to live" above comes from. Its start and finish are the same instant, so it gives no
-   build time on its own. *Assumption:* push-to-check-run is a good enough measure while it stays
-   far under the 20-minute limit. The dashboard's build log has the exact time if one is ever needed.
+1. **The 14.2 MiB Denver quarter and the split threshold: decided, keep it** (ADR 0017, superseding
+   0008). The threshold stays 4 MiB, with no second split level. Evidence from the owner's browser,
+   2026-11-07:
+   - `colorado/158_-420/316_-839.json` (14.2 MiB raw) transfers as **2.41 MB with Brotli**;
+   - `/manifest.json` is served with `Access-Control-Allow-Origin: *` and `Cache-Control` `max-age=300`;
+   - a path that doesn't exist answers `404` with `Access-Control-Allow-Origin: *`.
+2. **The Pages deploy time: answered.** The site is live about **35 s** after the push ends. This is
+   read from the Cloudflare Pages check run on `9d56941` ("Deployed successfully" at 03:09:47Z, for a
+   push that ended at 03:09:12Z). Cloudflare posts a check run, not a commit status. The exact build
+   time is in the dashboard's build log, and isn't needed while it stays this far under the
+   20-minute limit.
