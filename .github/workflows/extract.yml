@@ -1,0 +1,102 @@
+# Rebuilds the OpenStreetMap extract and publishes it to the `data` branch, which Cloudflare Pages
+# serves at https://osm.timzander.com (spec: openspec/specs/osm-extract).
+#
+# Security model (ADR 0007):
+# - Triggers are `schedule` and `workflow_dispatch` only: nothing a fork or a pull request can cause.
+# - Every job reads only, except `deploy`, the one job with `contents: write`. Its token is used by
+#   its checkout (which keeps no credential) and by the last step, as an HTTP header for that one
+#   `git push`; no other step is given it.
+# - Only GitHub's own actions, each pinned by commit SHA. No repository secret is used, and no
+#   expression appears inside `run:`.
+# - Region jobs parse third-party data with no write access; the deploy job checks their output
+#   before using it.
+name: extract
+
+on:
+  schedule:
+    - cron: "23 5 * * 1" # Mondays, 05:23 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: osm-extract
+  cancel-in-progress: false
+
+jobs:
+  plan:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    permissions:
+      contents: read
+    outputs:
+      regions: ${{ steps.plan.outputs.regions }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Check the regions list
+        id: plan
+        run: node src/plan.mjs >> "$GITHUB_OUTPUT"
+
+  region:
+    needs: plan
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        region: ${{ fromJSON(needs.plan.outputs.regions) }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Install osmium-tool
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends osmium-tool
+          osmium --version | head -n 1
+          node --version
+      - name: Build the region
+        env:
+          REGION: ${{ matrix.region }}
+        run: node src/build-region.mjs "$REGION" --out "$RUNNER_TEMP/out/region-$REGION"
+      # Last step: the artifact exists only when every check above passed.
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: region-${{ matrix.region }}
+          path: ${{ runner.temp }}/out/
+          retention-days: 1
+          if-no-files-found: error
+
+  deploy:
+    needs: [plan, region]
+    if: ${{ !cancelled() && needs.plan.result == 'success' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      # No github-token input: an artifact of this run is read with the runner's own artifact token.
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: region-*
+          path: ${{ runner.temp }}/artifacts
+      - name: Read the previous site
+        run: bash src/fetch-previous.sh "$RUNNER_TEMP/previous"
+      - name: Assemble the site
+        run: node src/assemble-site.mjs --previous "$RUNNER_TEMP/previous" --artifacts "$RUNNER_TEMP/artifacts" --out "$RUNNER_TEMP/site"
+      - name: Commit the site
+        id: commit
+        run: bash src/publish.sh prepare "$RUNNER_TEMP/site"
+      - name: Push to data
+        if: steps.commit.outputs.changed == 'true'
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: bash src/publish.sh push
