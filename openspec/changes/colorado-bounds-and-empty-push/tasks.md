@@ -15,8 +15,8 @@
 
 ## 4. Review
 
-- [ ] 4.1 `/security-review` of the workflow-run code touched (`publish.sh`, `poly.mjs`)
-- [ ] 4.2 Attack test of the publish decision: an empty-region manifest, a missing manifest and an invalid one, each refused unpushed; recorded in `docs/attack-test.md`
+- [x] 4.1 `/security-review` of the workflow-run code touched (`publish.sh`, `poly.mjs`) (no finding; `docs/security-review.md`)
+- [x] 4.2 Attack test of the publish decision: an empty-region manifest, a missing manifest and an invalid one, each refused unpushed; recorded in `docs/attack-test.md`
 - [ ] 4.3 `/sdd:conformance-review colorado-bounds-and-empty-push`
 
 ## Workflow follow-up
