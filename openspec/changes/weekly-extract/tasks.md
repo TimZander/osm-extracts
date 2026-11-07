@@ -2,11 +2,11 @@
 
 ## 1. Setup
 
-- [ ] 1.1 Add `regions.json` (Colorado only), the `test` npm script (`node --test`) and the `yaml` dev dependency; verify `npm test` runs with no tests failing
+- [x] 1.1 Add `regions.json` (Colorado only), the `test` npm script (`node --test`) and the `yaml` dev dependency; verify `npm test` runs with no tests failing
 
 ## 2. Category rules and features
 
-- [ ] 2.1 Tests first for the category rules, feature form and coordinate rounding (OPL lines in, features out), seen to fail; then `src/categories.mjs` and `src/features.mjs`; verify `npm test`
+- [x] 2.1 Tests first for the category rules, feature form and coordinate rounding (OPL lines in, features out), seen to fail; then `src/categories.mjs` and `src/features.mjs`; verify `npm test`
 
 ## 3. Cell writer
 
