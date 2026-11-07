@@ -69,6 +69,14 @@ test('no data branch yet: an empty previous tree', () => {
   assert.deepEqual(readdirSync(prev), [])
 })
 
+test('a data branch that can\'t be read fails', () => {
+  const { d, work } = setup()
+  git(work, 'remote', 'set-url', 'origin', join(d, 'no-such-remote.git'))
+  const r = sh(work, 'fetch-previous.sh', [join(d, 'prev')])
+  assert.notEqual(r.status, 0)
+  assert.match(r.stdout + r.stderr, /Couldn't read the data branch/)
+})
+
 test('a changed tree becomes one parentless commit on data', () => {
   const { d, remote, work } = setup()
   const old = seedData(d, remote, { 'index.html': 'placeholder' })

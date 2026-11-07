@@ -189,6 +189,13 @@ test('the size report', () => {
   assert.equal(r.stats.cells, 2)
   assert.equal(r.stats.splitCells, r.split.length)
   assert.equal(r.stats.files, r.files.size)
-  assert.ok(['158_-425', '158_-424'].includes(r.stats.largestCell.id))
-  assert.ok(r.stats.largestCell.bytes > 0)
+  // The largest cell before splitting: 158_-425 holds two features, 158_-424 two as well but the
+  // trail is shared; measure each whole file and compare.
+  const whole = buildCells('colorado', fs, { threshold: Infinity })
+  const sizes = [...whole.files].map(([p, t]) => [p.slice('colorado/'.length, -'.json'.length), Buffer.byteLength(t)])
+  const [maxId, maxBytes] = sizes.reduce((a, b) => (b[1] > a[1] ? b : a))
+  assert.deepEqual(r.stats.largestCell, { id: maxId, bytes: maxBytes })
+  // A later, larger cell must win over an earlier one.
+  const big = buildCells('colorado', [point(1, -106.062, 39.603), point(2, -105.9, 39.6, ['peaks'], 'x'.repeat(500))])
+  assert.equal(big.stats.largestCell.id, '158_-424')
 })

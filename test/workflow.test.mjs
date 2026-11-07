@@ -112,9 +112,9 @@ test('one concurrency group, never cancelling a run in progress', () => {
   assert.equal(wf.concurrency['cancel-in-progress'], false)
 })
 
-test('every job runs on a pinned image with a time limit', () => {
-  for (const job of Object.keys(jobs)) {
-    assert.equal(jobs[job]['runs-on'], 'ubuntu-24.04', job)
-    assert.ok(jobs[job]['timeout-minutes'] > 0, job)
-  }
+test('every job runs on a pinned image with its time limit', () => {
+  for (const job of Object.keys(jobs)) assert.equal(jobs[job]['runs-on'], 'ubuntu-24.04', job)
+  assert.equal(jobs.plan['timeout-minutes'], 5)
+  assert.equal(jobs.region['timeout-minutes'], 120)
+  assert.equal(jobs.deploy['timeout-minutes'], 30)
 })

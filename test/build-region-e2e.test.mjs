@@ -93,6 +93,23 @@ test('a region builds end to end', { skip }, async () => {
   assert.equal(stats.ways, 3)
 })
 
+test('the size report reaches the job summary', { skip }, async () => {
+  const dir = tmp()
+  const summary = join(dir, 'summary.md')
+  writeFileSync(summary, '')
+  const before = process.env.GITHUB_STEP_SUMMARY
+  process.env.GITHUB_STEP_SUMMARY = summary
+  try {
+    const { stats } = await buildRegion({ id: 'sample', out: join(dir, 'out'), regions: [region()], local: makePbf(dir, '2026-10-28T20:21:02Z'), log: quiet })
+    const text = readFileSync(summary, 'utf8')
+    assert.match(text, /### Region sample/)
+    assert.ok(text.includes(`| ${stats.nodes} | ${stats.ways} | ${stats.totalBytes} | ${stats.largestCell.id} (${stats.largestCell.bytes} bytes) | ${stats.cells} | ${stats.splitCells} | ${stats.files} |`))
+  } finally {
+    if (before === undefined) delete process.env.GITHUB_STEP_SUMMARY
+    else process.env.GITHUB_STEP_SUMMARY = before
+  }
+})
+
 test('the same source built twice is byte-identical', { skip }, async () => {
   const dir = tmp()
   const src = makePbf(dir, '2026-10-28T20:21:02Z')

@@ -34,6 +34,8 @@ test('a bad list fails naming the entry', () => {
     ['an id that is a path', (l) => (l[0].id = '../evil'), /\.\.\/evil/],
     ['a duplicate id', (l) => l.push({ ...l[0] }), /colorado.*twice|duplicate/i],
     ['no name', (l) => delete l[0].name, /colorado/],
+    ['a blank name', (l) => (l[0].name = '  '), /colorado/],
+    ['an unknown bounds key', (l) => (l[0].bounds.up = 1), /colorado/],
     ['bounds as strings', (l) => (l[0].bounds.south = '37'), /colorado/],
     ['south above north', (l) => (l[0].bounds.south = 42), /colorado/],
     ['west above east', (l) => (l[0].bounds.west = -100), /colorado/],

@@ -8,7 +8,7 @@ import assert from 'node:assert/strict'
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, readdirSync, existsSync, symlinkSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join, dirname, relative } from 'node:path'
-import { assembleSite, validateManifest, cellFiles, HEADERS } from '../src/assemble-site.mjs'
+import { assembleSite, validateManifest, cellFiles, HEADERS, MAX_SITE_FILES } from '../src/assemble-site.mjs'
 import { buildCells } from '../src/cells.mjs'
 import { CATEGORIES_FROM } from '../src/categories.mjs'
 
@@ -264,6 +264,10 @@ test('an artifact file over 20 MiB fails', () => {
   artifact(dirs.artifactsDir, CO, [peak(1, -106.062, 39.603)])
   assert.throws(() => run(dirs, [CO], { maxFile: 10 }), /colorado\/158_-425\.json/)
   assert.equal(existsSync(dirs.outDir), false)
+})
+
+test('the site file limit is 19,000', () => {
+  assert.equal(MAX_SITE_FILES, 19000)
 })
 
 test('more than the file limit fails with the counts, writing nothing', () => {
