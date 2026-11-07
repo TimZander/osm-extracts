@@ -43,5 +43,5 @@ None. `openspec/specs/` is empty.
 - New dev dependency: `yaml`, used only by the tests to read the workflow file.
 - The `data` branch is overwritten by every run that changes something. Its placeholder is replaced
   by the first run.
-- Runner tooling: `osmium-tool` from Ubuntu's archive, and Node 22.
+- Runner tooling: `osmium-tool` from Ubuntu's archive, and the runner image's Node (20 or later).
 - The first live run (`workflow_dispatch`) publishes to the live site. It waits for the owner's go.
