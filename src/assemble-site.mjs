@@ -119,7 +119,19 @@ function regularFile(path) {
   }
 }
 
+// The previous tree comes from the data branch; a symbolic link in it (which this pipeline never
+// writes) could point a read outside the tree, so any one fails the run.
+function rejectSymlinks(dir, rel = '') {
+  if (!existsSync(dir)) return
+  for (const e of readdirSync(dir, { withFileTypes: true })) {
+    const path = rel ? `${rel}/${e.name}` : e.name
+    if (e.isSymbolicLink()) throw new Error(`the previous data tree holds a symbolic link, ${path}`)
+    if (e.isDirectory()) rejectSymlinks(join(dir, e.name), path)
+  }
+}
+
 function readPrevious(previousDir) {
+  rejectSymlinks(previousDir)
   const file = join(previousDir, 'manifest.json')
   if (!existsSync(file)) return []
   let m

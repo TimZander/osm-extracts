@@ -120,6 +120,20 @@ test('a previous manifest of the wrong form, or listing a missing file, fails', 
   assert.equal(existsSync(dirs2.outDir), false)
 })
 
+test('a symbolic link in the previous tree fails, naming it', () => {
+  const dirs = setup()
+  const elsewhere = join(dirname(dirs.previousDir), 'elsewhere')
+  write(elsewhere, '158_-425.json', '{"type":"FeatureCollection","features":[]}\n')
+  write(dirs.previousDir, 'manifest.json', JSON.stringify({ attribution: 'x', regions: [{ id: 'colorado', name: 'Colorado', bounds: CO.bounds, dataDate: '2026-01-01', cells: ['158_-425'] }] }))
+  symlinkSync(elsewhere, join(dirs.previousDir, 'colorado'))
+  artifact(dirs.artifactsDir, CO, [peak(1, -106.062, 39.603)])
+  assert.throws(() => run(dirs), /symbolic link.*colorado/)
+  assert.equal(existsSync(dirs.outDir), false)
+  const d2 = setup()
+  symlinkSync('/etc/hostname', join(d2.previousDir, 'manifest.json'))
+  assert.throws(() => run(d2), /symbolic link.*manifest\.json/)
+})
+
 test('a failed region keeps last run\'s entry and files', () => {
   const dirs = setup()
   const old = buildCells('colorado', [peak(1, -106.062, 39.603)])
