@@ -31,8 +31,11 @@ after about 3 s, three attempts between 02:47 and 02:52 UTC). So the polygon cou
    and, when `regions` is empty, writes `changed=false` with a log line, before comparing trees, so
    the live empty site (`fb60804`) still logs the no-region reason. A missing or invalid manifest
    fails `prepare`.
-   - The deploy job still succeeds. A run whose regions all failed is already red through its region
-     jobs.
+   - The deploy job still succeeds (open question 2). A run whose regions all failed is already red
+     through its region jobs.
+   - "A valid manifest" means the manifest's form, the same check the assembler makes. A missing or
+     malformed one can only come from a bug in the assembler, so it fails the job rather than being
+     read as empty (Claude's choice, open question 3).
    - Keeping the check in `prepare`, beside the unchanged-tree check, means both reasons for not
      pushing are in one place.
 
@@ -48,3 +51,8 @@ after about 3 s, three attempts between 02:47 and 02:52 UTC). So the polygon cou
 1. **The exact bounds.** *Assumption:* 37.01 / -109.04 / 40.99 / -102.06, until someone reads
    `colorado.poly` or the owner picks others. The next run checks them. The owner's answer becomes
    ADR 0016, superseding 0009.
+2. **The deploy job's status when it skips an empty push.** The owner decided that an empty site is
+   not pushed, but not whether that job goes green or red. *Assumption:* green, with a log line. The
+   region jobs already turn the run red.
+3. **A missing or malformed manifest fails the job.** *Assumption:* Claude's choice, a defensive rule;
+   it stands unless the owner overrides it.

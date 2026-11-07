@@ -3,10 +3,9 @@
 ### Requirement: The bounds guard names the first failing point
 
 When a region's `bounds` fail the polygon check, the job's error SHALL name the region and the first
-failing point, checked in this order: the corners south-west, south-east, north-east and north-west,
-each outside the polygon or on a ring; then a ring vertex inside the rectangle; then a ring edge
-touching or crossing the rectangle's edges, by its two ends. Every point SHALL be written
-`(lat, lon)`.
+failure, in this order: a corner (south-west, south-east, north-east, north-west) outside the polygon
+or on a ring, as "outside the polygon"; then a ring vertex inside the rectangle; then a ring edge
+meeting the rectangle's edges, by its two ends. Rings and their points go in `.poly` order.
 
 #### Scenario: A corner outside
 
@@ -15,23 +14,28 @@ touching or crossing the rectangle's edges, by its two ends. Every point SHALL b
 
 #### Scenario: A ring vertex inside
 
-- **WHEN** every corner of region `sample`'s `bounds` is inside its polygon, and a notch puts a ring vertex at latitude 39.5, longitude -105.5 inside the bounds
-- **THEN** the job fails with a message naming `sample` and the ring vertex `(39.5, -105.5)`
+- **WHEN** region `sample`'s `bounds` are south 39, west -108, north 40, east -105, every corner is inside its polygon, and a notch puts a ring vertex at latitude 39.5, longitude -105.5
+- **THEN** the job fails with a message naming `sample` and the ring vertex `(39.5, -105.5)` as inside the bounds
 
 #### Scenario: A ring edge crossing
 
-- **WHEN** every corner is inside, no ring vertex is inside, and a ring edge from `(38, -106)` to `(41, -106.2)` crosses the bounds
-- **THEN** the job fails with a message naming `sample` and the edge from `(38, -106)` to `(41, -106.2)`
+- **WHEN** region `sample`'s `bounds` are south 39, west -108, north 40, east -105, every corner is inside, no ring vertex is inside, and a ring edge from `(38, -106)` to `(41, -106.2)` crosses the bounds
+- **THEN** the job fails with a message naming `sample` and the ring edge from `(38, -106)` to `(41, -106.2)`
+
+#### Scenario: How points are written
+
+- **WHEN** the guard names any point
+- **THEN** it is written `(lat, lon)`, each the shortest decimal that reads back as the value
 
 ## MODIFIED Requirements
 
 ### Requirement: Publishing replaces the site with one orphan commit
 
 The deploy job SHALL commit the assembled tree as one commit with no parent and force-push it to
-`data`, but only when its manifest lists at least one region (checked first, so an empty site never
-replaces what is there) and the tree differs from the previous `data` tree. A site with no valid
-manifest SHALL fail the job unpushed. Runs SHALL share one concurrency group without cancelling a run
-in progress, so two runs never publish at once.
+`data`, but only when its manifest lists a region (checked before the trees are compared; if none,
+the job succeeds unpushed) and the tree differs from the previous `data` tree. A site without a
+manifest of the manifest's form SHALL fail the job unpushed. Runs SHALL share one concurrency group
+without cancelling a run in progress, so two runs never publish at once.
 
 #### Scenario: A changed tree
 
@@ -50,7 +54,7 @@ in progress, so two runs never publish at once.
 
 #### Scenario: No valid manifest
 
-- **WHEN** the assembled site's `manifest.json` is missing or isn't valid JSON
+- **WHEN** the assembled site's `manifest.json` is missing, isn't valid JSON, or is `{}`
 - **THEN** the deploy job fails, and nothing is pushed
 
 #### Scenario: The push fails
