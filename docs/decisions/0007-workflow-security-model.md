@@ -1,7 +1,7 @@
 ---
-status: proposed
+status: accepted
 date: 2026-11-07
-decision-makers: Claude (proposed in the weekly-extract change); the owner accepts it with the PR
+decision-makers: Claude (proposed in the weekly-extract change); accepted by the owner on 2026-11-07 (weekly-extract open question 9)
 ---
 # The extract workflow runs only on a schedule or by hand, and only its deploy job can write
 

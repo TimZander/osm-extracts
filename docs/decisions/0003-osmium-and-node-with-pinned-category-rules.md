@@ -1,7 +1,7 @@
 ---
-status: proposed
+status: accepted
 date: 2026-11-07
-decision-makers: Claude (carried over from garmin-map ADR 0223, with the geometry change below); the owner accepts it with the PR
+decision-makers: Claude (carried over from garmin-map ADR 0223, with the geometry change below); accepted by the owner on 2026-11-07 (weekly-extract open question 9)
 ---
 # osmium narrows the data, Node builds the features; the category rules are copied from garmin-map at a pinned commit
 

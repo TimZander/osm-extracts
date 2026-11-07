@@ -1,7 +1,7 @@
 ---
-status: proposed
+status: accepted
 date: 2026-11-07
-decision-makers: Claude (carried over from garmin-map ADRs 0220 and 0233); the owner accepts it with the PR
+decision-makers: Claude (carried over from garmin-map ADRs 0220 and 0233); accepted by the owner on 2026-11-07 (weekly-extract open question 9)
 ---
 # The extract is plain GeoJSON in 0.25° cells, with dense cells split once into 0.125° quarters
 
