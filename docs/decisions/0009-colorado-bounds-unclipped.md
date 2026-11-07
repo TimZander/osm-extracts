@@ -28,3 +28,6 @@ fails the region, naming it, if they reach outside.
 - Good, because an area anywhere in the state lies inside the bounds.
 - Bad, because a few dozen edge cells outside the bounds hold neighbouring data that the app never
   reads for an area inside them. Setting `clip` to `true` would drop them.
+- **Disproved by the first run (2026-11-07, run 42329501017):** these bounds reach outside
+  Geofabrik's Colorado polygon, and the region failed at the guard (`docs/measurements.md`). New
+  bounds need the owner's decision, in a record that supersedes this one.
