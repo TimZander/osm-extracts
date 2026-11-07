@@ -20,7 +20,7 @@
 ## 5. Site assembly and publishing
 
 - [x] 5.1 Tests first for the assembler: reading the previous tree (none, placeholder, broken manifest), only the extract's files kept, artifact checks, a failed region keeping its files, carry-over for one run, `manifest.json`, `_headers`, `404.html`, `LICENSE.txt` and the 19,000-file guard, seen to fail; then `src/assemble-site.mjs`; verify `npm test`
-- [ ] 5.2 Tests first for `src/publish.sh` against a local bare repository: an orphan commit, a skip when nothing changed, a rejected lease; then the script; verify `npm test`
+- [x] 5.2 Tests first for `src/publish.sh` against a local bare repository: an orphan commit, a skip when nothing changed, a rejected lease; then the script; verify `npm test`
 
 ## 6. Workflow
 
