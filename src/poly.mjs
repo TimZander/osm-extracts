@@ -72,7 +72,12 @@ function inRing(points, [x, y]) {
   return inside
 }
 
-const pt = ([lon, lat]) => `(${lat}, ${lon})`
+// The shortest decimal that reads back as the value, never in exponent notation (1e-7).
+const num = (n) => {
+  const s = String(n)
+  return /e/i.test(s) ? n.toLocaleString('en-US', { useGrouping: false, maximumFractionDigits: 20 }) : s
+}
+const pt = ([lon, lat]) => `(${num(lat)}, ${num(lon)})`
 
 // The first reason the rectangle isn't wholly inside the polygon, or null when it is (spec: "The
 // bounds guard names the first failing point"). Order: corners south-west, south-east, north-east,

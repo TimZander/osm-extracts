@@ -157,6 +157,20 @@ test('a corner outside is named first, south-west before the others', () => {
   assert.equal(polyFailure(sampleBounds, [ne]), 'north-east corner (40, -105) is outside the polygon')
 })
 
+test('a corner on a ring\'s west or south edge counts as outside too', () => {
+  // The ray test alone would call these corners inside; they lie on the ring.
+  const westOn = ring([[-108, 36.5], [-101, 36.5], [-101, 41.5], [-108, 41.5]])
+  assert.equal(polyFailure(sampleBounds, [westOn]), 'south-west corner (39, -108) is outside the polygon')
+  const southOn = ring([[-110, 39], [-101, 39], [-101, 41.5], [-110, 41.5]])
+  assert.equal(polyFailure(sampleBounds, [southOn]), 'south-west corner (39, -108) is outside the polygon')
+})
+
+test('points near zero are written as plain decimals', () => {
+  const b = { south: -0.0000005, west: 1, north: 1, east: 2 }
+  const r = ring([[1.5, 0], [3, 0], [3, 2], [1.5, 2]])
+  assert.equal(polyFailure(b, [r]), 'south-west corner (-0.0000005, 1) is outside the polygon')
+})
+
 test('a corner on a ring counts as outside the polygon', () => {
   const onEdge = ring([[-110, 36.5], [-101, 36.5], [-101, 40], [-110, 40]])
   assert.equal(polyFailure(sampleBounds, [onEdge]), 'north-east corner (40, -105) is outside the polygon')
