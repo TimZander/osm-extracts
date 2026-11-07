@@ -3,7 +3,7 @@
     "id": "colorado",
     "name": "Colorado",
     "geofabrik": "north-america/us/colorado",
-    "bounds": { "south": 37, "west": -109.06, "north": 41, "east": -102.04 },
+    "bounds": { "south": 37.01, "west": -109.04, "north": 40.99, "east": -102.06 },
     "clip": false
   }
 ]

@@ -56,3 +56,22 @@ a symbolic link anywhere in the previous tree now fails the deploy
 - **Site files:** `_headers`, `404.html` and `manifest.json` are written from constants and checked
   entries. `404.html` holds no data, so it carries no XSS.
 - **Deserialization:** `JSON.parse` only, and every result is checked against a schema.
+
+## colorado-bounds-and-empty-push (2026-11-07)
+
+`/security-review` of the change's code (`src/poly.mjs`, `src/build-region.mjs`, `src/publish.sh`,
+the new `src/manifest-regions.mjs` and `regions.json`). **Result: no finding**, at any confidence.
+
+Checked and found sound:
+
+- **Outputs:** the new region count is only compared in shell. It is never written to
+  `$GITHUB_OUTPUT`, which gets only the fixed strings `changed=true` and `changed=false`.
+- **The publish decision:** the new check can only add a no-push exit, or a failure. A failed command
+  substitution trips `set -e`. Nothing makes a run push that wouldn't have.
+- **The token:** `prepare` and its node child still run without the token, and `push` is unchanged.
+- **Input handling:**
+  - the paths come from trusted runner variables, and are quoted;
+  - the manifest is read with `JSON.parse` and shape-checked;
+  - importing `assemble-site.mjs` doesn't run its command-line code.
+- **The guard's message** holds only finite numbers that `parsePoly` has already checked. The reordered
+  check still fails closed, and a corner on a ring is now rejected outright.

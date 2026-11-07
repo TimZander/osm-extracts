@@ -1,5 +1,5 @@
 ---
-status: proposed
+status: accepted
 date: 2026-11-07
 decision-makers: the owner (the target regions, garmin-map ADR 0235); the order after Colorado is still the owner's call
 ---

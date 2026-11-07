@@ -1,7 +1,7 @@
 ---
-status: proposed
+status: accepted
 date: 2026-11-07
-decision-makers: Claude (carried over from garmin-map ADR 0234, with the rule split below); the owner accepts it with the PR
+decision-makers: Claude (carried over from garmin-map ADR 0234, with the rule split below); accepted by the owner on 2026-11-07 (weekly-extract open question 9)
 ---
 # The site sets open-read CORS and its cache times in `_headers`, set per path so no header is doubled, and ships a `404.html`
 

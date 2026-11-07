@@ -2,9 +2,11 @@
 # Publishes the assembled site as one parentless commit on the data branch (spec: "Publishing
 # replaces the site with one orphan commit").
 #
-#   bash src/publish.sh prepare <site-dir>   commit the tree as refs/osm/next, unless it equals the
-#                                            previous data tree; writes changed=true|false to
-#                                            $GITHUB_OUTPUT. Needs no credential.
+#   bash src/publish.sh prepare <site-dir>   commit the tree as refs/osm/next, unless its manifest
+#                                            lists no region or the tree equals the previous data
+#                                            tree; writes changed=true|false to $GITHUB_OUTPUT.
+#                                            Fails on a missing or malformed manifest. Needs no
+#                                            credential.
 #   bash src/publish.sh push                 force-push refs/osm/next to data, leased on the commit
 #                                            fetch-previous.sh read. Needs GITHUB_TOKEN, which goes
 #                                            to this one git process as an HTTP header and is never
@@ -17,6 +19,13 @@ output=${GITHUB_OUTPUT:-/dev/null}
 case ${1:-} in
   prepare)
     site=$(cd "${2:?usage: publish.sh prepare <site-dir>}" && pwd)
+    # An empty site never replaces what is there; checked before the trees are compared.
+    regions=$(node "$(dirname "$0")/manifest-regions.mjs" "$site")
+    if [ "$regions" = "0" ]; then
+      echo "The new manifest lists no region: nothing to push."
+      echo "changed=false" >> "$output"
+      exit 0
+    fi
     gitdir=$(git rev-parse --absolute-git-dir)
     index=$(mktemp -u)
     trap 'rm -f "$index"' EXIT

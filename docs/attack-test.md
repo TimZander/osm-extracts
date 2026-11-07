@@ -20,3 +20,20 @@ review. It never had more than the default read-only token, and it ran only `ech
 
 Still open after merge: the first `workflow_dispatch` run, with the owner's go, shows the deploy job's
 `GITHUB_TOKEN Permissions` block as `Contents: write`, and the region jobs' as `Contents: read`.
+
+## colorado-bounds-and-empty-push: the publish decision (2026-11-07)
+
+This run used the real `src/fetch-previous.sh` and `src/publish.sh` against a local bare repository
+whose `data` held a placeholder. For each crafted site, `publish.sh prepare` ran first, then
+`publish.sh push` was forced anyway.
+
+| Site's `manifest.json` | `prepare` | Output | Forced `push` | `data` |
+|---|---|---|---|---|
+| `{"attribution":"a","regions":[]}` | exit 0, "The new manifest lists no region: nothing to push." | `changed=false` | fails (no prepared commit) | unchanged |
+| missing | exit 1, "no valid manifest.json: ENOENT…" | none | fails | unchanged |
+| `new` (not JSON) | exit 1, "…is not valid JSON" | none | fails | unchanged |
+| `{}` | exit 1, "…has no attribution string" | none | fails | unchanged |
+| `{"attribution":"a","regions":"x"}` | exit 1, "…has no regions array" | none | fails | unchanged |
+
+**Every input was refused.** In the workflow, the push step runs only on `changed == 'true'`, so it
+doesn't even start in these cases.

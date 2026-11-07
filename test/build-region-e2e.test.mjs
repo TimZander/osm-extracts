@@ -155,7 +155,7 @@ test('bounds reaching outside the polygon fail naming the region', { skip }, asy
   const dir = tmp()
   const out = join(dir, 'out')
   const r = region({ bounds: { south: 39, west: -108, north: 40, east: -105 } })
-  await assert.rejects(buildRegion({ id: 'sample', out, regions: [r], local: makePbf(dir, '2026-10-28T20:21:02Z'), log: quiet }), /region sample.*outside/)
+  await assert.rejects(buildRegion({ id: 'sample', out, regions: [r], local: makePbf(dir, '2026-10-28T20:21:02Z'), log: quiet }), /region sample: its bounds reach outside its Geofabrik polygon: south-west corner \(39, -108\) is outside the polygon$/)
   assert.equal(existsSync(out), false)
 })
 
@@ -167,4 +167,23 @@ test('a file over the limit fails naming it, and writes nothing', { skip }, asyn
     /sample\/.*\.json is \d+ bytes/,
   )
   assert.equal(existsSync(out), false)
+})
+
+// Requirement "The bounds guard names the first failing point": the job's error, for each kind.
+test('the job names a ring vertex, or a ring edge, that fails the bounds', { skip }, async () => {
+  const dir = tmp()
+  const src = makePbf(dir, '2026-10-28T20:21:02Z')
+  const cases = [
+    ['ring vertex (39.5, -105.5) is inside the bounds', 'n\n1\n -110 36.5\n -101 36.5\n -101 41.5\n -105.5 41.5\n -105.5 39.5\n -105.6 39.4\n -105.6 41.5\n -110 41.5\nEND\nEND\n'],
+    ['ring edge from (38, -106) to (41, -106.2) meets the bounds', 'e\na\n -110 36.5\n -101 36.5\n -101 41.5\n -110 41.5\nEND\nb\n -106 38\n -106.2 41\n -106.1 41.5\nEND\nEND\n'],
+  ]
+  for (const [want, polyText] of cases) {
+    const poly = join(dir, `${want.length}.poly`)
+    writeFileSync(poly, polyText)
+    const r = region({ bounds: { south: 39, west: -108, north: 40, east: -105 } })
+    await assert.rejects(
+      buildRegion({ id: 'sample', out: join(dir, `out-${want.length}`), regions: [r], local: { ...src, poly }, log: quiet }),
+      (e) => e.message === `region sample: its bounds reach outside its Geofabrik polygon: ${want}`,
+    )
+  }
 })
