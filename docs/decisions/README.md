@@ -20,3 +20,4 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0012](0012-region-order-after-colorado-is-the-owners-call.md) | The region order after Colorado stays the owner's call | accepted |
 | [0013](0013-irregular-state-coverage-waits.md) | Coverage of non-rectangular states waits for garmin-map | accepted |
 | [0014](0014-schedule-inactivity-risk-deferred.md) | The schedule-inactivity risk is deferred | deferred |
+| [0015](0015-no-empty-push.md) | A run whose manifest lists no region pushes nothing | accepted |

@@ -52,6 +52,11 @@ function site(d, files) {
 
 const pushEnv = { GITHUB_TOKEN: 'dummy-token-for-tests' }
 
+// Manifests of the manifest's form: one listing a region, and one listing none.
+const region = (dataDate) => ({ id: 'colorado', name: 'Colorado', bounds: { south: 37.01, west: -109.04, north: 40.99, east: -102.06 }, dataDate, cells: ['158_-425'], split: [] })
+const manifest = (dataDate = '2026-10-28') => JSON.stringify({ attribution: '© OpenStreetMap contributors (ODbL)', categoriesFrom: 'x', regions: [region(dataDate)] }) + '\n'
+const EMPTY = JSON.stringify({ attribution: '© OpenStreetMap contributors (ODbL)', categoriesFrom: 'x', regions: [] }) + '\n'
+
 test('the placeholder branch is read as the previous tree', () => {
   const { d, remote, work } = setup()
   seedData(d, remote, { 'index.html': 'placeholder', '404.html': 'x' })
@@ -81,7 +86,7 @@ test('a changed tree becomes one parentless commit on data', () => {
   const { d, remote, work } = setup()
   const old = seedData(d, remote, { 'index.html': 'placeholder' })
   assert.equal(sh(work, 'fetch-previous.sh', [join(d, 'prev')]).status, 0)
-  const s = site(d, { 'manifest.json': '{}\n', 'colorado/158_-425.json': '{"a":1}\n', '_headers': 'h\n' })
+  const s = site(d, { 'manifest.json': manifest(), 'colorado/158_-425.json': '{"a":1}\n', '_headers': 'h\n' })
   const prep = sh(work, 'publish.sh', ['prepare', s])
   assert.equal(prep.status, 0, prep.stderr)
   assert.equal(prep.outputs.changed, 'true')
@@ -97,7 +102,7 @@ test('a changed tree becomes one parentless commit on data', () => {
 
 test('an unchanged tree pushes nothing, and says so', () => {
   const { d, remote, work } = setup()
-  const files = { 'manifest.json': '{}\n', 'colorado/1_1.json': 'x\n' }
+  const files = { 'manifest.json': manifest(), 'colorado/1_1.json': 'x\n' }
   const old = seedData(d, remote, files)
   assert.equal(sh(work, 'fetch-previous.sh', [join(d, 'prev')]).status, 0)
   const prep = sh(work, 'publish.sh', ['prepare', site(d, files)])
@@ -111,10 +116,10 @@ test('a push whose lease is stale is rejected, and data stays as it was', () => 
   const { d, remote, work } = setup()
   seedData(d, remote, { 'index.html': 'placeholder' })
   assert.equal(sh(work, 'fetch-previous.sh', [join(d, 'prev')]).status, 0)
-  assert.equal(sh(work, 'publish.sh', ['prepare', site(d, { 'manifest.json': 'new\n' })]).status, 0)
+  assert.equal(sh(work, 'publish.sh', ['prepare', site(d, { 'manifest.json': manifest('2026-11-02') })]).status, 0)
   // Someone else moves data after this run read it.
   mkdirSync(join(d, 'other'))
-  const theirs = seedData(join(d, 'other'), remote, { 'manifest.json': 'theirs\n' })
+  const theirs = seedData(join(d, 'other'), remote, { 'manifest.json': manifest('2026-11-01') })
   const push = sh(work, 'publish.sh', ['push'], pushEnv)
   assert.notEqual(push.status, 0)
   assert.equal(git(remote, 'rev-parse', 'refs/heads/data'), theirs)
@@ -124,10 +129,50 @@ test('push refuses to run without a token, and stores none in the git config', (
   const { d, remote, work } = setup()
   seedData(d, remote, { 'index.html': 'placeholder' })
   assert.equal(sh(work, 'fetch-previous.sh', [join(d, 'prev')]).status, 0)
-  assert.equal(sh(work, 'publish.sh', ['prepare', site(d, { 'manifest.json': 'new\n' })]).status, 0)
+  assert.equal(sh(work, 'publish.sh', ['prepare', site(d, { 'manifest.json': manifest('2026-11-02') })]).status, 0)
   const noToken = sh(work, 'publish.sh', ['push'], { GITHUB_TOKEN: '' })
   assert.notEqual(noToken.status, 0)
   assert.equal(sh(work, 'publish.sh', ['push'], pushEnv).status, 0)
   assert.ok(!readFileSync(join(work, '.git', 'config'), 'utf8').includes('dummy-token'))
   assert.ok(!existsSync(join(work, '.git', 'credentials')))
+})
+
+// Requirement: "Publishing replaces the site with one orphan commit" (no empty push).
+test('a manifest listing no region pushes nothing, even when the tree changed', () => {
+  const { d, remote, work } = setup()
+  const old = seedData(d, remote, { 'index.html': 'placeholder' })
+  assert.equal(sh(work, 'fetch-previous.sh', [join(d, 'prev')]).status, 0)
+  const prep = sh(work, 'publish.sh', ['prepare', site(d, { 'manifest.json': EMPTY, '_headers': 'h\n' })])
+  assert.equal(prep.status, 0, prep.stderr)
+  assert.equal(prep.outputs.changed, 'false')
+  assert.match(prep.stdout, /lists no region/)
+  assert.equal(git(remote, 'rev-parse', 'refs/heads/data'), old)
+})
+
+test('a manifest listing no region logs that reason, even when the tree is unchanged', () => {
+  const { d, remote, work } = setup()
+  const files = { 'manifest.json': EMPTY, '_headers': 'h\n' }
+  seedData(d, remote, files)
+  assert.equal(sh(work, 'fetch-previous.sh', [join(d, 'prev')]).status, 0)
+  const prep = sh(work, 'publish.sh', ['prepare', site(d, files)])
+  assert.equal(prep.status, 0, prep.stderr)
+  assert.equal(prep.outputs.changed, 'false')
+  assert.match(prep.stdout, /lists no region/)
+  assert.doesNotMatch(prep.stdout, /unchanged/)
+})
+
+test('a site without a manifest of the manifest\'s form fails, unpushed', () => {
+  for (const [what, files] of [
+    ['missing', { '_headers': 'h\n' }],
+    ['not JSON', { 'manifest.json': 'new\n' }],
+    ['{}', { 'manifest.json': '{}\n' }],
+  ]) {
+    const { d, remote, work } = setup()
+    const old = seedData(d, remote, { 'index.html': 'placeholder' })
+    assert.equal(sh(work, 'fetch-previous.sh', [join(d, 'prev')]).status, 0)
+    const prep = sh(work, 'publish.sh', ['prepare', site(d, files)])
+    assert.notEqual(prep.status, 0, what)
+    assert.notEqual(prep.outputs.changed, 'true', what)
+    assert.equal(git(remote, 'rev-parse', 'refs/heads/data'), old, what)
+  }
 })
