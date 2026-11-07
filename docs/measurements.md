@@ -70,3 +70,28 @@ Notes for the follow-ups:
   this measurement is its own change.
 - **Trails make up 99.5 % of the ways**, which is what drives the size (garmin-map ADR 0220's estimate
   was 120–250 MB).
+
+Open questions for the owner, each with the assumption that holds until it is answered:
+
+1. **A 14 MiB file is a heavy download on a phone.** The five largest files are 14.2, 7.3, 6.6, 6.1
+   and 6.1 MiB. They are all in the Denver and Front Range quarters. A search there fetches up to
+   four such quarters. *Assumption:* left as is until the owner decides. Options:
+   - **A second split level.** Split a quarter that is still over the threshold into 0.0625° cells.
+     This needs a change to the consumer contract in garmin-map (one more level in `split`), and
+     costs more files.
+   - **A lower threshold alone doesn't help.** The 14.2 MiB file is already a quarter, the smallest
+     unit the format has.
+   - **Tighter categories.** Mapped sidewalks make up much of `highway=footway` in cities. Dropping
+     `footway`, or keeping only footways that are named or tagged as a path, would shrink urban cells
+     most. That changes what the import offers, a change in both repositories (ADR 0003).
+   - **Compression.** Pages serves files with gzip or brotli to browsers that ask, so the bytes on the
+     wire are likely 5–10 times smaller than the file. This is unmeasured: `osm.timzander.com` is
+     blocked from the agent container. Measuring it, for example with
+     `curl -sI -H 'Accept-Encoding: br, gzip' https://osm.timzander.com/colorado/158_-420/316_-839.json`,
+     is the cheapest next step.
+2. **The Pages deploy time.** Cloudflare posts no commit status. It does post a **check run**
+   ("Cloudflare Pages", id 128282582824 on `9d56941`), readable through the public API
+   (`/repos/TimZander/osm-extracts/commits/9d56941/check-runs`). That is where the "about 35 s
+   from push to live" above comes from. Its start and finish are the same instant, so it gives no
+   build time on its own. *Assumption:* push-to-check-run is a good enough measure while it stays
+   far under the 20-minute limit. The dashboard's build log has the exact time if one is ever needed.
