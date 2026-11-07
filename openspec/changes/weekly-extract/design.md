@@ -57,9 +57,10 @@ keeping old weekly versions; a fallback host.
    on `/*`, and `Cache-Control` goes separately on `/:region/*`, `/LICENSE.txt` and `/manifest.json`.
    The result is the same headers ADR 0234 asks for, and no path gets a header twice.
 6. **Regions: Colorado first, one entry at a time** (ADR 0006, from garmin-map ADR 0235).
-   `regions.json` holds one entry per region (`id`, `name`, `geofabrik`, `bounds`, `clip`). The
-   workflow's matrix lists the same ids, and a test checks that the two agree, so the matrix needs no
-   job to compute it.
+   `regions.json` holds one entry per region (`id`, `name`, `geofabrik`, `bounds`, `clip`). A first
+   `plan` job (`contents: read`) checks the list and outputs its ids as the region jobs' matrix, so a
+   bad list stops the run before any download, and the matrix can't drift from the list. The matrix
+   sets `fail-fast: false`, so one region's failure doesn't cancel the others.
 7. **The workflow's security model** (ADR 0007, new here):
    - Triggers: `schedule` and `workflow_dispatch` with no inputs. A dispatch input would be text from
      whoever starts the run, and nothing needs one.
@@ -87,7 +88,13 @@ keeping old weekly versions; a fallback host.
    a plain `git fetch` and `git archive`; the token isn't needed to read it. A previous manifest that is
    present but invalid fails the run: guessing at it could drop files a page is still reading. A tree
    with no `manifest.json`, like today's placeholder, counts as having no previous regions.
-9. **Downloads in Node** (`fetch` to a file, MD5 with `node:crypto`), with osmium run through
+9. **Node comes from the runner image** (`ubuntu-24.04`), not `actions/setup-node`. That action
+   takes `github.token` by default, and in the deploy job that token can write. The scripts need only
+   `fetch` and `node:test`, and they fail at start on a Node older than 20.
+10. **Rounding is done on the decimal string.** OPL writes coordinates as decimals with at most seven
+   places. The writer rounds those digits, halves away from zero, without going through binary floating
+   point, so a tie is rounded the same way on every machine.
+11. **Downloads in Node** (`fetch` to a file, MD5 with `node:crypto`), with osmium run through
    `execFile`, never a shell. The region job is one Node entry point, so the fixture test can drive the
    same code with local files in place of downloads.
 
@@ -132,5 +139,14 @@ Each comes with the assumption this change proceeds on. The owner's answers beco
    east -102.04`. The polygon check in the first run either confirms it or fails the region, naming it.
 5. **The schedule.** *Assumption:* Mondays at 05:23 UTC. Geofabrik's daily files are usually out by
    then, and a minute off the hour avoids the top-of-hour rush.
-6. **Builder-chosen details** (ADRs 0001–0007, the sort order, the file layout and the `_headers` split
+6. **Is Colorado clipped?** *Assumption:* no. Clipping is for regions cut out of a larger extract
+   (southern Alberta and British Columbia, garmin-map ADR 0235). Geofabrik's Colorado polygon reaches
+   a little past the state line, so some edge cells outside `bounds` hold neighbouring data. The
+   consumer never reads them for an area inside `bounds`, and they cost a few dozen files. Setting
+   `clip` to `true` in `regions.json` would drop them.
+7. **Guard margins and retention.** *Assumption:* 20 MiB per file and 19,000 files per site, each
+   below Pages' limit (25 MiB, 20,000) with room for a regenerated tree, as garmin-map's design
+   assumed (its open question 6). Artifacts are kept for one day, since the deploy job reads them
+   minutes later.
+8. **Builder-chosen details** (ADRs 0001–0007, the sort order, the file layout and the `_headers` split
    in decision 5). *Assumption:* they stand unless the owner overrides one in PR review.

@@ -38,7 +38,8 @@ None. `openspec/specs/` is empty.
 
 ## Impact
 
-- New: `.github/workflows/extract.yml`, `regions.json`, `src/*.mjs` and their tests, a fixture.
+- New: `.github/workflows/extract.yml`, `regions.json`, `src/*` (Node scripts and one shell script)
+  and their tests, a fixture.
 - New dev dependency: `yaml`, used only by the tests to read the workflow file.
 - The `data` branch is overwritten by every run that changes something. Its placeholder is replaced
   by the first run.

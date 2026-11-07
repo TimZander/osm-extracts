@@ -24,10 +24,9 @@ owner starts it by hand (`workflow_dispatch`, with no inputs), each region from 
 
 ### Requirement: Nothing a pull request or a fork can cause runs the workflow
 
-The workflow's only triggers SHALL be `schedule` and `workflow_dispatch`. No workflow in this
-repository that can write it, or that runs the pipeline, SHALL be triggered by `pull_request`,
-`pull_request_target`, `workflow_run`, `push`, `issue_comment` or any other event that someone without
-write access can cause.
+The extract workflow's only triggers SHALL be `schedule` and `workflow_dispatch`, so nothing that
+someone without write access can cause (a pull request from a fork or a branch, `pull_request_target`,
+`workflow_run`, a push, a comment) starts it.
 
 #### Scenario: A pull request from a fork
 
@@ -42,10 +41,10 @@ write access can cause.
 ### Requirement: The regions list
 
 The regions list SHALL be one file in the repository whose entries each give a region `id` (one or
-more of `a`–`z`, `0`–`9` and `-`), a `name`, a Geofabrik path, typed `bounds` (`south`, `west`,
-`north`, `east` in degrees) and whether the region is clipped. The workflow SHALL build exactly the
-listed regions, one job each. A list breaking any of these rules SHALL fail the run before anything is
-downloaded.
+more of `a`–`z`, `0`–`9` and `-`, unique), a `name`, a Geofabrik path, typed `bounds` (`south`,
+`west`, `north`, `east` in degrees) and whether the region is clipped. A first job SHALL check the list
+and give the region jobs their ids, one job each, so a list breaking any of these rules fails the run
+before any region job starts.
 
 #### Scenario: Colorado alone
 
@@ -55,7 +54,7 @@ downloaded.
 #### Scenario: A bad region id
 
 - **WHEN** an entry's `id` is `../evil`
-- **THEN** the run fails before any download, naming the entry
+- **THEN** the run fails before any region job starts, naming the entry
 
 ### Requirement: The import's categories
 
@@ -134,13 +133,18 @@ full garmin-map commit SHA they were copied from. Changing the rules is a change
 
 ### Requirement: Coordinates are rounded to six decimals
 
-Every coordinate written SHALL be the source coordinate rounded to six decimal places, written as the
-shortest JSON number that reads back as that value.
+Every coordinate written SHALL be the source coordinate, as a decimal, rounded to six decimal places,
+halves away from zero, and written as the shortest JSON number that reads back as that value.
 
 #### Scenario: Rounding
 
 - **WHEN** a node is at latitude 39.6249996, longitude -106.062
 - **THEN** its coordinates are written `[-106.062,39.625]`
+
+#### Scenario: A tie
+
+- **WHEN** a node is at latitude 39.6249995, longitude -106.0000005
+- **THEN** its coordinates are written `[-106.000001,39.625]`
 
 ### Requirement: Features are filed into 0.25° cells
 
@@ -166,15 +170,21 @@ vertices. A cell with no feature SHALL not be written.
 
 ### Requirement: A dense cell is split into its four quarters
 
-A cell whose whole file would be larger than the split threshold SHALL instead be written as all four
+A cell whose whole file would be larger than the split threshold, 4 MiB (4,194,304 bytes; open
+question 1 in the design), SHALL instead be written as all four
 of its 0.125° quarters, empty ones included, at `<region>/<row>_<col>/<qrow>_<qcol>.json`, where
 `qrow = floor(lat × 8)` and `qcol = floor(lon × 8)`. Each quarter SHALL hold, whole, every feature with
 a vertex in it. The cell's own file SHALL not be written.
 
 #### Scenario: A cell over the threshold
 
-- **WHEN** cell `158_-425` would be larger than the split threshold
+- **WHEN** cell `158_-425` would be 5 MiB
 - **THEN** it is written as `colorado/158_-425/316_-850.json`, `316_-849.json`, `317_-850.json` and `317_-849.json`, and `colorado/158_-425.json` is not written
+
+#### Scenario: A cell just under the threshold
+
+- **WHEN** cell `158_-424` would be exactly 4,194,304 bytes
+- **THEN** it is written whole, as `colorado/158_-424.json`
 
 #### Scenario: An empty quarter
 
@@ -183,9 +193,10 @@ a vertex in it. The cell's own file SHALL not be written.
 
 ### Requirement: The output is byte-stable
 
-Every file SHALL be a function of its features alone: features sorted by `_osmId`, nodes before ways
-and each by ascending numeric id; keys in a fixed order; one feature per line; no trailing spaces; a
-final newline. The manifest's `cells` and `split` SHALL be sorted by row, then column.
+Every region file SHALL be a function of its features alone: features sorted nodes before ways, each
+by ascending numeric id; keys in the order `type`, `features` / `type`, `geometry`, `properties` /
+`type`, `coordinates` / `title`, `_osmCategories`, `_osmId`; one feature per line; a final newline. The
+manifest's `cells` and `split` SHALL be sorted numerically by row, then by column.
 
 #### Scenario: The same data built twice
 
@@ -196,6 +207,11 @@ final newline. The manifest's `cells` and `split` SHALL be sorted by row, then c
 
 - **WHEN** a cell holds `way/5`, `node/20` and `node/3`
 - **THEN** its features are in the order `node/3`, `node/20`, `way/5`
+
+#### Scenario: Cell order
+
+- **WHEN** a region writes cells `159_-425`, `158_-424`, `158_-425` and `-1_3`
+- **THEN** its `cells` is `["-1_3", "158_-425", "158_-424", "159_-425"]`
 
 ### Requirement: The manifest describes every region
 
@@ -307,7 +323,8 @@ artifact kept for one day. No region job SHALL write the repository.
 
 The deploy job SHALL use a region's artifact only when its manifest entry has the manifest's form for
 that region's id and its files are exactly the listed cells' files, as regular files under the
-region's folder, each at most 20 MiB. Otherwise it SHALL fail without pushing, naming the region.
+region's folder, each at most 20 MiB. Otherwise it SHALL fail without pushing, naming the region: a
+malformed artifact is not treated as a failed region.
 
 #### Scenario: A stray file in an artifact
 
@@ -321,14 +338,47 @@ region's folder, each at most 20 MiB. Otherwise it SHALL fail without pushing, n
 
 ### Requirement: A failed region keeps its previous files
 
-When a region's job fails, the deploy job SHALL still publish the regions that succeeded, and SHALL
-keep the failed region's previous manifest entry and every file it lists from the previous `data`
-tree. A failed region that was never published SHALL be left out of the manifest.
+When a region's job fails, the other region jobs SHALL run to the end, the deploy job SHALL still
+publish the regions that succeeded, and it SHALL keep the failed region's previous manifest entry and
+every file it lists from the previous `data` tree. A failed region that was never published, and a
+region no longer in the regions list, SHALL be left out of the manifest.
 
 #### Scenario: One region fails
 
 - **WHEN** `colorado` published last week and its job fails this week
 - **THEN** the new manifest holds last week's `colorado` entry, and every file it lists is in the new tree
+
+#### Scenario: A region taken off the list
+
+- **WHEN** `utah` was in last run's manifest and is no longer in the regions list
+- **THEN** the new manifest has no `utah` entry, and this run's tree still holds the files last run's manifest listed for it
+
+### Requirement: The previous site is read from the data branch
+
+The deploy job SHALL read the previous site from the `data` branch's tree. A tree with no
+`manifest.json` SHALL count as having no previous regions. A `manifest.json` that is present but not of
+the manifest's form, or that lists a file the tree doesn't hold, SHALL fail the deploy job without
+pushing.
+
+#### Scenario: The placeholder branch
+
+- **WHEN** `data` holds only `index.html` and `404.html`
+- **THEN** the run publishes as if there were no previous regions
+
+#### Scenario: A broken previous manifest
+
+- **WHEN** the previous `manifest.json` is not valid JSON
+- **THEN** the deploy job fails saying so, and `data` is not pushed
+
+### Requirement: The site holds only the extract's files
+
+The assembled tree SHALL hold only `manifest.json`, `_headers`, `404.html`, `LICENSE.txt`, and the
+region files these requirements place there. No other file from the previous tree SHALL be kept.
+
+#### Scenario: The placeholder page goes
+
+- **WHEN** the previous `data` tree holds `index.html`
+- **THEN** the new tree doesn't
 
 ### Requirement: Files dropped from the manifest stay one more run
 
@@ -350,7 +400,7 @@ no manifest listed in the previous run SHALL not be carried over.
 
 The deploy job SHALL commit the assembled tree as one commit with no parent and force-push it to
 `data`, but only when that tree differs from the previous `data` tree. Runs SHALL share one
-concurrency group, so two runs never publish at once.
+concurrency group without cancelling a run in progress, so two runs never publish at once.
 
 #### Scenario: A changed tree
 
@@ -416,6 +466,11 @@ not be stored in the git config.
 - **WHEN** the workflow file is read
 - **THEN** only the deploy job has `contents: write`, and no job has any other write permission
 
+#### Scenario: Where the token goes
+
+- **WHEN** the workflow file is read
+- **THEN** `github.token` appears only in the `env` of the deploy job's push step, and every checkout sets `persist-credentials: false`
+
 #### Scenario: A compromised region job
 
 - **WHEN** code in a region job tries to push
@@ -430,7 +485,7 @@ commit SHA. No `${{ }}` expression SHALL appear inside a `run:` script.
 #### Scenario: Reading the workflow's actions
 
 - **WHEN** the workflow file is read
-- **THEN** every `uses:` is `actions/<name>@<40-hex SHA>`, and no `secrets.` reference appears
+- **THEN** every `uses:` is `actions/<name>@<40-hex SHA>`, no `secrets.` reference appears, and `ACTIONS_STEP_DEBUG` appears nowhere
 
 ### Requirement: Each region job reports its size
 

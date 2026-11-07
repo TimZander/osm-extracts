@@ -14,17 +14,17 @@
 
 ## 4. Region job
 
-- [ ] 4.1 Tests first for the regions-list checks, the MD5 check, the data date, the bounds-in-polygon check and the size report, seen to fail; then `src/regions.mjs`, `src/poly.mjs` and `src/build-region.mjs`; verify `npm test`
+- [ ] 4.1 Tests first for the regions-list checks (and the plan job's matrix output), a failed PBF or `.poly` download, the MD5 check, the data date, the bounds-in-polygon check and the size report, seen to fail; then `src/regions.mjs`, `src/poly.mjs` and `src/build-region.mjs`; verify `npm test`
 - [ ] 4.2 An end-to-end test that runs `build-region.mjs` with the real `osmium` on a small fixture PBF (made from `test/fixtures/sample.osm`, including a clipped run); verify it passes locally
 
 ## 5. Site assembly and publishing
 
-- [ ] 5.1 Tests first for the assembler: artifact checks, a failed region keeping its files, carry-over for one run, `manifest.json`, `_headers`, `404.html`, `LICENSE.txt` and the 19,000-file guard, seen to fail; then `src/assemble-site.mjs`; verify `npm test`
+- [ ] 5.1 Tests first for the assembler: reading the previous tree (none, placeholder, broken manifest), only the extract's files kept, artifact checks, a failed region keeping its files, carry-over for one run, `manifest.json`, `_headers`, `404.html`, `LICENSE.txt` and the 19,000-file guard, seen to fail; then `src/assemble-site.mjs`; verify `npm test`
 - [ ] 5.2 Tests first for `src/publish.sh` against a local bare repository: an orphan commit, a skip when nothing changed, a rejected lease; then the script; verify `npm test`
 
 ## 6. Workflow
 
-- [ ] 6.1 Tests first that read `.github/workflows/extract.yml`: its triggers, permissions, SHA pins, `persist-credentials: false`, no secrets, no `${{ }}` in `run:`, the matrix matching `regions.json`, and one concurrency group; then the workflow; verify `npm test`
+- [ ] 6.1 Tests first that read `.github/workflows/extract.yml`: its triggers, permissions, SHA pins, `persist-credentials: false`, where `github.token` appears, no secrets, no `ACTIONS_STEP_DEBUG`, no `${{ }}` in `run:`, the plan job feeding the matrix, `fail-fast: false`, one-day artifact retention, and one concurrency group without cancel-in-progress; then the workflow; verify `npm test`
 
 ## 7. Reviews and decisions
 

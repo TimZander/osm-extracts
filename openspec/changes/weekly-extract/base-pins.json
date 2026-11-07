@@ -24,6 +24,8 @@
       "A region job hands its tree to the deploy job and writes nothing": null,
       "The deploy job accepts only well-formed region trees": null,
       "A failed region keeps its previous files": null,
+      "The previous site is read from the data branch": null,
+      "The site holds only the extract's files": null,
       "Files dropped from the manifest stay one more run": null,
       "Publishing replaces the site with one orphan commit": null,
       "The site sets its CORS and cache headers": null,
