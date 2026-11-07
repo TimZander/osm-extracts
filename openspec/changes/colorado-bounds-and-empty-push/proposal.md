@@ -12,9 +12,10 @@ now decided against it ("add the no-empty-push rule").
 
 - **Bounds guard:** its error names the first failing point, so a failure says where.
 - **Publishing:** the deploy pushes nothing when the new manifest lists no region (owner-decided).
-- **Colorado `bounds`:** now 37 / -109.04 / 40.99 / -102.06. Each edge lies inside the state lines,
-  which Geofabrik's buffered polygon contains (design, decision 1).
-- **ADRs:** 0015 (Colorado's bounds, superseding 0009) and 0016 (no empty push).
+- **Colorado `bounds`, proposed:** 37.01 / -109.04 / 40.99 / -102.06, each edge inside the state
+  lines (design, decision 1 and open question 1). They become an ADR superseding 0009 only once the
+  owner answers.
+- **ADR:** 0015 (no empty push, owner-decided).
 
 ## Capabilities
 
@@ -25,8 +26,9 @@ None.
 ### Modified Capabilities
 
 - `osm-extract`:
-  - "A region's bounds lie inside its Geofabrik polygon": the failure names the failing point.
-  - "Publishing replaces the site with one orphan commit": no push when the manifest lists no region.
+  - added, "The bounds guard names the first failing point";
+  - modified, "Publishing replaces the site with one orphan commit": no push when the manifest lists
+    no region (checked first), and a site without a valid manifest fails.
 
 ## Impact
 
