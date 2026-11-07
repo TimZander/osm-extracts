@@ -14,8 +14,8 @@
 
 ## 4. Region job
 
-- [ ] 4.1 Tests first for the regions-list checks (and the plan job's matrix output), a failed PBF or `.poly` download, the MD5 check, the data date, the bounds-in-polygon check and the size report, seen to fail; then `src/regions.mjs`, `src/poly.mjs` and `src/build-region.mjs`; verify `npm test`
-- [ ] 4.2 An end-to-end test that runs `build-region.mjs` with the real `osmium` on a small fixture PBF (made from `test/fixtures/sample.osm`, including a clipped run); verify it passes locally
+- [x] 4.1 Tests first for the regions-list checks (and the plan job's matrix output), a failed PBF or `.poly` download, the MD5 check, the data date, the bounds-in-polygon check and the size report, seen to fail; then `src/regions.mjs`, `src/poly.mjs` and `src/build-region.mjs`; verify `npm test`
+- [x] 4.2 An end-to-end test that runs `build-region.mjs` with the real `osmium` on a small fixture PBF (made from `test/fixtures/sample.osm`, including a clipped run); verify it passes locally
 
 ## 5. Site assembly and publishing
 
