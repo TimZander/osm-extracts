@@ -13,7 +13,7 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0005](0005-pages-headers-and-404.md) | CORS and cache times in `_headers`, set per path; a `404.html` | accepted |
 | [0006](0006-regions-colorado-first-one-at-a-time.md) | Regions: Colorado first, then one at a time | accepted |
 | [0007](0007-workflow-security-model.md) | The workflow runs only on a schedule or by hand; only its deploy job writes | accepted |
-| [0008](0008-split-threshold-4-mib-until-measured.md) | The split threshold is 4 MiB until the first run measures the cells | accepted |
+| [0008](0008-split-threshold-4-mib-until-measured.md) | The split threshold is 4 MiB until the first run measures the cells | superseded by 0017 |
 | [0009](0009-colorado-bounds-unclipped.md) | Colorado's bounds are the state's bounding box; not clipped | superseded by 0016 |
 | [0010](0010-weekly-schedule-monday-0523-utc.md) | Rebuilt every Monday at 05:23 UTC | accepted |
 | [0011](0011-guards-20-mib-19000-files-one-day-artifacts.md) | Guards at 20 MiB per file and 19,000 files; artifacts kept one day | accepted |
@@ -22,3 +22,4 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0014](0014-schedule-inactivity-risk-deferred.md) | The schedule-inactivity risk is deferred | deferred |
 | [0015](0015-no-empty-push.md) | A run whose manifest lists no region pushes nothing | accepted |
 | [0016](0016-colorado-bounds-inside-the-state-lines.md) | Colorado's bounds lie just inside the state lines | accepted |
+| [0017](0017-split-threshold-stays-4-mib.md) | The split threshold stays 4 MiB, with no second split level | accepted |
