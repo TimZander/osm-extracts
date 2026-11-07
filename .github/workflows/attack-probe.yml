@@ -1,0 +1,11 @@
+# THROWAWAY attack-test probe (weekly-extract task 7.3), removed in the next commit.
+# It declares no permissions, so the "GITHUB_TOKEN Permissions" block in its "Set up job" log shows
+# the repository's default token permissions for a pull request run. It runs nothing else.
+name: attack-probe
+on: pull_request
+jobs:
+  default-token:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - run: echo "probe only; see the GITHUB_TOKEN Permissions block in Set up job"
