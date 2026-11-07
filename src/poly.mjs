@@ -72,25 +72,40 @@ function inRing(points, [x, y]) {
   return inside
 }
 
-// Each corner inside the polygon (in an outer ring, in no hole), no ring edge touching or crossing
-// the rectangle's edges, and no ring vertex inside it. A point on a ring counts as outside.
-export function rectInsidePoly({ south, west, north, east }, rings) {
+const pt = ([lon, lat]) => `(${lat}, ${lon})`
+
+// The first reason the rectangle isn't wholly inside the polygon, or null when it is (spec: "The
+// bounds guard names the first failing point"). Order: corners south-west, south-east, north-east,
+// north-west, outside or on a ring; then a ring vertex inside the rectangle; then a ring edge meeting
+// the rectangle's edges. Rings and points in .poly order. Points are written (lat, lon).
+export function polyFailure({ south, west, north, east }, rings) {
   const corners = [
-    [west, south],
-    [east, south],
-    [east, north],
-    [west, north],
+    ['south-west', [west, south]],
+    ['south-east', [east, south]],
+    ['north-east', [east, north]],
+    ['north-west', [west, north]],
   ]
-  const rectEdges = edges(corners)
+  for (const [name, c] of corners) {
+    const onRing = rings.some((r) => edges(r.points).some(([a, b]) => onSegment(a, b, c)))
+    const inside = rings.some((r) => !r.hole && inRing(r.points, c)) && !rings.some((r) => r.hole && inRing(r.points, c))
+    if (onRing || !inside) return `${name} corner ${pt(c)} is outside the polygon`
+  }
   for (const ring of rings) {
-    for (const [a, b] of edges(ring.points)) {
-      if (rectEdges.some(([c, d]) => segmentsMeet(a, b, c, d))) return false
-    }
-    for (const [x, y] of ring.points) {
-      if (x > west && x < east && y > south && y < north) return false
+    for (const p of ring.points) {
+      if (p[0] > west && p[0] < east && p[1] > south && p[1] < north) return `ring vertex ${pt(p)} is inside the bounds`
     }
   }
-  return corners.every(
-    (c) => rings.some((r) => !r.hole && inRing(r.points, c)) && !rings.some((r) => r.hole && inRing(r.points, c)),
-  )
+  const rectEdges = edges(corners.map(([, c]) => c))
+  for (const ring of rings) {
+    for (const [a, b] of edges(ring.points)) {
+      if (rectEdges.some(([c, d]) => segmentsMeet(a, b, c, d))) return `ring edge from ${pt(a)} to ${pt(b)} meets the bounds`
+    }
+  }
+  return null
+}
+
+// True when the bounds lie wholly inside the polygon (spec: "A region's bounds lie inside its
+// Geofabrik polygon").
+export function rectInsidePoly(bounds, rings) {
+  return polyFailure(bounds, rings) === null
 }

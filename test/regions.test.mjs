@@ -140,3 +140,46 @@ END
 `
   assert.equal(rectInsidePoly(co, parsePoly(two)), true)
 })
+
+// Requirement: "The bounds guard names the first failing point".
+import { polyFailure } from '../src/poly.mjs'
+
+const sampleBounds = { south: 39, west: -108, north: 40, east: -105 }
+const ring = (pts, hole = false) => ({ hole, points: pts })
+const outer = ring([[-110, 36.5], [-101, 36.5], [-101, 41.5], [-110, 41.5]])
+
+test('a corner outside is named first, south-west before the others', () => {
+  // The polygon's west edge is at -107.5: the south-west and north-west corners are outside.
+  const west = ring([[-107.5, 36.5], [-101, 36.5], [-101, 41.5], [-107.5, 41.5]])
+  assert.equal(polyFailure(sampleBounds, [west]), 'south-west corner (39, -108) is outside the polygon')
+  // Only the north-east corner outside.
+  const ne = ring([[-110, 36.5], [-101, 36.5], [-101, 39.8], [-105.5, 39.8], [-105.5, 41.5], [-110, 41.5]])
+  assert.equal(polyFailure(sampleBounds, [ne]), 'north-east corner (40, -105) is outside the polygon')
+})
+
+test('a corner on a ring counts as outside the polygon', () => {
+  const onEdge = ring([[-110, 36.5], [-101, 36.5], [-101, 40], [-110, 40]])
+  assert.equal(polyFailure(sampleBounds, [onEdge]), 'north-east corner (40, -105) is outside the polygon')
+})
+
+test('then a ring vertex inside the bounds, in .poly order', () => {
+  const notched = ring([[-110, 36.5], [-101, 36.5], [-101, 41.5], [-105.5, 41.5], [-105.5, 39.5], [-105.6, 39.4], [-105.6, 41.5], [-110, 41.5]])
+  assert.equal(polyFailure(sampleBounds, [notched]), 'ring vertex (39.5, -105.5) is inside the bounds')
+  const holed = [outer, ring([[-106, 39.2], [-105.8, 39.2], [-105.8, 39.4]], true)]
+  assert.equal(polyFailure(sampleBounds, holed), 'ring vertex (39.2, -106) is inside the bounds')
+})
+
+test('then a ring edge meeting the bounds, by its two ends', () => {
+  const sliver = ring([[-106, 38], [-106.2, 41], [-106.1, 41.5]])
+  assert.equal(polyFailure(sampleBounds, [outer, sliver]), 'ring edge from (38, -106) to (41, -106.2) meets the bounds')
+})
+
+test('bounds clear of every ring: no failure', () => {
+  assert.equal(polyFailure(sampleBounds, [outer]), null)
+  assert.equal(rectInsidePoly(sampleBounds, [outer]), true)
+})
+
+test('Colorado\'s proposed bounds (design open question 1)', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
+  assert.deepEqual(list[0].bounds, { south: 37.01, west: -109.04, north: 40.99, east: -102.06 })
+})

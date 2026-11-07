@@ -2,7 +2,7 @@
 
 ## 1. Bounds guard
 
-- [ ] 1.1 Tests first: `rectInsidePoly` reports the first failing point in the spec's order (corners SW, SE, NE, NW; then a vertex; then an edge), as `(lat, lon)`; `buildRegion`'s error names the region and that point. Seen to fail, then the code; verify `npm test`
+- [x] 1.1 Tests first: `rectInsidePoly` reports the first failing point in the spec's order (corners SW, SE, NE, NW; then a vertex; then an edge), as `(lat, lon)`; `buildRegion`'s error names the region and that point. Seen to fail, then the code; verify `npm test`
 
 ## 2. No empty push
 

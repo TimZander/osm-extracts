@@ -155,7 +155,7 @@ test('bounds reaching outside the polygon fail naming the region', { skip }, asy
   const dir = tmp()
   const out = join(dir, 'out')
   const r = region({ bounds: { south: 39, west: -108, north: 40, east: -105 } })
-  await assert.rejects(buildRegion({ id: 'sample', out, regions: [r], local: makePbf(dir, '2026-10-28T20:21:02Z'), log: quiet }), /region sample.*outside/)
+  await assert.rejects(buildRegion({ id: 'sample', out, regions: [r], local: makePbf(dir, '2026-10-28T20:21:02Z'), log: quiet }), /region sample: its bounds reach outside its Geofabrik polygon: south-west corner \(39, -108\) is outside the polygon$/)
   assert.equal(existsSync(out), false)
 })
 

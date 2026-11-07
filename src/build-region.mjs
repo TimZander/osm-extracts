@@ -18,7 +18,7 @@ import { pipeline } from 'node:stream/promises'
 import { createInterface } from 'node:readline'
 import { fileURLToPath } from 'node:url'
 import { loadRegions, validateRegions, REGION_ID } from './regions.mjs'
-import { parsePoly, rectInsidePoly } from './poly.mjs'
+import { parsePoly, polyFailure } from './poly.mjs'
 import { osmiumFilters } from './categories.mjs'
 import { parseOplLine, featureFromOpl } from './features.mjs'
 import { buildCells, SPLIT_THRESHOLD, MAX_FILE_BYTES } from './cells.mjs'
@@ -113,9 +113,8 @@ export async function buildRegion({
       }
     }
     checkMd5(src.pbf, readFileSync(src.md5, 'utf8'))
-    if (!rectInsidePoly(region.bounds, parsePoly(readFileSync(src.poly, 'utf8')))) {
-      throw new Error(`region ${id}: its bounds reach outside its Geofabrik polygon`)
-    }
+    const failure = polyFailure(region.bounds, parsePoly(readFileSync(src.poly, 'utf8')))
+    if (failure) throw new Error(`region ${id}: its bounds reach outside its Geofabrik polygon: ${failure}`)
     const { stdout: ts } = await run(osmium, ['fileinfo', '-g', 'header.option.osmosis_replication_timestamp', src.pbf])
     const dataDate = dataDateFrom(ts)
 
