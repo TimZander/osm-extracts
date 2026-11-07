@@ -406,8 +406,8 @@ region no longer in the regions list, SHALL be left out of the manifest.
 
 The deploy job SHALL read the previous site from the `data` branch's tree. A tree with no
 `manifest.json` SHALL count as having no previous regions. A `manifest.json` that is present but not of
-the manifest's form, or that lists a file the tree doesn't hold, SHALL fail the deploy job without
-pushing.
+the manifest's form, a listed file the tree doesn't hold, or a symbolic link anywhere in the tree,
+SHALL fail the deploy job without pushing.
 
 #### Scenario: The placeholder branch
 
@@ -418,6 +418,11 @@ pushing.
 
 - **WHEN** the previous `manifest.json` is not valid JSON
 - **THEN** the deploy job fails saying so, and `data` is not pushed
+
+#### Scenario: A symbolic link in the previous tree
+
+- **WHEN** the previous `data` tree holds `colorado` as a symbolic link
+- **THEN** the deploy job fails naming it, and `data` is not pushed
 
 ### Requirement: The site holds only the extract's files
 
