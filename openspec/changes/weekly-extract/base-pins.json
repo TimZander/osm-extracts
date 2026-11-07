@@ -21,6 +21,7 @@
       "A failed or corrupt download publishes nothing new for the region": null,
       "No published file is over 20 MiB": null,
       "The site holds at most 19,000 files": null,
+      "Every job has a time limit": null,
       "A region job hands its tree to the deploy job and writes nothing": null,
       "The deploy job accepts only well-formed region trees": null,
       "A failed region keeps its previous files": null,

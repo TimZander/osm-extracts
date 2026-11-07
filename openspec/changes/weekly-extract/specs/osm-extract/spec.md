@@ -45,9 +45,10 @@ someone without write access can cause (a pull request from a fork or a branch, 
 
 ### Requirement: The regions list
 
-The regions list SHALL be one file in the repository whose entries each give a region `id` (one or
-more of `a`–`z`, `0`–`9` and `-`, unique), a `name`, a Geofabrik path, `bounds` (`south` below
-`north`, `west` below `east`, in degrees within ±90 and ±180) and whether the region is clipped. A first job SHALL check the list
+The regions list SHALL be one file holding at least one entry, each with exactly: `id` (one or more of
+`a`–`z`, `0`–`9` and `-`, unique), `name` (not blank), `geofabrik` (a path of such segments joined by
+`/`), `bounds` (exactly `south` below `north`, `west` below `east`, within ±90 and ±180) and `clip`
+(true or false). A first job SHALL check the list
 and give the region jobs their ids, one job each, so a list breaking any of these rules fails the run
 before any region job starts.
 
@@ -59,6 +60,11 @@ before any region job starts.
 #### Scenario: A bad region id
 
 - **WHEN** an entry's `id` is `../evil`
+- **THEN** the run fails before any region job starts, naming the entry
+
+#### Scenario: A Geofabrik path that is a URL
+
+- **WHEN** an entry's `geofabrik` is `https://evil.example/x`
 - **THEN** the run fails before any region job starts, naming the entry
 
 ### Requirement: The import's categories
@@ -336,6 +342,16 @@ the file count of each region and of the whole site.
 - **WHEN** the assembled site would hold 19,500 files
 - **THEN** the deploy job fails naming the counts, and `data` is not pushed
 
+### Requirement: Every job has a time limit
+
+The plan job SHALL be stopped after 5 minutes, a region job after 120 minutes and the deploy job after
+30 minutes. A region job stopped this way SHALL count as a failed region.
+
+#### Scenario: A region job that runs too long
+
+- **WHEN** a region job is still building after 120 minutes
+- **THEN** it is stopped, it uploads no artifact, and the deploy job keeps that region's previous files
+
 ### Requirement: A region job hands its tree to the deploy job and writes nothing
 
 Each region's job SHALL build its tree and manifest entry and, as its last step, hand them to the
@@ -404,10 +420,10 @@ region no longer in the regions list, SHALL be left out of the manifest.
 
 ### Requirement: The previous site is read from the data branch
 
-The deploy job SHALL read the previous site from the `data` branch's tree. A tree with no
-`manifest.json` SHALL count as having no previous regions. A `manifest.json` that is present but not of
-the manifest's form, a listed file the tree doesn't hold, or a symbolic link anywhere in the tree,
-SHALL fail the deploy job without pushing.
+The deploy job SHALL read the previous site from the `data` branch's tree; no `data` branch, or a tree
+with no `manifest.json`, counts as no previous regions. A failed read of the branch, a `manifest.json`
+not of the form garmin-map's `osm-import` accepts, a listed file the tree doesn't hold, or a symbolic
+link anywhere in the tree SHALL fail the deploy job without pushing.
 
 #### Scenario: The placeholder branch
 

@@ -158,5 +158,9 @@ Each comes with the assumption this change proceeds on. The owner's answers beco
    below Pages' limit (25 MiB, 20,000) with room for a regenerated tree, as garmin-map's design
    assumed (its open question 6). Artifacts are kept for one day, since the deploy job reads them
    minutes later.
-8. **Builder-chosen details** (ADRs 0001–0007, the sort order, the file layout and the `_headers` split
-   in decision 5). *Assumption:* they stand unless the owner overrides one in PR review.
+8. **Scheduled runs and inactivity.** GitHub disables a public repository's scheduled workflows
+   after 60 days without repository activity. Whether the deploy job's own pushes to `data` count is
+   unconfirmed. *Assumption:* accepted; GitHub emails the owner before it disables the schedule, and
+   re-enabling it is one click. No keep-alive commit.
+9. **Builder-chosen details** (ADRs 0001–0007, the sort order, the file layout, the `_headers` split
+   in decision 5, and the job time limits). *Assumption:* they stand unless the owner overrides one in PR review.
