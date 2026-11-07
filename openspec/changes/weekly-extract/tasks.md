@@ -10,7 +10,7 @@
 
 ## 3. Cell writer
 
-- [ ] 3.1 Tests first for the grid, quarter splits, empty quarters, byte-stable output, sort order, manifest entry and the 20 MiB guard, seen to fail; then `src/cells.mjs`; verify `npm test`
+- [x] 3.1 Tests first for the grid, quarter splits, empty quarters, byte-stable output, sort order, manifest entry and the 20 MiB guard, seen to fail; then `src/cells.mjs`; verify `npm test`
 
 ## 4. Region job
 
