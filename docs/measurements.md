@@ -76,11 +76,15 @@ Open questions for the owner, each with the assumption that holds until it is an
 1. **A 14 MiB file is a heavy download on a phone.** The five largest files are 14.2, 7.3, 6.6, 6.1
    and 6.1 MiB. They are all in the Denver and Front Range quarters. A search there fetches up to
    four such quarters. *Assumption:* left as is until the owner decides. Options:
-   - **A second split level.** Split a quarter that is still over the threshold into 0.0625° cells.
-     This needs a change to the consumer contract in garmin-map (one more level in `split`), and
-     costs more files.
-   - **A lower threshold alone doesn't help.** The 14.2 MiB file is already a quarter, the smallest
-     unit the format has.
+   - **Keep 4 MiB and accept the 14.2 MiB Denver quarter.** This needs no change. Every file is under
+     the 20 MiB guard and garmin-map's 25 MiB body limit.
+   - **One more split level, so no file is over about 5 MiB.** Split a quarter that is still over the
+     threshold into 0.0625° cells. This needs a change to the consumer contract in garmin-map (one
+     more level in `split`), a spec change here, and more files: about 4 for each such quarter. Seven
+     files are over 5 MiB today.
+   - **A lower threshold alone doesn't get there.** It splits more 0.25° cells, but the 14.2 MiB file
+     is already a quarter, the smallest unit the format has. So a lower threshold works only together
+     with another split level.
    - **Tighter categories.** Mapped sidewalks make up much of `highway=footway` in cities. Dropping
      `footway`, or keeping only footways that are named or tagged as a path, would shrink urban cells
      most. That changes what the import offers, a change in both repositories (ADR 0003).
