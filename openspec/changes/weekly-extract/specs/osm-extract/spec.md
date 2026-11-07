@@ -30,8 +30,13 @@ someone without write access can cause (a pull request from a fork or a branch, 
 
 #### Scenario: A pull request from a fork
 
-- **WHEN** someone opens a pull request from a fork, even one that edits the workflow
-- **THEN** no job of the extract workflow runs, and the `data` branch doesn't change
+- **WHEN** someone opens a pull request from a fork
+- **THEN** no job of the extract workflow runs
+
+#### Scenario: A pull request that edits the workflow
+
+- **WHEN** a pull request changes the workflow's triggers to run on `pull_request`
+- **THEN** any run it causes holds no token that can write, and the `data` branch doesn't change
 
 #### Scenario: Reading the workflow file
 
@@ -41,8 +46,8 @@ someone without write access can cause (a pull request from a fork or a branch, 
 ### Requirement: The regions list
 
 The regions list SHALL be one file in the repository whose entries each give a region `id` (one or
-more of `a`–`z`, `0`–`9` and `-`, unique), a `name`, a Geofabrik path, typed `bounds` (`south`,
-`west`, `north`, `east` in degrees) and whether the region is clipped. A first job SHALL check the list
+more of `a`–`z`, `0`–`9` and `-`, unique), a `name`, a Geofabrik path, `bounds` (`south` below
+`north`, `west` below `east`, in degrees within ±90 and ±180) and whether the region is clipped. A first job SHALL check the list
 and give the region jobs their ids, one job each, so a list breaking any of these rules fails the run
 before any region job starts.
 
@@ -76,8 +81,9 @@ The categories, in catalog order, SHALL be: on nodes, `peaks` (`natural=peak`), 
 
 ### Requirement: The extract holds exactly what the import's categories select
 
-The extract SHALL hold every OSM node, and every way with at least two located vertices, that matches
-one of the import's categories, and nothing else.
+A region's extract SHALL hold every OSM node, and every way with at least two located vertices, of its
+source (after clipping, for a clipped region) that matches one of the import's categories, and nothing
+else.
 
 #### Scenario: A peak
 
@@ -181,7 +187,7 @@ a vertex in it. The cell's own file SHALL not be written.
 - **WHEN** cell `158_-425` would be 5 MiB
 - **THEN** it is written as `colorado/158_-425/316_-850.json`, `316_-849.json`, `317_-850.json` and `317_-849.json`, and `colorado/158_-425.json` is not written
 
-#### Scenario: A cell just under the threshold
+#### Scenario: A cell exactly at the threshold
 
 - **WHEN** cell `158_-424` would be exactly 4,194,304 bytes
 - **THEN** it is written whole, as `colorado/158_-424.json`
@@ -254,9 +260,10 @@ A PBF without that timestamp SHALL fail the region's job.
 
 ### Requirement: A region's bounds lie inside its Geofabrik polygon
 
-A region's typed `bounds` SHALL lie wholly inside its Geofabrik extract polygon (`<path>.poly`), so
-that every area inside `bounds` has data. A region whose `bounds` reach outside SHALL fail its job
-before its files are built, naming the region.
+A region's `bounds` SHALL lie wholly inside its Geofabrik extract polygon (`<path>.poly`, every ring,
+holes included), so every area inside `bounds` has data: each corner inside the polygon, no ring edge
+touching or crossing the rectangle's edges, and no ring vertex inside it. A point on a ring counts as
+outside. Otherwise the region's job SHALL fail before its files are built, naming the region.
 
 #### Scenario: Bounds reaching outside
 
@@ -265,24 +272,44 @@ before its files are built, naming the region.
 
 #### Scenario: Bounds inside
 
-- **WHEN** a region's `bounds` lie inside its polygon with margin on every side
+- **WHEN** a region's `bounds` lie inside its polygon, clear of every ring
 - **THEN** the region builds
+
+#### Scenario: A notch in the polygon
+
+- **WHEN** every corner of a region's `bounds` is inside its polygon, but the polygon has a notch that cuts into the rectangle
+- **THEN** the region's job fails naming the region
+
+#### Scenario: A hole in the polygon
+
+- **WHEN** the polygon has a hole that lies inside the region's `bounds`
+- **THEN** the region's job fails naming the region
 
 ### Requirement: A clipped region is cut to its bounds
 
 A region marked clipped SHALL be cut to its `bounds` before its features are selected, keeping every
-way with a node inside the bounds whole, so its cells lie within its `bounds` apart from the parts of
-those ways.
+way with a node inside the bounds whole, and SHALL hold no point feature outside its `bounds`, so its
+cells lie within its `bounds` apart from the parts of those ways.
 
 #### Scenario: A clipped region
 
 - **WHEN** a clipped region's source holds a peak north of its `bounds`
 - **THEN** the extract doesn't hold that peak
 
+#### Scenario: A peak on a kept trail
+
+- **WHEN** a peak north of a clipped region's `bounds` is a vertex of a trail that enters the `bounds`
+- **THEN** the extract holds the whole trail and not the peak
+
 ### Requirement: A failed or corrupt download publishes nothing new for the region
 
-A region's job SHALL fail, and nothing of that region SHALL change, when its PBF or polygon download
-fails, or the PBF's MD5 differs from Geofabrik's `.md5` for it.
+A region's job SHALL fail, and nothing of that region SHALL change, when the download of its PBF, its
+`.md5` or its polygon fails, or the PBF's MD5 differs from the `.md5`.
+
+#### Scenario: The checksum can't be fetched
+
+- **WHEN** the `.md5` download answers 404
+- **THEN** the region's job fails, and nothing of that region changes
 
 #### Scenario: An MD5 mismatch
 
@@ -311,25 +338,47 @@ the file count of each region and of the whole site.
 
 ### Requirement: A region job hands its tree to the deploy job and writes nothing
 
-Each region's job SHALL build its tree and manifest entry and hand them to the deploy job as an Actions
-artifact kept for one day. No region job SHALL write the repository.
+Each region's job SHALL build its tree and manifest entry and, as its last step, hand them to the
+deploy job as an Actions artifact named for the region, kept for one day; a region counts as
+succeeded exactly when its artifact exists. No region job SHALL write the repository. The deploy job
+SHALL run after every region job ends, unless the run was cancelled or the regions list failed.
 
 #### Scenario: Two regions
 
 - **WHEN** two regions build in parallel
 - **THEN** the manifest lists both, written once, by the deploy job
 
+#### Scenario: A bad regions list
+
+- **WHEN** the regions list fails its checks
+- **THEN** no region job and no deploy job runs
+
+#### Scenario: A cancelled run
+
+- **WHEN** the owner cancels a run while a region job is building
+- **THEN** the deploy job doesn't run, and `data` doesn't change
+
 ### Requirement: The deploy job accepts only well-formed region trees
 
-The deploy job SHALL use a region's artifact only when its manifest entry has the manifest's form for
-that region's id and its files are exactly the listed cells' files, as regular files under the
-region's folder, each at most 20 MiB. Otherwise it SHALL fail without pushing, naming the region: a
+The deploy job SHALL use a region's artifact only when the region is in the regions list, it has one
+artifact, its entry has the manifest's form with `id`, `name` and `bounds` equal to the list's, and
+its files are exactly the listed cells' files, as regular files under its folder, each at most 20 MiB. Otherwise it SHALL fail without pushing, naming the region: a
 malformed artifact is not treated as a failed region.
 
 #### Scenario: A stray file in an artifact
 
 - **WHEN** a region's artifact also holds `_headers` or `colorado/../index.html`
 - **THEN** the deploy job fails naming the region, and `data` is not pushed
+
+#### Scenario: An artifact that changes the bounds
+
+- **WHEN** the `colorado` artifact's entry has `bounds` other than the regions list's
+- **THEN** the deploy job fails naming the region, and `data` is not pushed
+
+#### Scenario: An artifact for a region not on the list
+
+- **WHEN** the run holds an artifact for `utah` and the list has no `utah`
+- **THEN** the deploy job fails naming it, and `data` is not pushed
 
 #### Scenario: A listed cell with no file
 

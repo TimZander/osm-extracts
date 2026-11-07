@@ -33,12 +33,9 @@
 - [ ] 7.3 Attack test: a fork pull request runs nothing; a pull request that edits the workflow can't push `data`; only the deploy job writes; no secrets referenced. Done with a throwaway pull request if feasible, otherwise reasoned and recorded in `docs/attack-test.md`
 - [ ] 7.4 `/sdd:conformance-review weekly-extract`; findings routed through `/sdd:spec-fix`
 
-## 8. First live run
-
-- [ ] 8.1 Owner's go, then one `workflow_dispatch` run; record in `docs/measurements.md` the matching nodes and ways, total size, largest 0.25° cell, cell and file counts, and the Pages deploy time against the 20-minute limit
-- [ ] 8.2 Set the split threshold from the measurement (open question 1), as its own ADR
-
 ## Workflow follow-up
 
+- After the owner merges (their go), dispatch the first run, then record in `docs/measurements.md` the matching nodes and ways, total size, largest 0.25° cell, cell and file counts, and the Pages deploy time against the 20-minute limit; report them to the coordinator.
+- Set the split threshold from that measurement in its own change, with its ADR (design open question 1).
 - Archive the change in its own PR after this one merges.
 - In garmin-map, replace `docs/osm-extract-pipeline.md` with a link to this repository's spec (garmin-map ADR 0229).

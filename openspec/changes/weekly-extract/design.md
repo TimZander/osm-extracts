@@ -116,14 +116,24 @@ keeping old weekly versions; a fallback host.
   files stay for one more run.
 - **The category rules are written twice** → `categoriesFrom` names the commit they came from; a test
   pins the rules to the copied table.
+- **A fork pull request that edits the workflow.** GitHub runs a `pull_request` workflow from the PR's
+  own files, so a fork could add `on: pull_request`. What stops it is the owner-reported setting that
+  fork workflows need approval, plus GitHub's rule that a fork's run gets a read-only token and no
+  secrets. Even an approved run like that can't write `data`. The attack test checks this by
+  behaviour, since this session can't read the setting.
+- **One `categoriesFrom` for all regions.** A failed region keeps an entry built earlier, maybe under
+  older rules. That is accepted while the rules change rarely and only in step with garmin-map.
 - **An `.md5` from the same host checks integrity, not authenticity** → accepted: Geofabrik is the
   source in any case, and it is fetched over HTTPS.
 
 ## Migration Plan
 
-1. Merge this change; the workflow is then live on `main`, and its weekly schedule is armed.
-2. The owner's go (relayed by the coordinator) starts the first `workflow_dispatch` run, which replaces
-   the placeholder `data` branch.
+1. Merging this change is the owner's go to publish. GitHub only lets a workflow be dispatched once
+   its file is on the default branch, and merging also arms the weekly schedule. So the PR waits
+   unmerged until the owner (relayed by the coordinator) is ready for the first publish.
+2. Right after the merge, a `workflow_dispatch` run publishes, replacing the placeholder `data`
+   branch, rather than waiting for Monday. Its measurements are recorded after merge (Workflow
+   follow-up).
 3. Rollback: disable the workflow. The last `data` commit stays live. No other state exists.
 
 ## Open Questions
