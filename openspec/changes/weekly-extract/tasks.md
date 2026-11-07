@@ -24,7 +24,7 @@
 
 ## 6. Workflow
 
-- [ ] 6.1 Tests first that read `.github/workflows/extract.yml`: its triggers, permissions, SHA pins, `persist-credentials: false`, where `github.token` appears, no secrets, no `ACTIONS_STEP_DEBUG`, no `${{ }}` in `run:`, the plan job feeding the matrix, `fail-fast: false`, one-day artifact retention, and one concurrency group without cancel-in-progress; then the workflow; verify `npm test`
+- [x] 6.1 Tests first that read `.github/workflows/extract.yml`: its triggers, permissions, SHA pins, `persist-credentials: false`, where `github.token` appears, no secrets, no `ACTIONS_STEP_DEBUG`, no `${{ }}` in `run:`, the plan job feeding the matrix, `fail-fast: false`, one-day artifact retention, and one concurrency group without cancel-in-progress; then the workflow; verify `npm test`
 
 ## 7. Reviews and decisions
 

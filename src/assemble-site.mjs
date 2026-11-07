@@ -216,23 +216,35 @@ export function assembleSite({
   const previous = readPrevious(previousDir)
   const previousById = new Map(previous.map((r) => [r.id, r]))
 
-  // This run's artifacts, each region-<id> for a listed region.
+  // This run's artifacts, each region-<id> for a listed region. A region job uploads its files in a
+  // region-<id> folder. download-artifact puts a lone artifact straight into artifactsDir, which
+  // leaves artifactsDir/region-<id>/{entry.json,...}; two or more go each into a folder named for
+  // the artifact, which leaves artifactsDir/region-<id>/region-<id>/{entry.json,...}.
   const artifacts = new Map()
-  for (const e of readdirSync(artifactsDir, { withFileTypes: true })) {
+  const found = existsSync(artifactsDir) ? readdirSync(artifactsDir, { withFileTypes: true }) : []
+  for (const e of found) {
     const id = /^region-([a-z0-9-]+)$/.exec(e.name)?.[1]
     if (!e.isDirectory() || !id) throw new Error(`the artifacts hold ${e.name}, which is not a region artifact`)
     const region = listed.get(id)
     if (!region) throw new Error(`the artifacts hold region ${id}, which is not in regions.json`)
-    artifacts.set(id, readArtifact(join(artifactsDir, e.name), region, maxFile))
+    let root = join(artifactsDir, e.name)
+    if (found.length > 1) {
+      const inner = readdirSync(root, { withFileTypes: true })
+      if (inner.length !== 1 || !inner[0].isDirectory() || inner[0].name !== e.name) {
+        throw new Error(`the artifact for region ${id} doesn't hold exactly one folder ${e.name}`)
+      }
+      root = join(root, e.name)
+    }
+    artifacts.set(id, { root, entry: readArtifact(root, region, maxFile) })
   }
 
   const plan = new Map() // site path -> source file
   const entries = []
   for (const region of regions) {
     if (artifacts.has(region.id)) {
-      const entry = artifacts.get(region.id)
+      const { root, entry } = artifacts.get(region.id)
       entries.push(entry)
-      for (const p of cellFiles(region.id, entry)) plan.set(p, join(artifactsDir, `region-${region.id}`, p))
+      for (const p of cellFiles(region.id, entry)) plan.set(p, join(root, p))
       log(`${region.id}: this run's build, data of ${entry.dataDate}`)
     } else if (previousById.has(region.id)) {
       const entry = normalEntry(previousById.get(region.id))

@@ -29,9 +29,12 @@ function write(root, path, text) {
 }
 
 // A region artifact as the region job uploads it: region-<id>/{entry.json, stats.json, <id>/...}.
-function artifact(artifacts, region, features, { dataDate = '2026-10-28', threshold, entryOver = {} } = {}) {
+// download-artifact puts a lone artifact straight in the target folder (so only the wrapper the
+// region job uploaded remains: region-<id>/...), and two or more each in a folder named for the
+// artifact (region-<id>/region-<id>/...). `wrapped` gives the second layout.
+function artifact(artifacts, region, features, { dataDate = '2026-10-28', threshold, entryOver = {}, wrapped = false } = {}) {
   const built = buildCells(region.id, features, threshold ? { threshold } : {})
-  const root = join(artifacts, `region-${region.id}`)
+  const root = wrapped ? join(artifacts, `region-${region.id}`, `region-${region.id}`) : join(artifacts, `region-${region.id}`)
   for (const [p, t] of built.files) write(root, p, t)
   const entry = { id: region.id, name: region.name, bounds: region.bounds, dataDate, cells: built.cells, split: built.split, ...entryOver }
   write(root, 'entry.json', JSON.stringify(entry))
@@ -191,10 +194,51 @@ test('stray or malformed artifacts fail the deploy, naming the region', () => {
   }
 })
 
+test('two artifacts, each in a folder named for it', () => {
+  const dirs = setup()
+  artifact(dirs.artifactsDir, CO, [peak(1, -106.062, 39.603)], { wrapped: true })
+  artifact(dirs.artifactsDir, UT, [peak(9, -111.5, 40.5)], { wrapped: true })
+  run(dirs, [CO, UT])
+  const m = JSON.parse(readFileSync(join(dirs.outDir, 'manifest.json')))
+  assert.deepEqual(m.regions.map((r) => r.id), ['colorado', 'utah'])
+  assert.ok(existsSync(join(dirs.outDir, 'utah/162_-446.json')))
+})
+
+test('with two artifacts, one not in its own folder fails', () => {
+  const dirs = setup()
+  artifact(dirs.artifactsDir, CO, [peak(1, -106.062, 39.603)], { wrapped: true })
+  artifact(dirs.artifactsDir, UT, [peak(9, -111.5, 40.5)])
+  assert.throws(() => run(dirs, [CO, UT]), /utah/)
+  assert.equal(existsSync(dirs.outDir), false)
+})
+
+test('a wrapper whose inner folder names another region fails', () => {
+  const dirs = setup()
+  artifact(dirs.artifactsDir, CO, [peak(1, -106.062, 39.603)], { wrapped: true })
+  const ut = artifact(join(dirs.artifactsDir, 'region-utah'), UT, [peak(9, -111.5, 40.5)])
+  mkdirSync(join(dirs.artifactsDir, 'region-utah', 'x'))
+  void ut
+  assert.throws(() => run(dirs, [CO, UT]), /utah/)
+})
+
+test('no artifact at all (every region failed) keeps the previous site', () => {
+  const dirs = setup()
+  const old = buildCells('colorado', [peak(1, -106.062, 39.603)])
+  previous(dirs.previousDir, [{ id: 'colorado', name: 'Colorado', bounds: CO.bounds, dataDate: '2026-10-21', cells: old.cells, split: [] }], [old.files])
+  run(dirs)
+  assert.equal(JSON.parse(readFileSync(join(dirs.outDir, 'manifest.json'))).regions[0].dataDate, '2026-10-21')
+})
+
+test('a missing artifacts folder counts as no artifact', () => {
+  const dirs = setup()
+  run({ ...dirs, artifactsDir: join(dirs.artifactsDir, 'none') })
+  assert.deepEqual(JSON.parse(readFileSync(join(dirs.outDir, 'manifest.json'))).regions, [])
+})
+
 test('an artifact for a region not on the list, or not named region-<id>, fails', () => {
   const dirs = setup()
-  artifact(dirs.artifactsDir, CO, [peak(1, -106.062, 39.603)])
-  artifact(dirs.artifactsDir, UT, [peak(9, -111.5, 40.5)])
+  artifact(dirs.artifactsDir, CO, [peak(1, -106.062, 39.603)], { wrapped: true })
+  artifact(dirs.artifactsDir, UT, [peak(9, -111.5, 40.5)], { wrapped: true })
   assert.throws(() => run(dirs, [CO]), /utah/)
   const dirs2 = setup()
   mkdirSync(join(dirs2.artifactsDir, 'something'))
