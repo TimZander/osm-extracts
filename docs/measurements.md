@@ -178,3 +178,50 @@ What the run confirms for Idaho:
   columns -457 to -445; row 168, columns -453 to -445); `167_-445` and `168_-445` are in all three.
 - **Time:** the run took about 4 min, set by Colorado's job (2 min 52 s); the deploy job 46 s (the
   push 14 s). The site holds 2,020 files.
+
+## Run 8: 2026-11-13, `workflow_dispatch` on `main` at `99c336e` (run 43442710844), British Columbia's first run (change british-columbia-region)
+
+**British Columbia is published, the first region outside the US.** All seven jobs succeeded.
+`data` = `d53aa5b` (replacing `750226d`), with 4,047 files. Geofabrik data of 2026-11-12 for all five
+regions; manifest order colorado, wyoming, utah, idaho, british-columbia (ADR 0033).
+
+| Measurement | British Columbia |
+|---|---|
+| Matching nodes | 12,842 |
+| Matching ways | 411,653 |
+| Total bytes | 238,328,669 (about 227 MiB) |
+| Largest cell before splitting | `196_-492` (Metro Vancouver), 14,331,712 |
+| Cells / split | 2,009 / 6 (`193_-494`, `196_-493`, `196_-492`, `196_-491`, `197_-493`, `197_-492`) |
+| Files | 2,027; largest `british-columbia/197_-493/394_-985.json`, 7,389,942 bytes |
+| Coverage cells | 3,467; 10 cells with files lie outside it |
+| Artifact, zipped | 49,638,787 |
+| Region job | 7 min 9 s, of which "Build the region" 6 min 46 s |
+
+| Region | Files | Largest file (bytes) | "Build the region" |
+|---|---|---|---|
+| colorado | 551 | `colorado/158_-420/316_-839.json`, 14,873,616 | 1 min 15 s |
+| wyoming | 521 | `wyoming/164_-420.json`, 2,784,578 | 36 s |
+| utah | 457 | `utah/162_-448/325_-896.json`, 7,558,476 | 1 min 1 s |
+| idaho | 487 | `idaho/174_-466/348_-931.json`, 5,489,292 | 27 s |
+| british-columbia | 2,027 | `british-columbia/197_-493/394_-985.json`, 7,389,942 | 6 min 46 s |
+
+What the run confirms for British Columbia:
+
+- **The bounds guard passed** with 49.01 / -130.00 / 59.99 / -120.01 (ADR 0032), as it did against
+  the polygon read through the agent's web-fetch tool before the change.
+- **Coverage:** 3,467 cells, as computed from that polygon before the change. It is more than the
+  land, about 2,050 cells, because Geofabrik's polygon has a wide ocean margin.
+- **Size:** well under the design's estimate (300–900 MB) and under Colorado's 254 MB, although the
+  PBF is 1.2 GB against Colorado's 370 MB. The output is about 0.25 KB per km², against 0.42–0.94
+  for the states: the north is sparse, and much of the PBF is data no category selects.
+- **The split threshold:** 6 of 2,009 cells split, all in Victoria and Metro Vancouver. The largest
+  file, a downtown Vancouver and North Shore quarter, is about 35 % of the 20 MiB guard. The threshold
+  stays (ADR 0017).
+- **Memory:** the step ran `node --max-old-space-size=12288` (ADR 0030). The job doesn't report peak
+  memory. By ADR 0030's 5.2 bytes of RSS per output byte, it was about 1.2 GB.
+- **Time:** the PBF download took 6 min 9 s of the build step (14:26:44 to 14:32:53); the `.md5`,
+  the `.poly`, osmium and the build took 37 s together. The run took about 8 min 15 s from start to
+  push, set by British Columbia's job. Plan 3 s, deploy 51 s (the push 20 s).
+- **The border with Idaho:** all 10 of Idaho's cells along 49° N (rows 195 and 196, columns -469 to
+  -465) are in both regions' coverage, and both regions have files in all 10. The app reads both and
+  dedupes by `_osmId`.
