@@ -15,11 +15,17 @@ const good = () => [
   },
 ]
 
-test('the repository\'s regions list holds only colorado, and is valid', () => {
+// Scenario "Colorado and Wyoming".
+test('the repository\'s regions list is colorado then wyoming, and is valid', () => {
   const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
   validateRegions(list)
-  assert.deepEqual(list.map((r) => r.id), ['colorado'])
-  assert.equal(planOutput(list), 'regions=["colorado"]')
+  assert.deepEqual(list.map((r) => r.id), ['colorado', 'wyoming'])
+  assert.equal(planOutput(list), 'regions=["colorado","wyoming"]')
+})
+
+// Scenario "Colorado alone".
+test('a list of colorado alone plans one region job', () => {
+  assert.equal(planOutput(good()), 'regions=["colorado"]')
 })
 
 test('region ids', () => {
@@ -46,6 +52,18 @@ test('a bad list fails naming the entry', () => {
     ['an unknown key', (l) => (l[0].url = 'x'), /colorado/],
   ]
   for (const [what, mutate, msg] of bad) {
+    const l = good()
+    mutate(l)
+    assert.throws(() => validateRegions(l), msg, what)
+  }
+  const second = (l) => {
+    l.push({ ...structuredClone(l[0]), id: 'wyoming', name: 'Wyoming', geofabrik: 'north-america/us/wyoming' })
+    return l[1]
+  }
+  for (const [what, mutate, msg] of [
+    ['a bad id on the second entry', (l) => (second(l).id = '../evil'), /\.\.\/evil/],
+    ['a geofabrik URL on the second entry', (l) => (second(l).geofabrik = 'https://evil.example/x'), /wyoming/],
+  ]) {
     const l = good()
     mutate(l)
     assert.throws(() => validateRegions(l), msg, what)
@@ -196,4 +214,15 @@ test('bounds clear of every ring: no failure', () => {
 test('Colorado\'s proposed bounds (design open question 1)', () => {
   const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
   assert.deepEqual(list[0].bounds, { south: 37.01, west: -109.04, north: 40.99, east: -102.06 })
+})
+
+test('Wyoming\'s entry and proposed bounds (design open question 1)', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
+  assert.deepEqual(list[1], {
+    id: 'wyoming',
+    name: 'Wyoming',
+    geofabrik: 'north-america/us/wyoming',
+    bounds: { south: 41.01, west: -111.04, north: 44.99, east: -104.06 },
+    clip: false,
+  })
 })
