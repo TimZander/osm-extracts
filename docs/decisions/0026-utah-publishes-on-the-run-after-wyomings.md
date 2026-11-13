@@ -1,5 +1,5 @@
 ---
-status: accepted
+status: superseded by 0027
 date: 2026-11-13
 decision-makers: the owner (the go-ahead of 2026-11-13 for a manual run publishing Wyoming; change utah-region, design open question 3)
 ---

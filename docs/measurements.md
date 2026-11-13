@@ -84,3 +84,62 @@ Open questions from this run, now answered:
    push that ended at 03:09:12Z). Cloudflare posts a check run, not a commit status. The exact build
    time is in the dashboard's build log, and isn't needed while it stays this far under the
    20-minute limit.
+
+## Run 4: 2026-11-13, `workflow_dispatch` on `main` at `5d4f05c` (run 43359776477)
+
+**Wyoming and `coverage` are published.** This was the first run with a second region and with
+coverage by cells (ADRs 0020–0021), started by hand on the owner's go-ahead (ADR 0026). All four
+jobs succeeded. `data` = `97efe8f` (replacing `9f569fb`), with 1,076 files. Geofabrik data of
+**2026-11-12**.
+
+| Region | Cells | Split | Coverage | Coverage rows / columns | Cells outside coverage |
+|---|---|---|---|---|---|
+| colorado | 518 | 11 | 522 | 147–164 / -437 to -409 | 2 |
+| wyoming | 521 | 0 | 519 | 163–180 / -445 to -416 | 5 |
+
+- **The borders, from the real polygons:** Geofabrik's outlines run a little past the state lines and
+  cross the cell lines. Colorado covers 29 cells of row 164 (north of 41° N), and Wyoming covers 30
+  cells of row 163. In all, 44 cells are in both regions' coverage, and no cell along the line is in
+  neither.
+- **Cells outside coverage** are trails the PBF keeps whole past the polygon (ADR 0021): they have
+  files but aren't covered.
+- **Timings:** plan 4 s, colorado 3 min 43 s (of which "Build the region" took 3 min 21 s), wyoming 50 s,
+  deploy 32 s (of which the push took 14 s).
+
+## Run 5: 2026-11-13, `workflow_dispatch` on `main` at `634384b` (run 43361499180)
+
+**Utah is published**, on the owner's "run anytime after a state is added" (ADR 0027). All five jobs
+succeeded. `data` = `97da03f`, with 1,533 files. Geofabrik data of **2026-11-12** for all three
+regions.
+
+| Measurement | colorado | wyoming | utah |
+|---|---|---|---|
+| Matching nodes | 6,251 | 4,942 | 4,790 |
+| Matching ways | 500,401 | 105,233 | 348,052 |
+| Total bytes | 254,119,156 | 106,197,116 | 200,332,870 |
+| Largest cell before splitting | `158_-420`, 32,065,034 | `164_-420`, 2,784,578 | `162_-448`, 22,292,327 |
+| Cells / split | 518 / 11 | 521 / 0 | 433 / 8 |
+| Files | 551 | 521 | 457 |
+| Coverage cells | 522 | 519 | 419 |
+| Artifact, zipped | 48,261,178 | 25,617,512 | 40,031,163 |
+| Region job | 1 min 55 s | 38 s | 2 min 27 s |
+
+What the run confirms for Utah (change utah-region):
+
+- **The bounds guard passed** with 37.01 / -114.03 / 40.99 / -109.06 (ADR 0024), though the polygon
+  was never read from the agent container.
+- **Coverage, 419 cells,** in rows 147–168 and columns -457 to -437. The design estimated 390–430.
+  Like Colorado's and Wyoming's, Utah's outline crosses the cell lines: 19 cells in row 147 and 9 in
+  row 168. Sixteen cells with files lie outside coverage.
+- **The borders:**
+  - With Colorado: 18 cells are in both regions' coverage, all of them column -437, rows 147–164.
+  - With Wyoming: 17 cells are in both.
+  - The app reads both regions for a shared cell and dedupes features by `_osmId`.
+- **The split threshold:** 8 of 433 cells split, around Salt Lake City and Provo (`160_-447`,
+  `161_-447`, `161_-448`, `162_-448`, `162_-449`, `163_-448`, `164_-448`), plus `148_-455` in the
+  south-west. The largest cell, `162_-448`, is 21.3 MiB before splitting. The largest file is one of
+  its quarters, `utah/162_-448/325_-896.json`, at 7,558,476 bytes (about 7.2 MiB), well under the
+  20 MiB guard. The threshold stays (ADR 0017).
+- **Time:** Utah's job is the longest of the three, mostly the PBF download (1 min 27 s). The run
+  took about 3 min 10 s from start to push, and the deploy job 34 s (the push 10 s). The site holds
+  1,533 files, far under 19,000.
