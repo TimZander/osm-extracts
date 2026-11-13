@@ -83,8 +83,8 @@ vertices. A cell with no feature SHALL not be written.
 `manifest.json` SHALL be a JSON object with `attribution` (`© OpenStreetMap contributors (ODbL)`),
 `categoriesFrom`, and `regions`: one object per published region, in regions-list order, with `id`,
 `name`, `bounds` (`south`, `west`, `north`, `east`, numbers), `dataDate` (`YYYY-MM-DD`), `cells` (the
-region's cell ids), `split` (the ids of its split cells, possibly empty) and `coverage` (absent
-only from a kept entry built before it). garmin-map's `osm-import` reads this format.
+region's cell ids), `split` (the ids of its split cells, possibly empty) and `coverage` (its
+covered cells' ids, each once; absent only from a kept entry). garmin-map's `osm-import` reads it.
 
 #### Scenario: A Colorado run
 
@@ -172,7 +172,35 @@ out of the manifest.
 #### Scenario: A kept entry and its coverage
 
 - **WHEN** `colorado`'s job fails, and last week's `colorado` entry has a `coverage`, or has none because it was built before `coverage` existed
-- **THEN** the new manifest's `colorado` entry has the same `coverage`, or none
+- **THEN** the new manifest's `colorado` entry has the same `coverage` ids, sorted, or none
+
+### Requirement: The previous site is read from the data branch
+
+The deploy job SHALL read the previous site from the `data` branch's tree; no `data` branch, or a tree
+with no `manifest.json`, counts as no previous regions. A failed read of the branch, a `manifest.json`
+not of the form garmin-map's `osm-import` accepts or with an entry whose `coverage` is present but not
+an array of cell ids, a listed file the tree doesn't hold, or a symbolic link anywhere in the tree
+SHALL fail the deploy job without pushing.
+
+#### Scenario: The placeholder branch
+
+- **WHEN** `data` holds only `index.html` and `404.html`
+- **THEN** the run publishes as if there were no previous regions
+
+#### Scenario: A broken previous manifest
+
+- **WHEN** the previous `manifest.json` is not valid JSON
+- **THEN** the deploy job fails saying so, and `data` is not pushed
+
+#### Scenario: A symbolic link in the previous tree
+
+- **WHEN** the previous `data` tree holds `colorado` as a symbolic link
+- **THEN** the deploy job fails naming it, and `data` is not pushed
+
+#### Scenario: A broken previous coverage
+
+- **WHEN** the previous manifest's `colorado` entry has `coverage` `"all"`, or a `coverage` holding `../x`
+- **THEN** the deploy job fails saying so, and `data` is not pushed
 
 ### Requirement: Each region job reports its size
 

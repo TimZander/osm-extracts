@@ -26,7 +26,7 @@ on views where they have no data, and not carry over to CA, NV, OR, WA and MT.
 - **Region job report:** also gives the coverage cell count.
 - **Files:** no new files are written; an empty covered cell has no file, as today.
 - **ADRs:** 0020 (coverage by cells, the owner's decision; supersedes 0013) and 0021 (how coverage is
-  expressed and computed, design open questions 1–4).
+  expressed and computed, design open questions 1–5).
 
 ## Capabilities
 
@@ -38,11 +38,15 @@ None.
 
 - `osm-extract`:
   - added "Each region lists the cells it covers" and "A clipped region covers its bounds' cells";
-  - modified "Features are filed into 0.25° cells" (its empty-cell scenario now names `cells` and
-    `split`, since `coverage` lists empty cells), "The manifest describes every region" (`coverage` in the entry), "The output is
-    byte-stable" (`coverage` sorted, also when an artifact lists it out of order), "The deploy job accepts only well-formed region trees" (an
-    artifact without `coverage`), "A failed region keeps its previous files" (a kept entry keeps its
-    `coverage`, or its lack of one) and "Each region job reports its size" (the coverage count).
+  - modified:
+    - "Features are filed into 0.25° cells": its empty-cell scenario names `cells` and `split`, since
+      `coverage` lists empty cells;
+    - "The manifest describes every region": `coverage` in the entry;
+    - "The output is byte-stable": `coverage` sorted, also when an artifact lists it out of order;
+    - "The deploy job accepts only well-formed region trees": an artifact without `coverage` fails;
+    - "A failed region keeps its previous files": a kept entry keeps its `coverage`, or its lack of one;
+    - "The previous site is read from the data branch": a kept `coverage` must be cell ids;
+    - "Each region job reports its size": the coverage count.
 
 ## Impact
 

@@ -9,6 +9,7 @@
       "The output is byte-stable": "5452f07f8df3862d4c96b4b7da38606cb00c87675b7fb4ed823ea86f6036e6d8",
       "The deploy job accepts only well-formed region trees": "ea0a0ea8c55d70ef880fc615ba3165f488f630326c9dd302cd2415553fc2ddb8",
       "A failed region keeps its previous files": "e994e0f755d8c3a849fffc1cb714b22ee09d72758a60ac60b4c701595b4be13c",
+      "The previous site is read from the data branch": "dcb84e367f1d4b098ea4b405d0219415a0e2eb4ad753e2ff8804bfa9f8869368",
       "Each region job reports its size": "d16e7916d12db1471aede341df0046849a8993e490e77c44fba32cd16c6230f3"
     }
   }

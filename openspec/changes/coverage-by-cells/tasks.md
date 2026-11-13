@@ -2,20 +2,20 @@
 
 ## 1. Cells a polygon covers
 
-- [ ] 1.1 Tests first, citing "Each region lists the cells it covers" and "A clipped region covers its bounds' cells": the rectangle on cell lines (144 cells), a sliver, an edge-only and a corner-only contact, a hole holding a whole cell, a clipped rectangle, sorted output. Seen to fail, then the function in `src/poly.mjs`; verify `npm test`
+- [ ] 1.1 Tests first, citing "Each region lists the cells it covers", "A clipped region covers its bounds' cells" and "The output is byte-stable": the rectangle on cell lines (144 cells), a sliver, an edge-only and a corner-only contact, a hole holding a whole cell, a rectangle, sorted output with each id once. Seen to fail, then the function in `src/poly.mjs`; verify `npm test`
 
 ## 2. The region job
 
-- [ ] 2.1 Tests first, citing "Each region lists the cells it covers", "Features are filed into 0.25° cells" and "Each region job reports its size": the built entry's `coverage` from a polygon the test writes (not `sample.poly`, which other tests depend on), smaller than the data in `sample.osm` so a trail's cell with a file lies outside it, and with an empty covered cell; the summary shows the coverage count. Seen to fail, then `src/build-region.mjs`; verify `npm test`
+- [ ] 2.1 Tests first, citing "Each region lists the cells it covers", "A clipped region covers its bounds' cells", "The manifest describes every region", "Features are filed into 0.25° cells" and "Each region job reports its size": a clipped region's entry has its `bounds`' cells, not its polygon's; the built entry's `coverage` from a polygon the test writes (not `sample.poly`, which other tests depend on), smaller than the data in `sample.osm` so a trail's cell with a file lies outside it, and with an empty covered cell; the summary shows the coverage count. Seen to fail, then `src/build-region.mjs`; verify `npm test`
 
 ## 3. The deploy job
 
-- [ ] 3.1 Tests first, citing "The deploy job accepts only well-formed region trees" and "A failed region keeps its previous files": an artifact with no `coverage`, with a bad id, with a duplicate fails naming the region; an artifact's `coverage` out of order is written sorted; a kept entry keeps its `coverage`, or its lack of one, and a kept `coverage` that isn't an array of cell ids fails the deploy job. Seen to fail, then `src/assemble-site.mjs`; verify `npm test`
+- [ ] 3.1 Tests first, citing "The deploy job accepts only well-formed region trees", "A failed region keeps its previous files", "The previous site is read from the data branch", "The manifest describes every region" and "The output is byte-stable": the written manifest's entries carry `coverage`; an artifact with no `coverage`, with a bad id, with a duplicate fails naming the region; an artifact's `coverage` out of order is written sorted; a kept entry keeps its `coverage`, or its lack of one, and a kept `coverage` that isn't an array of cell ids fails the deploy job. Seen to fail, then `src/assemble-site.mjs`; verify `npm test`
 
 ## 4. Review and decisions
 
 - [ ] 4.1 `/sdd:conformance-review coverage-by-cells`, findings routed with `/sdd:spec-fix`
-- [ ] 4.2 ADR 0020 (coverage by cells, the owner's decision; ADR 0013 marked superseded) and ADR 0021 (design open questions 1–4, once the owner answers), with the index updated
+- [ ] 4.2 ADR 0020 (coverage by cells, the owner's decision; ADR 0013 marked superseded) and ADR 0021 (design open questions 1–5, once the owner answers), with the index updated
 - [ ] 4.3 Scan the diff for private material (this repository is public; only shape facts about garmin-map)
 
 ## Workflow follow-up

@@ -72,15 +72,15 @@ any other region (their own changes); changing the cell grid or the files writte
    KB compressed (Pages compresses JSON). A future 48-state extract (about 14,000 cells) would add
    about 270 KB uncompressed; if that is too much for the five-minute manifest cache on a phone,
    decision 1's option (c) is the change to make then.
-6. **A clipped region's coverage is its `bounds`' cells** by the same area rule: its data is cut to
-   the rectangle, and the guard already keeps the rectangle inside the polygon. No region is clipped
-   today.
+6. **A clipped region's coverage is its `bounds`' cells** by the same area rule (open question 5):
+   its data is cut to the rectangle, and the guard already keeps the rectangle inside the polygon, so
+   the polygon's cells would claim data the region can't hold. No region is clipped today.
 7. **Kept entries keep their form.** A failed region's previous entry is carried as it was. On the
    first run after merge, a region whose job fails is published without `coverage`; the next
    successful build adds it. The deploy job requires `coverage` only of this run's artifacts. A kept
-   `coverage` is checked as the previous manifest is ("The previous site is read from the data
-   branch"): when present it must be an array of cell ids, or the previous manifest is not of the
-   manifest's form and the deploy job fails; it is then written sorted, like `cells`. An artifact's
+   `coverage`, when present, must be an array of cell ids, or the deploy job fails ("The previous
+   site is read from the data branch", modified here, since that is the only check on the previous
+   manifest); it is then written sorted, like `cells`. An artifact's
    `coverage` out of order is sorted too, as `cells` is today; a duplicate or bad id fails it.
 8. **The region job reports its coverage cell count**, beside the cell count, so a run's summary shows
    how many covered cells have no file.
@@ -110,6 +110,8 @@ an app reading `coverage` falls back to `bounds`.
    doesn't cover a cell.
 4. **Cells with files outside coverage** (decision 4). *Assumption:* they stay in `cells`, not in
    `coverage`.
+5. **A clipped region** (decision 6). The owner's rule names the state polygon; a clipped region's
+   data is cut to its `bounds`. *Assumption:* its coverage is its `bounds`' cells, not its polygon's.
 
 The owner's answers become ADR 0021 (or ADRs, if split). ADR 0020 records the owner's decision of
 2026-11-13 itself and supersedes ADR 0013.
