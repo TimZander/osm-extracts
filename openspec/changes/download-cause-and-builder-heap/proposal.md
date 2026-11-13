@@ -15,8 +15,9 @@ Two small fixes the owner asked for on 2026-11-13 ("do the small fix before BC")
 
 ## What Changes
 
-- **`src/build-region.mjs`:** when the request fails before any response, the error names the URL
-  and the underlying error's code and message (from `e.cause`, when it has one).
+- **`src/build-region.mjs`:** every failed download's error names its URL, a body cut off
+  mid-stream included; when the request fails before any response, it also gives the underlying
+  error's code and message (from `e.cause`, when it has one).
 - **`.github/workflows/extract.yml`:** the region job's build step runs
   `node --max-old-space-size=12288 src/build-region.mjs …`. Nothing else in the workflow changes.
 - **Spec (`osm-extract`):** "A failed or corrupt download publishes nothing new for the region" says

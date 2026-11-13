@@ -2,7 +2,7 @@
 
 ## 1. A failed download names its cause
 
-- [ ] 1.1 Test first, citing "A failed or corrupt download publishes nothing new for the region", scenario "A request that fails before any response": a fake fetch rejecting with `TypeError('fetch failed', { cause })`, the cause having code `ECONNRESET` and message `read ECONNRESET`, makes `download()` reject naming the URL, `ECONNRESET` and `read ECONNRESET`; and `buildRegion` fails with nothing written. Seen to fail, then `src/build-region.mjs`; verify `npm test`
+- [ ] 1.1 Test first, citing "A failed or corrupt download publishes nothing new for the region", scenario "A request that fails before any response": a fake fetch rejecting with `TypeError('fetch failed', { cause })`, the cause having code `ECONNRESET` and message `read ECONNRESET`, makes `download()` reject naming the URL, `ECONNRESET` and `read ECONNRESET`; a cause with no code gives its message alone; a response whose body fails mid-stream makes `download()` reject naming the URL; and `buildRegion` fails with nothing written. Seen to fail, then `src/build-region.mjs`; verify `npm test`
 
 ## 2. The builder's heap
 

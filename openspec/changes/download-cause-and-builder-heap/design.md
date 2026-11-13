@@ -12,7 +12,8 @@ Node's default old-space limit on it is far below that, about 2–4 GB depending
 
 ## Decisions
 
-1. **The error carries `cause`'s code and message**, as
+1. **Every failed download names its URL** (before a response, on an HTTP status, or cut off while the
+   body streams), and **a failure before a response carries `cause`'s code and message**, as
    `download of <url> failed: fetch failed (cause: <code>: <message>)`; with no `cause`, the old text;
    with a `cause` that has no `code`, its message alone. A nested cause (an `AggregateError` from
    happy-eyeballs) is reported through its own message only: one level is enough to tell a reset from a
@@ -33,6 +34,12 @@ Node's default old-space limit on it is far below that, about 2–4 GB depending
   it) get less room if the builder's heap grows to its limit; 12 GiB of 16 GB leaves about 4 GB.
 - **[Risk] Text in the error from the network** → the cause's message comes from Node's own errors,
   not from the server; it is written to the job log only, which is already public.
+
+## Spec review
+
+One round: no blocker. Fixed: the URL rule names "a failed download", so the MD5 mismatch is unchanged
+(D1); a body cut off mid-stream names its URL too, with a scenario and a test (F1); a cause with no
+code gives its message alone, in the spec (D2).
 
 ## Open Questions
 
