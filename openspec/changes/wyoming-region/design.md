@@ -35,7 +35,7 @@ Colorado (the colorado-bounds-and-empty-push design).
   0.016° along the west line, and 0.008° along the east. A search touching one gets "no data".
 - **[Risk] Size:** Wyoming has far fewer trails than Colorado (whose largest file is 14.2 MiB), so no
   file is expected near the 20 MiB guard, and the site stays far under 19,000 files (Colorado: 551
-  region files; Wyoming's bounds span about 16 × 28 cells).
+  region files; Wyoming's bounds span 16 rows × 29 columns of cells, 164 to 179 by -445 to -417).
 
 ## Open Questions
 
@@ -45,9 +45,9 @@ Colorado (the colorado-bounds-and-empty-push design).
    read: it trades those strips for bounds that pass the guard without reading it. The options:
    - (a) inset like Colorado: 41.01 / -111.04 / 44.99 / -104.06. Known to lie inside the state; the
      2.2 km gap stays.
-   - (b) south on the line, 41.0 (the rest as (a)). Halves the gap to Colorado's 0.01°. It passes only
-     if Geofabrik's polygon reaches past 41.0 all along the line (the line dips to about 40.995 in
-     places, and a point on a ring counts as outside).
+   - (b) south on the line, 41.0 (the rest as (a)). Halves the gap to Colorado's 0.01°. Where the
+     line runs up to about 41.002, 41.0 lies about 0.002° outside the state, so it passes only if
+     Geofabrik's margin is at least that all along the line (a point on a ring counts as outside).
    - (c) south at 40.99, meeting Colorado's north: no gap, but it reaches about 0.01° into Colorado,
      so it depends on Geofabrik's margin being at least that.
    - (d) read `wyoming.poly` (and `colorado.poly`) from a machine that can reach Geofabrik, and set
@@ -61,4 +61,5 @@ Colorado (the colorado-bounds-and-empty-push design).
    "covers" is judged by Wyoming's `bounds`, an inset Wyoming leaves strips at 41.0–41.01 and
    -111.05 to -111.04 that Wyoming doesn't cover, so the Utah change must either judge coverage by
    Wyoming's polygon or move Wyoming's south and west edges. *Assumption:* nothing in this change
-   decides it; the Utah change does.
+   decides it; the Utah change does, and records the owner's overlap choice as an ADR with its change
+   to "A region's bounds lie inside its Geofabrik polygon".
