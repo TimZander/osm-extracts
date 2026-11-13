@@ -72,6 +72,25 @@ test('a request that fails before any response names the URL and its cause', asy
   assert.equal(existsSync(out), false)
 })
 
+// Attack test (change download-cause-and-builder-heap): a cause can't start a workflow command on a
+// new log line, and a cause that throws when read still leaves the URL in the error.
+test('a hostile cause stays on one line and keeps the URL', async () => {
+  const dir = tmp()
+  const hostile = async () => {
+    throw new TypeError('fetch failed', { cause: { code: 'E\n::warning::y', message: 'x\r\n::add-mask::z' } })
+  }
+  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'h'), hostile), (e) => {
+    assert.doesNotMatch(e.message, /[\r\n]/)
+    assert.match(e.message, /x\.pbf/)
+    return true
+  })
+  const throwing = async () => {
+    const cause = Object.defineProperty({}, 'message', { get() { throw new Error('boom') } })
+    throw new TypeError('fetch failed', { cause })
+  }
+  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 't'), throwing), /x\.pbf.*fetch failed/)
+})
+
 // Scenario "A download cut off mid-stream".
 test('a download cut off mid-stream names the URL and its cause, and writes nothing', async () => {
   const cutBody = () =>

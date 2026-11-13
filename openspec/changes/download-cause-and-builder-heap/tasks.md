@@ -11,9 +11,9 @@
 ## 3. Review
 
 - [x] 3.1 `/sdd:conformance-review download-cause-and-builder-heap`, findings routed with `/sdd:spec-fix` (conforms with gaps: C1 test, S1 via the spec)
-- [ ] 3.2 `/security-review` on the diff (the workflow is high-risk)
-- [ ] 3.3 Attack test: the inputs an attacker could use against the changed lines (a crafted cause in the error, the region id reaching the command line), each checked to be refused or harmless
-- [ ] 3.4 Scan the diff for private material (public repository)
+- [x] 3.2 `/security-review` on the diff (the workflow is high-risk): no finding at confidence 8 or above
+- [x] 3.3 Attack test: the inputs an attacker could use against the changed lines (a crafted cause in the error, the region id reaching the command line), each checked to be refused or harmless: hostile region ids refused; a newline in a cause and a cause that throws, both fixed with a test (design, "Security review and attack test")
+- [x] 3.4 Scan the diff for private material (public repository): none
 
 ## 4. Decisions
 

@@ -50,10 +50,17 @@ export async function download(url, dest, fetchImpl = fetch) {
 }
 
 // The underlying error Node's fetch keeps in `cause`, as " (cause: CODE: message)", or "" with none.
+// Kept on one line (no control characters), so it can't start a workflow command in the job log, and
+// a cause that can't be read leaves the rest of the error intact.
 function causeText(cause) {
   if (!cause) return ''
-  const message = cause.message ?? String(cause)
-  return ` (cause: ${cause.code ? `${cause.code}: ` : ''}${message})`
+  try {
+    const message = cause.message ?? String(cause)
+    const text = `${cause.code ? `${cause.code}: ` : ''}${message}`.replace(/[\u0000-\u001f\u007f]+/g, ' ')
+    return ` (cause: ${text})`
+  } catch {
+    return ' (cause: unreadable)'
+  }
 }
 
 export function checkMd5(file, md5Text) {
