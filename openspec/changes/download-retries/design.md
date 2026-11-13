@@ -29,25 +29,22 @@ second into its PBF download, an hour after the same download had worked.
      exception to ADR 0027's 'run right after merge')".
 2. **The waits are exactly 30 000 ms and 120 000 ms.** The owner said "about", and fixed values keep
    the tests exact. No jitter: one job downloads one file at a time, so there is no herd to spread.
-3. **A failure is network-level when:**
+3. **A failure is network-level when** (the owner's answer to open question 4, 2026-11-13):
    - it answered HTTP 5xx or 429;
    - or it failed, before a response or while the body streamed, with one of these `cause` codes:
      - refused or reset: `ECONNREFUSED`, `ECONNRESET`, `EPIPE`, `UND_ERR_SOCKET`;
      - timeouts: `ETIMEDOUT`, `UND_ERR_CONNECT_TIMEOUT`, `UND_ERR_HEADERS_TIMEOUT`,
-       `UND_ERR_BODY_TIMEOUT`.
-
-   That is the owner's two classes and nothing more. An unreachable network (`ENETUNREACH`,
-   `EHOSTUNREACH`) and a DNS lookup that failed for now (`EAI_AGAIN`) are neither, so they are not
-   retried; open question 4 asks whether they should be. The list is the requirement "Network-level
-   download failures".
+       `UND_ERR_BODY_TIMEOUT`;
+     - unreachable network: `ENETUNREACH`, `EHOSTUNREACH`;
+     - a DNS lookup that failed for now: `EAI_AGAIN`.
 
    Every other failure ends the download:
-   - a cause with no code, or another code, such as `ENOTFOUND`, `EAI_AGAIN`, `ENETUNREACH` or a TLS
-     code like `CERT_HAS_EXPIRED`;
+   - a cause with no code, or another code, such as `ENOTFOUND` (a name that doesn't exist) or a
+     TLS code like `CERT_HAS_EXPIRED`;
    - another HTTP status;
    - an error writing the file.
 
-   This is open question 4's assumption.
+   The list is the requirement "Network-level download failures".
 4. **A retry starts the file again.** The next attempt makes a fresh request, and its write stream
    truncates the partial file. There are no range requests: the `.md5` check would catch a bad
    splice, but the gain is small for files of minutes.
@@ -85,30 +82,19 @@ second into its PBF download, an hour after the same download had worked.
 
 ## Open Questions
 
-Each was sent to the orchestrator for the owner on 2026-11-13. The change proceeds on the stated
-assumption.
+None open. The five sent to the owner on 2026-11-13 were answered the same day, relayed by the
+orchestrator: "The owner accepts all five of your recommendations". They are decided requirements
+now, recorded in ADR 0037.
 
-1. **Timeout length.**
-   - *Assumption:* no timeout of our own. Undici's 300 s with no headers, or 300 s of a silent
-     body, is the timeout that is retried.
-   - *Alternative:* a shorter timeout of our own, e.g. 60 s with no data.
-2. **Retry-After.**
-   - *Assumption:* not honoured; the waits are always 30 s and 2 min.
-   - *Why:* honouring it would let the server set the job's wait, and Geofabrik isn't known to send
-     it.
-3. **A reset or timeout mid-body.**
-   - *Assumption:* retried, from the start of the file, as a reset connection.
-   - *Unaffected:* an MD5 mismatch on a complete download is the "corrupt or short file" the owner
-     excluded, and is not retried.
-4. **Which no-response failures count as network-level.**
-   - *Assumption:* decision 3's code list, only refused, reset and timed-out connections, as the
-     owner named them.
-   - *Not on it, so failing at once:*
-     - `ENOTFOUND` (a name that doesn't exist) and TLS errors;
-     - an unreachable network (`ENETUNREACH`, `EHOSTUNREACH`) and a DNS lookup that failed for now
-       (`EAI_AGAIN`). These are transient too; adding them would be a small follow-up change.
-5. **What gets the 3 attempts.**
-   - *Assumption:* each file separately (decision 5).
+1. **Timeout length:** no timeout of our own. Undici's 300 s with no headers, or 300 s of a silent
+   body, is the timeout that is retried (decision 8).
+2. **Retry-After:** not honoured; the waits are always 30 s and 2 min (decision 2).
+3. **A reset or timeout mid-body:** retried from the start of the file. An MD5 mismatch on a
+   complete download is not retried (decision 4).
+4. **Which failures are network-level:** the code list as recommended, including the unreachable
+   network and `EAI_AGAIN`. Everything else fails at once, including `ENOTFOUND` and TLS errors
+   (decision 3).
+5. **Attempts:** 3 per file, the PBF, `.md5` and polygon each (decision 5).
 
 ## Spec review
 
@@ -144,3 +130,11 @@ Verdict: conforms with gaps. There were 3 soft fails and no hard fail; all three
 - **S1:** an e2e test in `test/build-region-e2e.test.mjs` builds the region with real osmium after
   each file fails once: the PBF's body times out, the `.md5` is refused, the polygon answers 429.
   It runs where osmium is installed: here, 178 pass, 0 fail, 0 skipped.
+
+## After the owner's answers
+
+- **Where the PR stood:** it had been opened on the round-1 code list, which had dropped
+  `ENETUNREACH`, `EHOSTUNREACH` and `EAI_AGAIN`, the codes not named in the owner's first words.
+- **The answer:** the owner then accepted the list as recommended, those three codes included.
+- **What changed:** the requirement "Network-level download failures" lists them, with a scenario
+  for `EAI_AGAIN`, and the tests and code follow, through the spec first.

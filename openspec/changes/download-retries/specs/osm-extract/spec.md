@@ -45,16 +45,20 @@ its own attempts.
 
 ### Requirement: Network-level download failures
 
-A download attempt SHALL count as failing at the network level when its answer is HTTP 5xx or 429, or
-when its request or its body fails with an underlying error whose code is `ECONNREFUSED`,
-`ECONNRESET`, `EPIPE` or `UND_ERR_SOCKET` (a refused or reset connection), or `ETIMEDOUT`,
-`UND_ERR_CONNECT_TIMEOUT`, `UND_ERR_HEADERS_TIMEOUT` or `UND_ERR_BODY_TIMEOUT` (a timeout). No other
-failure SHALL count.
+An attempt SHALL fail at the network level when it answers HTTP 5xx or 429, or when its request or
+body fails with an underlying error whose code is one of `ECONNREFUSED`, `ECONNRESET`, `EPIPE`,
+`UND_ERR_SOCKET`, `ETIMEDOUT`, `UND_ERR_CONNECT_TIMEOUT`, `UND_ERR_HEADERS_TIMEOUT`,
+`UND_ERR_BODY_TIMEOUT`, `ENETUNREACH`, `EHOSTUNREACH` and `EAI_AGAIN`. No other failure SHALL count.
 
 #### Scenario: A body that stops sending
 
 - **WHEN** the PBF's first response body fails with an underlying error of code `UND_ERR_BODY_TIMEOUT`, and its second arrives whole
 - **THEN** the region builds from the second download
+
+#### Scenario: A DNS lookup that failed for now
+
+- **WHEN** the PBF's first request fails with no response, with an underlying error of code `EAI_AGAIN`, and its second succeeds
+- **THEN** the region builds from the second download, after a wait of 30 seconds
 
 #### Scenario: An unknown host
 

@@ -16,6 +16,8 @@ for this change.
   - Retried: a refused or reset connection, a timeout, and an HTTP 5xx or 429 answer, with the error
     codes listed in a new requirement. A connection reset or timeout while the body streams is
     retried too, from the start of the file.
+  - Also retried: an unreachable network and a DNS lookup that failed for now (`EAI_AGAIN`), the
+    owner's answer to open question 4.
   - Not retried: a 404 or any other 4xx, any other error before a response (a TLS error, an unknown
     host), and a corrupt download (an MD5 mismatch). These fail at once, as today.
 - **Each failed attempt is logged** on one line, with its URL, its attempt number out of 3, its cause
