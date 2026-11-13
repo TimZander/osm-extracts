@@ -35,3 +35,5 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0027](0027-a-region-may-run-by-hand-once-added.md) | A region's first extract run may be started by hand as soon as it merges | accepted |
 | [0028](0028-idaho-bounds-the-southern-block.md) | Idaho's bounds are the southern block | accepted |
 | [0029](0029-idaho-fourth-in-the-regions-list.md) | Idaho goes fourth in the regions list, after Utah | accepted |
+| [0030](0030-region-builder-12-gib-heap.md) | The region builder runs with a 12 GiB heap | accepted |
+| [0031](0031-a-failed-download-names-its-cause.md) | A failed download names its URL and its underlying cause | accepted |

@@ -10,14 +10,14 @@
 
 ## 3. Review
 
-- [ ] 3.1 `/sdd:conformance-review download-cause-and-builder-heap`, findings routed with `/sdd:spec-fix`
+- [x] 3.1 `/sdd:conformance-review download-cause-and-builder-heap`, findings routed with `/sdd:spec-fix` (conforms with gaps: C1 test, S1 via the spec)
 - [ ] 3.2 `/security-review` on the diff (the workflow is high-risk)
 - [ ] 3.3 Attack test: the inputs an attacker could use against the changed lines (a crafted cause in the error, the region id reaching the command line), each checked to be refused or harmless
 - [ ] 3.4 Scan the diff for private material (public repository)
 
 ## 4. Decisions
 
-- [ ] 4.1 ADRs 0030 (the 12 GiB heap, the owner's answer) and 0031 (a failed download names its cause), with the index updated
+- [x] 4.1 ADRs 0030 (the 12 GiB heap, the owner's answer) and 0031 (a failed download names its cause), with the index updated
 
 ## Workflow follow-up
 
