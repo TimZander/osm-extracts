@@ -41,6 +41,13 @@ One round: no blocker. Fixed: the URL rule names "a failed download", so the MD5
 (D1); a body cut off mid-stream names its URL too, with a scenario and a test (F1); a cause with no
 code gives its message alone, in the spec (D2).
 
+## Conformance review
+
+Verdict: conforms with gaps. C1 (the mid-stream test checked only the message): the test now runs
+`buildRegion` with a polygon body that fails and checks nothing is written. S1 (a body failure dropped
+`cause`): routed through the spec, which now asks for the cause on a body failure too, since Node's
+fetch reports a mid-stream reset as `terminated` with the socket error in `cause`.
+
 ## Open Questions
 
 None. Both fixes are the owner's (2026-11-13); the heap value is the BC lane's measured option (a).

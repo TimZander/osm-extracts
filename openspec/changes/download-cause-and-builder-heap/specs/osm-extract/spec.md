@@ -17,8 +17,8 @@ build on the runner's 16 GB.
 
 A region's job SHALL fail, and nothing of that region SHALL change, when the download of its PBF, its
 `.md5` or its polygon fails, or the PBF's MD5 differs from the `.md5`. A failed download's error SHALL
-name its URL; when the request fails before any response, also the underlying error's message, after
-its code when it has one.
+name its URL and, when the failure has an underlying error (before any response or while the body
+streams), that error's message, after its code when it has one.
 
 #### Scenario: The checksum can't be fetched
 
@@ -37,5 +37,5 @@ its code when it has one.
 
 #### Scenario: A download cut off mid-stream
 
-- **WHEN** the polygon's response starts and its body fails before the end
-- **THEN** the region's job fails with an error naming the polygon's URL, and nothing of that region changes
+- **WHEN** the polygon's response starts, and its body fails before the end with an underlying error of code `ECONNRESET` and message `read ECONNRESET`
+- **THEN** the region's job fails with an error naming the polygon's URL, `ECONNRESET` and `read ECONNRESET`, and nothing of that region changes
