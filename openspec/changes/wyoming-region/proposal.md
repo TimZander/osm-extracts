@@ -15,7 +15,7 @@ is close to a rectangle, so it doesn't wait on ADR 0013. Utah follows in a later
   (about 2.2 km) wide on the Colorado line in neither region's bounds. The bounds are open question 1
   in the design, and become an ADR only once the owner answers.
 - **Spec:** "The regions list" gets a scenario for the two-region list.
-- **ADR:** none yet. The bounds ADR waits for the owner's answer.
+- **ADRs:** 0018 (Wyoming's bounds, the owner accepting the assumption) and 0019 (merge only after garmin-map's multi-region search).
 
 ## Capabilities
 
