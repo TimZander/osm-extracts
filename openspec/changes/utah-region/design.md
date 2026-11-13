@@ -106,8 +106,21 @@ To be measured on the first run with Utah, into `docs/measurements.md`.
    jobs are independent, so a failing Utah job costs only Utah, and its summary shows its own
    numbers apart from the others'. The merge waits for the owner's "merge" either way.
 
+   (a) departs from ADR 0006's "each deploy's new upload stays at about one region": that run would
+   upload Wyoming and Utah as new regions together, against the 20-minute Pages limit (ADR 0004).
+   The evidence that it fits: Colorado's whole first upload, about 242 MiB, was live about 35 s
+   after the push (run 2, `docs/measurements.md`), and Wyoming and Utah are each expected to be
+   smaller, so two new regions should take minutes at most. If the owner prefers to keep ADR
+   0006's pace, (b) does it at the cost of a week.
+
 ## Spec review
 
 One round: no blocker. Fixed: task 2.2 tied to "Each region lists the cells it covers" (E1); the
 proposal says "unclipped" (F1), names all three ADR topics (D1) and lists `test/coverage.test.mjs`
 (E2); Park City's cell is `162_-446` (A1).
+
+## Conformance review
+
+Verdict: conforms with gaps. S1 (open question 3 didn't weigh ADR 0006's one-region-per-deploy
+pace): added to open question 3. S2 (the border test compared only `_osmId`): the test now compares
+each published file with the bytes its artifact built.
