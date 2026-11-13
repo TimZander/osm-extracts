@@ -47,6 +47,74 @@ test('a failed download throws, naming the URL and status', async () => {
   await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'y'), failing), /x\.pbf/)
 })
 
+// Scenario "A request that fails before any response".
+test('a request that fails before any response names the URL and its cause', async () => {
+  const dir = tmp()
+  const reset = async () => {
+    const cause = Object.assign(new Error('read ECONNRESET'), { code: 'ECONNRESET' })
+    throw new TypeError('fetch failed', { cause })
+  }
+  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'a'), reset), (e) => {
+    assert.match(e.message, /https:\/\/download\.geofabrik\.de\/x\.pbf/)
+    assert.match(e.message, /ECONNRESET: read ECONNRESET/)
+    return true
+  })
+  const noCode = async () => {
+    throw new TypeError('fetch failed', { cause: new Error('getaddrinfo failed') })
+  }
+  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'b'), noCode), (e) => {
+    assert.match(e.message, /x\.pbf.*getaddrinfo failed/)
+    assert.doesNotMatch(e.message, /undefined/)
+    return true
+  })
+  const out = join(tmp(), 'out')
+  await assert.rejects(buildRegion({ id: 'colorado', out, fetchImpl: reset }), /colorado-latest\.osm\.pbf.*ECONNRESET: read ECONNRESET/)
+  assert.equal(existsSync(out), false)
+})
+
+// Attack test (change download-cause-and-builder-heap): a cause can't start a workflow command on a
+// new log line, and a cause that throws when read still leaves the URL in the error.
+test('a hostile cause stays on one line and keeps the URL', async () => {
+  const dir = tmp()
+  const hostile = async () => {
+    throw new TypeError('fetch failed', { cause: { code: 'E\n::warning::y', message: 'x\r\n::add-mask::z' } })
+  }
+  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'h'), hostile), (e) => {
+    assert.doesNotMatch(e.message, /[\r\n]/)
+    assert.match(e.message, /x\.pbf/)
+    return true
+  })
+  const throwing = async () => {
+    const cause = Object.defineProperty({}, 'message', { get() { throw new Error('boom') } })
+    throw new TypeError('fetch failed', { cause })
+  }
+  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 't'), throwing), /x\.pbf.*fetch failed/)
+})
+
+// Scenario "A download cut off mid-stream".
+test('a download cut off mid-stream names the URL and its cause, and writes nothing', async () => {
+  const cutBody = () =>
+    new ReadableStream({
+      start(c) {
+        c.enqueue(new Uint8Array([1, 2]))
+        const cause = Object.assign(new Error('read ECONNRESET'), { code: 'ECONNRESET' })
+        c.error(new TypeError('terminated', { cause }))
+      },
+    })
+  const dir = tmp()
+  await assert.rejects(
+    download('https://download.geofabrik.de/x.poly', join(dir, 'c'), async () => new Response(cutBody())),
+    /x\.poly.*terminated.*ECONNRESET: read ECONNRESET/,
+  )
+  const pbf = new Uint8Array([1, 2, 3])
+  const md5 = createHash('md5').update(pbf).digest('hex')
+  const fake = async (url) =>
+    url.endsWith('.poly') ? new Response(cutBody()) : new Response(url.endsWith('.md5') ? `${md5}  colorado-latest.osm.pbf\n` : pbf)
+  const out = join(tmp(), 'out')
+  await assert.rejects(buildRegion({ id: 'colorado', out, fetchImpl: fake }), /colorado\.poly.*ECONNRESET: read ECONNRESET/)
+  assert.equal(existsSync(out), false)
+})
+
 test('a region whose .md5 answers 404 fails and writes nothing', async () => {
   const out = join(tmp(), 'out')
   const pbf = new Uint8Array([1, 2, 3])

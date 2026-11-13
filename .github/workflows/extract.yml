@@ -63,7 +63,7 @@ jobs:
       - name: Build the region
         env:
           REGION: ${{ matrix.region }}
-        run: node src/build-region.mjs "$REGION" --out "$RUNNER_TEMP/out/region-$REGION"
+        run: node --max-old-space-size=12288 src/build-region.mjs "$REGION" --out "$RUNNER_TEMP/out/region-$REGION"
       # Last step: the artifact exists only when every check above passed.
       - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:

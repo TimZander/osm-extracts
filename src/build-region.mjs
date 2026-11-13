@@ -39,10 +39,28 @@ export async function download(url, dest, fetchImpl = fetch) {
   try {
     res = await fetchImpl(url, { redirect: 'follow' })
   } catch (e) {
-    throw new Error(`download of ${url} failed: ${e.message}`)
+    throw new Error(`download of ${url} failed: ${e.message}${causeText(e.cause)}`)
   }
   if (!res.ok || !res.body) throw new Error(`download of ${url} failed: HTTP ${res.status}`)
-  await pipeline(Readable.fromWeb(res.body), createWriteStream(dest))
+  try {
+    await pipeline(Readable.fromWeb(res.body), createWriteStream(dest))
+  } catch (e) {
+    throw new Error(`download of ${url} failed while reading the body: ${e.message}${causeText(e.cause)}`)
+  }
+}
+
+// The underlying error Node's fetch keeps in `cause`, as " (cause: CODE: message)", or "" with none.
+// Kept on one line (no control characters), so it can't start a workflow command in the job log, and
+// a cause that can't be read leaves the rest of the error intact.
+function causeText(cause) {
+  if (!cause) return ''
+  try {
+    const message = cause.message ?? String(cause)
+    const text = `${cause.code ? `${cause.code}: ` : ''}${message}`.replace(/[\u0000-\u001f\u007f]+/g, ' ')
+    return ` (cause: ${text})`
+  } catch {
+    return ' (cause: unreadable)'
+  }
 }
 
 export function checkMd5(file, md5Text) {

@@ -50,6 +50,12 @@ test('a region uploads its artifact as its last step, kept one day', () => {
   assert.equal(up.with.path, '${{ runner.temp }}/out/')
 })
 
+// Requirement "The region builder has a 12 GiB heap", scenario "The build step".
+test('the region job runs the builder with a 12 GiB heap', () => {
+  const build = steps('region').find((s) => s.run && s.run.includes('build-region.mjs'))
+  assert.equal(build.run.trim(), 'node --max-old-space-size=12288 src/build-region.mjs "$REGION" --out "$RUNNER_TEMP/out/region-$REGION"')
+})
+
 test('the deploy job downloads every region artifact without a token, and pushes only on a change', () => {
   const dl = steps('deploy').find((s) => s.uses?.startsWith('actions/download-artifact@'))
   assert.equal(dl.with.pattern, 'region-*')
