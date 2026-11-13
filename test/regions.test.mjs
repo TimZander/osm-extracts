@@ -15,11 +15,17 @@ const good = () => [
   },
 ]
 
-test('the repository\'s regions list holds only colorado, and is valid', () => {
+// Scenario "Colorado and Wyoming".
+test('the repository\'s regions list is colorado then wyoming, and is valid', () => {
   const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
   validateRegions(list)
-  assert.deepEqual(list.map((r) => r.id), ['colorado'])
-  assert.equal(planOutput(list), 'regions=["colorado"]')
+  assert.deepEqual(list.map((r) => r.id), ['colorado', 'wyoming'])
+  assert.equal(planOutput(list), 'regions=["colorado","wyoming"]')
+})
+
+// Scenario "Colorado alone".
+test('a list of colorado alone plans one region job', () => {
+  assert.equal(planOutput(good()), 'regions=["colorado"]')
 })
 
 test('region ids', () => {
@@ -196,4 +202,15 @@ test('bounds clear of every ring: no failure', () => {
 test('Colorado\'s proposed bounds (design open question 1)', () => {
   const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
   assert.deepEqual(list[0].bounds, { south: 37.01, west: -109.04, north: 40.99, east: -102.06 })
+})
+
+test('Wyoming\'s entry and proposed bounds (design open question 1)', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
+  assert.deepEqual(list[1], {
+    id: 'wyoming',
+    name: 'Wyoming',
+    geofabrik: 'north-america/us/wyoming',
+    bounds: { south: 41.01, west: -111.04, north: 44.99, east: -104.06 },
+    clip: false,
+  })
 })

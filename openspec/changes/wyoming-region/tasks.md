@@ -2,8 +2,8 @@
 
 ## 1. Wyoming in the list
 
-- [ ] 1.1 Tests first: the repository's list is `colorado` then `wyoming`, valid, with the plan output `regions=["colorado","wyoming"]`; Wyoming's entry and proposed bounds (design open question 1) are pinned. Seen to fail, then `regions.json`; verify `npm test`
-- [ ] 1.2 Test of the scenario's manifest half: the assembler, given `colorado` and `wyoming` artifacts and the list in that order, writes `regions` as `colorado` then `wyoming`, citing the scenario; verify `npm test`
+- [x] 1.1 Tests first: the repository's list is `colorado` then `wyoming`, valid, with the plan output `regions=["colorado","wyoming"]`; Wyoming's entry and proposed bounds (design open question 1) are pinned. Seen to fail, then `regions.json`; verify `npm test`
+- [x] 1.2 Test of the scenario's manifest half: the assembler, given `colorado` and `wyoming` artifacts and the list in that order, writes `regions` as `colorado` then `wyoming`, citing the scenario; verify `npm test`
 
 ## 2. Review
 
