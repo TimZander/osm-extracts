@@ -2,10 +2,10 @@
 
 ### Requirement: Each region lists the cells it covers
 
-An unclipped region's manifest entry SHALL have `coverage`: the id, once each, of every 0.25° cell
-(as in "Features are filed into 0.25° cells") sharing more than 1e-12 square degrees of area with
-the inside of the region's Geofabrik polygon (every ring, holes cut out), whether or not the cell
-has a file. So a cell the polygon meets only along an edge or at a corner is not listed. Coverage
+The entry an unclipped region's job builds SHALL have `coverage`: the id, once each, of every 0.25°
+cell (as in "Features are filed into 0.25° cells") sharing more than 1e-12 square degrees of area
+with the inside of the region's Geofabrik polygon, as read (every ring, holes cut out), whether or
+not the cell has a file. So a cell the polygon meets only along an edge or at a corner is not listed. Coverage
 SHALL not depend on the region's features.
 
 #### Scenario: A polygon on cell lines
@@ -45,7 +45,7 @@ SHALL not depend on the region's features.
 
 ### Requirement: A clipped region covers its bounds' cells
 
-A clipped region's `coverage` SHALL be the id, once each, of every 0.25° cell sharing more than
+The entry a clipped region's job builds SHALL have as `coverage` the id, once each, of every 0.25° cell sharing more than
 1e-12 square degrees of area with its `bounds`, whatever its polygon: a cell the rectangle meets only
 along an edge or at a corner is not covered.
 
@@ -121,8 +121,8 @@ manifest's `cells`, `split` and `coverage` SHALL be sorted numerically by row, t
 ### Requirement: The deploy job accepts only well-formed region trees
 
 The deploy job SHALL use a region's artifact only when the region is in the regions list, it has one
-artifact, its entry has the manifest's form with `id`, `name` and `bounds` equal to the list's and a
-`coverage`, and its files are exactly the listed cells' files, as regular files under its folder, each
+artifact, its entry has the manifest's form with `id`, `name` and `bounds` equal to the list's and a non-empty
+`coverage` of distinct cell ids, and its files are exactly the files of the cells its `cells` lists, as regular files under its folder, each
 at most 20 MiB. Otherwise it SHALL fail without pushing, naming the region: a malformed artifact is
 not treated as a failed region.
 
@@ -143,12 +143,12 @@ not treated as a failed region.
 
 #### Scenario: A listed cell with no file
 
-- **WHEN** a region's entry lists cell `158_-425` and its artifact has no file for it
+- **WHEN** a region's entry lists cell `158_-425` in `cells` and its artifact has no file for it
 - **THEN** the deploy job fails naming the region, and `data` is not pushed
 
 #### Scenario: An artifact without coverage
 
-- **WHEN** a region's entry has no `coverage`, or a `coverage` holding `../x` or the same id twice
+- **WHEN** a region's entry has no `coverage`, an empty one, or one holding `../x`, `1_2_3`, `01_3` or the same id twice
 - **THEN** the deploy job fails naming the region, and `data` is not pushed
 
 ### Requirement: A failed region keeps its previous files
@@ -179,7 +179,7 @@ out of the manifest.
 The deploy job SHALL read the previous site from the `data` branch's tree; no `data` branch, or a tree
 with no `manifest.json`, counts as no previous regions. A failed read of the branch, a `manifest.json`
 not of the form garmin-map's `osm-import` accepts or with an entry whose `coverage` is present but not
-an array of cell ids, a listed file the tree doesn't hold, or a symbolic link anywhere in the tree
+an array of distinct cell ids, a listed file the tree doesn't hold, or a symbolic link anywhere in the tree
 SHALL fail the deploy job without pushing.
 
 #### Scenario: The placeholder branch
@@ -199,7 +199,7 @@ SHALL fail the deploy job without pushing.
 
 #### Scenario: A broken previous coverage
 
-- **WHEN** the previous manifest's `colorado` entry has `coverage` `"all"`, or a `coverage` holding `../x`
+- **WHEN** the previous manifest's `colorado` entry has `coverage` `"all"`, or a `coverage` holding `../x` or the same id twice
 - **THEN** the deploy job fails saying so, and `data` is not pushed
 
 ### Requirement: Each region job reports its size

@@ -10,12 +10,12 @@
 
 ## 3. The deploy job
 
-- [ ] 3.1 Tests first, citing "The deploy job accepts only well-formed region trees", "A failed region keeps its previous files", "The previous site is read from the data branch", "The manifest describes every region" and "The output is byte-stable": the written manifest's entries carry `coverage`; an artifact with no `coverage`, with a bad id, with a duplicate fails naming the region; an artifact's `coverage` out of order is written sorted; a kept entry keeps its `coverage`, or its lack of one, and a kept `coverage` that isn't an array of cell ids fails the deploy job. Seen to fail, then `src/assemble-site.mjs`; verify `npm test`
+- [ ] 3.1 Tests first, citing "The deploy job accepts only well-formed region trees", "A failed region keeps its previous files", "The previous site is read from the data branch", "The manifest describes every region" and "The output is byte-stable": the written manifest's entries carry `coverage`; an artifact with no `coverage`, with a bad id, with a duplicate fails naming the region; an artifact with an empty `coverage`, or ids such as `1_2_3` and `01_3`, fails; an artifact's `coverage` out of order is written sorted; a kept entry keeps its `coverage` ids (written sorted, also when kept out of order), or its lack of one; a kept `coverage` that isn't an array of distinct cell ids fails the deploy job. Seen to fail, then `src/assemble-site.mjs`; verify `npm test`
 
 ## 4. Review and decisions
 
 - [ ] 4.1 `/sdd:conformance-review coverage-by-cells`, findings routed with `/sdd:spec-fix`
-- [ ] 4.2 ADR 0020 (coverage by cells, the owner's decision; ADR 0013 marked superseded) and ADR 0021 (design open questions 1–5, once the owner answers), with the index updated
+- [ ] 4.2 ADR 0020 (coverage by cells, the owner's decision; ADR 0013 marked superseded) and ADR 0021 (design open questions 1–6, once the owner answers), with the index updated
 - [ ] 4.3 Scan the diff for private material (this repository is public; only shape facts about garmin-map)
 
 ## Workflow follow-up

@@ -32,8 +32,8 @@ any other region (their own changes); changing the cell grid or the files writte
    bytes but makes coverage a derived fact that two lists must keep right, and it isn't a superset
    rule the app can check. (c) is the fallback if the manifest grows too big (decision 5). (d) moves
    geometry into the app and loses the cell answer. (e) is a breaking change.
-2. **The polygon is Geofabrik's `<path>.poly`** (open question 2), already downloaded and parsed for
-   the bounds guard, and the very outline the PBF was cut to: a cell it covers is a cell where the
+2. **The polygon is Geofabrik's `<path>.poly`** (open question 2), its coordinates as read (not
+   rounded to six decimals like features), already downloaded and parsed for the bounds guard, and the very outline the PBF was cut to: a cell it covers is a cell where the
    source can hold data, and a cell it doesn't is one where it can't. Alternatives: US Census TIGER
    state lines (a new host and download, and lines that don't match the data's own cut); the
    state's OSM boundary relation (needs relation assembly the pipeline doesn't do). Geofabrik's
@@ -77,8 +77,9 @@ any other region (their own changes); changing the cell grid or the files writte
    the polygon's cells would claim data the region can't hold. No region is clipped today.
 7. **Kept entries keep their form.** A failed region's previous entry is carried as it was. On the
    first run after merge, a region whose job fails is published without `coverage`; the next
-   successful build adds it. The deploy job requires `coverage` only of this run's artifacts. A kept
-   `coverage`, when present, must be an array of cell ids, or the deploy job fails ("The previous
+   successful build adds it (open question 6). The deploy job requires `coverage` only of this run's
+   artifacts. A kept
+   `coverage`, when present, must be an array of distinct cell ids, or the deploy job fails ("The previous
    site is read from the data branch", modified here, since that is the only check on the previous
    manifest); it is then written sorted, like `cells`. An artifact's
    `coverage` out of order is sorted too, as `cells` is today; a duplicate or bad id fails it.
@@ -93,6 +94,9 @@ any other region (their own changes); changing the cell grid or the files writte
 - **[Trade-off] A covered border cell next to an unpublished region** (Colorado–Utah today) is
   "covered" though only part of it has data, so the app shows no message for its Utah part. This is
   the owner's "touches" rule; the cell-wide no-data message returns once the neighbour publishes.
+- **[Trade-off] A clipped region's edge cells** are covered whole though its data stops at its
+  `bounds`, so the strip between the bounds and the cell lines shows "no features", not "no data".
+  The same holds for the outer part of every border cell of an unclipped region (above).
 - **[Risk] The polygon can't be read here** → the scenarios use fixtures; the first real run shows
   the coverage counts, which go into `docs/measurements.md`.
 
@@ -112,6 +116,18 @@ an app reading `coverage` falls back to `bounds`.
    `coverage`.
 5. **A clipped region** (decision 6). The owner's rule names the state polygon; a clipped region's
    data is cut to its `bounds`. *Assumption:* its coverage is its `bounds`' cells, not its polygon's.
+6. **A kept entry from before `coverage`** (decision 7). Options: (a) publish it without `coverage`
+   until the region next builds, and garmin-map falls back to `bounds` for it; (b) fill it from its
+   `bounds`' cells in the deploy job; (c) leave such a region out of the manifest. *Assumption:* (a),
+   which publishes nothing the region's job didn't compute and drops no data; it only matters on the
+   first run after merge, for a region whose job fails.
 
 The owner's answers become ADR 0021 (or ADRs, if split). ADR 0020 records the owner's decision of
 2026-11-13 itself and supersedes ADR 0013.
+
+## Spec review
+
+Three rounds, each with one blocker, all fixed through the spec. Round 3's fixes (the kept-entry
+exception in "Each region lists the cells it covers", the `coverage` form the deploy job checks,
+`cells` as the list of files, open question 6) were not reviewed again: the workflow allows three
+rounds unless the owner asks for more.
