@@ -88,6 +88,11 @@ before any region job starts.
 - **WHEN** the regions list holds `colorado`, then `wyoming`, then `utah`, then `idaho`, then `british-columbia`
 - **THEN** the workflow runs five region jobs, one for each, and a run in which all five build publishes a manifest whose `regions` are `colorado`, `wyoming`, `utah`, `idaho`, then `british-columbia`
 
+#### Scenario: Colorado, Wyoming, Utah, Idaho, British Columbia and Alberta
+
+- **WHEN** the regions list holds `colorado`, then `wyoming`, then `utah`, then `idaho`, then `british-columbia`, then `alberta`
+- **THEN** the workflow runs six region jobs, one for each, and a run in which all six build publishes a manifest whose `regions` are `colorado`, `wyoming`, `utah`, `idaho`, `british-columbia`, then `alberta`
+
 ### Requirement: The import's categories
 
 The categories, in catalog order, SHALL be: on nodes, `peaks` (`natural=peak|volcano`), `passes`
