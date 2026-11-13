@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "pins": {
+    "osm-extract": {
+      "The regions list": "44ebd79d26e8a35ce22729fb6845a77185646ea9126efcf98bc945a93c704c3f"
+    }
+  }
+}

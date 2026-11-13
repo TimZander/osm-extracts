@@ -244,9 +244,27 @@ test('colorado then wyoming, from the repository\'s list, publishes both in list
   assert.ok(existsSync(join(dirs.outDir, 'wyoming/172_-430.json')))
 })
 
-// Requirement "The regions list", scenario "Colorado, Wyoming, Utah, Idaho and British Columbia".
-test('the repository\'s list, colorado, wyoming, utah, idaho, british-columbia, publishes all five in list order', () => {
+// Requirement "The regions list", scenario "Colorado, Wyoming, Utah, Idaho, British Columbia and Alberta".
+test('the repository\'s list, colorado, wyoming, utah, idaho, british-columbia, alberta, publishes all six in list order', () => {
   const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
+  const [co, wy, ut, id, bc, ab] = list
+  const dirs = setup()
+  artifact(dirs.artifactsDir, bc, [peak(13, -123.1, 49.3)], { wrapped: true })
+  artifact(dirs.artifactsDir, ab, [peak(15, -114.07, 51.05)], { wrapped: true })
+  artifact(dirs.artifactsDir, id, [peak(11, -116.2, 43.6)], { wrapped: true })
+  artifact(dirs.artifactsDir, ut, [peak(9, -111.5, 40.5)], { wrapped: true })
+  artifact(dirs.artifactsDir, co, [peak(1, -106.062, 39.603)], { wrapped: true })
+  artifact(dirs.artifactsDir, wy, [peak(7, -107.5, 43)], { wrapped: true })
+  run(dirs, list)
+  const m = JSON.parse(readFileSync(join(dirs.outDir, 'manifest.json')))
+  assert.deepEqual(m.regions.map((r) => r.id), ['colorado', 'wyoming', 'utah', 'idaho', 'british-columbia', 'alberta'])
+  assert.deepEqual(m.regions[5].bounds, ab.bounds)
+  assert.ok(existsSync(join(dirs.outDir, 'alberta/204_-457.json')))
+})
+
+// Requirement "The regions list", scenario "Colorado, Wyoming, Utah, Idaho and British Columbia".
+test('colorado, wyoming, utah, idaho, british-columbia, from the repository\'s list, publishes all five in list order', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url))).slice(0, 5)
   const [co, wy, ut, id, bc] = list
   const dirs = setup()
   artifact(dirs.artifactsDir, bc, [peak(13, -123.1, 49.3)], { wrapped: true })
