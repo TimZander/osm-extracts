@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "pins": {
+    "osm-extract": {
+      "The region builder has a 12 GiB heap": null,
+      "A failed or corrupt download publishes nothing new for the region": "f0e68c670ae80641c380ee7214a02f9dfbaa7630bba1e9da84af09ba7ff8841b"
+    }
+  }
+}
