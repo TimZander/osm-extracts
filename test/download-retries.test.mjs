@@ -218,32 +218,32 @@ test('a retried attempt is logged with URL, attempt 1 of 3, cause and the wait',
   const { f } = scripted({ [URL_PBF]: [noResponse('ECONNREFUSED', 'connect ECONNREFUSED'), () => new Response('ok')] })
   const lg = logger()
   await download(URL_PBF, join(tmp(), 'p'), f, { sleep: fakeSleep().sleep, log: lg.log })
-  assert.equal(lg.lines.length, 1)
-  const [l] = lg.lines
-  assert.ok(l.includes(URL_PBF))
-  assert.match(l, /attempt 1 of 3/)
-  assert.match(l, /ECONNREFUSED: connect ECONNREFUSED/)
-  assert.match(l, /retrying in 30 s/)
+  assert.deepEqual(lg.lines, [`Download attempt 1 of 3 for ${URL_PBF} failed: ECONNREFUSED: connect ECONNREFUSED; retrying in 30 s`])
+})
+
+test('an attempt whose error has no underlying error logs its own message', async () => {
+  const { f } = scripted({ [URL_PBF]: [async () => { throw new TypeError('fetch failed') }] })
+  const lg = logger()
+  await assert.rejects(download(URL_PBF, join(tmp(), 'p'), f, { sleep: fakeSleep().sleep, log: lg.log }))
+  assert.deepEqual(lg.lines, [`Download attempt 1 of 3 for ${URL_PBF} failed: fetch failed; giving up`])
 })
 
 test('the last attempt is logged with "giving up", and the second with a wait of 2 min', async () => {
   const { f } = scripted({ [URL_MD5]: [status(503)] })
   const lg = logger()
   await assert.rejects(download(URL_MD5, join(tmp(), 'm'), f, { sleep: fakeSleep().sleep, log: lg.log }), /503/)
-  assert.equal(lg.lines.length, 3)
-  assert.match(lg.lines[0], /attempt 1 of 3.*HTTP 503.*retrying in 30 s/)
-  assert.match(lg.lines[1], /attempt 2 of 3.*HTTP 503.*retrying in 2 min/)
-  assert.match(lg.lines[2], /attempt 3 of 3.*HTTP 503.*giving up/)
-  for (const l of lg.lines) assert.ok(l.includes(URL_MD5))
+  assert.deepEqual(lg.lines, [
+    `Download attempt 1 of 3 for ${URL_MD5} failed: HTTP 503; retrying in 30 s`,
+    `Download attempt 2 of 3 for ${URL_MD5} failed: HTTP 503; retrying in 2 min`,
+    `Download attempt 3 of 3 for ${URL_MD5} failed: HTTP 503; giving up`,
+  ])
 })
 
 test('a 404 is the last attempt: one line, attempt 1 of 3, HTTP 404, giving up', async () => {
   const { f } = scripted({ [URL_MD5]: [status(404)] })
   const lg = logger()
   await assert.rejects(download(URL_MD5, join(tmp(), 'm'), f, { sleep: fakeSleep().sleep, log: lg.log }), /404/)
-  assert.equal(lg.lines.length, 1)
-  assert.match(lg.lines[0], /attempt 1 of 3.*HTTP 404.*giving up/)
-  assert.ok(lg.lines[0].includes(URL_MD5))
+  assert.deepEqual(lg.lines, [`Download attempt 1 of 3 for ${URL_MD5} failed: HTTP 404; giving up`])
 })
 
 // Attack test: a cause carrying CR, LF and a workflow command can't start a new log line.
@@ -254,10 +254,19 @@ test('a hostile cause keeps every attempt log line on one line, with none starti
   const hostileReset = async () => {
     throw new TypeError('fetch failed', { cause: { code: 'ECONNRESET', message: 'a\r\n::warning::y\n::error::z' } })
   }
+  // No underlying error: only the error's own message carries the attack.
+  const ownMessage = async () => {
+    throw new TypeError('fetch failed\r\n::warning::own\n::error::x\u0000')
+  }
   const { f } = scripted({ [URL_PBF]: [hostileReset, hostile] })
   const lg = logger()
   await assert.rejects(download(URL_PBF, join(tmp(), 'p'), f, { sleep: fakeSleep().sleep, log: lg.log }))
-  assert.equal(lg.lines.length, 2)
+  const own = scripted({ [URL_PBF]: [ownMessage] })
+  await assert.rejects(download(URL_PBF, join(tmp(), 'q'), own.f, { sleep: fakeSleep().sleep, log: lg.log }), (e) => {
+    assert.doesNotMatch(e.message, /[\u0000-\u001f\u007f]/)
+    return true
+  })
+  assert.equal(lg.lines.length, 3)
   for (const l of lg.lines) {
     assert.doesNotMatch(l, /[\u0000-\u001f\u007f]/)
     for (const piece of l.split(/\r?\n/)) assert.doesNotMatch(piece, /^::/)

@@ -132,3 +132,15 @@ Round 2: no blocker; another round not needed. Fixed:
 - **F1:** the worst case is about 17.5 minutes per file and about 52 per region;
 - **D3:** the characters kept out of the log are named: U+0000–U+001F and U+007F;
 - **G1:** decision 7 gives `download` its `log`.
+
+## Conformance review
+
+Verdict: conforms with gaps. There were 3 soft fails and no hard fail; all three are fixed.
+- **C1:** the log line's cause is now the cause alone: the HTTP status, else the underlying error's
+  code and message, else the error's own message. Before, it repeated the whole thrown message, so
+  the URL appeared twice. The tests pin whole lines.
+- **M1:** the attack test also puts CR, LF, `::warning::` and NUL in the error's own message, the
+  path only the one-line filter guards. With the filter disabled, the test fails.
+- **S1:** an e2e test in `test/build-region-e2e.test.mjs` builds the region with real osmium after
+  each file fails once: the PBF's body times out, the `.md5` is refused, the polygon answers 429.
+  It runs where osmium is installed: here, 178 pass, 0 fail, 0 skipped.

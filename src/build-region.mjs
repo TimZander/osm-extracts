@@ -46,27 +46,40 @@ const NETWORK_CODES = new Set([
 const defaultSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 const waitText = (ms) => (ms % 60_000 === 0 ? `${ms / 60_000} min` : `${ms / 1000} s`)
 
-// One attempt. Throws an Error whose message is the failure's text (ADR 0031) and whose `retry` says
-// whether it failed at the network level.
+// One attempt. Throws an Error whose message is the failure's text (ADR 0031), whose `reason` is the
+// attempt's cause for its log line (its HTTP status, else its underlying error's code and message,
+// else its own message), and whose `retry` says whether it failed at the network level.
 async function downloadOnce(url, dest, fetchImpl) {
   let res
   try {
     res = await fetchImpl(url, { redirect: 'follow' })
   } catch (e) {
-    throw failure(`download of ${url} failed: ${e.message}${causeText(e.cause)}`, isNetworkCause(e.cause))
+    throw failure(`download of ${url} failed: ${e.message}${causeText(e.cause)}`, causeReason(e), isNetworkCause(e.cause))
   }
   if (!res.ok || !res.body) {
-    throw failure(`download of ${url} failed: HTTP ${res.status}`, res.status >= 500 || res.status === 429)
+    throw failure(`download of ${url} failed: HTTP ${res.status}`, `HTTP ${res.status}`, res.status >= 500 || res.status === 429)
   }
   try {
     await pipeline(Readable.fromWeb(res.body), createWriteStream(dest))
   } catch (e) {
-    throw failure(`download of ${url} failed while reading the body: ${e.message}${causeText(e.cause)}`, isNetworkCause(e.cause))
+    throw failure(`download of ${url} failed while reading the body: ${e.message}${causeText(e.cause)}`, causeReason(e), isNetworkCause(e.cause))
   }
 }
 
-function failure(message, retry) {
-  return Object.assign(new Error(oneLine(message)), { retry })
+function failure(message, reason, retry) {
+  return Object.assign(new Error(oneLine(message)), { reason: oneLine(reason), retry })
+}
+
+// The underlying error's "CODE: message" (as causeText writes it), or the error's own message when
+// there is no underlying error.
+function causeReason(e) {
+  const c = causeText(e?.cause)
+  if (c) return c.slice(' (cause: '.length, -1)
+  try {
+    return String(e?.message)
+  } catch {
+    return 'unreadable error'
+  }
 }
 
 function isNetworkCause(cause) {
@@ -85,7 +98,7 @@ export async function download(url, dest, fetchImpl = fetch, { sleep = defaultSl
       return
     } catch (e) {
       const wait = e.retry && n < attempts ? RETRY_WAITS_MS[n - 1] : null
-      log(oneLine(`Download attempt ${n} of ${attempts} for ${url} failed: ${e.message}; ${wait === null ? 'giving up' : `retrying in ${waitText(wait)}`}`))
+      log(oneLine(`Download attempt ${n} of ${attempts} for ${url} failed: ${e.reason}; ${wait === null ? 'giving up' : `retrying in ${waitText(wait)}`}`))
       if (wait === null) throw new Error(e.message)
       await sleep(wait)
     }

@@ -15,8 +15,8 @@
 
 ## 2. Review
 
-- [ ] 2.1 `/sdd:conformance-review download-retries`, findings routed with `/sdd:spec-fix`
-- [ ] 2.2 Scan the diff for private material (the repository is public)
+- [x] 2.1 `/sdd:conformance-review download-retries`, findings routed with `/sdd:spec-fix` (conforms with gaps; C1, M1 and S1 fixed in code and tests, no spec change)
+- [x] 2.2 Scan the diff for private material (the repository is public): nothing private
 
 ## 3. Decisions
 
