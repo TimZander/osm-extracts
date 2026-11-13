@@ -27,15 +27,20 @@ const noResponse = (code, message = `${code} happened`) => async () => {
   const cause = code === undefined ? new Error(message) : Object.assign(new Error(message), { code })
   throw new TypeError('fetch failed', { cause })
 }
-const cutBody = (code) => () =>
-  new Response(
+// A body that sends some bytes, which reach the file, and then fails with an underlying error.
+const cutBody = (code) => () => {
+  let pulls = 0
+  return new Response(
     new ReadableStream({
-      start(c) {
-        c.enqueue(new Uint8Array([9, 9]))
+      async pull(c) {
+        pulls++
+        if (pulls === 1) return c.enqueue(new TextEncoder().encode('PARTIAL-'))
+        await new Promise((r) => setTimeout(r, 20))
         c.error(new TypeError('terminated', { cause: Object.assign(new Error(`${code} mid-body`), { code }) }))
       },
     }),
   )
+}
 // A fetch that answers each URL from its own list of steps, the last step repeating; counts requests.
 function scripted(steps) {
   const count = {}
@@ -108,10 +113,19 @@ test('a 5xx, then a 429, then success', async () => {
 
 test('a body cut off, then whole: the file is the whole second body, not a splice', async () => {
   const dir = tmp()
-  const { f, count } = scripted({ [URL_POLY]: [cutBody('ECONNRESET'), () => new Response(POLY)] })
+  const dest = join(dir, 'p')
+  let partial = null
+  // Before the second response, the cut-off first body's bytes are on disk, so the test can tell a
+  // retry that starts the file again from one that appends to it.
+  const second = () => {
+    partial = readFileSync(dest, 'utf8')
+    return new Response(POLY)
+  }
+  const { f, count } = scripted({ [URL_POLY]: [cutBody('ECONNRESET'), second] })
   const { sleep, waits } = fakeSleep()
-  await download(URL_POLY, join(dir, 'p'), f, { sleep, log: () => {} })
-  assert.equal(readFileSync(join(dir, 'p'), 'utf8'), POLY)
+  await download(URL_POLY, dest, f, { sleep, log: () => {} })
+  assert.equal(partial, 'PARTIAL-')
+  assert.equal(readFileSync(dest, 'utf8'), POLY)
   assert.equal(count[URL_POLY], 2)
   assert.deepEqual(waits, [30_000])
 

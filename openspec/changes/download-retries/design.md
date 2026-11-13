@@ -129,7 +129,8 @@ Verdict: conforms with gaps. There were 3 soft fails and no hard fail; all three
   path only the one-line filter guards. With the filter disabled, the test fails.
 - **S1:** an e2e test in `test/build-region-e2e.test.mjs` builds the region with real osmium after
   each file fails once: the PBF's body times out, the `.md5` is refused, the polygon answers 429.
-  It runs where osmium is installed: here, 178 pass, 0 fail, 0 skipped.
+  It runs where osmium is installed: here, 178 pass, 0 fail, 0 skipped (177 after the owner's
+  answers removed two "not retried" tests and added one).
 
 ## After the owner's answers
 
@@ -138,3 +139,12 @@ Verdict: conforms with gaps. There were 3 soft fails and no hard fail; all three
 - **The answer:** the owner then accepted the list as recommended, those three codes included.
 - **What changed:** the requirement "Network-level download failures" lists them, with a scenario
   for `EAI_AGAIN`, and the tests and code follow, through the spec first.
+
+Round 2, after the owner's answers changed the code list: one hard fail, M1, now fixed.
+- **M1:** "A body cut off, then whole" couldn't catch an append, because its fake body failed before
+  any byte reached the file.
+- **The fix:** the fake now sends `PARTIAL-` first. The test checks those bytes are on disk before
+  the second response, then that the file holds only the second body.
+- **Check:** with the write stream switched to append (`flags: 'a'`), this test and the
+  `UND_ERR_BODY_TIMEOUT` test fail.
+- **Suite:** 177 pass, 0 fail, 0 skipped.
