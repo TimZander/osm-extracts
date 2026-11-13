@@ -173,7 +173,7 @@ test('a body that stops sending (UND_ERR_BODY_TIMEOUT) is retried', async () => 
 })
 
 test('every listed code is network-level, before a response and mid-body', async () => {
-  const codes = ['ECONNREFUSED', 'ECONNRESET', 'EPIPE', 'UND_ERR_SOCKET', 'ETIMEDOUT', 'UND_ERR_CONNECT_TIMEOUT', 'UND_ERR_HEADERS_TIMEOUT', 'UND_ERR_BODY_TIMEOUT']
+  const codes = ['ECONNREFUSED', 'ECONNRESET', 'EPIPE', 'UND_ERR_SOCKET', 'ETIMEDOUT', 'UND_ERR_CONNECT_TIMEOUT', 'UND_ERR_HEADERS_TIMEOUT', 'UND_ERR_BODY_TIMEOUT', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN']
   for (const code of codes) {
     for (const first of [noResponse(code), cutBody(code)]) {
       const { f, count } = scripted({ [URL_PBF]: [first, () => new Response('ok')] })
@@ -188,12 +188,19 @@ test('every listed code is network-level, before a response and mid-body', async
   }
 })
 
+test('a DNS lookup that failed for now (EAI_AGAIN) is retried: built from the second, after 30 s', async () => {
+  const all = scripted({ [URL_PBF]: [noResponse('EAI_AGAIN', 'getaddrinfo EAI_AGAIN download.geofabrik.de'), () => new Response(PBF)], [URL_MD5]: [MD5], [URL_POLY]: [POLY] })
+  const { sleep, waits } = fakeSleep()
+  const out = join(tmp(), 'out')
+  await assert.rejects(buildRegion({ id: 'colorado', out, fetchImpl: all.f, sleep, log: () => {}, osmium: NO_OSMIUM }), reachedOsmium)
+  assert.equal(all.count[URL_PBF], 2)
+  assert.deepEqual(waits, [30_000])
+})
+
 for (const [name, code] of [
   ['an unknown host', 'ENOTFOUND'],
   ['a TLS error', 'CERT_HAS_EXPIRED'],
   ['an underlying error with no code', undefined],
-  ['a DNS lookup that failed for now (open question 4)', 'EAI_AGAIN'],
-  ['an unreachable network (open question 4)', 'ENETUNREACH'],
 ]) {
   test(`${name} is not retried`, async () => {
     const { f, count } = scripted({ [URL_PBF]: [noResponse(code, 'nope')] })
