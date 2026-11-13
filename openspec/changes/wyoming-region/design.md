@@ -56,16 +56,23 @@ Colorado (the colorado-bounds-and-empty-push design).
 
    A failed guard costs one run's Wyoming job, not Colorado's data. *Assumption:* (a), until the owner
    picks another. The answer becomes an ADR.
-2. **Utah's overlap.** The owner chose that Utah uses its full bounding box, with the part outside
-   Utah's polygon accepted because a listed region (Wyoming) covers it. That is a later change. If
-   "covers" is judged by Wyoming's `bounds`, an inset Wyoming leaves strips at 41.0–41.01 and
-   -111.05 to -111.04 that Wyoming doesn't cover, so the Utah change must either judge coverage by
-   Wyoming's polygon or move Wyoming's south and west edges. *Assumption:* nothing in this change
-   decides it; the Utah change does, and records the owner's overlap choice as an ADR with its change
-   to "A region's bounds lie inside its Geofabrik polygon".
+
+   *Update, 2026-11-13:* the owner hasn't picked an option, so (a) stands. The owner has since decided
+   that coverage will be described by 0.25° cells: the manifest lists, per region, every cell its
+   state's polygon touches, empty ones included. That is the next change in this repository, before
+   Utah. Since 41° N is a cell boundary (row 164 starts there), Colorado's polygon touches every
+   row-163 cell along the line and Wyoming's every row-164 cell, so no strip lies in neither region's
+   coverage: that change closes the Colorado gap whatever these bounds are.
+2. **Utah's overlap.** *Superseded, 2026-11-13:* the owner decided that Utah and the other irregular
+   states use coverage by cells (see open question 1's update), not overlap with Wyoming's bounds. So
+   how Wyoming's bounds would cover a corner of Utah no longer matters. The coverage-by-cells change
+   records that decision as its ADR.
 3. **When to merge, given the weekly schedule.** The workflow also runs every Monday at 05:23 UTC
    (ADR 0010), so the first run after merge publishes Wyoming even if the owner doesn't start one.
    garmin-map's change to search every region a view overlaps should land before or with that run.
    *Assumption:* the owner merges this only once that change has landed, or will before the next
    Monday run. Merging earlier only means a view across the state line reads one region for a while;
    no data is wrong.
+
+   *Update, 2026-11-13:* the assumption holds: this merges only once that garmin-map change has
+   landed, and only on the owner's "merge".
