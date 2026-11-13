@@ -73,6 +73,11 @@ before any region job starts.
 - **WHEN** the regions list holds `colorado`, then `wyoming`
 - **THEN** the workflow runs two region jobs, one for each, and a run in which both build publishes a manifest whose `regions` are `colorado` then `wyoming`
 
+#### Scenario: Colorado, Wyoming and Utah
+
+- **WHEN** the regions list holds `colorado`, then `wyoming`, then `utah`
+- **THEN** the workflow runs three region jobs, one for each, and a run in which all three build publishes a manifest whose `regions` are `colorado`, `wyoming`, then `utah`
+
 ### Requirement: The import's categories
 
 The categories, in catalog order, SHALL be: on nodes, `peaks` (`natural=peak`), `passes`
@@ -248,6 +253,11 @@ covered cells' ids, each once; absent only from a kept entry). garmin-map's `osm
 
 - **WHEN** a run builds `colorado`, named `Colorado`, from data dated 2026-10-28
 - **THEN** the manifest's `regions` holds one object with `id` `colorado`, `name` `Colorado`, the listed `bounds`, `dataDate` `2026-10-28`, `cells`, `split` and `coverage`
+
+#### Scenario: A border cell in two regions
+
+- **WHEN** a run builds `colorado` and `utah`, both their artifacts list cell `152_-437` in `cells` and `coverage`, and each holds a file for it with the same trail
+- **THEN** the manifest lists `152_-437` in both regions' `cells` and `coverage`, and both `colorado/152_-437.json` and `utah/152_-437.json` are published with that trail
 
 ### Requirement: The manifest lists exactly the files written
 
