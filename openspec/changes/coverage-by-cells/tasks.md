@@ -15,7 +15,7 @@
 ## 4. Review and decisions
 
 - [x] 4.1 `/sdd:conformance-review coverage-by-cells`, findings routed with `/sdd:spec-fix` (verdict: conforms with gaps; M1 fixed with two tests, R1 is design open question 7)
-- [x] 4.2 ADR 0020 (coverage by cells, the owner's decision; ADR 0013 marked superseded) and ADR 0021 (design open questions 1–7, proposed until the owner answers), with the index updated
+- [x] 4.2 ADR 0020 (coverage by cells, the owner's decision; ADR 0013 marked superseded) and ADR 0021 (open questions 1–4 and 6, accepted) and ADR 0022 (5 and 7, proposed), with the index updated
 - [x] 4.3 Scan the diff for private material (this repository is public; only shape facts about garmin-map): only generic mentions of garmin-map and the shape it reads
 
 ## Workflow follow-up

@@ -108,28 +108,29 @@ an app reading `coverage` falls back to `bounds`.
 
 ## Open Questions
 
-1. **The shape** (decision 1). *Assumption:* (a), a `coverage` list of every covered cell id.
-2. **The polygon** (decision 2). *Assumption:* Geofabrik's `<path>.poly`.
-3. **The touch rule** (decision 3). *Assumption:* shares area; an edge or corner contact alone
+1. **The shape** *Owner, 2026-11-13: accepted (ADR 0021).* (decision 1). *Assumption:* (a), a `coverage` list of every covered cell id.
+2. **The polygon** *Owner, 2026-11-13: accepted (ADR 0021).* (decision 2). *Assumption:* Geofabrik's `<path>.poly`.
+3. **The touch rule** *Owner, 2026-11-13: accepted (ADR 0021).* (decision 3). *Assumption:* shares area; an edge or corner contact alone
    doesn't cover a cell.
-4. **Cells with files outside coverage** (decision 4). *Assumption:* they stay in `cells`, not in
+4. **Cells with files outside coverage** *Owner, 2026-11-13: accepted (ADR 0021).* (decision 4). *Assumption:* they stay in `cells`, not in
    `coverage`.
-5. **A clipped region** (decision 6). The owner's rule names the state polygon; a clipped region's
+5. **A clipped region** *Owner, 2026-11-13: left open on purpose by the owner; the change builds on the assumption (ADR 0022, proposed).* (decision 6). The owner's rule names the state polygon; a clipped region's
    data is cut to its `bounds`. *Assumption:* its coverage is its `bounds`' cells, not its polygon's.
-6. **A kept entry from before `coverage`** (decision 7). Options: (a) publish it without `coverage`
+6. **A kept entry from before `coverage`** *Owner, 2026-11-13: accepted, option (a) (ADR 0021).* (decision 7). Options: (a) publish it without `coverage`
    until the region next builds, and garmin-map falls back to `bounds` for it; (b) fill it from its
    `bounds`' cells in the deploy job; (c) leave such a region out of the manifest. *Assumption:* (a),
    which publishes nothing the region's job didn't compute and drops no data; it only matters on the
    first run after merge, for a region whose job fails.
-7. **A limit on `coverage`** (conformance review R1). The deploy job checks `coverage`'s form only:
+7. **A limit on `coverage`** *Owner, 2026-11-13: asked; the change builds on the assumption (ADR 0022, proposed).* (conformance review R1). The deploy job checks `coverage`'s form only:
    no limit on its length, and no check that it lies near the region's `bounds`; `manifest.json` has
    no size guard. Options: (a) none now; (b) at most a fixed count per region (e.g. 20,000 cells);
    (c) every covered cell within a margin of `bounds`. *Assumption:* (a). The ids come from this
    repository's own region job; the coverage count is in each job's summary; at the size of decision
    5 the manifest stays far from any limit. A limit is a new requirement, for its own change.
 
-The owner's answers become ADR 0021 (or ADRs, if split). ADR 0020 records the owner's decision of
-2026-11-13 itself and supersedes ADR 0013.
+ADR 0020 records the owner's decision of 2026-11-13 itself and supersedes ADR 0013. ADR 0021
+records the answers to questions 1–4 and 6 (accepted); ADR 0022 the assumptions of 5 and 7
+(proposed).
 
 ## Spec review
 

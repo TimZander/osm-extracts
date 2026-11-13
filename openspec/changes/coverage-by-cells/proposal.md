@@ -25,8 +25,8 @@ on views where they have no data, and not carry over to CA, NV, OR, WA and MT.
   builds.
 - **Region job report:** also gives the coverage cell count.
 - **Files:** no new files are written; an empty covered cell has no file, as today.
-- **ADRs:** 0020 (coverage by cells, the owner's decision; supersedes 0013) and 0021 (how coverage is
-  expressed and computed, design open questions 1–7).
+- **ADRs:** 0020 (coverage by cells, the owner's decision; supersedes 0013), 0021 (how coverage is
+  expressed and computed, accepted) and 0022 (clipped regions and size, proposed).
 
 ## Capabilities
 
