@@ -78,8 +78,13 @@ test('a region builds end to end', { skip }, async () => {
   for (const f of cellFiles) {
     for (const feat of JSON.parse(readFileSync(join(out, f))).features) all.set(feat.properties._osmId, feat)
   }
-  // Selected: peaks (101, 303, 5 and 304, unclipped), closed footway 201, trail 202, track-ridge 204.
-  assert.deepEqual([...all.keys()].sort(), ['node/101', 'node/303', 'node/304', 'node/5', 'way/201', 'way/202', 'way/204'].sort())
+  // Selected: peaks (101, 303, 5 and 304, unclipped), volcano 305, closed footway 201, trail 202,
+  // track-ridge 204, forest roads 205 (service, by name) and 206 (track, by ref). Not 207, a service
+  // road called "Forest Road" ("Which ways are forest roads").
+  assert.deepEqual([...all.keys()].sort(), ['node/101', 'node/303', 'node/304', 'node/305', 'node/5', 'way/201', 'way/202', 'way/204', 'way/205', 'way/206'].sort())
+  assert.deepEqual(all.get('node/305').properties._osmCategories, ['peaks'])
+  assert.deepEqual(all.get('way/205').properties._osmCategories, ['forest_roads'])
+  assert.deepEqual(all.get('way/206').properties._osmCategories, ['forest_roads', 'trails'])
   assert.deepEqual(all.get('node/101'), {
     type: 'Feature',
     geometry: { type: 'Point', coordinates: [-106.062, 39.625] },
@@ -92,8 +97,8 @@ test('a region builds end to end', { skip }, async () => {
   // The trail across the cell edge is in both cells, whole.
   const edge = (c) => JSON.parse(readFileSync(join(out, `sample/${c}.json`))).features.some((f) => f.properties._osmId === 'way/202')
   assert.ok(edge('158_-425') && edge('158_-424'))
-  assert.equal(stats.nodes, 4)
-  assert.equal(stats.ways, 3)
+  assert.equal(stats.nodes, 5)
+  assert.equal(stats.ways, 5)
 })
 
 test('the size report reaches the job summary', { skip }, async () => {

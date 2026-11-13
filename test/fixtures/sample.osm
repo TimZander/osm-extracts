@@ -11,8 +11,12 @@
  <node id="102" lat="39.5" lon="-106.0"><tag k="amenity" v="cafe"/></node>
  <node id="303" lat="39.55" lon="-106.20"><tag k="natural" v="peak"/><tag k="mountain_pass" v="yes"/></node>
  <node id="304" lat="40.70" lon="-106.70"><tag k="natural" v="peak"/><tag k="name" v="Far North"/></node>
+ <node id="305" lat="39.58" lon="-106.30"><tag k="natural" v="volcano"/><tag k="name" v="Example Cone"/></node>
  <way id="201"><nd ref="1"/><nd ref="2"/><nd ref="3"/><nd ref="1"/><tag k="highway" v="footway"/><tag k="area" v="yes"/></way>
  <way id="202"><nd ref="1"/><nd ref="4"/><tag k="highway" v="path"/><tag k="name" v="Edge Trail"/></way>
  <way id="203"><nd ref="1"/><nd ref="2"/><tag k="highway" v="residential"/></way>
  <way id="204"><nd ref="6"/><nd ref="5"/><tag k="highway" v="track"/><tag k="natural" v="ridge"/></way>
+ <way id="205"><nd ref="1"/><nd ref="2"/><tag k="highway" v="service"/><tag k="name" v="Example Creek FSR"/></way>
+ <way id="206"><nd ref="2"/><nd ref="4"/><tag k="highway" v="track"/><tag k="ref" v="FS 123"/></way>
+ <way id="207"><nd ref="1"/><nd ref="2"/><tag k="highway" v="service"/><tag k="name" v="Forest Road"/></way>
 </osm>
