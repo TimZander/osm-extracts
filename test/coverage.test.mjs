@@ -67,3 +67,14 @@ test('output is sorted by row, then column, each id once', () => {
 test('a clipped region covers the cells its bounds share area with', () => {
   assert.deepEqual(rectCells({ south: 39.1, west: -105.6, north: 39.5, east: -105.0 }), grid([156, 157], [-423, -422, -421]))
 })
+
+// Contacts inside the polygon's bounding box, so the area rule, not the box, keeps the cells out.
+test('a notch whose edges lie on cell lines leaves the notch cell out', () => {
+  const l = [[-106.0, 40.0], [-105.5, 40.0], [-105.5, 40.25], [-105.75, 40.25], [-105.75, 40.5], [-106.0, 40.5]]
+  assert.deepEqual(coveredCells([ring(l)]), ['160_-424', '160_-423', '161_-424'])
+})
+
+test('two rings meeting only at a cell corner leave the cells between them out', () => {
+  const got = coveredCells([ring(rect(40.0, -105.0, 40.25, -104.75)), ring(rect(40.25, -104.75, 40.5, -104.5))])
+  assert.deepEqual(got, ['160_-420', '161_-419'])
+})

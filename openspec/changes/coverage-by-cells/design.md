@@ -121,6 +121,12 @@ an app reading `coverage` falls back to `bounds`.
    `bounds`' cells in the deploy job; (c) leave such a region out of the manifest. *Assumption:* (a),
    which publishes nothing the region's job didn't compute and drops no data; it only matters on the
    first run after merge, for a region whose job fails.
+7. **A limit on `coverage`** (conformance review R1). The deploy job checks `coverage`'s form only:
+   no limit on its length, and no check that it lies near the region's `bounds`; `manifest.json` has
+   no size guard. Options: (a) none now; (b) at most a fixed count per region (e.g. 20,000 cells);
+   (c) every covered cell within a margin of `bounds`. *Assumption:* (a). The ids come from this
+   repository's own region job; the coverage count is in each job's summary; at the size of decision
+   5 the manifest stays far from any limit. A limit is a new requirement, for its own change.
 
 The owner's answers become ADR 0021 (or ADRs, if split). ADR 0020 records the owner's decision of
 2026-11-13 itself and supersedes ADR 0013.
