@@ -4,8 +4,9 @@
 
 British Columbia's job in run 43456313065 failed on a single `ECONNREFUSED`, one second into its PBF
 download. The same download had worked an hour earlier. Today one network failure fails a region's
-job outright, and the region waits for the next run. The owner decided on 2026-11-13 that a download
-is retried on a network failure. Alberta's first run waits for this change.
+job outright, and the region waits for the next run. The owner decided on 2026-11-13, relayed by the
+orchestrator, that a download is retried on a network failure, and that Alberta's first run waits
+for this change.
 
 ## What Changes
 
@@ -47,7 +48,8 @@ None.
   - ADRs 0037 and 0038, and the index `docs/decisions/README.md`.
 - **Not touched:** the workflow file and its job timeout of 120 minutes.
   - A file that keeps failing at once takes about 2.5 minutes longer to fail.
-  - One whose every attempt hangs until Node's 300 s timeout takes up to about 15 minutes.
+  - One whose every attempt hangs until Node's 300 s timeout takes up to about 17.5 minutes, and a
+    region with all three files doing so about 52 minutes.
   - A download cut off near its end is downloaded again from the start.
   - All of this is inside the region job's limit.
 - **Run time:** the live site and a run that downloads cleanly do not change.

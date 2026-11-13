@@ -28,6 +28,11 @@ its own attempts.
 - **WHEN** the polygon's first response body fails before the end with an underlying error of code `ECONNRESET`, and its second arrives whole
 - **THEN** the region builds from the whole polygon of the second download
 
+#### Scenario: Each file has its own attempts
+
+- **WHEN** the PBF's first two requests answer HTTP 503 and its third succeeds, and the polygon's first two requests answer HTTP 503 and its third succeeds
+- **THEN** the region builds, each of the two files having been requested 3 times
+
 #### Scenario: A missing file is not retried
 
 - **WHEN** the `.md5` download answers 404
@@ -68,10 +73,10 @@ failure SHALL count.
 
 ### Requirement: Each failed download attempt is logged on one line
 
-Each failed download attempt SHALL be logged on one line naming the file's URL, the attempt's number
-out of 3, and its cause (its HTTP status, or its underlying error's code and message), followed by the
-wait before the next attempt, or by "giving up" when no attempt follows. Control characters in the
-cause SHALL NOT start a new line.
+Each failed download attempt (a request and its body; the MD5 check is not one) SHALL be logged on
+one line naming the file's URL, the attempt's number out of 3, its cause (its HTTP status, else its
+underlying error's message after its code when it has one, else its own message), then the wait
+before the next attempt, or "giving up". Characters U+0000–U+001F and U+007F SHALL NOT reach the log.
 
 #### Scenario: A retried attempt
 

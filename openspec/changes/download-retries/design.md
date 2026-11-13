@@ -23,7 +23,10 @@ second into its PBF download, an hour after the same download had worked.
      5xx or 429;
    - anything else fails at once: a 404 or other 4xx, a corrupt or short file;
    - each failed attempt is logged with its cause and attempt number;
-   - when every attempt fails, the region fails as today.
+   - when every attempt fails, the region fails as today;
+   - Alberta's first run waits for this change (ADR 0038). In the owner's words, as relayed: "Record
+     the owner's decisions in ADRs: the retry policy, and that Alberta's first run waits for it (an
+     exception to ADR 0027's 'run right after merge')".
 2. **The waits are exactly 30 000 ms and 120 000 ms.** The owner said "about", and fixed values keep
    the tests exact. No jitter: one job downloads one file at a time, so there is no herd to spread.
 3. **A failure is network-level when:**
@@ -54,12 +57,14 @@ second into its PBF download, an hour after the same download had worked.
    `Download attempt <n> of 3 for <url> failed: <reason>; retrying in <30 s|2 min>`.
    - On the last attempt, whether the third or one that isn't retried (a 404), it ends with
      `; giving up` instead.
-   - `<reason>` is the error text ADR 0031 already writes, a status or a cause, kept on one line by
-     the same filter. So a hostile cause can't start a workflow command (an attack test pins it).
+   - `<reason>` is the error text ADR 0031 already writes (a status, or the underlying error's code
+     and message, or the error's own message when it has no cause), with U+0000–U+001F and U+007F
+     replaced by a space, the same filter as ADR 0031's. So a hostile cause can't start a workflow command (an attack test pins it).
    - The thrown error is the last attempt's, worded as today: the URL and that attempt's status or
      cause. The earlier attempts' causes are in their log lines.
-7. **The wait is injectable.** `download` and `buildRegion` take a `sleep(ms)` that defaults to a
-   `setTimeout` promise.
+7. **The wait and the log are injectable.** `download(url, dest, fetchImpl, { sleep, log })` takes a
+   `sleep(ms)` that defaults to a `setTimeout` promise, and the `log` that `buildRegion` already has
+   (default `console.log`). `buildRegion` passes both through.
    - The tests pass a fake that records the waits and resolves at once, so no test waits.
    - One test drives the default with `node:test`'s mock timers, to show the default really waits.
 8. **No new timeout.** Undici's 300 s headers and body timeouts are the "timeout" that is retried
@@ -67,9 +72,12 @@ second into its PBF download, an hour after the same download had worked.
 
 ## Risks / Trade-offs
 
-- **[Trade-off] A longer failing job.** A file that fails on every attempt takes 2.5 minutes longer
-  to fail, and up to about 15 minutes if every attempt hangs to undici's 300 s timeout. Both are far
-  inside the job's 120-minute limit.
+- **[Trade-off] A longer failing job.**
+  - A file that fails at once on every attempt takes 2.5 minutes longer to fail.
+  - If every attempt hangs to undici's 300 s timeout, it takes about 17.5 minutes (3 × 300 s + 2.5
+    min).
+  - With each of the three files doing so, a region takes about 52 minutes.
+  - All of these are inside the job's 120-minute limit; measured builds take a few minutes.
 - **[Risk] Retrying a real outage** costs those minutes and then fails as today. No data is at risk:
   a failed region keeps its previous entry.
 - **[Risk] A code list that misses a transient failure.** It fails at once, as today, and its log
@@ -115,3 +123,12 @@ Round 1: one blocker, A1, and four should-fix findings, all fixed in the delta.
 Also fixed:
 - **C1:** "before or during the body" no longer reads as if it applied to a status.
 - **F1:** the proposal gives the worst-case time.
+
+Round 2: no blocker; another round not needed. Fixed:
+- **C1:** a scenario where each file has its own attempts;
+- **D1:** an MD5 mismatch is not a logged download attempt;
+- **D2:** the cause for an error with no code, or with no underlying error;
+- **H1:** decision 1 quotes the owner's decision that Alberta's first run waits;
+- **F1:** the worst case is about 17.5 minutes per file and about 52 per region;
+- **D3:** the characters kept out of the log are named: U+0000–U+001F and U+007F;
+- **G1:** decision 7 gives `download` its `log`.
