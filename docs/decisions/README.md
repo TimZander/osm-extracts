@@ -33,3 +33,5 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0025](0025-utah-third-in-the-regions-list.md) | Utah goes third in the regions list, after Wyoming | accepted |
 | [0026](0026-utah-publishes-on-the-run-after-wyomings.md) | Utah publishes on the weekly run after Wyoming's own deploy | superseded by 0027 |
 | [0027](0027-a-region-may-run-by-hand-once-added.md) | A region's first extract run may be started by hand as soon as it merges | accepted |
+| [0028](0028-idaho-bounds-the-southern-block.md) | Idaho's bounds are the southern block | accepted |
+| [0029](0029-idaho-fourth-in-the-regions-list.md) | Idaho goes fourth in the regions list, after Utah | accepted |

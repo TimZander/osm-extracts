@@ -19,5 +19,12 @@
     "geofabrik": "north-america/us/utah",
     "bounds": { "south": 37.01, "west": -114.03, "north": 40.99, "east": -109.06 },
     "clip": false
+  },
+  {
+    "id": "idaho",
+    "name": "Idaho",
+    "geofabrik": "north-america/us/idaho",
+    "bounds": { "south": 42.01, "west": -117.02, "north": 43.75, "east": -111.06 },
+    "clip": false
   }
 ]
