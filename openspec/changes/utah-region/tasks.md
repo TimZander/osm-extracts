@@ -12,8 +12,8 @@
 
 ## 3. Review
 
-- [ ] 3.1 `/sdd:conformance-review utah-region`, findings routed with `/sdd:spec-fix`
-- [ ] 3.2 Scan the diff for private material (this repository is public; only generic mentions of garmin-map)
+- [x] 3.1 `/sdd:conformance-review utah-region`, findings routed with `/sdd:spec-fix` (conforms with gaps: S1 added to design open question 3, S2 the border test compares bytes)
+- [x] 3.2 Scan the diff for private material (this repository is public; only generic mentions of garmin-map): only generic mentions of garmin-map
 
 ## 4. Decisions
 

@@ -268,15 +268,20 @@ test('a border cell in two regions keeps both entries and both files', () => {
     properties: { title: 'Line Trail', _osmCategories: ['trails'], _osmId: 'way/42' },
   }
   const dirs = setup()
-  artifact(dirs.artifactsDir, CO, [trail], { wrapped: true })
-  artifact(dirs.artifactsDir, UT, [trail], { wrapped: true })
+  const built = {
+    colorado: artifact(dirs.artifactsDir, CO, [trail], { wrapped: true }).built,
+    utah: artifact(dirs.artifactsDir, UT, [trail], { wrapped: true }).built,
+  }
   run(dirs, [CO, UT])
   const m = JSON.parse(readFileSync(join(dirs.outDir, 'manifest.json')))
+  assert.deepEqual(m.regions.map((r) => r.id), ['colorado', 'utah'])
   for (const r of m.regions) {
     assert.ok(r.cells.includes('152_-437'), `${r.id} cells`)
     assert.ok(r.coverage.includes('152_-437'), `${r.id} coverage`)
-    const f = JSON.parse(readFileSync(join(dirs.outDir, r.id, '152_-437.json')))
-    assert.deepEqual(f.features.map((x) => x.properties._osmId), ['way/42'], r.id)
+    const path = `${r.id}/152_-437.json`
+    const text = readFileSync(join(dirs.outDir, path), 'utf8')
+    assert.equal(text, new Map(built[r.id].files).get(path), r.id)
+    assert.deepEqual(JSON.parse(text).features.map((x) => x.properties._osmId), ['way/42'], r.id)
   }
 })
 
