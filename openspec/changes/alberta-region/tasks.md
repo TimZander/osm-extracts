@@ -2,8 +2,8 @@
 
 ## 1. Alberta in the list
 
-- [ ] 1.1 Tests first, citing "The regions list", scenario "Colorado, Wyoming, Utah, Idaho, British Columbia and Alberta": the repository's list is `colorado`, `wyoming`, `utah`, `idaho`, `british-columbia`, `alberta`, valid, with the plan output `regions=["colorado","wyoming","utah","idaho","british-columbia","alberta"]`; the five-region tests take the list's first five entries; Alberta's entry and bounds (design decision 2) are pinned. Seen to fail, then `regions.json`; verify `npm test`
-- [ ] 1.2 Test of the scenario's manifest half: the assembler, given the six regions' artifacts out of order and the repository's list, writes `regions` as `colorado`, `wyoming`, `utah`, `idaho`, `british-columbia`, `alberta`; the existing five-region assembler test takes the list's first five entries, so it still passes; verify `npm test`
+- [x] 1.1 Tests first, citing "The regions list", scenario "Colorado, Wyoming, Utah, Idaho, British Columbia and Alberta": the repository's list is `colorado`, `wyoming`, `utah`, `idaho`, `british-columbia`, `alberta`, valid, with the plan output `regions=["colorado","wyoming","utah","idaho","british-columbia","alberta"]`; the five-region tests take the list's first five entries; Alberta's entry and bounds (design decision 2) are pinned. Seen to fail, then `regions.json`; verify `npm test`
+- [x] 1.2 Test of the scenario's manifest half: the assembler, given the six regions' artifacts out of order and the repository's list, writes `regions` as `colorado`, `wyoming`, `utah`, `idaho`, `british-columbia`, `alberta`; the existing five-region assembler test takes the list's first five entries, so it still passes; verify `npm test`
 
 ## 2. Review
 
@@ -12,7 +12,7 @@
 
 ## 3. Decisions
 
-- [ ] 3.1 ADRs 0035 (bounds) and 0036 (order), with the index updated
+- [x] 3.1 ADRs 0035 (bounds) and 0036 (order), with the index updated
 
 ## Workflow follow-up
 

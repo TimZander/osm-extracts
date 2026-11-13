@@ -33,5 +33,12 @@
     "geofabrik": "north-america/canada/british-columbia",
     "bounds": { "south": 49.01, "west": -130.00, "north": 59.99, "east": -120.01 },
     "clip": false
+  },
+  {
+    "id": "alberta",
+    "name": "Alberta",
+    "geofabrik": "north-america/canada/alberta",
+    "bounds": { "south": 49.60, "west": -114.60, "north": 59.99, "east": -110.01 },
+    "clip": false
   }
 ]

@@ -15,11 +15,18 @@ const good = () => [
   },
 ]
 
-// Scenario "Colorado, Wyoming, Utah, Idaho and British Columbia".
-test('the repository\'s regions list is colorado, wyoming, utah, idaho, british-columbia, and is valid', () => {
+// Scenario "Colorado, Wyoming, Utah, Idaho, British Columbia and Alberta".
+test('the repository\'s regions list is colorado, wyoming, utah, idaho, british-columbia, alberta, and is valid', () => {
   const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
   validateRegions(list)
-  assert.deepEqual(list.map((r) => r.id), ['colorado', 'wyoming', 'utah', 'idaho', 'british-columbia'])
+  assert.deepEqual(list.map((r) => r.id), ['colorado', 'wyoming', 'utah', 'idaho', 'british-columbia', 'alberta'])
+  assert.equal(planOutput(list), 'regions=["colorado","wyoming","utah","idaho","british-columbia","alberta"]')
+})
+
+// Scenario "Colorado, Wyoming, Utah, Idaho and British Columbia".
+test('a list of colorado, wyoming, utah, idaho, british-columbia plans five region jobs', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url))).slice(0, 5)
+  validateRegions(list)
   assert.equal(planOutput(list), 'regions=["colorado","wyoming","utah","idaho","british-columbia"]')
 })
 
@@ -277,6 +284,17 @@ test('British Columbia\'s entry and bounds (british-columbia-region design decis
     name: 'British Columbia',
     geofabrik: 'north-america/canada/british-columbia',
     bounds: { south: 49.01, west: -130.0, north: 59.99, east: -120.01 },
+    clip: false,
+  })
+})
+
+test('Alberta\'s entry and bounds (alberta-region design decision 2)', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
+  assert.deepEqual(list[5], {
+    id: 'alberta',
+    name: 'Alberta',
+    geofabrik: 'north-america/canada/alberta',
+    bounds: { south: 49.6, west: -114.6, north: 59.99, east: -110.01 },
     clip: false,
   })
 })
