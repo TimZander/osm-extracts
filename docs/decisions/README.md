@@ -42,3 +42,5 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0034](0034-category-rules-as-selectors-of-conditions.md) | The category rules are selectors of AND-ed conditions; osmium pre-filters on each selector's first condition | accepted |
 | [0035](0035-alberta-bounds-east-of-the-divide-from-49-6.md) | Alberta's bounds are 49.60 / -114.60 / 59.99 / -110.01 | accepted |
 | [0036](0036-alberta-sixth-in-the-regions-list.md) | Alberta goes sixth in the regions list, after British Columbia | accepted |
+| [0037](0037-network-download-failures-are-retried-twice.md) | A download that fails at the network level is retried twice, after 30 s and 2 min | accepted |
+| [0038](0038-alberta-first-run-waits-for-download-retries.md) | Alberta's first run waits for download retries, an exception to ADR 0027 | accepted |

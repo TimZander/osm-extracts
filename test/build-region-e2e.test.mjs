@@ -240,3 +240,31 @@ test('a clipped region covers its bounds\' cells, not its polygon\'s', { skip },
   const want = ['156_-427', '156_-426', '156_-425', '157_-427', '157_-426', '157_-425']
   assert.deepEqual(entry.coverage, want)
 })
+
+// Requirements "A download is retried after a network failure" and "Network-level download failures"
+// (change download-retries): each file fails once at the network level, a refused connection, a 429
+// and a body that stops sending, and the region builds from the second downloads.
+test('the region builds after each download fails once at the network level', { skip }, async () => {
+  const dir = tmp()
+  const src = makePbf(dir, '2026-10-28T20:21:02Z')
+  const bytes = { pbf: readFileSync(src.pbf), md5: readFileSync(src.md5), poly: readFileSync(src.poly) }
+  const count = {}
+  const fail = {
+    pbf: () => new Response(new ReadableStream({ start(c) { c.enqueue(new Uint8Array([1])); c.error(new TypeError('terminated', { cause: Object.assign(new Error('body timeout'), { code: 'UND_ERR_BODY_TIMEOUT' }) })) } })),
+    md5: () => { throw new TypeError('fetch failed', { cause: Object.assign(new Error('connect ECONNREFUSED'), { code: 'ECONNREFUSED' }) }) },
+    poly: () => new Response('slow down', { status: 429 }),
+  }
+  const fetchImpl = async (url) => {
+    const k = url.endsWith('.md5') ? 'md5' : url.endsWith('.poly') ? 'poly' : 'pbf'
+    count[k] = (count[k] ?? 0) + 1
+    return count[k] === 1 ? fail[k]() : new Response(bytes[k])
+  }
+  const waits = []
+  const out = join(dir, 'out')
+  const { entry } = await buildRegion({ id: 'sample', out, regions: [region()], fetchImpl, sleep: async (ms) => void waits.push(ms), log: () => {} })
+  assert.deepEqual(count, { pbf: 2, md5: 2, poly: 2 })
+  assert.deepEqual(waits, [30_000, 30_000, 30_000])
+  assert.equal(entry.dataDate, '2026-10-28')
+  assert.ok(existsSync(out))
+  assert.ok(entry.cells.length > 0)
+})

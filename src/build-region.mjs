@@ -6,7 +6,8 @@
 // Spec: "A failed or corrupt download publishes nothing new for the region", "The data date is the
 // source's replication time", "A region's bounds lie inside its Geofabrik polygon", "A clipped
 // region is cut to its bounds", "No published file is over 20 MiB", "Each region job reports its
-// size", "Each region lists the cells it covers", "A clipped region covers its bounds' cells". osmium is run with execFile, never a shell.
+// size", "Each region lists the cells it covers", "A clipped region covers its bounds' cells", "A download
+// is retried after a network failure". osmium is run with execFile, never a shell.
 import { createReadStream, createWriteStream, mkdirSync, mkdtempSync, readFileSync, renameSync, rmSync, writeFileSync, appendFileSync, existsSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import { execFile } from 'node:child_process'
@@ -34,19 +35,80 @@ export function sourceUrls(path) {
   return { pbf: `${base}-latest.osm.pbf`, md5: `${base}-latest.osm.pbf.md5`, poly: `${base}.poly` }
 }
 
-export async function download(url, dest, fetchImpl = fetch) {
+// Spec: "A download is retried after a network failure", "Network-level download failures", "Each
+// failed download attempt is logged on one line". Three attempts; the waits before the second and the
+// third (ADR 0037).
+export const RETRY_WAITS_MS = [30_000, 120_000]
+const NETWORK_CODES = new Set([
+  'ECONNREFUSED', 'ECONNRESET', 'EPIPE', 'UND_ERR_SOCKET',
+  'ETIMEDOUT', 'UND_ERR_CONNECT_TIMEOUT', 'UND_ERR_HEADERS_TIMEOUT', 'UND_ERR_BODY_TIMEOUT',
+  'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN',
+])
+const defaultSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
+const waitText = (ms) => (ms % 60_000 === 0 ? `${ms / 60_000} min` : `${ms / 1000} s`)
+
+// One attempt. Throws an Error whose message is the failure's text (ADR 0031), whose `reason` is the
+// attempt's cause for its log line (its HTTP status, else its underlying error's code and message,
+// else its own message), and whose `retry` says whether it failed at the network level.
+async function downloadOnce(url, dest, fetchImpl) {
   let res
   try {
     res = await fetchImpl(url, { redirect: 'follow' })
   } catch (e) {
-    throw new Error(`download of ${url} failed: ${e.message}${causeText(e.cause)}`)
+    throw failure(`download of ${url} failed: ${e.message}${causeText(e.cause)}`, causeReason(e), isNetworkCause(e.cause))
   }
-  if (!res.ok || !res.body) throw new Error(`download of ${url} failed: HTTP ${res.status}`)
+  if (!res.ok || !res.body) {
+    throw failure(`download of ${url} failed: HTTP ${res.status}`, `HTTP ${res.status}`, res.status >= 500 || res.status === 429)
+  }
   try {
     await pipeline(Readable.fromWeb(res.body), createWriteStream(dest))
   } catch (e) {
-    throw new Error(`download of ${url} failed while reading the body: ${e.message}${causeText(e.cause)}`)
+    throw failure(`download of ${url} failed while reading the body: ${e.message}${causeText(e.cause)}`, causeReason(e), isNetworkCause(e.cause))
   }
+}
+
+function failure(message, reason, retry) {
+  return Object.assign(new Error(oneLine(message)), { reason: oneLine(reason), retry })
+}
+
+// The underlying error's "CODE: message" (as causeText writes it), or the error's own message when
+// there is no underlying error.
+function causeReason(e) {
+  const c = causeText(e?.cause)
+  if (c) return c.slice(' (cause: '.length, -1)
+  try {
+    return String(e?.message)
+  } catch {
+    return 'unreadable error'
+  }
+}
+
+function isNetworkCause(cause) {
+  try {
+    return typeof cause?.code === 'string' && NETWORK_CODES.has(cause.code)
+  } catch {
+    return false
+  }
+}
+
+export async function download(url, dest, fetchImpl = fetch, { sleep = defaultSleep, log = console.log } = {}) {
+  const attempts = RETRY_WAITS_MS.length + 1
+  for (let n = 1; ; n++) {
+    try {
+      await downloadOnce(url, dest, fetchImpl)
+      return
+    } catch (e) {
+      const wait = e.retry && n < attempts ? RETRY_WAITS_MS[n - 1] : null
+      log(oneLine(`Download attempt ${n} of ${attempts} for ${url} failed: ${e.reason}; ${wait === null ? 'giving up' : `retrying in ${waitText(wait)}`}`))
+      if (wait === null) throw new Error(e.message)
+      await sleep(wait)
+    }
+  }
+}
+
+// U+0000–U+001F and U+007F become a space, so no text from the network can start a log line.
+function oneLine(text) {
+  return String(text).replace(/[\u0000-\u001f\u007f]+/g, ' ')
 }
 
 // The underlying error Node's fetch keeps in `cause`, as " (cause: CODE: message)", or "" with none.
@@ -110,6 +172,7 @@ export async function buildRegion({
   threshold = SPLIT_THRESHOLD,
   maxFile = MAX_FILE_BYTES,
   log = console.log,
+  sleep = defaultSleep,
 }) {
   validateRegions(regions)
   if (typeof id !== 'string' || !REGION_ID.test(id)) throw new Error(`"${id}" is not a region id`)
@@ -127,7 +190,7 @@ export async function buildRegion({
       src = { pbf: join(work, 'source.osm.pbf'), md5: join(work, 'source.md5'), poly: join(work, 'source.poly') }
       for (const k of ['pbf', 'md5', 'poly']) {
         log(`Downloading ${urls[k]}`)
-        await download(urls[k], src[k], fetchImpl)
+        await download(urls[k], src[k], fetchImpl, { sleep, log })
       }
     }
     checkMd5(src.pbf, readFileSync(src.md5, 'utf8'))

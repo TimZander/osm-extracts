@@ -1,4 +1,5 @@
-// Requirements: "A failed or corrupt download publishes nothing new for the region", "The data date is
+// Requirements: "A failed or corrupt download publishes nothing new for the region" (its network
+// scenarios fail on every attempt, change download-retries), "The data date is
 // the source's replication time", "Each region job reports its size", "A region's bounds lie inside
 // its Geofabrik polygon".
 import { test } from 'node:test'
@@ -10,6 +11,8 @@ import { createHash } from 'node:crypto'
 import { checkMd5, dataDateFrom, download, sourceUrls, summaryMarkdown, buildRegion } from '../src/build-region.mjs'
 
 const tmp = () => mkdtempSync(join(tmpdir(), 'osm-test-'))
+// Downloads that are retried (change download-retries) wait through this instead of really waiting.
+const noWait = { sleep: async () => {}, log: () => {} }
 
 test('Geofabrik URLs', () => {
   assert.deepEqual(sourceUrls('north-america/us/colorado'), {
@@ -54,7 +57,7 @@ test('a request that fails before any response names the URL and its cause', asy
     const cause = Object.assign(new Error('read ECONNRESET'), { code: 'ECONNRESET' })
     throw new TypeError('fetch failed', { cause })
   }
-  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'a'), reset), (e) => {
+  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'a'), reset, noWait), (e) => {
     assert.match(e.message, /https:\/\/download\.geofabrik\.de\/x\.pbf/)
     assert.match(e.message, /ECONNRESET: read ECONNRESET/)
     return true
@@ -68,7 +71,13 @@ test('a request that fails before any response names the URL and its cause', asy
     return true
   })
   const out = join(tmp(), 'out')
-  await assert.rejects(buildRegion({ id: 'colorado', out, fetchImpl: reset }), /colorado-latest\.osm\.pbf.*ECONNRESET: read ECONNRESET/)
+  let requests = 0
+  const countedReset = async (...a) => {
+    requests++
+    return reset(...a)
+  }
+  await assert.rejects(buildRegion({ id: 'colorado', out, fetchImpl: countedReset, ...noWait }), /colorado-latest\.osm\.pbf.*ECONNRESET: read ECONNRESET/)
+  assert.equal(requests, 3)
   assert.equal(existsSync(out), false)
 })
 
@@ -79,7 +88,7 @@ test('a hostile cause stays on one line and keeps the URL', async () => {
   const hostile = async () => {
     throw new TypeError('fetch failed', { cause: { code: 'E\n::warning::y', message: 'x\r\n::add-mask::z' } })
   }
-  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'h'), hostile), (e) => {
+  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'h'), hostile, noWait), (e) => {
     assert.doesNotMatch(e.message, /[\r\n]/)
     assert.match(e.message, /x\.pbf/)
     return true
@@ -103,15 +112,19 @@ test('a download cut off mid-stream names the URL and its cause, and writes noth
     })
   const dir = tmp()
   await assert.rejects(
-    download('https://download.geofabrik.de/x.poly', join(dir, 'c'), async () => new Response(cutBody())),
+    download('https://download.geofabrik.de/x.poly', join(dir, 'c'), async () => new Response(cutBody()), noWait),
     /x\.poly.*terminated.*ECONNRESET: read ECONNRESET/,
   )
   const pbf = new Uint8Array([1, 2, 3])
   const md5 = createHash('md5').update(pbf).digest('hex')
-  const fake = async (url) =>
-    url.endsWith('.poly') ? new Response(cutBody()) : new Response(url.endsWith('.md5') ? `${md5}  colorado-latest.osm.pbf\n` : pbf)
+  let polyRequests = 0
+  const fake = async (url) => {
+    if (url.endsWith('.poly')) polyRequests++
+    return url.endsWith('.poly') ? new Response(cutBody()) : new Response(url.endsWith('.md5') ? `${md5}  colorado-latest.osm.pbf\n` : pbf)
+  }
   const out = join(tmp(), 'out')
-  await assert.rejects(buildRegion({ id: 'colorado', out, fetchImpl: fake }), /colorado\.poly.*ECONNRESET: read ECONNRESET/)
+  await assert.rejects(buildRegion({ id: 'colorado', out, fetchImpl: fake, ...noWait }), /colorado\.poly.*ECONNRESET: read ECONNRESET/)
+  assert.equal(polyRequests, 3)
   assert.equal(existsSync(out), false)
 })
 
