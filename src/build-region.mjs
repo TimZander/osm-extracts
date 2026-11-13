@@ -42,6 +42,7 @@ export const RETRY_WAITS_MS = [30_000, 120_000]
 const NETWORK_CODES = new Set([
   'ECONNREFUSED', 'ECONNRESET', 'EPIPE', 'UND_ERR_SOCKET',
   'ETIMEDOUT', 'UND_ERR_CONNECT_TIMEOUT', 'UND_ERR_HEADERS_TIMEOUT', 'UND_ERR_BODY_TIMEOUT',
+  'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN',
 ])
 const defaultSleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 const waitText = (ms) => (ms % 60_000 === 0 ? `${ms / 60_000} min` : `${ms / 1000} s`)
