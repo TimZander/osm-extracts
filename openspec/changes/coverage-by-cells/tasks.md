@@ -6,11 +6,11 @@
 
 ## 2. The region job
 
-- [ ] 2.1 Tests first: the built entry has `coverage` from the fixture polygon (`test/fixtures/sample.poly`), including an empty covered cell and excluding a cell with a file outside the polygon; the summary shows the coverage count. Seen to fail, then `src/build-region.mjs`; verify `npm test`
+- [ ] 2.1 Tests first, citing "Each region lists the cells it covers", "Features are filed into 0.25° cells" and "Each region job reports its size": the built entry's `coverage` from a polygon the test writes (not `sample.poly`, which other tests depend on), smaller than the data in `sample.osm` so a trail's cell with a file lies outside it, and with an empty covered cell; the summary shows the coverage count. Seen to fail, then `src/build-region.mjs`; verify `npm test`
 
 ## 3. The deploy job
 
-- [ ] 3.1 Tests first, citing "The deploy job accepts only well-formed region trees" and "A failed region keeps its previous files": an artifact with no `coverage`, with a bad id, with a duplicate fails naming the region; a kept entry keeps its `coverage`, or its lack of one; the manifest's `coverage` is sorted. Seen to fail, then `src/assemble-site.mjs`; verify `npm test`
+- [ ] 3.1 Tests first, citing "The deploy job accepts only well-formed region trees" and "A failed region keeps its previous files": an artifact with no `coverage`, with a bad id, with a duplicate fails naming the region; an artifact's `coverage` out of order is written sorted; a kept entry keeps its `coverage`, or its lack of one, and a kept `coverage` that isn't an array of cell ids fails the deploy job. Seen to fail, then `src/assemble-site.mjs`; verify `npm test`
 
 ## 4. Review and decisions
 

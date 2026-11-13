@@ -43,9 +43,11 @@ any other region (their own changes); changing the cell grid or the files writte
    `(row+1)/4` and `col/4` to `(col+1)/4`. It is covered when the area of (polygon inside, holes cut
    out) ∩ square is more than 1e-12 square degrees (about 0.01 m²; it only absorbs rounding). So a
    polygon meeting a cell only along its edge or at a corner doesn't cover it. Why not the closed
-   rule (any shared point counts)? A state line on a cell line (Colorado–Wyoming at 41° N, row 164
-   starting there) would add a whole row of cells in which the region has no area, and the app
-   would show "no features" instead of "no data" along it if the neighbour isn't published.
+   rule (any shared point counts)? Wherever a polygon edge lies on a cell line, it would add a whole
+   row or column of cells in which the region has no area, and the app would show "no features"
+   instead of "no data" along it while the neighbour isn't published. Geofabrik's margin (decision 2)
+   makes that rare for a state line such as 41° N, but straight edges on multiples of 0.25 occur in
+   clipped rectangles and in the fixtures, and the rule must give one answer for them.
    Computed per cell in the polygon's bounding box: each ring is clipped to the square
    (Sutherland–Hodgman, exact for a convex window), its area taken by the shoelace formula from the
    ring's first point, outer rings added and holes taken away. With the grid and the lines both on
@@ -75,7 +77,11 @@ any other region (their own changes); changing the cell grid or the files writte
    today.
 7. **Kept entries keep their form.** A failed region's previous entry is carried as it was. On the
    first run after merge, a region whose job fails is published without `coverage`; the next
-   successful build adds it. The deploy job requires `coverage` only of this run's artifacts.
+   successful build adds it. The deploy job requires `coverage` only of this run's artifacts. A kept
+   `coverage` is checked as the previous manifest is ("The previous site is read from the data
+   branch"): when present it must be an array of cell ids, or the previous manifest is not of the
+   manifest's form and the deploy job fails; it is then written sorted, like `cells`. An artifact's
+   `coverage` out of order is sorted too, as `cells` is today; a duplicate or bad id fails it.
 8. **The region job reports its coverage cell count**, beside the cell count, so a run's summary shows
    how many covered cells have no file.
 

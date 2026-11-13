@@ -38,8 +38,9 @@ None.
 
 - `osm-extract`:
   - added "Each region lists the cells it covers" and "A clipped region covers its bounds' cells";
-  - modified "The manifest describes every region" (`coverage` in the entry), "The output is
-    byte-stable" (`coverage` sorted), "The deploy job accepts only well-formed region trees" (an
+  - modified "Features are filed into 0.25° cells" (its empty-cell scenario now names `cells` and
+    `split`, since `coverage` lists empty cells), "The manifest describes every region" (`coverage` in the entry), "The output is
+    byte-stable" (`coverage` sorted, also when an artifact lists it out of order), "The deploy job accepts only well-formed region trees" (an
     artifact without `coverage`), "A failed region keeps its previous files" (a kept entry keeps its
     `coverage`, or its lack of one) and "Each region job reports its size" (the coverage count).
 
@@ -48,7 +49,7 @@ None.
 - Code: `src/poly.mjs` (cells a polygon covers), `src/build-region.mjs` (entry and report),
   `src/assemble-site.mjs` (entry checks and kept entries), and their tests. The workflow file is not
   touched.
-- Manifest size: about 9 KB more per state-sized region before compression (design, decision 5).
+- Manifest size: about 10 KB more per state-sized region before compression (design, decision 5).
 - The live site is unaffected until the next run after merge: the owner's, or the weekly schedule's
   (Mondays 05:23 UTC, ADR 0010). That run adds `coverage` to each region that builds.
 - garmin-map reads `coverage` in its own change; until it does, nothing it reads changes. It must

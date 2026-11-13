@@ -2,10 +2,10 @@
 
 ### Requirement: Each region lists the cells it covers
 
-A region's manifest entry SHALL have `coverage`: the id of every 0.25° cell (as in "Features are
-filed into 0.25° cells") that shares area with the inside of the region's Geofabrik polygon (every
-ring, holes cut out), whether or not the cell has a file. A cell the polygon meets only along an edge
-or at a corner, or shares under 1e-12 square degrees with (rounding), SHALL not be listed. Coverage
+An unclipped region's manifest entry SHALL have `coverage`: the id, once each, of every 0.25° cell
+(as in "Features are filed into 0.25° cells") sharing more than 1e-12 square degrees of area with
+the inside of the region's Geofabrik polygon (every ring, holes cut out), whether or not the cell
+has a file. So a cell the polygon meets only along an edge or at a corner is not listed. Coverage
 SHALL not depend on the region's features.
 
 #### Scenario: A polygon on cell lines
@@ -45,9 +45,9 @@ SHALL not depend on the region's features.
 
 ### Requirement: A clipped region covers its bounds' cells
 
-A clipped region's `coverage` SHALL instead be the id of every 0.25° cell that shares area with its
-`bounds`, by the same rule: a cell the rectangle meets only along an edge or at a corner is not
-covered.
+A clipped region's `coverage` SHALL be the id, once each, of every 0.25° cell sharing more than
+1e-12 square degrees of area with its `bounds`, whatever its polygon: a cell the rectangle meets only
+along an edge or at a corner is not covered.
 
 #### Scenario: A clipped region
 
@@ -56,13 +56,35 @@ covered.
 
 ## MODIFIED Requirements
 
+### Requirement: Features are filed into 0.25° cells
+
+Each region SHALL be written as one FeatureCollection per 0.25° cell at `<region>/<row>_<col>.json`,
+where `row = floor(lat × 4)` and `col = floor(lon × 4)` of the rounded coordinate, written as integers
+with no `+`, no leading zero and no `-0`. A feature SHALL go, whole, into every cell holding one of its
+vertices. A cell with no feature SHALL not be written.
+
+#### Scenario: A point's cell
+
+- **WHEN** a node is written at `[-106.062,39.625]`
+- **THEN** it is in `colorado/158_-425.json`
+
+#### Scenario: A trail across a cell edge
+
+- **WHEN** a trail has vertices in cells `158_-425` and `158_-424`
+- **THEN** both files hold the whole trail
+
+#### Scenario: An empty cell
+
+- **WHEN** no feature has a vertex in cell `160_-420`
+- **THEN** no file is written for it, and the manifest's `cells` and `split` don't list it
+
 ### Requirement: The manifest describes every region
 
 `manifest.json` SHALL be a JSON object with `attribution` (`© OpenStreetMap contributors (ODbL)`),
 `categoriesFrom`, and `regions`: one object per published region, in regions-list order, with `id`,
 `name`, `bounds` (`south`, `west`, `north`, `east`, numbers), `dataDate` (`YYYY-MM-DD`), `cells` (the
-region's cell ids), `split` (the ids of its split cells, possibly empty) and `coverage` (missing
-only from a kept entry built before it). This is the format garmin-map's `osm-import` spec reads.
+region's cell ids), `split` (the ids of its split cells, possibly empty) and `coverage` (absent
+only from a kept entry built before it). garmin-map's `osm-import` reads this format.
 
 #### Scenario: A Colorado run
 
@@ -74,8 +96,7 @@ only from a kept entry built before it). This is the format garmin-map's `osm-im
 Every region file SHALL be a function of its features alone: features sorted nodes before ways, each
 by ascending numeric id; keys in the order `type`, `features` / `type`, `geometry`, `properties` /
 `type`, `coordinates` / `title`, `_osmCategories`, `_osmId`; one feature per line; a final newline. The
-manifest's `cells`, `split` and `coverage` SHALL be sorted numerically by row, then by column, with no
-id twice.
+manifest's `cells`, `split` and `coverage` SHALL be sorted numerically by row, then by column.
 
 #### Scenario: The same data built twice
 
@@ -94,8 +115,8 @@ id twice.
 
 #### Scenario: Coverage order
 
-- **WHEN** a region covers cells `159_-425`, `158_-424` and `158_-425`
-- **THEN** its `coverage` is `["158_-425", "158_-424", "159_-425"]`
+- **WHEN** a region covers cells `159_-425`, `158_-424` and `158_-425`, or its artifact's entry lists them in that order
+- **THEN** the manifest's `coverage` for it is `["158_-425", "158_-424", "159_-425"]`
 
 ### Requirement: The deploy job accepts only well-formed region trees
 
