@@ -14,7 +14,8 @@ download-cause-and-builder-heap) was added so a region this size fits in memory.
 - **`regions.json`** gets a fifth entry, `british-columbia` (`British Columbia`, Geofabrik
   `north-america/canada/british-columbia`, not clipped), after `idaho`.
 - **British Columbia `bounds`:** 49.01 / -130.00 / 59.99 / -120.01 (south, west, north, east),
-  the block from the 49th parallel to the 60th and from the coast to the 120th meridian. The change's
+  the block from the 49th parallel to the 60th and from -130 (0.14° east of the polygon's vertex at
+  the head of Portland Inlet) to the 120th meridian. The change's
   author chose them (design decision 2, ADR 0032), checked against the real
   `british-columbia.poly` with the repository's own guard. They matter only for the guard and for an
   app that reads nothing but `bounds`.

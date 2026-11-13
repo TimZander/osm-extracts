@@ -17,8 +17,10 @@ What was read:
   2026-11-12. For scale: Colorado's is 370 MB, Utah's 163 MB, Idaho's 124 MB, Wyoming's 91 MB.
 - **The polygon** follows the province only roughly:
   - **south:** 48.9945–48.9949 from -114.07 to -121.74, so a strip of about 50 m of Montana,
-    Idaho and Washington is inside; Haro Strait then keeps the San Juan Islands and Point Roberts
-    out.
+    Idaho and Washington is inside. From -121.74 to -123.30 it runs at 49.0003–49.0007, the
+    closest it comes to the bounds' south edge (49.01, about 1 km clear). It then turns south at
+    -123.30 to 48.83, so Point Roberts (south of 49° N, east of that turn) is outside, and follows
+    Haro Strait, which keeps the San Juan Islands out.
   - **sea:** a wide ocean margin, out to (46.41, -128.98) and (53.58, -141.78), that holds
     Vancouver Island and Haida Gwaii, then the Alaska panhandle line drawn coarsely (some
     panhandle land near Hyder and Stewart is inside).
@@ -42,10 +44,11 @@ The 2,500-cell figure in the brief was a land-only upper bound. Land is about 94
    - (a) **49.01 / -130.00 / 59.99 / -120.01**: 10.98° × 9.99° ≈ 109.7 square degrees, inside.
      Its south, north and east edges are 0.01° inside the 49th parallel, the 60th and the 120th
      meridian, as ADRs 0016, 0018 and 0024 did. Its west edge is 0.14° east of the binding
-     polygon vertex (55.27, -130.14), at the head of Portland Inlet. It holds Vancouver (49.28 N),
+     polygon vertex (55.27, -130.1435), at the head of Portland Inlet. It holds Vancouver (49.28 N),
      Kamloops, Kelowna, Prince George and Fort St. John.
-   - (b) **The widest found**, 49.01 / -130.14 / 59.99 / -120.01: 0.14° more to the west. It rests
-     on Geofabrik's vertex, which can move between extracts.
+   - (b) **The widest that passes**, 49.01 / -130.14 / 59.99 / -120.01 (the vertex is at -130.1435):
+     0.14° more to the west, but only 0.0035° from Geofabrik's vertex, which can move between
+     extracts. At -130.15 the guard fails.
    - (c) **A rectangle reaching east past -120 south of 53.8° N** (the Kootenays): any such box
      must stop under the Divide at its narrowest. For example, 49.01 / -121.73 / 53.79 / -114.6
      fails at its north-east corner.
@@ -142,5 +145,16 @@ be read.
 ## Open Questions
 
 None for the owner. The bounds and the order are the change author's choices (ADRs 0032 and 0033),
-as the orchestrator's brief says. Publishing timing is ADR 0027, and the heap is ADR 0030, both
+as the orchestrator's brief, relaying the owner, says. Publishing timing is ADR 0027, and the heap is ADR 0030, both
 already decided.
+
+## Spec review
+
+One round: no blocker, no should-fix. Fixed:
+- the proposal no longer calls -130 "the coast" (D1);
+- the south line's closest stretch to the bounds, 49.0003 from -121.74 to -123.30, and the Point Roberts turn are described (D2);
+- task 1.2 says the four-region assembler test takes the first four entries (E1);
+- task 2.2 drops the case already pinned by "A polygon that meets a cell only along its edge" (E2);
+- the open questions say the brief relays the owner (H1).
+
+G1, that -130.14 would touch the vertex, was checked and is not so: the vertex is at -130.1435, so -130.14 passes and -130.15 fails. Option (b) now says so.
