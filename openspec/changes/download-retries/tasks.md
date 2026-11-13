@@ -2,7 +2,7 @@
 
 ## 1. Retries
 
-- [x] 1.1 Tests first, in `test/build-region.test.mjs`, one per scenario, each with a fake fetch and a fake `sleep` that records waits:
+- [x] 1.1 Tests first, in `test/download-retries.test.mjs`, one per scenario, each with a fake fetch and a fake `sleep` that records waits:
   - "A download is retried after a network failure" (7 scenarios);
   - "Network-level download failures" (4 scenarios);
   - a 5xx, then a 429, then success.
