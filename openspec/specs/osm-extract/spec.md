@@ -68,6 +68,11 @@ before any region job starts.
 - **WHEN** an entry's `geofabrik` is `https://evil.example/x`
 - **THEN** the run fails before any region job starts, naming the entry
 
+#### Scenario: Colorado and Wyoming
+
+- **WHEN** the regions list holds `colorado`, then `wyoming`
+- **THEN** the workflow runs two region jobs, one for each, and a run in which both build publishes a manifest whose `regions` are `colorado` then `wyoming`
+
 ### Requirement: The import's categories
 
 The categories, in catalog order, SHALL be: on nodes, `peaks` (`natural=peak`), `passes`
