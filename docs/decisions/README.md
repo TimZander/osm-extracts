@@ -39,3 +39,4 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0031](0031-a-failed-download-names-its-cause.md) | A failed download names its URL and its underlying cause | accepted |
 | [0032](0032-british-columbia-bounds-49-to-60-west-of-120.md) | British Columbia's bounds are 49.01 / -130.00 / 59.99 / -120.01 | accepted |
 | [0033](0033-british-columbia-fifth-in-the-regions-list.md) | British Columbia goes fifth in the regions list, after Idaho | accepted |
+| [0034](0034-category-rules-as-selectors-of-conditions.md) | The category rules are selectors of AND-ed conditions; osmium pre-filters on each selector's first condition | accepted |

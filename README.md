@@ -1,7 +1,7 @@
 # osm-extracts
 
 A weekly, regional extract of the OpenStreetMap features garmin-map's import offers (peaks, passes,
-huts, hot springs, trailheads, parking, trails, ridges), published as a static site at
+huts, hot springs, trailheads, parking, forest roads, trails, ridges), published as a static site at
 <https://osm.timzander.com>.
 
 - **What it builds:** `openspec/specs/osm-extract` (the spec), `docs/decisions/` (why).
