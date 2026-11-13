@@ -12,12 +12,12 @@
 
 ## 3. Review
 
-- [ ] 3.1 `/sdd:conformance-review british-columbia-region`, findings routed with `/sdd:spec-fix`
-- [ ] 3.2 Scan the diff for private material (this repository is public; only generic mentions of garmin-map)
+- [x] 3.1 `/sdd:conformance-review british-columbia-region`, findings routed with `/sdd:spec-fix` (conforms, no findings)
+- [x] 3.2 Scan the diff for private material (this repository is public; only generic mentions of garmin-map): only generic mentions
 
 ## 4. Decisions
 
-- [ ] 4.1 ADRs 0032 (bounds) and 0033 (order), with the index updated
+- [x] 4.1 ADRs 0032 (bounds) and 0033 (order), with the index updated
 
 ## Workflow follow-up
 

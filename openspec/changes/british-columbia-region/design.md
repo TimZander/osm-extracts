@@ -158,3 +158,7 @@ One round: no blocker, no should-fix. Fixed:
 - the open questions say the brief relays the owner (H1).
 
 G1, that -130.14 would touch the vertex, was checked and is not so: the vertex is at -130.1435, so -130.14 passes and -130.15 fails. Option (b) now says so.
+
+## Conformance review
+
+Verdict: conforms, no findings. Mutation spot checks each failed a test: the entry dropped or swapped with Idaho, the manifest ordered by id, and `Math.trunc` for `Math.floor` in the cell loop.
