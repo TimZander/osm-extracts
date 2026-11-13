@@ -16,22 +16,27 @@ so nothing here was measured on real data; the tests use hand-written fixtures.
    `{ k, values }` rules are each one selector with one `anyOf` condition, but copying the new
    rules by hand into the old shape would mean flattening `forest_roads` into something garmin-map
    doesn't write. Keeping the shape makes the next copy a straight transcription (ADR 0034).
-2. **A word match lowercases ASCII letters only.** `A`–`Z` become `a`–`z`; every other character
+2. **A word match lowercases ASCII letters only**, as garmin-map's reference matcher at that commit
+   does (it replaces `A`–`Z` and nothing else), so this is the copied reading, not a new choice. `A`–`Z` become `a`–`z`; every other character
    is left alone, then is a word break because it isn't `a`–`z` or `0`–`9`. JavaScript's
    `toLowerCase` would turn some non-ASCII letters into ASCII ones (the Kelvin sign `K`, U+212A,
    becomes `k`; `İ`, U+0130, becomes `i` and a combining dot), so a value could carry a mark it
-   doesn't show. A phrase with no words carries nothing.
+   doesn't show. The phrase's words must be next to each other: `Forest Service Access Road` doesn't
+   carry `Forest Service Road`. A phrase with no words carries nothing; no rule has one, so the
+   extract can't show it and it is tested on the matcher alone.
 3. **The osmium pre-filter takes one condition per selector.** `osmium tags-filter` keeps an
    element when any one expression matches; it can't AND two conditions or match words. Each
-   selector contributes the expression for its first condition, which must be `equals` or `anyOf`;
-   repeated expressions are written once. The three `forest_roads` selectors all give
+   selector contributes the expression for its first condition, which must be `equals` or `anyOf`
+   (a selector whose first condition is `words` makes the build throw, naming the category, rather
+   than dropping it from the pre-filter); repeated expressions are written once. garmin-map lists
+   `highway` first in each forest-road selector. The three `forest_roads` selectors all give
    `w/highway=service,unclassified,track`; `categoriesFor` decides. The cost: every service,
    unclassified and track way, and its nodes, goes through `add-locations-to-ways` and the OPL
    reader, most of them to be dropped. Tracks were already kept for `trails`. A word expression in
    osmium (`w/name=*FSR*`) would be a second, looser reading of the marks, and two readings can
    drift; Node stays the one place the rules are read (ADR 0003).
-4. **Tests copy the facts' examples as illustrative data**: the seven word cases and the nine
-   tag cases garmin-map's commit gives, plus the existing cases unchanged.
+4. **Tests use the spec's scenarios as illustrative data**, plus the cases listed in tasks 1.1 and
+   1.2, and the existing cases unchanged.
 
 ## Risks
 
@@ -46,5 +51,6 @@ so nothing here was measured on real data; the tests use hand-written fixtures.
 
 ## Open questions
 
-None. The categories and their marks are garmin-map's (the owner's decisions there); everything
-else here is how the pipeline reads them.
+None. The categories and their marks are garmin-map's (the owner's decisions there); the
+reading of them (decision 2) is garmin-map's too. What this change decides itself, the shape the
+rules are kept in and the pre-filter, is ADR 0034.

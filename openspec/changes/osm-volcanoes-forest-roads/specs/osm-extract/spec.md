@@ -32,7 +32,7 @@ The categories, in catalog order, SHALL be: on nodes, `peaks` (`natural=peak|vol
 
 ### Requirement: Which ways are forest roads
 
-A way SHALL be in `forest_roads` when its `highway` is `service`, `unclassified` or `track` and its
+A way SHALL be in `forest_roads` exactly when its `highway` is `service`, `unclassified` or `track` and its
 `name` has as words one of `FSR`, `NFSR`, `Forest Service Road`, `Forest Service Rd`,
 `National Forest Development Road`, `Resource Road`, `Resource Rd`; or its `ref` one of `FS`, `FR`,
 `NF`, `NFSR`, `FSR`, `USFS`; or its `operator` one of `Forest Service`, `USFS`,
@@ -77,13 +77,18 @@ A way SHALL be in `forest_roads` when its `highway` is `service`, `unclassified`
 
 A tag value SHALL have a phrase as words when, with the ASCII letters of both lowercased and each
 split into words at every character other than `a`–`z` and `0`–`9` (empty words dropped), the
-phrase's words appear one after another among the value's words. A phrase with no words SHALL match
-no value.
+phrase's words appear in the value's words in the same order and next to each other, with no other
+word between them.
 
 #### Scenario: Whole words, any case
 
-- **WHEN** a way is tagged `highway=service` and `name=Example Forest-Service  Road 12`
+- **WHEN** a way is tagged `highway=service` and `name=example FOREST-service  road 12`
 - **THEN** its feature's `_osmCategories` is `["forest_roads"]`
+
+#### Scenario: Another word between the phrase's words
+
+- **WHEN** a way is tagged `highway=service` and `name=Example Forest Service Access Road`
+- **THEN** the extract holds no feature for it
 
 #### Scenario: A mark joined to a number
 
@@ -102,5 +107,5 @@ no value.
 
 #### Scenario: A letter that lowercases only outside ASCII
 
-- **WHEN** a way is tagged `highway=service` and its `ref` is the Kelvin sign (U+212A, which full Unicode lowercasing turns into `k`) followed by `FS 9`
+- **WHEN** a way is tagged `highway=service` and its `ref` is the Kelvin sign (U+212A, which full Unicode lowercasing turns into `k`) then, with no space, `FS 9`
 - **THEN** its feature's `_osmCategories` is `["forest_roads"]`, because the Kelvin sign is a word break and `FS` a word of its own
