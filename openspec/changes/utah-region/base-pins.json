@@ -1,0 +1,9 @@
+{
+  "version": 1,
+  "pins": {
+    "osm-extract": {
+      "The regions list": "c6b1afe2ab8c6ef87ebabfa08683a42afb082d3a27bc1dc7cf311e0671844f88",
+      "The manifest describes every region": "202f9e0e67721a471f9cd7f2b188ae4b47154d1d5a1dcbd944df1f72093eedbd"
+    }
+  }
+}
