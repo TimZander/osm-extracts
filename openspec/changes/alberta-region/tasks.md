@@ -7,8 +7,8 @@
 
 ## 2. Review
 
-- [ ] 2.1 `/sdd:conformance-review alberta-region`, findings routed with `/sdd:spec-fix`
-- [ ] 2.2 Scan the diff for private material (this repository is public; only generic mentions of garmin-map)
+- [x] 2.1 `/sdd:conformance-review alberta-region`, findings routed with `/sdd:spec-fix` (conforms, no findings)
+- [x] 2.2 Scan the diff for private material (this repository is public; only generic mentions of garmin-map): only generic mentions
 
 ## 3. Decisions
 

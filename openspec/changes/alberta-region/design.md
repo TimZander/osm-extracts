@@ -149,3 +149,10 @@ One round: no blocker, no should-fix. Fixed:
 - the proposal's Impact lists the ADRs and the ADR index (F1);
 - ADRs 0035 and 0036 name the orchestrator's brief of 2026-11-13, relaying the owner, as what
   leaves the bounds and the order to the change's author (H1).
+
+## Conformance review
+
+Verdict: conforms, no findings. Mutation spot checks each failed a test:
+- `alberta` swapped with `british-columbia`;
+- Alberta's south edge moved to 49.01;
+- the assembler walking the list in reverse.
