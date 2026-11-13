@@ -45,7 +45,7 @@ export async function download(url, dest, fetchImpl = fetch) {
   try {
     await pipeline(Readable.fromWeb(res.body), createWriteStream(dest))
   } catch (e) {
-    throw new Error(`download of ${url} failed while reading the body: ${e.message}`)
+    throw new Error(`download of ${url} failed while reading the body: ${e.message}${causeText(e.cause)}`)
   }
 }
 

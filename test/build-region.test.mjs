@@ -73,18 +73,27 @@ test('a request that fails before any response names the URL and its cause', asy
 })
 
 // Scenario "A download cut off mid-stream".
-test('a download cut off mid-stream names the URL', async () => {
-  const dir = tmp()
-  const cut = async () => {
-    const body = new ReadableStream({
+test('a download cut off mid-stream names the URL and its cause, and writes nothing', async () => {
+  const cutBody = () =>
+    new ReadableStream({
       start(c) {
         c.enqueue(new Uint8Array([1, 2]))
-        c.error(new Error('terminated'))
+        const cause = Object.assign(new Error('read ECONNRESET'), { code: 'ECONNRESET' })
+        c.error(new TypeError('terminated', { cause }))
       },
     })
-    return new Response(body)
-  }
-  await assert.rejects(download('https://download.geofabrik.de/x.poly', join(dir, 'c'), cut), /x\.poly.*terminated/)
+  const dir = tmp()
+  await assert.rejects(
+    download('https://download.geofabrik.de/x.poly', join(dir, 'c'), async () => new Response(cutBody())),
+    /x\.poly.*terminated.*ECONNRESET: read ECONNRESET/,
+  )
+  const pbf = new Uint8Array([1, 2, 3])
+  const md5 = createHash('md5').update(pbf).digest('hex')
+  const fake = async (url) =>
+    url.endsWith('.poly') ? new Response(cutBody()) : new Response(url.endsWith('.md5') ? `${md5}  colorado-latest.osm.pbf\n` : pbf)
+  const out = join(tmp(), 'out')
+  await assert.rejects(buildRegion({ id: 'colorado', out, fetchImpl: fake }), /colorado\.poly.*ECONNRESET: read ECONNRESET/)
+  assert.equal(existsSync(out), false)
 })
 
 test('a region whose .md5 answers 404 fails and writes nothing', async () => {
