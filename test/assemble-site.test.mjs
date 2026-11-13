@@ -231,8 +231,8 @@ test('two artifacts, each in a folder named for it', () => {
 })
 
 // Requirement "The regions list", scenario "Colorado and Wyoming".
-test('the repository\'s list, colorado then wyoming, publishes both in list order', () => {
-  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
+test('colorado then wyoming, from the repository\'s list, publishes both in list order', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url))).slice(0, 2)
   const [co, wy] = list
   const dirs = setup()
   artifact(dirs.artifactsDir, wy, [peak(7, -107.5, 43)], { wrapped: true })
@@ -242,6 +242,42 @@ test('the repository\'s list, colorado then wyoming, publishes both in list orde
   assert.deepEqual(m.regions.map((r) => r.id), ['colorado', 'wyoming'])
   assert.deepEqual(m.regions[1].bounds, wy.bounds)
   assert.ok(existsSync(join(dirs.outDir, 'wyoming/172_-430.json')))
+})
+
+// Requirement "The regions list", scenario "Colorado, Wyoming and Utah".
+test('the repository\'s list, colorado, wyoming, utah, publishes all three in list order', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
+  const [co, wy, ut] = list
+  const dirs = setup()
+  artifact(dirs.artifactsDir, ut, [peak(9, -111.5, 40.5)], { wrapped: true })
+  artifact(dirs.artifactsDir, wy, [peak(7, -107.5, 43)], { wrapped: true })
+  artifact(dirs.artifactsDir, co, [peak(1, -106.062, 39.603)], { wrapped: true })
+  run(dirs, list)
+  const m = JSON.parse(readFileSync(join(dirs.outDir, 'manifest.json')))
+  assert.deepEqual(m.regions.map((r) => r.id), ['colorado', 'wyoming', 'utah'])
+  assert.deepEqual(m.regions[2].bounds, ut.bounds)
+  assert.ok(existsSync(join(dirs.outDir, 'utah/162_-446.json')))
+})
+
+// Requirement "The manifest describes every region", scenario "A border cell in two regions".
+test('a border cell in two regions keeps both entries and both files', () => {
+  // A trail along the Colorado–Utah line (-109.05), wholly in cell 152_-437.
+  const trail = {
+    type: 'Feature',
+    geometry: { type: 'LineString', coordinates: [[-109.06, 38.1], [-109.04, 38.2]] },
+    properties: { title: 'Line Trail', _osmCategories: ['trails'], _osmId: 'way/42' },
+  }
+  const dirs = setup()
+  artifact(dirs.artifactsDir, CO, [trail], { wrapped: true })
+  artifact(dirs.artifactsDir, UT, [trail], { wrapped: true })
+  run(dirs, [CO, UT])
+  const m = JSON.parse(readFileSync(join(dirs.outDir, 'manifest.json')))
+  for (const r of m.regions) {
+    assert.ok(r.cells.includes('152_-437'), `${r.id} cells`)
+    assert.ok(r.coverage.includes('152_-437'), `${r.id} coverage`)
+    const f = JSON.parse(readFileSync(join(dirs.outDir, r.id, '152_-437.json')))
+    assert.deepEqual(f.features.map((x) => x.properties._osmId), ['way/42'], r.id)
+  }
 })
 
 test('the manifest follows the list order, not the id order', () => {

@@ -78,3 +78,18 @@ test('two rings meeting only at a cell corner leave the cells between them out',
   const got = coveredCells([ring(rect(40.0, -105.0, 40.25, -104.75)), ring(rect(40.25, -104.75, 40.5, -104.5))])
   assert.deepEqual(got, ['160_-420', '161_-419'])
 })
+
+// "Each region lists the cells it covers": coverage comes from each region's own polygon alone, so
+// two neighbours whose polygons meet on a line inside a cell column (-109.05, the Colorado–Utah line,
+// lies in column -437) both list that column's cells along the line.
+test('neighbours meeting on -109.05 both cover the column -437 cells', () => {
+  const west = coveredCells([ring(rect(37.0, -110.0, 38.0, -109.05))])
+  const east = coveredCells([ring(rect(37.0, -109.05, 38.0, -108.0))])
+  const line = grid(range(148, 151), [-437])
+  for (const c of line) {
+    assert.ok(west.includes(c), `west ${c}`)
+    assert.ok(east.includes(c), `east ${c}`)
+  }
+  assert.ok(!west.includes('148_-436'))
+  assert.ok(!east.includes('148_-438'))
+})

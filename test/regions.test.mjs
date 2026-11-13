@@ -15,11 +15,18 @@ const good = () => [
   },
 ]
 
-// Scenario "Colorado and Wyoming".
-test('the repository\'s regions list is colorado then wyoming, and is valid', () => {
+// Scenario "Colorado, Wyoming and Utah".
+test('the repository\'s regions list is colorado, wyoming, utah, and is valid', () => {
   const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
   validateRegions(list)
-  assert.deepEqual(list.map((r) => r.id), ['colorado', 'wyoming'])
+  assert.deepEqual(list.map((r) => r.id), ['colorado', 'wyoming', 'utah'])
+  assert.equal(planOutput(list), 'regions=["colorado","wyoming","utah"]')
+})
+
+// Scenario "Colorado and Wyoming".
+test('a list of colorado then wyoming plans two region jobs', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url))).slice(0, 2)
+  validateRegions(list)
   assert.equal(planOutput(list), 'regions=["colorado","wyoming"]')
 })
 
@@ -223,6 +230,17 @@ test('Wyoming\'s entry and proposed bounds (design open question 1)', () => {
     name: 'Wyoming',
     geofabrik: 'north-america/us/wyoming',
     bounds: { south: 41.01, west: -111.04, north: 44.99, east: -104.06 },
+    clip: false,
+  })
+})
+
+test('Utah\'s entry and proposed bounds (utah-region design open question 1)', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
+  assert.deepEqual(list[2], {
+    id: 'utah',
+    name: 'Utah',
+    geofabrik: 'north-america/us/utah',
+    bounds: { south: 37.01, west: -114.03, north: 40.99, east: -109.06 },
     clip: false,
   })
 })

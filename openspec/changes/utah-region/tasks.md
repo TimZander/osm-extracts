@@ -2,13 +2,13 @@
 
 ## 1. Utah in the list
 
-- [ ] 1.1 Tests first, citing "The regions list", scenario "Colorado, Wyoming and Utah": the repository's list is `colorado`, `wyoming`, `utah`, valid, with the plan output `regions=["colorado","wyoming","utah"]`; Utah's entry and proposed bounds (design open question 1) are pinned. Seen to fail, then `regions.json`; verify `npm test`
-- [ ] 1.2 Test of the scenario's manifest half: the assembler, given the three regions' artifacts out of order and the repository's list, writes `regions` as `colorado`, `wyoming`, `utah`; verify `npm test`
+- [x] 1.1 Tests first, citing "The regions list", scenario "Colorado, Wyoming and Utah" (the "Colorado and Wyoming" tests now use the list's first two entries; a build test's unlisted-region example moved from `utah` to `idaho`): the repository's list is `colorado`, `wyoming`, `utah`, valid, with the plan output `regions=["colorado","wyoming","utah"]`; Utah's entry and proposed bounds (design open question 1) are pinned. Seen to fail, then `regions.json`; verify `npm test`
+- [x] 1.2 Test of the scenario's manifest half: the assembler, given the three regions' artifacts out of order and the repository's list, writes `regions` as `colorado`, `wyoming`, `utah`; verify `npm test`
 
 ## 2. Borders
 
-- [ ] 2.1 Test citing "The manifest describes every region", scenario "A border cell in two regions": `colorado` and `utah` artifacts both holding cell `152_-437` with the same trail publish it in both entries' `cells` and `coverage` and both files; verify `npm test` (expected to pass without code change, design decision 4; seen to fail by breaking the fixture first)
-- [ ] 2.2 Test in `test/coverage.test.mjs`, citing "Each region lists the cells it covers" (coverage from each region's own polygon alone): two fixture polygons on either side of -109.05 each cover the column -437 cells along that line, so both lists hold them; verify `npm test`
+- [x] 2.1 Test citing "The manifest describes every region", scenario "A border cell in two regions": `colorado` and `utah` artifacts both holding cell `152_-437` with the same trail publish it in both entries' `cells` and `coverage` and both files; verify `npm test` (expected to pass without code change, design decision 4; seen to fail by breaking the fixture first)
+- [x] 2.2 Test in `test/coverage.test.mjs`, citing "Each region lists the cells it covers" (coverage from each region's own polygon alone): two fixture polygons on either side of -109.05 each cover the column -437 cells along that line, so both lists hold them; verify `npm test`
 
 ## 3. Review
 

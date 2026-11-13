@@ -12,5 +12,12 @@
     "geofabrik": "north-america/us/wyoming",
     "bounds": { "south": 41.01, "west": -111.04, "north": 44.99, "east": -104.06 },
     "clip": false
+  },
+  {
+    "id": "utah",
+    "name": "Utah",
+    "geofabrik": "north-america/us/utah",
+    "bounds": { "south": 37.01, "west": -114.03, "north": 40.99, "east": -109.06 },
+    "clip": false
   }
 ]
