@@ -17,9 +17,9 @@
 
 ## 4. Decisions
 
-- [ ] 4.1 ADRs for design open questions 1–3 (bounds, order, merge timing), with the index updated — 1 and 2 done (ADRs 0024, 0025); 3 waits on the owner
+- [x] 4.1 ADRs for design open questions 1–3 (bounds, order, merge timing), with the index updated: ADRs 0024, 0025, 0026
 
 ## Workflow follow-up
 
-- After the owner merges: the next run (the owner's or Monday's) publishes Utah; record its measurements and coverage count in `docs/measurements.md`.
+- After the owner merges: Monday's run publishes Utah (ADR 0026); record its measurements and coverage count in `docs/measurements.md`.
 - Archive this change in its own PR after it merges.

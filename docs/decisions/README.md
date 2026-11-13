@@ -31,3 +31,4 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0023](0023-no-size-limit-on-coverage.md) | The deploy job sets no limit on `coverage`'s size or extent, for now | accepted |
 | [0024](0024-utah-bounds-south-of-the-wyoming-notch.md) | Utah's bounds are the block south of the Wyoming notch | accepted |
 | [0025](0025-utah-third-in-the-regions-list.md) | Utah goes third in the regions list, after Wyoming | accepted |
+| [0026](0026-utah-publishes-on-the-run-after-wyomings.md) | Utah publishes on the weekly run after Wyoming's own deploy | accepted |

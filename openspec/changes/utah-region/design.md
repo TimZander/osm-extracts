@@ -100,7 +100,7 @@ To be measured on the first run with Utah, into `docs/measurements.md`.
 2. **The order.** *Settled 2026-11-13 (ADR 0025), likewise: (a).* Options: (a) after Wyoming, third; (b) alphabetical (`colorado`, `utah`,
    `wyoming`), which moves Wyoming. *Assumption:* (a); the app searches every region a view overlaps,
    so the order changes nothing it shows.
-3. **When to merge, given the weekly run.** Monday 2026-11-16 05:23 UTC is the first run with
+3. **When to merge, given the weekly run.** *Settled 2026-11-13 (ADR 0026): the owner's go-ahead for a manual run (43359776477) publishes Wyoming and `coverage` alone today, and Utah merges for Monday's run, which keeps ADR 0006's pace.* Monday 2026-11-16 05:23 UTC is the first run with
    Wyoming and `coverage`. Options: (a) merge before it, so that run publishes all three; (b) merge
    after it, so Wyoming and `coverage` are measured on their own first. *Assumption:* (a): the region
    jobs are independent, so a failing Utah job costs only Utah, and its summary shows its own
