@@ -45,7 +45,7 @@ What was read:
    - (a) **49.01 / -114.05**, the block from the 49th parallel: 44.4 square degrees. Its west edge
      must stay east of the Divide's vertices near the Montana corner (-114.0573 at 49.024), so it
      cuts Calgary (downtown at -114.07, the city to about -114.32).
-   - (b) **49.60 / -114.60**: 48.0 square degrees.
+   - (b) **49.60 / -114.60**: 47.7 square degrees.
      - The binding Divide vertex is (49.7206, -114.6401), 0.04° west of the west edge. South of
        the box, the nearest vertex is (49.5615, -114.5881), 0.04° south of its south edge.
      - It holds all of Calgary, Edmonton, Red Deer, Lethbridge (49.69), Medicine Hat and Fort
@@ -141,3 +141,11 @@ be read.
 None for the owner. The bounds and the order are the change author's choices (ADRs 0035 and
 0036), as the orchestrator's brief relaying the owner says. Publishing timing is ADR 0027, and the
 heap is ADR 0030, both already decided.
+
+## Spec review
+
+One round: no blocker, no should-fix. Fixed:
+- candidate (b)'s area is 47.7 square degrees, not 48.0 (G1);
+- the proposal's Impact lists the ADRs and the ADR index (F1);
+- ADRs 0035 and 0036 name the orchestrator's brief of 2026-11-13, relaying the owner, as what
+  leaves the bounds and the order to the change's author (H1).

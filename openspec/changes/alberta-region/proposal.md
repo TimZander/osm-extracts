@@ -44,7 +44,8 @@ None.
 
 ## Impact
 
-- **Files changed:** `regions.json`, `test/regions.test.mjs` and `test/assemble-site.test.mjs`.
+- **Files changed:** `regions.json`, `test/regions.test.mjs`, `test/assemble-site.test.mjs`, ADRs
+  0035 and 0036, and the ADR index `docs/decisions/README.md`.
   - There is no code change. Nothing in `src/` assumes a US state's path or shape; British
     Columbia showed that (its design decision 5).
   - The workflow builds one job per listed region, and the deploy job merges any number of
