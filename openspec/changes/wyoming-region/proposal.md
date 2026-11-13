@@ -33,7 +33,9 @@ None.
 - `regions.json` and `test/regions.test.mjs`. No code changes: the workflow already builds one job
   per listed region, and the deploy job already merges several regions' artifacts.
 - The workflow file is not touched.
-- The live site is unaffected until the owner's next run. That run adds `wyoming` to the manifest, or,
+- The live site is unaffected until the next run after merge: the owner's, or the weekly schedule's
+  (Mondays 05:23 UTC, ADR 0010), whichever comes first. That run adds `wyoming` to the manifest, or,
   if its bounds fail the guard, fails the Wyoming job naming the point, and still publishes Colorado.
 - garmin-map must search every region a view overlaps (its own change) before or with the first run
   that publishes Wyoming. Until it does, a view across the state line may read only one region.
+  Nothing here enforces the order; the merge timing does (design open question 3).

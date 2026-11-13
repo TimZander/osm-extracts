@@ -232,6 +232,16 @@ test('the repository\'s list, colorado then wyoming, publishes both in list orde
   assert.ok(existsSync(join(dirs.outDir, 'wyoming/172_-430.json')))
 })
 
+test('the manifest follows the list order, not the id order', () => {
+  const WY = { id: 'wyoming', name: 'Wyoming', geofabrik: 'north-america/us/wyoming', bounds: { south: 41.01, west: -111.04, north: 44.99, east: -104.06 }, clip: false }
+  const dirs = setup()
+  artifact(dirs.artifactsDir, CO, [peak(1, -106.062, 39.603)], { wrapped: true })
+  artifact(dirs.artifactsDir, WY, [peak(7, -107.5, 43)], { wrapped: true })
+  run(dirs, [WY, CO])
+  const m = JSON.parse(readFileSync(join(dirs.outDir, 'manifest.json')))
+  assert.deepEqual(m.regions.map((r) => r.id), ['wyoming', 'colorado'])
+})
+
 test('with two artifacts, one not in its own folder fails', () => {
   const dirs = setup()
   artifact(dirs.artifactsDir, CO, [peak(1, -106.062, 39.603)], { wrapped: true })

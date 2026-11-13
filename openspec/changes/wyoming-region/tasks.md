@@ -7,8 +7,8 @@
 
 ## 2. Review
 
-- [ ] 2.1 `/sdd:conformance-review wyoming-region`
-- [ ] 2.2 Scan the diff for private material (this repository is public)
+- [x] 2.1 `/sdd:conformance-review wyoming-region` (3 soft fails, all fixed: M1 a list-order test not in id order, M2 bad entries after the first, R1 the weekly run in the rollout wording, design open question 3)
+- [x] 2.2 Scan the diff for private material (this repository is public; only generic mentions of garmin-map, as elsewhere here)
 
 ## 3. Decisions
 

@@ -56,6 +56,18 @@ test('a bad list fails naming the entry', () => {
     mutate(l)
     assert.throws(() => validateRegions(l), msg, what)
   }
+  const second = (l) => {
+    l.push({ ...structuredClone(l[0]), id: 'wyoming', name: 'Wyoming', geofabrik: 'north-america/us/wyoming' })
+    return l[1]
+  }
+  for (const [what, mutate, msg] of [
+    ['a bad id on the second entry', (l) => (second(l).id = '../evil'), /\.\.\/evil/],
+    ['a geofabrik URL on the second entry', (l) => (second(l).geofabrik = 'https://evil.example/x'), /wyoming/],
+  ]) {
+    const l = good()
+    mutate(l)
+    assert.throws(() => validateRegions(l), msg, what)
+  }
   assert.throws(() => validateRegions({}), /array/)
   assert.throws(() => validateRegions([]), /empty|no region/i)
 })

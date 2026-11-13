@@ -63,3 +63,9 @@ Colorado (the colorado-bounds-and-empty-push design).
    Wyoming's polygon or move Wyoming's south and west edges. *Assumption:* nothing in this change
    decides it; the Utah change does, and records the owner's overlap choice as an ADR with its change
    to "A region's bounds lie inside its Geofabrik polygon".
+3. **When to merge, given the weekly schedule.** The workflow also runs every Monday at 05:23 UTC
+   (ADR 0010), so the first run after merge publishes Wyoming even if the owner doesn't start one.
+   garmin-map's change to search every region a view overlaps should land before or with that run.
+   *Assumption:* the owner merges this only once that change has landed, or will before the next
+   Monday run. Merging earlier only means a view across the state line reads one region for a while;
+   no data is wrong.
