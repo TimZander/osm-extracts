@@ -68,7 +68,7 @@ To be measured on the first run with Utah, into `docs/measurements.md`.
 - **Size:** Utah has fewer mapped trails than Colorado (≈ 242 MiB, 518 cells, 11 split). A guess of
   100–200 MiB and 350–420 cells with files.
 - **Dense cells:** the Wasatch Front, `162_-448` and `163_-448` (Salt Lake City), `162_-447` and
-  `163_-447` (the Cottonwood canyons, Park City), `160_-447` (Provo), are likely over the 4 MiB split
+  `163_-447` (the Cottonwood canyons), `162_-446` (Park City), `160_-447` (Provo), are likely over the 4 MiB split
   threshold and split into quarters. Denver's cell, 30.5 MiB, split into quarters of at most 14.2 MiB;
   a Salt Lake City cell is expected to be smaller, so no quarter is expected near the 20 MiB guard.
   If one were, only Utah's job fails, naming the file.
@@ -105,3 +105,9 @@ To be measured on the first run with Utah, into `docs/measurements.md`.
    after it, so Wyoming and `coverage` are measured on their own first. *Assumption:* (a): the region
    jobs are independent, so a failing Utah job costs only Utah, and its summary shows its own
    numbers apart from the others'. The merge waits for the owner's "merge" either way.
+
+## Spec review
+
+One round: no blocker. Fixed: task 2.2 tied to "Each region lists the cells it covers" (E1); the
+proposal says "unclipped" (F1), names all three ADR topics (D1) and lists `test/coverage.test.mjs`
+(E2); Park City's cell is `162_-446` (A1).
