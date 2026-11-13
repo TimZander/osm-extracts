@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.53785,58.850747]},"properties":{"title":"Mount Sparling","_osmCategories":["peaks"],"_osmId":"node/11566159825"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.538682,58.762918]},"properties":{"title":"Mount Eaton","_osmCategories":["peaks"],"_osmId":"node/11566161118"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.633497,58.834977]},"properties":{"title":"Mount Stapler","_osmCategories":["peaks"],"_osmId":"node/11566173966"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.717299,58.938453]},"properties":{"title":"Mount Haney","_osmCategories":["peaks"],"_osmId":"node/11566209414"}}
+]}

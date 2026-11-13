@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.887433,51.454617]},"properties":{"title":"Entry Cone","_osmCategories":["peaks"],"_osmId":"node/10137183999"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-127.834899,51.24975],[-127.834861,51.249899],[-127.834874,51.24998],[-127.834979,51.250113],[-127.834896,51.250523],[-127.83462,51.250815],[-127.834555,51.250881],[-127.833976,51.251165],[-127.833689,51.251259],[-127.833242,51.251243]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/373854490"}}
+]}

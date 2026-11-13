@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.938926,55.644189]},"properties":{"title":"Mount Ashby","_osmCategories":["peaks"],"_osmId":"node/11451423117"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.913481,55.698783]},"properties":{"title":"Mount Guanton","_osmCategories":["peaks"],"_osmId":"node/11451431829"}}
+]}

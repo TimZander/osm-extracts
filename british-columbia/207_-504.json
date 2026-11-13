@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.878078,51.900424]},"properties":{"title":"Monarch Mountain","_osmCategories":["peaks"],"_osmId":"node/5286402988"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.812718,51.978078]},"properties":{"title":"Migma Mountain","_osmCategories":["peaks"],"_osmId":"node/8389529002"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.993375,51.876435]},"properties":{"title":"Princess Mountain","_osmCategories":["peaks"],"_osmId":"node/9411853260"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.843483,51.896823]},"properties":{"title":"The Queen","_osmCategories":["peaks"],"_osmId":"node/10145572106"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.890918,51.946639]},"properties":{"title":"Concubine Peaks","_osmCategories":["peaks"],"_osmId":"node/10145638104"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.9015,51.892201]},"properties":{"title":"Page Mountain","_osmCategories":["peaks"],"_osmId":"node/10145643737"}}
+]}

@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.102706,51.469492]},"properties":{"title":"Mount Somolenko","_osmCategories":["peaks"],"_osmId":"node/7567037534"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.219155,51.419228]},"properties":{"title":"Mount Ardern","_osmCategories":["peaks"],"_osmId":"node/10122282996"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.221974,51.426912]},"properties":{"title":"Mount Squire","_osmCategories":["peaks"],"_osmId":"node/10122320066"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.184524,51.438551]},"properties":{"title":"Mount Kinch","_osmCategories":["peaks"],"_osmId":"node/10122324913"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.107163,51.488957]},"properties":{"title":"Mount Calli","_osmCategories":["peaks"],"_osmId":"node/10122381343"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.130559,51.476854]},"properties":{"title":"Mount Overill","_osmCategories":["peaks"],"_osmId":"node/10122406861"}}
+]}

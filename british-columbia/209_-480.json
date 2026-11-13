@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.801686,52.275238]},"properties":{"title":"Mount Mobley","_osmCategories":["peaks"],"_osmId":"node/7204639504"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.827216,52.409475]},"properties":{"title":"Mount Hogue","_osmCategories":["peaks"],"_osmId":"node/7204769622"}}
+]}

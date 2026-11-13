@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-140.768798,60.26018]},"properties":{"title":"Boundary Peak 185","_osmCategories":["peaks"],"_osmId":"node/331669973"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-140.930737,60.293446]},"properties":{"title":"Mount Saint Elias","_osmCategories":["peaks"],"_osmId":"node/331669974"}}
+]}

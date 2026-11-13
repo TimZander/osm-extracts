@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.471878,53.721282]},"properties":{"title":"Mount Wells","_osmCategories":["peaks"],"_osmId":"node/11633065481"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.4717,53.66089]},"properties":{"title":"Tweedsmuir Peak","_osmCategories":["peaks"],"_osmId":"node/11633106189"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.479138,53.570651]},"properties":{"title":"Michel Peak","_osmCategories":["peaks"],"_osmId":"node/11633118418"}}
+]}

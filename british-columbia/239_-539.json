@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.644357,59.86164]},"properties":{"title":"Jack Peak","_osmCategories":["peaks"],"_osmId":"node/1636284361"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.598918,59.989767]},"properties":{"title":"Mount Conrad","_osmCategories":["peaks"],"_osmId":"node/1636284367"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.543374,59.993177]},"properties":{"title":"Mount Patterson","_osmCategories":["peaks"],"_osmId":"node/1636284368"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.698142,59.986813]},"properties":{"title":"Mount Racine","_osmCategories":["peaks"],"_osmId":"node/1636284369"}}
+]}

@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.377303,58.430548]},"properties":{"title":"Mount Ogden","_osmCategories":["peaks"],"_osmId":"node/244246351"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.461504,58.387723]},"properties":{"title":"Unmarked Boundary Point 85","_osmCategories":["peaks"],"_osmId":"node/244246354"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.345432,58.276333]},"properties":{"title":"Mount Brundage","_osmCategories":["peaks"],"_osmId":"node/244246363"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.377019,58.430541]},"properties":{"title":"Mount Ogden","_osmCategories":["peaks"],"_osmId":"node/11558963005"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.460382,58.387923]},"properties":{"title":"Mount Fremont Morse","_osmCategories":["peaks"],"_osmId":"node/11558968326"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.361765,58.477908]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/14142973049"}}
+]}

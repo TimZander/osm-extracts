@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.901072,56.753675]},"properties":{"title":"Mount Gallatin","_osmCategories":["peaks"],"_osmId":"node/244246039"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.872876,56.805995]},"properties":{"title":"Mount Talbot","_osmCategories":["peaks"],"_osmId":"node/263149002"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.847278,56.779395]},"properties":{"title":"Glacier Mountain","_osmCategories":["peaks"],"_osmId":"node/9430876059"}}
+]}

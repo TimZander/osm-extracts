@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.763607,51.160454]},"properties":{"title":"Village Mountain","_osmCategories":["peaks"],"_osmId":"node/10113018767"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.852821,51.050483]},"properties":{"title":"Mount Cooper","_osmCategories":["peaks"],"_osmId":"node/10113140681"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.750109,51.075747]},"properties":{"title":"Rapid Cone","_osmCategories":["peaks"],"_osmId":"node/10113149603"}}
+]}

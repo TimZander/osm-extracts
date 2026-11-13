@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.170097,56.684022]},"properties":{"title":"Lookout Hill","_osmCategories":["peaks"],"_osmId":"node/10812330099"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.057733,56.668622]},"properties":{"title":"Ingenika Cone","_osmCategories":["peaks"],"_osmId":"node/10812358372"}}
+]}

@@ -1,0 +1,19 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.000941,51.979403]},"properties":{"title":"Mount Jezebel","_osmCategories":["peaks"],"_osmId":"node/9411853251"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.026624,51.982676]},"properties":{"title":"Mount Beelzebub","_osmCategories":["peaks"],"_osmId":"node/9411853252"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.059936,51.796931]},"properties":{"title":"Mount Learn","_osmCategories":["peaks"],"_osmId":"node/9411853254"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.044715,51.80157]},"properties":{"title":"Mount McCreath","_osmCategories":["peaks"],"_osmId":"node/9411853255"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.029602,51.800726]},"properties":{"title":"Mount Foss","_osmCategories":["peaks"],"_osmId":"node/9411853256"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.022461,51.784726]},"properties":{"title":"Mount Vallillee","_osmCategories":["peaks"],"_osmId":"node/9411853257"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.025155,51.77948]},"properties":{"title":"Mount Haslett","_osmCategories":["peaks"],"_osmId":"node/9411853258"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.047106,51.824178]},"properties":{"title":"Mount Butterick","_osmCategories":["peaks"],"_osmId":"node/9411853259"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.171043,51.925075]},"properties":{"title":"Basin Peak","_osmCategories":["peaks"],"_osmId":"node/9411854016"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.191351,51.968831]},"properties":{"title":"Tzintli Peak","_osmCategories":["peaks"],"_osmId":"node/9411854228"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.174678,51.958598]},"properties":{"title":"Chili Tower","_osmCategories":["peaks"],"_osmId":"node/9411854229"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.198702,51.971997]},"properties":{"title":"Mount Geryon","_osmCategories":["peaks"],"_osmId":"node/9411854230"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.146094,51.955572]},"properties":{"title":"Erehwon Mountain","_osmCategories":["peaks"],"_osmId":"node/10145648716"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.246764,51.934036]},"properties":{"title":"Mount Sciron","_osmCategories":["peaks"],"_osmId":"node/10145692544"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.188805,51.939002]},"properties":{"title":"Cerberus Mountain","_osmCategories":["peaks"],"_osmId":"node/10145699041"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.178509,51.750396]},"properties":{"title":"Mount Bohnet","_osmCategories":["peaks"],"_osmId":"node/10145714639"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.10991,51.977519]},"properties":{"title":"Mount Dagon","_osmCategories":["peaks"],"_osmId":"node/10145721296"}}
+]}

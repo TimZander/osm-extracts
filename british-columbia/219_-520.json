@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.853656,54.802451]},"properties":{"title":"Kwinamass Peak","_osmCategories":["peaks"],"_osmId":"node/11442150565"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.986671,54.96151]},"properties":{"title":"Landslip Mountain","_osmCategories":["peaks"],"_osmId":"node/11442316104"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-129.919445,54.986283],[-129.918243,54.986228],[-129.917117,54.986231],[-129.916747,54.986246],[-129.916457,54.986289],[-129.916221,54.986348],[-129.915959,54.98644],[-129.915476,54.98668],[-129.915315,54.986773],[-129.915122,54.986905],[-129.915057,54.986994],[-129.915036,54.987174]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/930450213"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-129.955779,54.995544],[-129.955953,54.99568],[-129.956133,54.995744]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1431916180"}}
+]}

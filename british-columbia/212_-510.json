@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.300992,53.083125]},"properties":{"title":"Foresight Mountain","_osmCategories":["peaks"],"_osmId":"node/11629046040"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.462956,53.143649]},"properties":{"title":"Chatsquot Mountain","_osmCategories":["peaks"],"_osmId":"node/11629117296"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.477177,53.142187]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/13788189793"}}
+]}

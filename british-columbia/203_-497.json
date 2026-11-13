@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.008772,50.807974]},"properties":{"title":"Toba Peak","_osmCategories":["peaks"],"_osmId":"node/1778686983"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.028319,50.810828]},"properties":{"title":"Compton Mountain","_osmCategories":["peaks"],"_osmId":"node/1778687107"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.016087,50.9477]},"properties":{"title":"Clao Peak","_osmCategories":["peaks"],"_osmId":"node/9739780047"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.240949,50.894511]},"properties":{"title":"Transfiguration Peak","_osmCategories":["peaks"],"_osmId":"node/9739780059"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.242153,50.899636]},"properties":{"title":"Resurrection Peak","_osmCategories":["peaks"],"_osmId":"node/9739780060"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.237499,50.936366]},"properties":{"title":"Mount Orpheus","_osmCategories":["peaks"],"_osmId":"node/9739780068"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.202001,50.911212]},"properties":{"title":"Mount Eurydice","_osmCategories":["peaks"],"_osmId":"node/9739780069"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.127548,50.805582]},"properties":{"title":"Xwitaoz Mountain","_osmCategories":["peaks"],"_osmId":"node/10090683677"}}
+]}

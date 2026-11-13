@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.581067,56.612232]},"properties":{"title":"Mount Whipple","_osmCategories":["peaks"],"_osmId":"node/244245984"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.713931,56.546564]},"properties":{"title":"Black Crag","_osmCategories":["peaks"],"_osmId":"node/11657090317"}}
+]}

@@ -1,0 +1,13 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.510485,50.839574]},"properties":{"title":"Three Fingers Peak","_osmCategories":["peaks"],"_osmId":"node/9739884993"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.546855,50.829611]},"properties":{"title":"Mount Kennedy","_osmCategories":["peaks"],"_osmId":"node/9739884994"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.545926,50.778366]},"properties":{"title":"Mount Wakefield","_osmCategories":["peaks"],"_osmId":"node/9739884995"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.642576,50.991817]},"properties":{"title":"Mount Dyer","_osmCategories":["peaks"],"_osmId":"node/10104190217"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.690408,50.890418]},"properties":{"title":"Spire Peaks","_osmCategories":["peaks"],"_osmId":"node/10104205061"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.654713,50.95116]},"properties":{"title":"Mount Hills","_osmCategories":["peaks"],"_osmId":"node/10104228091"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.566015,50.85269]},"properties":{"title":"Glacier Peak","_osmCategories":["peaks"],"_osmId":"node/10104270831"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.615564,50.930828]},"properties":{"title":"Mount Wood","_osmCategories":["peaks"],"_osmId":"node/10104338482"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.722064,50.847005]},"properties":{"title":"Mount Watson","_osmCategories":["peaks"],"_osmId":"node/10104346232"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.732313,50.765469]},"properties":{"title":"Mount Young","_osmCategories":["peaks"],"_osmId":"node/10104357012"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.723618,50.896078]},"properties":{"title":"Mount Gilson","_osmCategories":["peaks"],"_osmId":"node/10104361824"}}
+]}

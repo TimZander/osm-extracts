@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.538376,59.01582]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8669249684"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.610388,59.049782]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8669249685"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.588158,59.036051]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8669249686"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.545843,59.042321]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8669249687"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.504099,59.041331]},"properties":{"title":"Nimbus Mountain","_osmCategories":["peaks"],"_osmId":"node/8669249688"}}
+]}

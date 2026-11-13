@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.365261,57.69736]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8501037410"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.383028,57.700524]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8501037411"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.4989,57.695708]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8501037412"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.452036,57.730002]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8501037413"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.432494,57.596486]},"properties":{"title":"Mount Ward","_osmCategories":["peaks"],"_osmId":"node/10785515036"}}
+]}

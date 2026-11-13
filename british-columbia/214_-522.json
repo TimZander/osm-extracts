@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.332204,53.631844]},"properties":{"title":"Table Hill","_osmCategories":["peaks"],"_osmId":"node/11728660972"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.40358,53.613047]},"properties":{"title":"End Hill","_osmCategories":["peaks"],"_osmId":"node/11728968725"}}
+]}

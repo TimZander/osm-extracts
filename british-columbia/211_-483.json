@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.705929,52.832351]},"properties":{"title":"Mount Mitchell","_osmCategories":["peaks"],"_osmId":"node/7231153185"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.743501,52.897707]},"properties":{"title":"Mount Spranger","_osmCategories":["peaks"],"_osmId":"node/7231153188"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.695779,52.91532]},"properties":{"title":"Miller Peaks","_osmCategories":["peaks"],"_osmId":"node/7231153189"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.53901,52.951844]},"properties":{"title":"Roberts Peak","_osmCategories":["peaks"],"_osmId":"node/7231153190"}}
+]}

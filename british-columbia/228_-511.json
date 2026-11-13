@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.647311,57.089915]},"properties":{"title":"Mount Hewett","_osmCategories":["peaks"],"_osmId":"node/8487390102"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.715294,57.137618]},"properties":{"title":"Stalk Peak","_osmCategories":["peaks"],"_osmId":"node/10755192823"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.567593,57.140351]},"properties":{"title":"Red Crag","_osmCategories":["peaks"],"_osmId":"node/10755195148"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.737692,57.105388]},"properties":{"title":"Kubicek Peak","_osmCategories":["peaks"],"_osmId":"node/10757594408"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.707976,57.024536]},"properties":{"title":"Mount Oakes","_osmCategories":["peaks"],"_osmId":"node/10757609854"}}
+]}

@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.665391,57.430766]},"properties":{"title":"Hamper Mountain","_osmCategories":["peaks"],"_osmId":"node/11538422507"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.685938,57.472253]},"properties":{"title":"Phacops Mountain","_osmCategories":["peaks"],"_osmId":"node/11538426365"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.654526,57.461921]},"properties":{"title":"Butterfly Mountain","_osmCategories":["peaks"],"_osmId":"node/11538430423"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.71528,57.430855]},"properties":{"title":"Oksa Mountain","_osmCategories":["peaks"],"_osmId":"node/11538431296"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.69701,57.36766]},"properties":{"title":"Cone Mountain","_osmCategories":["peaks"],"_osmId":"node/11538490767"}}
+]}

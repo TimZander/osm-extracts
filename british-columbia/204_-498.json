@@ -1,0 +1,13 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.3746,51.211465]},"properties":{"title":"Majestic Peak","_osmCategories":["peaks"],"_osmId":"node/1784351630"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.365326,51.225292]},"properties":{"title":"Regal Peak","_osmCategories":["peaks"],"_osmId":"node/9739831234"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.36178,51.233111]},"properties":{"title":"Consort Peak","_osmCategories":["peaks"],"_osmId":"node/9739831235"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.289673,51.17683]},"properties":{"title":"Mount Knewstubb","_osmCategories":["peaks"],"_osmId":"node/9739831236"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.439842,51.149807]},"properties":{"title":"St. John Peak","_osmCategories":["peaks"],"_osmId":"node/9739831237"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.463862,51.138273]},"properties":{"title":"Pembroke Peak","_osmCategories":["peaks"],"_osmId":"node/9739831238"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.466681,51.16612]},"properties":{"title":"Cloister Peak","_osmCategories":["peaks"],"_osmId":"node/9739831241"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.49622,51.169041]},"properties":{"title":"Walsingham Peak","_osmCategories":["peaks"],"_osmId":"node/9739831242"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.449445,51.185833]},"properties":{"title":"Frobisher Peak","_osmCategories":["peaks"],"_osmId":"node/9739831244"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.360537,51.166858]},"properties":{"title":"Snowsquall Pass","_osmCategories":["passes"],"_osmId":"node/10092772374"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.275532,51.177393]},"properties":{"title":"Impasse Ridge","_osmCategories":["peaks"],"_osmId":"node/10092910116"}}
+]}

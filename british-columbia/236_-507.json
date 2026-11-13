@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.502263,59.184646]},"properties":{"title":"Long Mountain (Peak III)","_osmCategories":["peaks"],"_osmId":"node/10912690295"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.574519,59.24939]},"properties":{"title":"Long Mountain (Peak II)","_osmCategories":["peaks"],"_osmId":"node/10912743122"}}
+]}

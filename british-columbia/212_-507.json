@@ -1,0 +1,11 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.530947,53.138601]},"properties":{"title":"Two Bear Hill","_osmCategories":["peaks"],"_osmId":"node/11628337541"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.525506,53.168001]},"properties":{"title":"Wahla Mountain","_osmCategories":["peaks"],"_osmId":"node/11628343616"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.639881,53.02069]},"properties":{"title":"Tsaydaychuz Peak","_osmCategories":["peaks"],"_osmId":"node/11628346041"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.708708,53.163723]},"properties":{"title":"Rivers Peak","_osmCategories":["peaks"],"_osmId":"node/11628356585"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.527274,53.013272]},"properties":{"title":"Ramsey Peak","_osmCategories":["peaks"],"_osmId":"node/11628365363"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.74556,53.224528]},"properties":{"title":"Mount Preston","_osmCategories":["peaks"],"_osmId":"node/11628366556"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.627716,53.070489]},"properties":{"title":"Butler Peak","_osmCategories":["peaks"],"_osmId":"node/11628379095"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.509576,53.102687]},"properties":{"title":"Holmes Ridge","_osmCategories":["peaks"],"_osmId":"node/11628387288"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.643135,53.10913]},"properties":{"title":"Tesla Mountain","_osmCategories":["peaks"],"_osmId":"node/11628388155"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.37669,57.935793]},"properties":{"title":"Flat Top Mountain","_osmCategories":["peaks"],"_osmId":"node/10797626203"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.321472,57.888235]},"properties":{"title":"Mount Slocomb","_osmCategories":["peaks"],"_osmId":"node/10797630418"}}
+]}

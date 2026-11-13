@@ -1,0 +1,12 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.233507,51.642638]},"properties":{"title":"Mount Astarte","_osmCategories":["peaks"],"_osmId":"node/10124425916"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.187971,51.633487]},"properties":{"title":"Nirvana Pass","_osmCategories":["passes"],"_osmId":"node/10124453629"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.224761,51.628235]},"properties":{"title":"Mount Juno","_osmCategories":["peaks"],"_osmId":"node/10124461680"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.152656,51.624945]},"properties":{"title":"Mount Vishnu","_osmCategories":["peaks"],"_osmId":"node/10124490393"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.230043,51.689056]},"properties":{"title":"Hermes Peak","_osmCategories":["peaks"],"_osmId":"node/10124490568"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.240676,51.515722]},"properties":{"title":"Delusion Peak","_osmCategories":["peaks"],"_osmId":"node/10124499729"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.164034,51.612418]},"properties":{"title":"Byamee Mountain","_osmCategories":["peaks"],"_osmId":"node/10124514713"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.123311,51.629732]},"properties":{"title":"Siva Mountain","_osmCategories":["peaks"],"_osmId":"node/10124549352"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.14509,51.652323]},"properties":{"title":"Osiris Peak","_osmCategories":["peaks"],"_osmId":"node/10124599677"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.186629,51.596483]},"properties":{"title":"Mount Danaus","_osmCategories":["peaks"],"_osmId":"node/10124624067"}}
+]}

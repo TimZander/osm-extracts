@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.976857,57.293392]},"properties":{"title":"Commander Mountain","_osmCategories":["peaks"],"_osmId":"node/11538033484"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.998905,57.367572]},"properties":{"title":"Geology Ridge","_osmCategories":["peaks"],"_osmId":"node/11538044636"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.933595,57.352516]},"properties":{"title":"Geology Ridge","_osmCategories":["peaks"],"_osmId":"node/11538045305"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.886125,57.458745]},"properties":{"title":"Mount Donnaker","_osmCategories":["peaks"],"_osmId":"node/11538155276"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.858394,57.483937]},"properties":{"title":"Cirque Mountain","_osmCategories":["peaks"],"_osmId":"node/11538160627"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.850016,57.405191]},"properties":{"title":"Mount Jonquette","_osmCategories":["peaks"],"_osmId":"node/11538184604"}}
+]}

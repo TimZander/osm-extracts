@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.017341,54.489579]},"properties":{"title":"Compass Hill","_osmCategories":["peaks"],"_osmId":"node/1330331371"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.049486,54.385918]},"properties":{"title":"Omega Hill","_osmCategories":["peaks"],"_osmId":"node/1330334938"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.133309,54.397037]},"properties":{"title":"Ptarmigan Mountain","_osmCategories":["peaks"],"_osmId":"node/1330336755"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.006864,54.330961]},"properties":{"title":"Dinosaur Ridge","_osmCategories":["peaks"],"_osmId":"node/1331649586"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.054024,54.338623]},"properties":{"title":"Saxon Ridge","_osmCategories":["peaks"],"_osmId":"node/1331683541"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.094199,54.329846]},"properties":{"title":"Saxon Ridge","_osmCategories":["peaks"],"_osmId":"node/1331799308"}}
+]}

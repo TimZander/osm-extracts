@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.866932,53.103213]},"properties":{"title":"Narrows Peak","_osmCategories":["peaks"],"_osmId":"node/11628405282"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.986562,53.050214]},"properties":{"title":"Salient Mountain","_osmCategories":["peaks"],"_osmId":"node/11628405771"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.789463,53.048356]},"properties":{"title":"Gadsden Peak","_osmCategories":["peaks"],"_osmId":"node/11628419113"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.947345,53.091737]},"properties":{"title":"Stadium Mountain","_osmCategories":["peaks"],"_osmId":"node/11628434248"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.961259,53.160909]},"properties":{"title":"Gable Mountain","_osmCategories":["peaks"],"_osmId":"node/11628474030"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.864928,53.134688]},"properties":{"title":"Mount Pondosy","_osmCategories":["peaks"],"_osmId":"node/11628474763"}}
+]}

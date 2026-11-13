@@ -1,0 +1,12 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.573454,54.137291]},"properties":{"title":"Mount Plaskett","_osmCategories":["peaks"],"_osmId":"node/1340617222"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.573366,54.143568]},"properties":{"title":"Mount Ovington","_osmCategories":["peaks"],"_osmId":"node/1340619654"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.612098,54.205898]},"properties":{"title":"Pearson Peak","_osmCategories":["peaks"],"_osmId":"node/1340630911"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.55152,54.144706]},"properties":{"title":"Mount Petrie","_osmCategories":["peaks"],"_osmId":"node/1340653315"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.506993,54.045325]},"properties":{"title":"Cheguin Mountain","_osmCategories":["peaks"],"_osmId":"node/1677075866"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.699186,54.068032]},"properties":{"title":"Ekusquin Mountain","_osmCategories":["peaks"],"_osmId":"node/1677075898"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.543681,54.054622]},"properties":{"title":"Kisano Mountain","_osmCategories":["peaks"],"_osmId":"node/1677075903"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.570104,54.022784]},"properties":{"title":"Mount Dimsdale","_osmCategories":["peaks"],"_osmId":"node/1677075908"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.63527,54.099951]},"properties":{"title":"Nechamus Mountain","_osmCategories":["peaks"],"_osmId":"node/1677075917"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.53872,54.031708]},"properties":{"title":"Kisano Mountain","_osmCategories":["peaks"],"_osmId":"node/6339274144"}}
+]}

@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.522912,58.374486]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10906469194"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.601219,58.428521]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10906623503"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.650865,58.392195]},"properties":{"title":"Forsberg Ridge","_osmCategories":["peaks"],"_osmId":"node/10906624187"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.696059,58.485374]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10906639491"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.639184,58.296838]},"properties":{"title":"Valemont Mountain","_osmCategories":["peaks"],"_osmId":"node/10906687636"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.569435,58.493365]},"properties":{"title":"Split Top Mountain","_osmCategories":["peaks"],"_osmId":"node/10906705510"}}
+]}

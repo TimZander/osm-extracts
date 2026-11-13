@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.624893,58.479652]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8555270431"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.728189,58.474312]},"properties":{"title":"Tahltan Highland","_osmCategories":["peaks"],"_osmId":"node/11562472587"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.556109,58.407793]},"properties":{"title":"Metlatulin Mountain","_osmCategories":["peaks"],"_osmId":"node/11562491077"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.513468,58.474144]},"properties":{"title":"Tahltan Highland","_osmCategories":["peaks"],"_osmId":"node/11562501666"}}
+]}

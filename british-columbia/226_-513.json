@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-128.174649,56.644114]},"properties":{"title":"Slowmaldo Mountain","_osmCategories":["peaks"],"_osmId":"node/11004918150"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-128.134226,56.748616]},"properties":{"title":"Groundhog Mountain","_osmCategories":["peaks"],"_osmId":"node/11004918359"}}
+]}

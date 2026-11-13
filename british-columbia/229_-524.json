@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.824873,57.378339]},"properties":{"title":"Exile Hill","_osmCategories":["peaks"],"_osmId":"node/7573093642"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.985987,57.396025]},"properties":{"title":"Mount LaCasse","_osmCategories":["peaks"],"_osmId":"node/11535683879"}}
+]}

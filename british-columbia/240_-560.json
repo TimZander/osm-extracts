@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-139.981094,60.181966]},"properties":{"title":"Mount Cook","_osmCategories":["peaks"],"_osmId":"node/331670017"}}
+]}

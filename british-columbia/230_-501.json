@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.24785,57.630908]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10833231134"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.143281,57.749791]},"properties":{"title":"Mount Chesterfield","_osmCategories":["peaks"],"_osmId":"node/10833247224"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.398611,51.173889]},"properties":{"title":"Zinc Mountain","_osmCategories":["peaks"],"_osmId":"node/1700552957"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.394316,51.132737]},"properties":{"title":"Mount Mollison","_osmCategories":["peaks"],"_osmId":"node/1700553400"}}
+]}

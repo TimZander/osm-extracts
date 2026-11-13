@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.493166,58.650015]},"properties":{"title":"Mount Watt","_osmCategories":["peaks"],"_osmId":"node/11853073991"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.404016,58.685376]},"properties":{"title":"Mount Watt","_osmCategories":["peaks"],"_osmId":"node/11853077403"}}
+]}

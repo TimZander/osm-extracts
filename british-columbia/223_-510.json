@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.453499,55.790567]},"properties":{"title":"Kisgegas Peak","_osmCategories":["peaks"],"_osmId":"node/9330492352"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.390344,55.884418]},"properties":{"title":"Cline Peak","_osmCategories":["peaks"],"_osmId":"node/11382692159"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.479659,55.938875]},"properties":{"title":"Shedin Peak","_osmCategories":["peaks"],"_osmId":"node/11382719029"}}
+]}

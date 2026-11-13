@@ -1,0 +1,9 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-122.883029,56.112783]},"properties":{"title":"Brown Hill","_osmCategories":["peaks"],"_osmId":"node/1150452897"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-122.84526,56.115076]},"properties":{"title":"Folded Hill","_osmCategories":["peaks"],"_osmId":"node/1150486744"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-122.822001,56.010359]},"properties":{"title":"Mount Barr","_osmCategories":["peaks"],"_osmId":"node/1152122914"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-122.756399,56.141971]},"properties":{"title":"Stelck Ridge","_osmCategories":["peaks"],"_osmId":"node/1320831087"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-122.756202,56.191905]},"properties":{"title":"Jones Peak","_osmCategories":["peaks"],"_osmId":"node/1320845111"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-123.002117,56.225709],[-122.994061,56.229138],[-122.988989,56.231544],[-122.982779,56.235232],[-122.976943,56.237726],[-122.973593,56.238979],[-122.964741,56.241247],[-122.962166,56.241607],[-122.959578,56.241433],[-122.95814,56.241434],[-122.952844,56.242628],[-122.949078,56.243238],[-122.945464,56.244245],[-122.942664,56.244359],[-122.939063,56.244043],[-122.936862,56.24396],[-122.935446,56.244117],[-122.924994,56.245958],[-122.922725,56.246551],[-122.914783,56.249317],[-122.912412,56.252036]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/117283656"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-122.864305,56.250519],[-122.858922,56.247908],[-122.856256,56.246687],[-122.855786,56.246648],[-122.855065,56.246917],[-122.852657,56.248578],[-122.848728,56.2509]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/117284501"}}
+]}

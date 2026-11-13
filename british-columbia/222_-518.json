@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.311844,55.5707]},"properties":{"title":"Tchitin Peak","_osmCategories":["peaks"],"_osmId":"node/11454448167"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.417762,55.582389]},"properties":{"title":"Mount McGuire","_osmCategories":["peaks"],"_osmId":"node/11454461652"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.41206,55.518877]},"properties":{"title":"Wilauks Mountain","_osmCategories":["peaks"],"_osmId":"node/11454474389"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.318208,55.651876]},"properties":{"title":"Lavender Peak","_osmCategories":["peaks"],"_osmId":"node/11454774431"}}
+]}

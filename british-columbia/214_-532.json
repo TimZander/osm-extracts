@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.966586,53.729959]},"properties":{"title":"Fortier Hill","_osmCategories":["peaks"],"_osmId":"node/3031304193"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.903173,53.720176]},"properties":{"title":"Ironside Mountain","_osmCategories":["peaks"],"_osmId":"node/3031304231"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.892241,53.590409]},"properties":{"title":"Mount Hobbs","_osmCategories":["peaks"],"_osmId":"node/3031308760"}}
+]}

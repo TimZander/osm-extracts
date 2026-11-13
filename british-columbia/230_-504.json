@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.764625,57.745806]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10835848901"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.857217,57.640339]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10835944946"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.949866,57.596922]},"properties":{"title":"Mount Balourdet","_osmCategories":["peaks"],"_osmId":"node/10836008113"}}
+]}

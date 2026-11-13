@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.318741,57.27134]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8512955290"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.464599,57.349119]},"properties":{"title":"Whudzi Mountain","_osmCategories":["peaks"],"_osmId":"node/8517749306"}}
+]}

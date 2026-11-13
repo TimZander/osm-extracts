@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.627659,57.12892]},"properties":{"title":"Saddle Mountain","_osmCategories":["peaks"],"_osmId":"node/11548500772"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.726773,57.234049]},"properties":{"title":"Mount Pereleshin","_osmCategories":["peaks"],"_osmId":"node/11548539721"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.548514,57.151524]},"properties":{"title":"Saddlehorn Mountain","_osmCategories":["peaks"],"_osmId":"node/11548564040"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.578012,57.071265]},"properties":{"title":"Mount Scotsimpson","_osmCategories":["peaks"],"_osmId":"node/11548608553"}}
+]}

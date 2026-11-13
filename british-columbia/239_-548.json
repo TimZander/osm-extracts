@@ -1,0 +1,9 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.77068,59.905831]},"properties":{"title":"","_osmCategories":["parking"],"_osmId":"node/2460598024"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.827273,59.97449]},"properties":{"title":"Stellar Hut","_osmCategories":["huts"],"_osmId":"node/6200149085"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.975119,59.958246]},"properties":{"title":"Barrier Ridge","_osmCategories":["peaks"],"_osmId":"node/11715541059"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.937701,59.818213]},"properties":{"title":"Scottie Mountain","_osmCategories":["peaks"],"_osmId":"node/11715545665"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.784137,59.77345]},"properties":{"title":"Mount Parton","_osmCategories":["peaks"],"_osmId":"node/11715592105"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.844437,59.992516]},"properties":{"title":"","_osmCategories":["parking"],"_osmId":"node/14003466668"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-136.791639,59.916919],[-136.794071,59.916553],[-136.7976,59.915917],[-136.800625,59.9152],[-136.802706,59.914385],[-136.803568,59.914075],[-136.804105,59.913953],[-136.804333,59.913822],[-136.804446,59.913398],[-136.804707,59.912396]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1332649476"}}
+]}

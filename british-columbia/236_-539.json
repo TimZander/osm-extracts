@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.697748,59.249399]},"properties":{"title":"Mount Canning","_osmCategories":["peaks"],"_osmId":"node/11575271352"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.565352,59.131479]},"properties":{"title":"Mount Hislop","_osmCategories":["peaks"],"_osmId":"node/11575273073"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.678867,59.192593]},"properties":{"title":"Mount Pullen","_osmCategories":["peaks"],"_osmId":"node/11575273645"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.50371,59.154732]},"properties":{"title":"Mount Steacie","_osmCategories":["peaks"],"_osmId":"node/11575274657"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.592692,59.22869]},"properties":{"title":"Grizzly Peak","_osmCategories":["peaks"],"_osmId":"node/11575274675"}}
+]}

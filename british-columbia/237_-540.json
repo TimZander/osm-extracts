@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.958876,59.281181]},"properties":{"title":"Snowtop Mountain","_osmCategories":["peaks"],"_osmId":"node/11575307259"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.989931,59.387141]},"properties":{"title":"Boundary Peak 108","_osmCategories":["peaks"],"_osmId":"node/11657090333"}}
+]}

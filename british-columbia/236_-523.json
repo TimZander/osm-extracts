@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.562409,59.236353]},"properties":{"title":"Caribou Tuya","_osmCategories":["peaks"],"_osmId":"node/7570104935"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.560544,59.12716]},"properties":{"title":"Tuya Butte","_osmCategories":["peaks"],"_osmId":"node/11490231386"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.702648,59.064816]},"properties":{"title":"Mount Josephine","_osmCategories":["peaks"],"_osmId":"node/11490313431"}}
+]}

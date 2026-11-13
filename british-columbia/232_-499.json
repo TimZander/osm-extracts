@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.708145,58.213926]},"properties":{"title":"Mount Aida","_osmCategories":["peaks"],"_osmId":"node/1893576519"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.728718,58.241637]},"properties":{"title":"Yalta Peak","_osmCategories":["peaks"],"_osmId":"node/1893576535"}}
+]}

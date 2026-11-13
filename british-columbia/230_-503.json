@@ -1,0 +1,9 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.586871,57.638369]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10835783414"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.703965,57.548151]},"properties":{"title":"Mount Chief Davie","_osmCategories":["peaks"],"_osmId":"node/10835807074"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.687309,57.713091]},"properties":{"title":"Spectre Peak","_osmCategories":["peaks"],"_osmId":"node/10835837177"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.746714,57.652244]},"properties":{"title":"Chisholm Peak","_osmCategories":["peaks"],"_osmId":"node/10835941455"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.565723,57.606501]},"properties":{"title":"Mount McCrae","_osmCategories":["peaks"],"_osmId":"node/10835960066"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.533056,57.504416]},"properties":{"title":"Mount Haworth","_osmCategories":["peaks"],"_osmId":"node/10835962993"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.561677,57.501963]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10835967409"}}
+]}

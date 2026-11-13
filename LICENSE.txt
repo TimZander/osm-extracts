@@ -1,0 +1,17 @@
+OpenStreetMap extract: licence
+
+The data on this site is © OpenStreetMap contributors and is available under the Open Database
+License (ODbL) 1.0: https://opendatacommons.org/licenses/odbl/1-0/
+
+These files are a derived database, offered under the ODbL 1.0. They were derived from Geofabrik's
+downloads of OpenStreetMap data (https://download.geofabrik.de/):
+
+- Colorado: data of 2026-11-12, from https://download.geofabrik.de/north-america/us/colorado-latest.osm.pbf
+- Wyoming: data of 2026-11-12, from https://download.geofabrik.de/north-america/us/wyoming-latest.osm.pbf
+- Utah: data of 2026-11-12, from https://download.geofabrik.de/north-america/us/utah-latest.osm.pbf
+- Idaho: data of 2026-11-12, from https://download.geofabrik.de/north-america/us/idaho-latest.osm.pbf
+- British Columbia: data of 2026-11-12, from https://download.geofabrik.de/north-america/canada/british-columbia-latest.osm.pbf
+- Alberta: data of 2026-11-12, from https://download.geofabrik.de/north-america/canada/alberta-latest.osm.pbf
+
+The derivation (the code that selects, converts and grids the data) is public at
+https://github.com/TimZander/osm-extracts

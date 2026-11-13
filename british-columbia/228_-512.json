@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.877842,57.027714]},"properties":{"title":"Gil Peak","_osmCategories":["peaks"],"_osmId":"node/10755015156"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.832767,57.006616]},"properties":{"title":"McConachie Peak","_osmCategories":["peaks"],"_osmId":"node/10755058323"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.941724,57.248157]},"properties":{"title":"Mount Terraze","_osmCategories":["peaks"],"_osmId":"node/10755117196"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.983858,56.634534]},"properties":{"title":"Mount Ferguson","_osmCategories":["peaks"],"_osmId":"node/1155759309"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.852374,56.651473]},"properties":{"title":"Mount Ross","_osmCategories":["peaks"],"_osmId":"node/1155759994"}}
+]}

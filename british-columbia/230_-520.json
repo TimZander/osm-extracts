@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.951872,57.569157]},"properties":{"title":"Tsatia Mountain","_osmCategories":["peaks"],"_osmId":"node/11163748656"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.898198,57.664048]},"properties":{"title":"Todagin Mountain","_osmCategories":["peaks"],"_osmId":"node/11164033131"}}
+]}

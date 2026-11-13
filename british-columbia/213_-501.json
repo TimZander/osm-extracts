@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.148764,53.26943]},"properties":{"title":"Fawnie Nose","_osmCategories":["peaks"],"_osmId":"node/11600772490"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.018167,53.265573]},"properties":{"title":"Saddle Hump","_osmCategories":["peaks"],"_osmId":"node/11600778286"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.201695,53.320787]},"properties":{"title":"Tutiai Mountain","_osmCategories":["peaks"],"_osmId":"node/11600782145"}}
+]}

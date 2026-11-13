@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.418661,57.021627]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8487390105"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.429133,57.01922]},"properties":{"title":"Kitchener Cragg","_osmCategories":["peaks"],"_osmId":"node/8487390106"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.456482,57.148921]},"properties":{"title":"Brothers Peaks","_osmCategories":["peaks"],"_osmId":"node/10752103066"}}
+]}

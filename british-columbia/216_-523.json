@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.671003,54.128608]},"properties":{"title":"Mount Stephens","_osmCategories":["peaks"],"_osmId":"node/11735470222"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.701653,54.119787]},"properties":{"title":"Philip Cone","_osmCategories":["peaks"],"_osmId":"node/11735477167"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.70922,54.157663]},"properties":{"title":"Congreve Hill","_osmCategories":["peaks"],"_osmId":"node/11735516580"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.662776,54.002021],[-130.662971,54.002036],[-130.663205,54.002054],[-130.663437,54.002155],[-130.663612,54.0023],[-130.663891,54.002274],[-130.664195,54.002185],[-130.664568,54.002072],[-130.664724,54.001989],[-130.664843,54.0019]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/962374214"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.668805,54.000352],[-130.669155,54.000263],[-130.669528,54.000154],[-130.669609,54.000026],[-130.669464,53.999872],[-130.669312,53.999593]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/962374215"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.564682,54.030831],[-130.564759,54.030944],[-130.564757,54.031013],[-130.564713,54.03108],[-130.564524,54.031167],[-130.564192,54.031368]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1446203774"}}
+]}

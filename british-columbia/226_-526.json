@@ -1,0 +1,12 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.471829,56.55259]},"properties":{"title":"Mount Fawcett","_osmCategories":["peaks"],"_osmId":"node/244245987"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.443543,56.666137]},"properties":{"title":"Fizzle Mountain","_osmCategories":["peaks"],"_osmId":"node/11715083356"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.278309,56.66114]},"properties":{"title":"Mount Raven","_osmCategories":["peaks"],"_osmId":"node/11715086562"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.312924,56.652604]},"properties":{"title":"Zippa Mountain","_osmCategories":["peaks"],"_osmId":"node/11715094193"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.267885,56.646997]},"properties":{"title":"Orata Mountain","_osmCategories":["peaks"],"_osmId":"node/11715116284"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.393949,56.554794]},"properties":{"title":"Mount Rastus","_osmCategories":["peaks"],"_osmId":"node/11715136192"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.363092,56.62472]},"properties":{"title":"Mount Claude","_osmCategories":["peaks"],"_osmId":"node/11715152095"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.357001,56.592175]},"properties":{"title":"Simma Mountain","_osmCategories":["peaks"],"_osmId":"node/11715174347"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.25274,56.588638]},"properties":{"title":"Mount Dick","_osmCategories":["peaks"],"_osmId":"node/11715179328"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.4084,56.604461]},"properties":{"title":"Inhini Mountain","_osmCategories":["peaks"],"_osmId":"node/11715181162"}}
+]}

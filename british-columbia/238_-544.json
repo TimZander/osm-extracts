@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-135.951066,59.662817]},"properties":{"title":"Raymond Peak","_osmCategories":["peaks"],"_osmId":"node/1715599402"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-135.937314,59.519236]},"properties":{"title":"Klutshah Mountain","_osmCategories":["peaks"],"_osmId":"node/11572950458"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-135.868178,59.588889]},"properties":{"title":"Klukwah Mountain","_osmCategories":["peaks"],"_osmId":"node/11601403402"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-135.955944,59.659928]},"properties":{"title":"Mount Raymond","_osmCategories":["peaks"],"_osmId":"node/11657090206"}}
+]}

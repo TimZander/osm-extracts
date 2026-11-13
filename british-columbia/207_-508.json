@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.864706,51.896011]},"properties":{"title":"Mount Quissy","_osmCategories":["peaks"],"_osmId":"node/10145797031"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.92456,51.886178]},"properties":{"title":"Mount Playter","_osmCategories":["peaks"],"_osmId":"node/10145909358"}}
+]}

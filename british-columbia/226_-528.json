@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.835327,56.599203]},"properties":{"title":"Mount Cote","_osmCategories":["peaks"],"_osmId":"node/244245996"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.860669,56.702984]},"properties":{"title":"Elbow Mountain","_osmCategories":["peaks"],"_osmId":"node/244246014"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.907547,56.723297]},"properties":{"title":"Big Mountain","_osmCategories":["peaks"],"_osmId":"node/11657090254"}}
+]}

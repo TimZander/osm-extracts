@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.17921,56.687184]},"properties":{"title":"South Pass Peak","_osmCategories":["peaks"],"_osmId":"node/10571523772"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.227806,56.578117]},"properties":{"title":"Bird Hill","_osmCategories":["peaks"],"_osmId":"node/10571748106"}}
+]}

@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.770394,52.773524]},"properties":{"title":"Mount MacKenzie King","_osmCategories":["peaks"],"_osmId":"node/6006048089"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.870134,52.84937]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/6128386710"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.794124,52.810806]},"properties":{"title":"Mount Sir John Abbott","_osmCategories":["peaks"],"_osmId":"node/6346029143"}}
+]}

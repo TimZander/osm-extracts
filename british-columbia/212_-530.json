@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.289875,53.238797]},"properties":{"title":"Birch Mountain","_osmCategories":["peaks"],"_osmId":"node/3040364442"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.312379,53.198579]},"properties":{"title":"Hump Mountain","_osmCategories":["peaks"],"_osmId":"node/3040364476"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.458925,53.179686]},"properties":{"title":"Meadow Mountain","_osmCategories":["peaks"],"_osmId":"node/3040364487"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.354029,53.216835]},"properties":{"title":"Mount Brown","_osmCategories":["peaks"],"_osmId":"node/3040364489"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.272351,53.222878]},"properties":{"title":"Mount Seymour","_osmCategories":["peaks"],"_osmId":"node/3040364493"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.269778,53.174632]},"properties":{"title":"Snow Peak","_osmCategories":["peaks"],"_osmId":"node/3040366241"}}
+]}

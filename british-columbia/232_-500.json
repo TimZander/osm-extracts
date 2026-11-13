@@ -1,0 +1,12 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.843628,58.134812]},"properties":{"title":"Campobasso Mountain","_osmCategories":["peaks"],"_osmId":"node/1893576494"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.856582,58.223736]},"properties":{"title":"King Peak","_osmCategories":["peaks"],"_osmId":"node/1893576496"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.977133,58.235725]},"properties":{"title":"Lindisfarne Peak","_osmCategories":["peaks"],"_osmId":"node/1893576512"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.91385,58.208226]},"properties":{"title":"Liri Mountain","_osmCategories":["peaks"],"_osmId":"node/1893576516"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.83326,58.189022]},"properties":{"title":"Ortona Mountain","_osmCategories":["peaks"],"_osmId":"node/1893576521"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.787749,58.191133]},"properties":{"title":"Potsdam Peak","_osmCategories":["peaks"],"_osmId":"node/1893576522"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.886673,58.228388]},"properties":{"title":"Quebec Citadel Peak","_osmCategories":["peaks"],"_osmId":"node/1893576523"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.786679,58.213978]},"properties":{"title":"Savio Mountain","_osmCategories":["peaks"],"_osmId":"node/1893576531"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.929,58.180625]},"properties":{"title":"Senio Mountain","_osmCategories":["peaks"],"_osmId":"node/1893576532"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.924938,58.126414]},"properties":{"title":"Sicily Mountain","_osmCategories":["peaks"],"_osmId":"node/1893576533"}}
+]}

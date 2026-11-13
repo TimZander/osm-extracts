@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.344834,55.419564]},"properties":{"title":"Trail Peak","_osmCategories":["peaks"],"_osmId":"node/7798127086"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.336765,55.274226]},"properties":{"title":"Scorched Hill","_osmCategories":["peaks"],"_osmId":"node/7798127246"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.278609,55.458752]},"properties":{"title":"Frypan Peak","_osmCategories":["peaks"],"_osmId":"node/11408956093"}}
+]}

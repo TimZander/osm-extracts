@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.312274,52.454819]},"properties":{"title":"Eucott Bay Hot Springs","_osmCategories":["hot_springs"],"_osmId":"node/10165128830"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.273941,52.497351]},"properties":{"title":"Nascall Hot Springs","_osmCategories":["hot_springs"],"_osmId":"node/10165176135"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.307041,52.321371]},"properties":{"title":"King Island H.P.","_osmCategories":["peaks"],"_osmId":"node/14156674950"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-127.275436,52.497397],[-127.275135,52.497433],[-127.274907,52.49738],[-127.274808,52.497448],[-127.274357,52.497456],[-127.274344,52.497532]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1423675264"}}
+]}

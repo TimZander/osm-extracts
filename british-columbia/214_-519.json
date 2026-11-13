@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.705191,53.583385]},"properties":{"title":"Mount Saunders","_osmCategories":["peaks"],"_osmId":"node/11680032918"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.607023,53.561187]},"properties":{"title":"Bare Top Range","_osmCategories":["peaks"],"_osmId":"node/11680035631"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.565864,53.541187]},"properties":{"title":"Anchor Cone","_osmCategories":["peaks"],"_osmId":"node/11680054084"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.59864,53.520535]},"properties":{"title":"Sylvan Peak","_osmCategories":["peaks"],"_osmId":"node/11680083161"}}
+]}

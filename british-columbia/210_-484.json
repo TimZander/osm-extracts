@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.851047,52.646227]},"properties":{"title":"Roaring Peaks","_osmCategories":["peaks"],"_osmId":"node/7223555275"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.828168,52.650865]},"properties":{"title":"Roaring Peaks","_osmCategories":["peaks"],"_osmId":"node/7223555276"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.802939,52.629625]},"properties":{"title":"Ogden Peak","_osmCategories":["peaks"],"_osmId":"node/7223555277"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.875015,52.569843]},"properties":{"title":"Mount Lowry","_osmCategories":["peaks"],"_osmId":"node/7223555278"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.767115,52.699996]},"properties":{"title":"Mount Watt","_osmCategories":["peaks"],"_osmId":"node/7231141284"}}
+]}

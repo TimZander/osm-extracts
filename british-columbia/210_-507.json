@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.617234,52.639372]},"properties":{"title":"Kalone Peak","_osmCategories":["peaks"],"_osmId":"node/11616922058"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.603509,52.737258]},"properties":{"title":"Forward Peak","_osmCategories":["peaks"],"_osmId":"node/11616925411"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.593103,52.594057]},"properties":{"title":"Mount Creswell","_osmCategories":["peaks"],"_osmId":"node/11616953062"}}
+]}

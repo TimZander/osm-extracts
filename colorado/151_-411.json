@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-102.607694,37.764454]},"properties":{"title":"Gobblers Knob","_osmCategories":["peaks"],"_osmId":"node/358930902"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-102.502433,37.937525],[-102.505308,37.938036],[-102.509929,37.938999],[-102.511576,37.939046],[-102.512933,37.939321],[-102.513244,37.939477],[-102.513483,37.939597],[-102.514146,37.940054],[-102.514609,37.940123]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/17122723"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-102.703244,37.823499],[-102.703467,37.823559],[-102.703541,37.823684],[-102.703562,37.823909]]},"properties":{"title":"County Road 3","_osmCategories":["trails"],"_osmId":"way/17124618"}}
+]}

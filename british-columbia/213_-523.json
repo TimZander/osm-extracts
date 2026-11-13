@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.610124,53.485043]},"properties":{"title":"Dome Hill","_osmCategories":["peaks"],"_osmId":"node/11726164872"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.637437,53.492864],[-130.637182,53.492853],[-130.636989,53.49284],[-130.636851,53.492844],[-130.636731,53.492853],[-130.636501,53.492745],[-130.636273,53.492689],[-130.636022,53.492724]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/374512292"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.636022,53.492724],[-130.635321,53.49291]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/374512297"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.637075,53.493429],[-130.636896,53.493674]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/374512298"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.637182,53.492853],[-130.637094,53.492976],[-130.637099,53.493338],[-130.637094,53.493387],[-130.637075,53.493429]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/374512299"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.636896,53.493674],[-130.636866,53.493715],[-130.636963,53.493856]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/374512300"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.638034,53.493024],[-130.637777,53.492939],[-130.637734,53.492918],[-130.637701,53.492898],[-130.637691,53.492877],[-130.637723,53.492838],[-130.637761,53.492793],[-130.63779,53.492786],[-130.637836,53.49279]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/374512307"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.637691,53.492877],[-130.637567,53.492872],[-130.637437,53.492864]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1339175257"}}
+]}

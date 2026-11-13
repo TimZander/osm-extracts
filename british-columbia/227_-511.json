@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.568586,56.992556]},"properties":{"title":"Mount Trygve","_osmCategories":["peaks"],"_osmId":"node/8487390103"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.568583,56.992481]},"properties":{"title":"Mount Trygve","_osmCategories":["peaks"],"_osmId":"node/10568987330"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.539725,56.903457]},"properties":{"title":"Melanistic Peak","_osmCategories":["peaks"],"_osmId":"node/10569000813"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.650887,56.853564]},"properties":{"title":"Chipmunk Peak","_osmCategories":["peaks"],"_osmId":"node/10569032825"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.502509,56.75942]},"properties":{"title":"Alma Peak","_osmCategories":["peaks"],"_osmId":"node/10569057751"}}
+]}

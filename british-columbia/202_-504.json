@@ -1,0 +1,22 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.866387,50.645095]},"properties":{"title":"Mount Sawyer","_osmCategories":["peaks"],"_osmId":"node/1778684999"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.800012,50.531491]},"properties":{"title":"Mount Spencer","_osmCategories":["peaks"],"_osmId":"node/9739884970"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.846342,50.51791]},"properties":{"title":"Mount Scaife","_osmCategories":["peaks"],"_osmId":"node/9739884971"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.85766,50.502475]},"properties":{"title":"Geneste Cone","_osmCategories":["peaks"],"_osmId":"node/9739884972"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.950161,50.531456]},"properties":{"title":"Baresides Mountain","_osmCategories":["peaks"],"_osmId":"node/9739884976"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.88609,50.63327]},"properties":{"title":"Mount Scriven","_osmCategories":["peaks"],"_osmId":"node/9739884981"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.953099,50.651848]},"properties":{"title":"Camp Peak","_osmCategories":["peaks"],"_osmId":"node/9739884982"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.762395,50.662301]},"properties":{"title":"Flora Peak","_osmCategories":["peaks"],"_osmId":"node/9739884987"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.921543,50.742223]},"properties":{"title":"Mount Prideaux","_osmCategories":["peaks"],"_osmId":"node/10100195410"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.942202,50.697173]},"properties":{"title":"Sail Cone","_osmCategories":["peaks"],"_osmId":"node/10100243620"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.876575,50.551624]},"properties":{"title":"Bags Hill","_osmCategories":["peaks"],"_osmId":"node/10100257506"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.847227,50.718126]},"properties":{"title":"Beatrice Peak","_osmCategories":["peaks"],"_osmId":"node/10100285776"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.788298,50.625483]},"properties":{"title":"Mount Edith","_osmCategories":["peaks"],"_osmId":"node/10100287218"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.992879,50.71676]},"properties":{"title":"Mount Stamp","_osmCategories":["peaks"],"_osmId":"node/10100297270"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.771936,50.731139]},"properties":{"title":"Mount Catherine","_osmCategories":["peaks"],"_osmId":"node/10100298764"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.858072,50.570872]},"properties":{"title":"Mount Forbes","_osmCategories":["peaks"],"_osmId":"node/10100323917"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.756416,50.653453],[-125.756219,50.653662],[-125.755902,50.6539],[-125.755315,50.654474],[-125.754552,50.655301],[-125.75407,50.655983],[-125.752957,50.658428],[-125.752389,50.6592],[-125.751664,50.65984],[-125.75,50.660865]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1103745547"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.751651,50.672471],[-125.751667,50.672803],[-125.751216,50.673444],[-125.75,50.67452]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1103746473"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.751651,50.672471],[-125.751589,50.671715],[-125.751183,50.66994],[-125.750926,50.669025],[-125.750243,50.667343],[-125.75,50.666805]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1103748082"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.764687,50.672177],[-125.763979,50.671943],[-125.762986,50.671539],[-125.761739,50.670944],[-125.760623,50.670509],[-125.759567,50.670126],[-125.758423,50.669772],[-125.757256,50.669293],[-125.755898,50.668623],[-125.755552,50.668554],[-125.755104,50.668673],[-125.754689,50.668852],[-125.753483,50.66998],[-125.752883,50.670752],[-125.752356,50.671613],[-125.751651,50.672471]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1103748497"}}
+]}

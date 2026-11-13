@@ -1,0 +1,15 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.596265,58.312472]},"properties":{"title":"Chischa Peak","_osmCategories":["peaks"],"_osmId":"node/1878649453"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.739581,58.332466]},"properties":{"title":"Devereux Peak","_osmCategories":["peaks"],"_osmId":"node/1878649456"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.728017,58.2562]},"properties":{"title":"Icecap Peak","_osmCategories":["peaks"],"_osmId":"node/1878649464"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.651509,58.299723]},"properties":{"title":"Lord Mayor Peak","_osmCategories":["peaks"],"_osmId":"node/1878649466"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.668659,58.273361]},"properties":{"title":"Mercers Peak","_osmCategories":["peaks"],"_osmId":"node/1878649468"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.674486,58.254958]},"properties":{"title":"Merchant Taylors Peaks","_osmCategories":["peaks"],"_osmId":"node/1878649469"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.523242,58.466811]},"properties":{"title":"Mount Mary Henry","_osmCategories":["peaks"],"_osmId":"node/1878649470"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.728539,58.430259]},"properties":{"title":"Mount St. Sepulchre","_osmCategories":["peaks"],"_osmId":"node/1878649472"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.500013,58.411476]},"properties":{"title":"Mount Wadman","_osmCategories":["peaks"],"_osmId":"node/1878649473"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.722898,58.386386]},"properties":{"title":"Red Ridge Peak","_osmCategories":["peaks"],"_osmId":"node/1878649477"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.640099,58.275641]},"properties":{"title":"Saddleback Peak","_osmCategories":["peaks"],"_osmId":"node/1878649480"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.656252,58.296548]},"properties":{"title":"Spyglass Peak","_osmCategories":["peaks"],"_osmId":"node/1878649483"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.635405,58.351555]},"properties":{"title":"Tetsa Peak","_osmCategories":["peaks"],"_osmId":"node/1878649486"}}
+]}

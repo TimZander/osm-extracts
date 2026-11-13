@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.498242,58.83412]},"properties":{"title":"Vowel Mountain","_osmCategories":["peaks"],"_osmId":"node/11501189087"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.333908,58.868654]},"properties":{"title":"Red Ledge Mountain","_osmCategories":["peaks"],"_osmId":"node/11501201790"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.4137,58.753668]},"properties":{"title":"Mount Rath","_osmCategories":["peaks"],"_osmId":"node/11501232558"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.474779,58.953367]},"properties":{"title":"Mount Coulahan","_osmCategories":["peaks"],"_osmId":"node/11501365870"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.29117,58.889118]},"properties":{"title":"Slough Mountain","_osmCategories":["peaks"],"_osmId":"node/11501380780"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.397848,58.902806]},"properties":{"title":"Mount Defot","_osmCategories":["peaks"],"_osmId":"node/11501386142"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.766565,57.604803]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10832640602"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.80212,57.728233]},"properties":{"title":"Lombard Peak","_osmCategories":["peaks"],"_osmId":"node/10832641218"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.972917,48.996351]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/12782029379"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.939099,48.997911]},"properties":{"title":"Armstrong Mountain","_osmCategories":["peaks"],"_osmId":"node/12782029497"}}
+]}

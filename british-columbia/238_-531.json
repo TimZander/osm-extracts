@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.587128,59.614166]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8603323785"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.560091,59.6202]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8603323786"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.627511,59.587868]},"properties":{"title":"Goodwin Peak","_osmCategories":["peaks"],"_osmId":"node/8603324080"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.62867,59.550198]},"properties":{"title":"Peveril Peaks","_osmCategories":["peaks"],"_osmId":"node/8603324081"}}
+]}

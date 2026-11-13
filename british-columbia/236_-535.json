@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.621645,59.24201]},"properties":{"title":"Mt MacCallum","_osmCategories":["peaks"],"_osmId":"node/8663526536"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.687035,59.244524]},"properties":{"title":"Tagish Highland","_osmCategories":["peaks"],"_osmId":"node/11574614346"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.603342,59.005319]},"properties":{"title":"Tagish Highland","_osmCategories":["peaks"],"_osmId":"node/11574686027"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.636396,59.120081]},"properties":{"title":"Tagish Highland","_osmCategories":["peaks"],"_osmId":"node/11574716496"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.525207,59.103607]},"properties":{"title":"Paradise Peak","_osmCategories":["peaks"],"_osmId":"node/11574732623"}}
+]}

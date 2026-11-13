@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-111.127042,49.217899],[-111.127014,49.210099]]},"properties":{"title":"Range Road 92","_osmCategories":["trails"],"_osmId":"way/388290195"}}
+]}

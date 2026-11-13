@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.464353,52.509208]},"properties":{"title":"Nusq'lst peak","_osmCategories":["peaks"],"_osmId":"node/8382699668"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.369678,52.552525]},"properties":{"title":"Thunder Mountain","_osmCategories":["peaks"],"_osmId":"node/8389373734"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.380677,52.563332]},"properties":{"title":"Tzeetsaytsul Peak","_osmCategories":["peaks"],"_osmId":"node/11612265269"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.334333,52.621329]},"properties":{"title":"Compass Mountain","_osmCategories":["peaks"],"_osmId":"node/11612270918"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.446825,52.561551]},"properties":{"title":"Mount Stepp","_osmCategories":["peaks"],"_osmId":"node/11612285296"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.292748,52.574002]},"properties":{"title":"Mount Leonard","_osmCategories":["peaks"],"_osmId":"node/11612288799"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.461683,52.667862]},"properties":{"title":"Stack Peak","_osmCategories":["peaks"],"_osmId":"node/11612325909"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.450938,52.655803]},"properties":{"title":"Mount Collins","_osmCategories":["peaks"],"_osmId":"node/11612332509"}}
+]}

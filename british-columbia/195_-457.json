@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-114.207914,48.997198]},"properties":{"title":"Long Knife Peak","_osmCategories":["peaks"],"_osmId":"node/357923429"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-114.037516,48.895744]},"properties":{"title":"Jesfferson Pass","_osmCategories":["passes"],"_osmId":"node/13314564688"}}
+]}

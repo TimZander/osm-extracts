@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.387267,50.750125]},"properties":{"title":"Mount Henry","_osmCategories":["peaks"],"_osmId":"node/9739884992"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.494772,50.925101]},"properties":{"title":"Mount Dundas","_osmCategories":["peaks"],"_osmId":"node/10103940636"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.451509,50.952624]},"properties":{"title":"Mount Cridge","_osmCategories":["peaks"],"_osmId":"node/10104049865"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.499402,50.868355]},"properties":{"title":"Mount Lang","_osmCategories":["peaks"],"_osmId":"node/10104130745"}}
+]}

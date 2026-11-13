@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.991315,53.305157]},"properties":{"title":"Red Bird Mountain","_osmCategories":["peaks"],"_osmId":"node/11632765042"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.902759,53.333689]},"properties":{"title":"Key Mountain","_osmCategories":["peaks"],"_osmId":"node/11632776809"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.981917,53.254703]},"properties":{"title":"Bone Mountain","_osmCategories":["peaks"],"_osmId":"node/11632802428"}}
+]}

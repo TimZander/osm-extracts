@@ -1,0 +1,11 @@
+/*
+  Access-Control-Allow-Origin: *
+
+/:region/*
+  Cache-Control: public, max-age=3600
+
+/LICENSE.txt
+  Cache-Control: public, max-age=3600
+
+/manifest.json
+  Cache-Control: public, max-age=300

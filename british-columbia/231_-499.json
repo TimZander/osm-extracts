@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.693642,57.816461]},"properties":{"title":"Bilou Peak","_osmCategories":["peaks"],"_osmId":"node/10841009489"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.710428,57.881521]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10841048766"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.594947,57.750258]},"properties":{"title":"Mount Sheffield","_osmCategories":["peaks"],"_osmId":"node/10841125271"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.684185,57.849418]},"properties":{"title":"Gautier Peak","_osmCategories":["peaks"],"_osmId":"node/10841140223"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.678384,57.787833]},"properties":{"title":"Vignal Peak","_osmCategories":["peaks"],"_osmId":"node/10841175529"}}
+]}

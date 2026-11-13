@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.823048,59.491914]},"properties":{"title":"Mount Sanford","_osmCategories":["peaks"],"_osmId":"node/5896711693"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.806254,59.39888]},"properties":{"title":"Llangorse Mountain","_osmCategories":["peaks"],"_osmId":"node/8680631569"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.936201,59.49404]},"properties":{"title":"Mount Smallpiece","_osmCategories":["peaks"],"_osmId":"node/8680681670"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-115.119615,50.442213]},"properties":{"title":"Mount Abruzzi","_osmCategories":["peaks"],"_osmId":"node/1785365552"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-115.139492,50.454149]},"properties":{"title":"Pass in the Clouds","_osmCategories":["passes"],"_osmId":"node/14244152820"}}
+]}

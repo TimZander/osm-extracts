@@ -1,0 +1,9 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.112497,58.849679]},"properties":{"title":"Shana Mountain","_osmCategories":["peaks"],"_osmId":"node/8665640107"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.137989,58.83247]},"properties":{"title":"Mount Headman","_osmCategories":["peaks"],"_osmId":"node/8665640108"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.234506,58.766353]},"properties":{"title":"King Salmon Mountain","_osmCategories":["peaks"],"_osmId":"node/8665640109"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.030958,58.94195]},"properties":{"title":"Luwa Mountain","_osmCategories":["peaks"],"_osmId":"node/8672403246"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.064003,58.871605]},"properties":{"title":"Chakluk Mountain","_osmCategories":["peaks"],"_osmId":"node/8672403247"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.180759,58.880391]},"properties":{"title":"Tagish Highland","_osmCategories":["peaks"],"_osmId":"node/11566418887"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.069086,58.84674]},"properties":{"title":"Tahltan Highland","_osmCategories":["peaks"],"_osmId":"node/11566465102"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.596349,57.741158]},"properties":{"title":"Mount Albert Dease","_osmCategories":["peaks"],"_osmId":"node/8501037788"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.693616,57.653858]},"properties":{"title":"Spruce Hill","_osmCategories":["peaks"],"_osmId":"node/10793938387"}}
+]}

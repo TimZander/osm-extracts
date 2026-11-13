@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.232594,58.027651]},"properties":{"title":"Citroen Peak","_osmCategories":["peaks"],"_osmId":"node/10903858354"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.22476,58.140291]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10904015404"}}
+]}

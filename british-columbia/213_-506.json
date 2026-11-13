@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.386155,53.391643]},"properties":{"title":"Grizzly Hill","_osmCategories":["peaks"],"_osmId":"node/11632908405"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.385164,53.471202]},"properties":{"title":"Chef Ridge","_osmCategories":["peaks"],"_osmId":"node/11632915155"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.384935,53.342658]},"properties":{"title":"Junction Hill","_osmCategories":["peaks"],"_osmId":"node/11632929280"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.384043,53.44244]},"properties":{"title":"Wells Gray Peak","_osmCategories":["peaks"],"_osmId":"node/11632931302"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.377408,53.432704]},"properties":{"title":"Chef Ridge","_osmCategories":["peaks"],"_osmId":"node/11632941098"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.289335,53.361453]},"properties":{"title":"Tlutlias Cone","_osmCategories":["peaks"],"_osmId":"node/11632947384"}}
+]}

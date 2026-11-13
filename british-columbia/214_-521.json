@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.142673,53.562026]},"properties":{"title":"Hat Hill","_osmCategories":["peaks"],"_osmId":"node/11728526183"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.157838,53.732837]},"properties":{"title":"Noble Mountain","_osmCategories":["peaks"],"_osmId":"node/11728604411"}}
+]}

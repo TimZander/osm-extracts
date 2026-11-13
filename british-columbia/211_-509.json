@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.16905,52.851828]},"properties":{"title":"Comet Mountain","_osmCategories":["peaks"],"_osmId":"node/11621264400"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.209518,52.969017]},"properties":{"title":"Cornice Peak","_osmCategories":["peaks"],"_osmId":"node/11624988230"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.23019,52.920279]},"properties":{"title":"Pollard Peak","_osmCategories":["peaks"],"_osmId":"node/11624993460"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.158701,52.999185]},"properties":{"title":"Kimsquit Ridge","_osmCategories":["peaks"],"_osmId":"node/11624995839"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.146225,52.961125]},"properties":{"title":"Kimsquit Ridge","_osmCategories":["peaks"],"_osmId":"node/11625015096"}}
+]}

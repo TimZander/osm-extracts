@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.24626,54.087626]},"properties":{"title":"Alastair Peak","_osmCategories":["peaks"],"_osmId":"node/11692288551"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.003909,54.050557]},"properties":{"title":"Mount Carthew","_osmCategories":["peaks"],"_osmId":"node/11692294142"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.076492,54.093538]},"properties":{"title":"Davidson Peak","_osmCategories":["peaks"],"_osmId":"node/11692315836"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.001469,54.164124]},"properties":{"title":"Mount Temple","_osmCategories":["peaks"],"_osmId":"node/11692384603"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.040743,54.201374]},"properties":{"title":"Mount Light","_osmCategories":["peaks"],"_osmId":"node/11692404997"}}
+]}

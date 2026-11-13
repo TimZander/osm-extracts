@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.071815,57.632677]},"properties":{"title":"Brandon Peak","_osmCategories":["peaks"],"_osmId":"node/10785593964"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.173796,57.735432]},"properties":{"title":"Rocky Peak","_osmCategories":["peaks"],"_osmId":"node/10785603403"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.108627,57.664455]},"properties":{"title":"Warner Peak","_osmCategories":["peaks"],"_osmId":"node/10785606538"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.221773,57.588644]},"properties":{"title":"Mount Finlay","_osmCategories":["peaks"],"_osmId":"node/10785607899"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.155702,57.718163]},"properties":{"title":"Hedges Peak","_osmCategories":["peaks"],"_osmId":"node/10785624061"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.227023,57.518919]},"properties":{"title":"Mount Basnett","_osmCategories":["peaks"],"_osmId":"node/10785641376"}}
+]}

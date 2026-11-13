@@ -1,0 +1,13 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.507883,51.173087]},"properties":{"title":"Burghley Peak","_osmCategories":["peaks"],"_osmId":"node/1778691006"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.505254,51.144051]},"properties":{"title":"Mist Peak","_osmCategories":["peaks"],"_osmId":"node/9739831239"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.508965,51.118001]},"properties":{"title":"Cambridge Peak","_osmCategories":["peaks"],"_osmId":"node/9739831240"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.535941,51.176089]},"properties":{"title":"Howard Peak","_osmCategories":["peaks"],"_osmId":"node/9739831243"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.646146,51.009907]},"properties":{"title":"Janus Peak","_osmCategories":["peaks"],"_osmId":"node/9739831257"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.653099,51.027157]},"properties":{"title":"Gallery Peak","_osmCategories":["peaks"],"_osmId":"node/9739831258"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.602335,51.001608]},"properties":{"title":"Gargoyle Peak","_osmCategories":["peaks"],"_osmId":"node/9739831259"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.566403,51.043766]},"properties":{"title":"Plateau Peak","_osmCategories":["peaks"],"_osmId":"node/10092710963"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.501484,51.155713]},"properties":{"title":"Sasquatch Pass","_osmCategories":["passes"],"_osmId":"node/10092844751"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.689101,51.132794]},"properties":{"title":"Pelorus Peak","_osmCategories":["peaks"],"_osmId":"node/10092874534"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.65803,51.170467]},"properties":{"title":"Nunatak Peak","_osmCategories":["peaks"],"_osmId":"node/10092973413"}}
+]}

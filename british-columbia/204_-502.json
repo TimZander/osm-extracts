@@ -1,0 +1,13 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.487443,51.126171]},"properties":{"title":"Mount Lowe","_osmCategories":["peaks"],"_osmId":"node/10107674763"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.343889,51.216304]},"properties":{"title":"Dauntless Mountain","_osmCategories":["peaks"],"_osmId":"node/10107681668"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.278087,51.189281]},"properties":{"title":"Strawberry Mountain","_osmCategories":["peaks"],"_osmId":"node/10107741100"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.369919,51.21746]},"properties":{"title":"Marvel Mountain","_osmCategories":["peaks"],"_osmId":"node/10107747322"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.354962,51.215984]},"properties":{"title":"Vigilant Mountain","_osmCategories":["peaks"],"_osmId":"node/10107824211"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.402483,51.207656]},"properties":{"title":"Obelisk Mountain","_osmCategories":["peaks"],"_osmId":"node/10107833868"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.472989,51.018366]},"properties":{"title":"Mount Rodell","_osmCategories":["peaks"],"_osmId":"node/10107841745"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.288145,51.193729]},"properties":{"title":"Whipped Cream Peak","_osmCategories":["peaks"],"_osmId":"node/10107847037"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.294999,51.14655]},"properties":{"title":"Comrade Peaks","_osmCategories":["peaks"],"_osmId":"node/10107857210"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.320983,51.144526]},"properties":{"title":"Cornette Peak","_osmCategories":["peaks"],"_osmId":"node/10107881711"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.298998,51.191455]},"properties":{"title":"Barb Mountain","_osmCategories":["peaks"],"_osmId":"node/10107885620"}}
+]}

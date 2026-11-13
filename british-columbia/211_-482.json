@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.452058,52.993803]},"properties":{"title":"Mount Lunn","_osmCategories":["peaks"],"_osmId":"node/1778889747"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.296758,52.773512]},"properties":{"title":"Mount Beaman","_osmCategories":["peaks"],"_osmId":"node/7231153192"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.327394,52.846729]},"properties":{"title":"Mount Winder","_osmCategories":["peaks"],"_osmId":"node/7231153194"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-120.34431,52.986256],[-120.344127,52.986384]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/891921669"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-120.344431,52.986203],[-120.34431,52.986256]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/891921670"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-120.344127,52.986384],[-120.344051,52.986448],[-120.344041,52.98656],[-120.344101,52.986672],[-120.344209,52.986788],[-120.344365,52.986938]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/891921671"}}
+]}

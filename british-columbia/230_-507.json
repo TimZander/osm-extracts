@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.673464,57.600531]},"properties":{"title":"Pulpit Peak","_osmCategories":["peaks"],"_osmId":"node/10786099245"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.69026,57.607131]},"properties":{"title":"Spiked Peak","_osmCategories":["peaks"],"_osmId":"node/10786211989"}}
+]}

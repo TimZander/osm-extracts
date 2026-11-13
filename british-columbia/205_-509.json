@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.16455,51.396107]},"properties":{"title":"Smith Inlet Mountain","_osmCategories":["peaks"],"_osmId":"node/11135536414"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.18825,51.49121]},"properties":{"title":"Smoker Peak","_osmCategories":["peaks"],"_osmId":"node/11135536415"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-127.164105,51.319178],[-127.163239,51.318715],[-127.16353,51.317901],[-127.164042,51.316975],[-127.1638,51.315832],[-127.16507,51.314289],[-127.165685,51.313332],[-127.1665,51.312718],[-127.167275,51.311787],[-127.167263,51.311484],[-127.168262,51.310032],[-127.168374,51.308942],[-127.168682,51.308026],[-127.16893,51.307538],[-127.168965,51.306998],[-127.170189,51.305568],[-127.170739,51.305136]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1151602300"}}
+]}

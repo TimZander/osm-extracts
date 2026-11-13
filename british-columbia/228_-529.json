@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.045191,57.045059]},"properties":{"title":"Kates Needle","_osmCategories":["peaks"],"_osmId":"node/244246063"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.247921,57.211253]},"properties":{"title":"Unmarked Boundary Point 72","_osmCategories":["peaks"],"_osmId":"node/244246106"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.143279,57.081759]},"properties":{"title":"Mount Gilroy","_osmCategories":["peaks"],"_osmId":"node/11555822582"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.020138,57.112113]},"properties":{"title":"Dominion Mountain","_osmCategories":["peaks"],"_osmId":"node/11555831551"}}
+]}

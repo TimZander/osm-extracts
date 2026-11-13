@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-112.231858,51.416133],[-112.231859,51.435431],[-112.231866,51.43731],[-112.231905,51.437678],[-112.231867,51.437885],[-112.231846,51.442463],[-112.231906,51.445223]]},"properties":{"title":"Range Road 165","_osmCategories":["trails"],"_osmId":"way/32188026"}}
+]}

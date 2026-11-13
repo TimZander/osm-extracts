@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.034924,52.700576]},"properties":{"title":"Mount De la Touche","_osmCategories":["peaks"],"_osmId":"node/9227808386"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.050528,52.744159]},"properties":{"title":"Tasu Mountain","_osmCategories":["peaks"],"_osmId":"node/9227808387"}}
+]}

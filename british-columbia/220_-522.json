@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.299232,55.053041]},"properties":{"title":"Stripe Mountain","_osmCategories":["peaks"],"_osmId":"node/11657089349"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.283612,55.061784]},"properties":{"title":"Dome Mountain","_osmCategories":["peaks"],"_osmId":"node/11657090264"}}
+]}

@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.88496,58.99509]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8672354529"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.754583,58.979789]},"properties":{"title":"Peridotite Peak","_osmCategories":["peaks"],"_osmId":"node/8672354530"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.851009,58.758232]},"properties":{"title":"Tahltan Highland","_osmCategories":["peaks"],"_osmId":"node/11566507764"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.984371,58.809083]},"properties":{"title":"Tahltan Highland","_osmCategories":["peaks"],"_osmId":"node/11566511431"}}
+]}

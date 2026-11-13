@@ -1,0 +1,11 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.840506,58.729444]},"properties":{"title":"Devils Paw","_osmCategories":["peaks"],"_osmId":"node/244247065"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.900801,58.726894]},"properties":{"title":"Frostbite Peak","_osmCategories":["peaks"],"_osmId":"node/2516574482"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.883529,58.672211]},"properties":{"title":"The Horn Peaks","_osmCategories":["peaks"],"_osmId":"node/2516574489"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.921972,58.720637]},"properties":{"title":"Coufoir Peak","_osmCategories":["peaks"],"_osmId":"node/2516574499"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.873617,58.730016]},"properties":{"title":"Michaels Sword","_osmCategories":["peaks"],"_osmId":"node/2516574512"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.877392,58.634851]},"properties":{"title":"Antler Peaks","_osmCategories":["peaks"],"_osmId":"node/11657090326"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-133.861844,58.735833],[-133.864514,58.737266],[-133.870159,58.739277],[-133.870677,58.740037],[-133.871806,58.741842]]},"properties":{"title":"","_osmCategories":["ridges"],"_osmId":"way/1147142192"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-133.849777,58.73478],[-133.840506,58.729444],[-133.832568,58.724137],[-133.830158,58.72344],[-133.822591,58.723297],[-133.820669,58.722981]]},"properties":{"title":"","_osmCategories":["ridges"],"_osmId":"way/1147142193"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-133.83205,58.747272],[-133.836382,58.736063],[-133.849777,58.73478],[-133.853759,58.734052],[-133.855559,58.734012],[-133.858671,58.734463],[-133.859434,58.735216],[-133.861844,58.735833],[-133.863812,58.734717],[-133.869152,58.733355],[-133.871257,58.732927],[-133.872447,58.732025],[-133.873149,58.731027],[-133.873617,58.730016],[-133.873789,58.72854],[-133.874156,58.727638],[-133.875742,58.726988],[-133.876291,58.725262]]},"properties":{"title":"","_osmCategories":["ridges"],"_osmId":"way/1147142194"}}
+]}

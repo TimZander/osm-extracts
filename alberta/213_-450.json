@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-112.434564,53.483331],[-112.438962,53.483321],[-112.439572,53.483371]]},"properties":{"title":"Township Road 522","_osmCategories":["trails"],"_osmId":"way/1022217837"}}
+]}

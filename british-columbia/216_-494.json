@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-123.30227,54.043108],[-123.30242,54.043102],[-123.302523,54.043079],[-123.304658,54.04259],[-123.305039,54.042563],[-123.305135,54.042556],[-123.305542,54.042607],[-123.30734,54.043068],[-123.307507,54.043128],[-123.309881,54.04399],[-123.310107,54.044072],[-123.310951,54.044189]]},"properties":{"title":"Kaykay Forest Service Road","_osmCategories":["forest_roads"],"_osmId":"way/42996886"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-123.310951,54.044189],[-123.311757,54.044372]]},"properties":{"title":"Kaykay Forest Service Road","_osmCategories":["forest_roads"],"_osmId":"way/42997258"}}
+]}

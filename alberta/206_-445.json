@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-111.247355,51.542411],[-111.247344,51.542555],[-111.247373,51.542705]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/336158886"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-111.213055,51.532583],[-111.211154,51.532608],[-111.201483,51.53259]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/336159096"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-111.153528,51.5171],[-111.153628,51.519693],[-111.153585,51.52007],[-111.153601,51.521253],[-111.153606,51.522517],[-111.153611,51.524184],[-111.153519,51.525337],[-111.153471,51.525943],[-111.153476,51.527601],[-111.153558,51.528195],[-111.153462,51.529465],[-111.153457,51.530549],[-111.153519,51.532198],[-111.153574,51.532581]]},"properties":{"title":"Range Road 91","_osmCategories":["trails"],"_osmId":"way/336159254"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-111.130111,51.510715],[-111.130178,51.532572]]},"properties":{"title":"Range Road 90","_osmCategories":["trails"],"_osmId":"way/336161222"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-111.083244,51.503499],[-111.083266,51.532628]]},"properties":{"title":"Range Road 84","_osmCategories":["trails"],"_osmId":"way/336161235"}}
+]}

@@ -1,0 +1,15 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.240221,53.007143]},"properties":{"title":"Shark's Teeth Peaks","_osmCategories":["peaks"],"_osmId":"node/9380580307"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.08747,53.215809]},"properties":{"title":"Mount Cosgrove","_osmCategories":["peaks"],"_osmId":"node/11628523892"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.100951,53.171741]},"properties":{"title":"Thumb Peak","_osmCategories":["peaks"],"_osmId":"node/11628524393"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.229113,53.248768]},"properties":{"title":"Price Peak","_osmCategories":["peaks"],"_osmId":"node/11628524403"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.128316,53.147542]},"properties":{"title":"Mount McVickar","_osmCategories":["peaks"],"_osmId":"node/11628534819"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.222725,53.107898]},"properties":{"title":"Kimsquit Ridge","_osmCategories":["peaks"],"_osmId":"node/11628539339"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.080197,53.248965]},"properties":{"title":"Mount Kastberg","_osmCategories":["peaks"],"_osmId":"node/11628545677"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.058809,53.013796]},"properties":{"title":"Dam Peak","_osmCategories":["peaks"],"_osmId":"node/11628556532"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.172437,53.053728]},"properties":{"title":"Whitecone Peak","_osmCategories":["peaks"],"_osmId":"node/11628565773"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.245663,53.203072]},"properties":{"title":"Crawford Peak","_osmCategories":["peaks"],"_osmId":"node/11628573665"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.156815,53.019983]},"properties":{"title":"Kimsquit Ridge","_osmCategories":["peaks"],"_osmId":"node/11628580409"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.067029,53.098094]},"properties":{"title":"Trapper Mountain","_osmCategories":["peaks"],"_osmId":"node/11628580907"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.015164,53.072867]},"properties":{"title":"George Peak","_osmCategories":["peaks"],"_osmId":"node/11628586986"}}
+]}

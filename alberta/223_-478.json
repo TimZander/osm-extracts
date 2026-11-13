@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.422406,55.849531]},"properties":{"title":"Blueberry Hill","_osmCategories":["peaks"],"_osmId":"node/11963824874"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-119.340611,55.836342],[-119.338695,55.83636],[-119.338266,55.836404],[-119.338096,55.836497],[-119.338022,55.836849],[-119.337996,55.839609]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/30867765"}}
+]}

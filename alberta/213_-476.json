@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.9186,53.4594]},"properties":{"title":"The Ancient Wall","_osmCategories":["peaks"],"_osmId":"node/2699409852"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.9386,53.3394]},"properties":{"title":"Monte Cristo Mountain","_osmCategories":["peaks"],"_osmId":"node/2699409858"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.8608,53.4469]},"properties":{"title":"Mount Perce","_osmCategories":["peaks"],"_osmId":"node/2699409861"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.794667,53.417763]},"properties":{"title":"Noonday Peak","_osmCategories":["peaks"],"_osmId":"node/2699409864"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.895,53.3208]},"properties":{"title":"Snake Indian Mountain","_osmCategories":["peaks"],"_osmId":"node/2699409867"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.776916,53.468664]},"properties":{"title":"Starlight Mountain","_osmCategories":["peaks"],"_osmId":"node/2699409869"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.974787,53.482578]},"properties":{"title":"Sunset Peak","_osmCategories":["peaks"],"_osmId":"node/2699409871"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.866622,53.432925]},"properties":{"title":"Natural Arch","_osmCategories":["peaks"],"_osmId":"node/12046575686"}}
+]}

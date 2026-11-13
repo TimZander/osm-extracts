@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.504525,54.85363]},"properties":{"title":"Chuius Mountain","_osmCategories":["peaks"],"_osmId":"node/1955491190"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.51002,54.96753]},"properties":{"title":"Inzana Mountain","_osmCategories":["peaks"],"_osmId":"node/1955491201"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.516662,54.910202]},"properties":{"title":"Sasklo Ridge","_osmCategories":["peaks"],"_osmId":"node/1955491206"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.588429,54.915099]},"properties":{"title":"Sasklo Ridge","_osmCategories":["peaks"],"_osmId":"node/1955491210"}}
+]}

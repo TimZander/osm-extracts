@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-124.786022,56.306545],[-124.786392,56.306731]]},"properties":{"title":"Finlay Forest Service Road","_osmCategories":["forest_roads"],"_osmId":"way/781692646"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-124.785012,56.306055],[-124.785237,56.306163],[-124.786022,56.306545]]},"properties":{"title":"Finlay Forest Service Road","_osmCategories":["forest_roads"],"_osmId":"way/781692654"}}
+]}

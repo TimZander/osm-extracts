@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.568311,51.27021]},"properties":{"title":"Mount Queen Bess","_osmCategories":["peaks"],"_osmId":"node/6050937508"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.574171,51.298501]},"properties":{"title":"Mount Essex","_osmCategories":["peaks"],"_osmId":"node/9739831245"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.624768,51.297253]},"properties":{"title":"Mantle Peak","_osmCategories":["peaks"],"_osmId":"node/9739831246"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.610285,51.267236]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/9739831247"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.723747,51.327032]},"properties":{"title":"Determination Mountain","_osmCategories":["peaks"],"_osmId":"node/9739831248"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.70669,51.341689]},"properties":{"title":"Reliance Mountain","_osmCategories":["peaks"],"_osmId":"node/9739831249"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.611565,51.358068]},"properties":{"title":"Homathko Peaak","_osmCategories":["peaks"],"_osmId":"node/9739831250"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.616811,51.349183]},"properties":{"title":"Endeavour Mountain","_osmCategories":["peaks"],"_osmId":"node/9739831251"}}
+]}

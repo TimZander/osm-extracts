@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.72427,56.509291]},"properties":{"title":"Mount Henri","_osmCategories":["peaks"],"_osmId":"node/1155583639"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.71473,56.534874]},"properties":{"title":"Mica Peak","_osmCategories":["peaks"],"_osmId":"node/1155608646"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.660222,56.748365]},"properties":{"title":"Chowika Mountain","_osmCategories":["peaks"],"_osmId":"node/1155692017"}}
+]}

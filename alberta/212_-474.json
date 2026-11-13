@@ -1,0 +1,16 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.33,53.0094]},"properties":{"title":"Consort Mountain","_osmCategories":["peaks"],"_osmId":"node/2699325185"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.4019,53.0419]},"properties":{"title":"Mount Griesbach","_osmCategories":["peaks"],"_osmId":"node/2699325205"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.2903,53.1819]},"properties":{"title":"Mount Haultain","_osmCategories":["peaks"],"_osmId":"node/2699325208"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.4031,53.18]},"properties":{"title":"Mount Henday","_osmCategories":["peaks"],"_osmId":"node/2699325209"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.4453,53.0975]},"properties":{"title":"Mount Knight","_osmCategories":["peaks"],"_osmId":"node/2699325213"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.3561,53.0194]},"properties":{"title":"Mount Oliver","_osmCategories":["peaks"],"_osmId":"node/2699325223"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.3267,53.1789]},"properties":{"title":"Mount Rowand","_osmCategories":["peaks"],"_osmId":"node/2699325225"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.4142,53.1719]},"properties":{"title":"Mount Rutherford","_osmCategories":["peaks"],"_osmId":"node/2699325226"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.3139,53.1333]},"properties":{"title":"Mount Thornton","_osmCategories":["peaks"],"_osmId":"node/2699325227"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.330196,53.038175]},"properties":{"title":"Snaring Mountain","_osmCategories":["peaks"],"_osmId":"node/2699325236"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.2583,53.1042]},"properties":{"title":"Whitecap Mountain","_osmCategories":["peaks"],"_osmId":"node/2699325241"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.4031,53.2372]},"properties":{"title":"Mount Sassenach","_osmCategories":["peaks"],"_osmId":"node/2699335927"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.448675,53.201477]},"properties":{"title":"Mount Strange","_osmCategories":["peaks"],"_osmId":"node/2699335930"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-118.3417,53.2222]},"properties":{"title":"Mount Tory","_osmCategories":["peaks"],"_osmId":"node/2699335931"}}
+]}

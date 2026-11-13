@@ -1,0 +1,18 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.855436,51.709015]},"properties":{"title":"Gilgit Mountain","_osmCategories":["peaks"],"_osmId":"node/2696784274"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.8112,51.705065]},"properties":{"title":"Mount Barlow","_osmCategories":["peaks"],"_osmId":"node/2696784277"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.922639,51.70924]},"properties":{"title":"Mount Barnard","_osmCategories":["peaks"],"_osmId":"node/2696784278"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.923153,51.716364]},"properties":{"title":"Mount Bulyea","_osmCategories":["peaks"],"_osmId":"node/2696784280"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.947426,51.742779]},"properties":{"title":"Mount Freshfield","_osmCategories":["peaks"],"_osmId":"node/2696784285"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.839994,51.705291]},"properties":{"title":"Mount Helmer","_osmCategories":["peaks"],"_osmId":"node/2696784287"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.822459,51.737375]},"properties":{"title":"Mount Lambe","_osmCategories":["peaks"],"_osmId":"node/2696784289"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.802288,51.716699]},"properties":{"title":"Mount Low","_osmCategories":["peaks"],"_osmId":"node/2696784291"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.927968,51.723525]},"properties":{"title":"Mount Pilkington","_osmCategories":["peaks"],"_osmId":"node/2696784294"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.885033,51.707383]},"properties":{"title":"Mount Trutch","_osmCategories":["peaks"],"_osmId":"node/2696784299"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.91598,51.721272]},"properties":{"title":"Mount Walker","_osmCategories":["peaks"],"_osmId":"node/2696784300"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.799209,51.724029]},"properties":{"title":"Mount Whiteaves","_osmCategories":["peaks"],"_osmId":"node/2696784301"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.866182,51.705325]},"properties":{"title":"Nanga Parbat Mountain","_osmCategories":["peaks"],"_osmId":"node/2696784302"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.931459,51.721057]},"properties":{"title":"Prior Peak","_osmCategories":["peaks"],"_osmId":"node/2696784304"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.899297,51.702994]},"properties":{"title":"Waitabit Peak","_osmCategories":["peaks"],"_osmId":"node/2696784308"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.807716,51.747182]},"properties":{"title":"Mount Lambe NE1","_osmCategories":["peaks"],"_osmId":"node/12497456568"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.941253,55.278238]},"properties":{"title":"Netalzul Mountain","_osmCategories":["peaks"],"_osmId":"node/11410512047"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.849085,55.360319]},"properties":{"title":"French Peak","_osmCategories":["peaks"],"_osmId":"node/11410521138"}}
+]}

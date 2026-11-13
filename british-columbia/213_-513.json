@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-128.016152,53.401282]},"properties":{"title":"Sharp Peak","_osmCategories":["peaks"],"_osmId":"node/11675685788"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-128.00741,53.436415]},"properties":{"title":"Sugarloaf Peak","_osmCategories":["peaks"],"_osmId":"node/11675723648"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-127.997169,53.499619],[-127.99807,53.499434],[-127.99892,53.499143],[-127.999304,53.499012],[-128.000315,53.498539],[-128.00131,53.49794],[-128.002375,53.497224]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/176395808"}}
+]}

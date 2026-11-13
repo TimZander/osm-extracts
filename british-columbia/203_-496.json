@@ -1,0 +1,20 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.969759,50.799807]},"properties":{"title":"Metslaka Keta","_osmCategories":["peaks"],"_osmId":"node/1778686747"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.831465,50.900424]},"properties":{"title":"Mount Appalus","_osmCategories":["peaks"],"_osmId":"node/1778688613"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.823481,50.902734]},"properties":{"title":"Mount Tsunamen","_osmCategories":["peaks"],"_osmId":"node/1778688636"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.816801,50.907569]},"properties":{"title":"Mount Sawt","_osmCategories":["peaks"],"_osmId":"node/1778688694"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.790137,50.796848]},"properties":{"title":"Mount Alecto","_osmCategories":["peaks"],"_osmId":"node/5304336282"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.920266,50.758773]},"properties":{"title":"Mount Tisiphone","_osmCategories":["peaks"],"_osmId":"node/5304337369"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.825543,50.820157]},"properties":{"title":"Mount Magaera","_osmCategories":["peaks"],"_osmId":"node/5304338116"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.868281,50.841959]},"properties":{"title":"Mount Chloe","_osmCategories":["peaks"],"_osmId":"node/5304339547"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.865769,50.845635]},"properties":{"title":"Mount Daphnis","_osmCategories":["peaks"],"_osmId":"node/5304342117"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.791069,50.992219]},"properties":{"title":"Monmouth Mountain","_osmCategories":["peaks"],"_osmId":"node/5336178875"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.751059,50.988896]},"properties":{"title":"Fluted Mountain","_osmCategories":["peaks"],"_osmId":"node/5336318136"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.754497,50.937197]},"properties":{"title":"Mount Fowler","_osmCategories":["peaks"],"_osmId":"node/5336318137"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.787103,50.876295]},"properties":{"title":"Mount Donar","_osmCategories":["peaks"],"_osmId":"node/5336318138"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.766114,50.877174]},"properties":{"title":"Mount Fulgora","_osmCategories":["peaks"],"_osmId":"node/5336318139"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.821847,50.834046]},"properties":{"title":"Xwitslec Col","_osmCategories":["passes"],"_osmId":"node/9739780045"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.758967,50.906399]},"properties":{"title":"Mount Binkert","_osmCategories":["peaks"],"_osmId":"node/9739780046"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.926886,50.934268]},"properties":{"title":"Mount Hutchinson","_osmCategories":["peaks"],"_osmId":"node/10710998957"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.838951,50.769912]},"properties":{"title":"Ring Pass","_osmCategories":["passes"],"_osmId":"node/12338358575"}}
+]}

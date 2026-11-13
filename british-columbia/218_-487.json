@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-121.70959,54.683308]},"properties":{"title":"Mount Abbl","_osmCategories":["peaks"],"_osmId":"node/1278689461"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-121.6746,54.500299]},"properties":{"title":"Gable Mountain","_osmCategories":["peaks"],"_osmId":"node/1278735056"}}
+]}

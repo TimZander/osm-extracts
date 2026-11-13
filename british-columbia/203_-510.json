@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.4733,50.808841]},"properties":{"title":"Miles Cone","_osmCategories":["peaks"],"_osmId":"node/1666155803"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.496907,50.998388]},"properties":{"title":"Coast Hill","_osmCategories":["peaks"],"_osmId":"node/10105738329"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.39517,50.930641]},"properties":{"title":"Leading Hill","_osmCategories":["peaks"],"_osmId":"node/10105790874"}}
+]}

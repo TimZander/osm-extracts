@@ -1,0 +1,11 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.666309,55.590666]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8784621681"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.730511,55.578393]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8784621682"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.694634,55.573638]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8784621683"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.645796,55.541696]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8784621684"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.624252,55.522266]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8784621685"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.705792,55.509]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8784621688"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.718924,55.541259]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8784621689"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.703571,55.633063]},"properties":{"title":"Mount Fowler","_osmCategories":["peaks"],"_osmId":"node/11454252436"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.567443,55.565157]},"properties":{"title":"Tsimstol Mountain","_osmCategories":["peaks"],"_osmId":"node/11454354792"}}
+]}

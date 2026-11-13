@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.35412,51.999379]},"properties":{"title":"Mount McClinchy","_osmCategories":["peaks"],"_osmId":"node/2543412440"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.418612,51.820857]},"properties":{"title":"","_osmCategories":["passes"],"_osmId":"node/12498814086"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.44173,51.835304]},"properties":{"title":"","_osmCategories":["passes"],"_osmId":"node/12498814087"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.463055,51.842814]},"properties":{"title":"","_osmCategories":["passes"],"_osmId":"node/12498814088"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.471708,51.862677]},"properties":{"title":"","_osmCategories":["passes"],"_osmId":"node/12498814089"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.480168,51.914857]},"properties":{"title":"","_osmCategories":["passes"],"_osmId":"node/12498814090"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.444204,51.941865]},"properties":{"title":"","_osmCategories":["passes"],"_osmId":"node/12498814091"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.348696,51.966177]},"properties":{"title":"","_osmCategories":["passes"],"_osmId":"node/12498814092"}}
+]}

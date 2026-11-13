@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-112.498767,52.246559],[-112.498835,52.246837],[-112.49897,52.246943],[-112.499997,52.246975],[-112.50091,52.247116],[-112.501613,52.247116]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/31933365"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-112.361182,52.055623],[-112.362081,52.056851],[-112.362074,52.062004],[-112.362039,52.062953]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/312342676"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-112.362074,52.055626],[-112.362081,52.04539],[-112.362109,52.042708],[-112.362173,52.03933],[-112.362138,52.035389],[-112.362109,52.031213],[-112.36218,52.026566],[-112.362145,52.02401],[-112.361925,52.019453]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/312342677"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-112.270274,52.230389],[-112.290614,52.230353]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/502125075"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-112.409768,52.24306],[-112.410033,52.243063],[-112.41013,52.243102],[-112.410189,52.24337]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/959955803"}}
+]}

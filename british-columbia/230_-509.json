@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.149214,57.536371]},"properties":{"title":"Breccia Peak","_osmCategories":["peaks"],"_osmId":"node/10791440622"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.063337,57.511799]},"properties":{"title":"Contact Peak","_osmCategories":["peaks"],"_osmId":"node/10791449522"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.228678,57.656855]},"properties":{"title":"Mount McNamara","_osmCategories":["peaks"],"_osmId":"node/10791464990"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.145235,57.557729]},"properties":{"title":"Harmon Peak","_osmCategories":["peaks"],"_osmId":"node/10791518873"}}
+]}

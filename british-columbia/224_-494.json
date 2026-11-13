@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.43419,56.050495]},"properties":{"title":"Advance Mountain","_osmCategories":["peaks"],"_osmId":"node/1152115676"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.427865,56.006886]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/1152133790"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.264965,56.06829]},"properties":{"title":"Mount Greene","_osmCategories":["peaks"],"_osmId":"node/1318462092"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.369166,56.145527]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/1319558247"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.426215,56.171747]},"properties":{"title":"Mount Burden","_osmCategories":["peaks"],"_osmId":"node/1319589934"}}
+]}

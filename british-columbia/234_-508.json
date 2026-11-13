@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.912892,58.641824]},"properties":{"title":"Gataga Mountain","_osmCategories":["peaks"],"_osmId":"node/10907114372"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.879216,58.734136]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10907166383"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.77467,58.657556]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10907167231"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.767821,58.599257]},"properties":{"title":"Brownie Mountain","_osmCategories":["peaks"],"_osmId":"node/10907200008"}}
+]}

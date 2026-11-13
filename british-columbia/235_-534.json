@@ -1,0 +1,9 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.256178,58.905665]},"properties":{"title":"Yonakina Mountain","_osmCategories":["peaks"],"_osmId":"node/8665640106"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.496933,58.874889]},"properties":{"title":"Mount Dirom","_osmCategories":["peaks"],"_osmId":"node/8665641541"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.296518,58.861443]},"properties":{"title":"Sinwa Mountain","_osmCategories":["peaks"],"_osmId":"node/8672403260"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.421463,58.764256]},"properties":{"title":"Chuunk Mountain","_osmCategories":["peaks"],"_osmId":"node/11566227682"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.368056,58.843228]},"properties":{"title":"Honakta Mountain","_osmCategories":["peaks"],"_osmId":"node/11566244768"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.455752,58.830225]},"properties":{"title":"Shustahini Mountain","_osmCategories":["peaks"],"_osmId":"node/11566259417"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.403151,58.991322]},"properties":{"title":"Tagish Highland","_osmCategories":["peaks"],"_osmId":"node/11566301911"}}
+]}
