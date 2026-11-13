@@ -131,3 +131,24 @@ test('a panhandle-shaped polygon covers its strip and nothing east of it', () =>
   for (const c of grid(range(188, 195), range(-464, -453))) assert.ok(!got.includes(c), `east ${c}`)
   assert.equal(got.length, 4 * 16 + 4 * 8)
 })
+
+// "Each region lists the cells it covers", past the US (british-columbia-region design decision 5):
+// longitudes far west of -120 give columns of three digits, written plainly, sorted numerically.
+test('a polygon from -141.8 to -139.0 covers columns -568 to -557', () => {
+  const got = coveredCells([ring(rect(59.5, -141.8, 60.0, -139.0))])
+  assert.deepEqual(got, grid(range(238, 239), range(-568, -557)))
+  assert.equal(got[0], '238_-568')
+})
+
+// 49° N, the British Columbia–Idaho line, is a cell line (row 195 below, 196 above). A polygon dipping
+// south of it and a neighbour reaching north past it both list rows 195 and 196 along it.
+test('neighbours on 49 N both cover rows 195 and 196 where their polygons cross the line', () => {
+  const north = coveredCells([ring(rect(48.995, -117.25, 50.0, -116.0))])
+  const south = coveredCells([ring(rect(48.0, -117.25, 49.005, -116.0))])
+  for (const c of grid([195, 196], range(-469, -465))) {
+    assert.ok(north.includes(c), `north ${c}`)
+    assert.ok(south.includes(c), `south ${c}`)
+  }
+  assert.ok(!north.includes('194_-469'))
+  assert.ok(!south.includes('197_-469'))
+})
