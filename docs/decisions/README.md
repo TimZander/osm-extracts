@@ -29,3 +29,6 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0021](0021-coverage-key-polygon-and-area-rule.md) | Coverage is a `coverage` list of cell ids, from Geofabrik's polygon, by shared area | accepted |
 | [0022](0022-clipped-region-covers-its-bounds-cells.md) | A clipped region covers its bounds' cells | proposed |
 | [0023](0023-no-size-limit-on-coverage.md) | The deploy job sets no limit on `coverage`'s size or extent, for now | accepted |
+| [0024](0024-utah-bounds-south-of-the-wyoming-notch.md) | Utah's bounds are the block south of the Wyoming notch | accepted |
+| [0025](0025-utah-third-in-the-regions-list.md) | Utah goes third in the regions list, after Wyoming | accepted |
+| [0026](0026-utah-publishes-on-the-run-after-wyomings.md) | Utah publishes on the weekly run after Wyoming's own deploy | accepted |

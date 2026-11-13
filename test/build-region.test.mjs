@@ -70,7 +70,7 @@ test('a region not in the list fails before any download', async () => {
     fetched++
     return new Response('')
   }
-  await assert.rejects(buildRegion({ id: 'utah', out: join(tmp(), 'o'), fetchImpl: fake }), /utah/)
+  await assert.rejects(buildRegion({ id: 'idaho', out: join(tmp(), 'o'), fetchImpl: fake }), /idaho/)
   await assert.rejects(buildRegion({ id: '../x', out: join(tmp(), 'o'), fetchImpl: fake }), /\.\.\/x/)
   assert.equal(fetched, 0)
 })
