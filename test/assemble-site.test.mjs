@@ -2,14 +2,14 @@
 // deploy job accepts only well-formed region trees", "A failed region keeps its previous files", "The
 // previous site is read from the data branch", "The site holds only the extract's files", "Files
 // dropped from the manifest stay one more run", "The site sets its CORS and cache headers", "A missing
-// file is a real 404", "The extract carries its licence notice".
+// file is a real 404", "The extract carries its licence notice", "The output is byte-stable".
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { mkdtempSync, mkdirSync, writeFileSync, readFileSync, readdirSync, existsSync, symlinkSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join, dirname, relative } from 'node:path'
 import { assembleSite, validateManifest, cellFiles, HEADERS, MAX_SITE_FILES } from '../src/assemble-site.mjs'
-import { buildCells } from '../src/cells.mjs'
+import { buildCells, compareCellIds } from '../src/cells.mjs'
 import { CATEGORIES_FROM } from '../src/categories.mjs'
 
 const tmp = () => mkdtempSync(join(tmpdir(), 'osm-site-'))
@@ -36,7 +36,9 @@ function artifact(artifacts, region, features, { dataDate = '2026-10-28', thresh
   const built = buildCells(region.id, features, threshold ? { threshold } : {})
   const root = wrapped ? join(artifacts, `region-${region.id}`, `region-${region.id}`) : join(artifacts, `region-${region.id}`)
   for (const [p, t] of built.files) write(root, p, t)
-  const entry = { id: region.id, name: region.name, bounds: region.bounds, dataDate, cells: built.cells, split: built.split, ...entryOver }
+  // Coverage as a region job writes it; here the cells with files plus one empty covered cell.
+  const coverage = [...new Set([...built.cells, '0_0'])].sort(compareCellIds)
+  const entry = { id: region.id, name: region.name, bounds: region.bounds, dataDate, cells: built.cells, split: built.split, coverage, ...entryOver }
   write(root, 'entry.json', JSON.stringify(entry))
   write(root, 'stats.json', JSON.stringify(built.stats))
   return { root, entry, built }
@@ -81,9 +83,9 @@ test('a first run: manifest, headers, 404, licence and the region files', () => 
   assert.deepEqual(manifest, {
     attribution: '© OpenStreetMap contributors (ODbL)',
     categoriesFrom: CATEGORIES_FROM,
-    regions: [{ id: 'colorado', name: 'Colorado', bounds: CO.bounds, dataDate: '2026-10-28', cells: ['158_-425', '158_-424'], split: [] }],
+    regions: [{ id: 'colorado', name: 'Colorado', bounds: CO.bounds, dataDate: '2026-10-28', cells: ['158_-425', '158_-424'], split: [], coverage: ['0_0', '158_-425', '158_-424'] }],
   })
-  assert.deepEqual(Object.keys(manifest.regions[0]), ['id', 'name', 'bounds', 'dataDate', 'cells', 'split'])
+  assert.deepEqual(Object.keys(manifest.regions[0]), ['id', 'name', 'bounds', 'dataDate', 'cells', 'split', 'coverage'])
   assert.deepEqual(Object.keys(manifest.regions[0].bounds), ['south', 'west', 'north', 'east'])
   validateManifest(manifest)
   assert.deepEqual(listFiles(dirs.outDir), ['404.html', 'LICENSE.txt', '_headers', 'colorado/158_-424.json', 'colorado/158_-425.json', 'manifest.json'])
@@ -198,6 +200,16 @@ test('stray or malformed artifacts fail the deploy, naming the region', () => {
     ['split not in cells', (a) => write(a.root, 'entry.json', JSON.stringify({ ...a.entry, split: ['1_1'] }))],
     ['a symlink', (a) => symlinkSync('/etc/passwd', join(a.root, 'colorado', '9_9.json'))],
     ['no entry', (a) => write(a.root, 'entry.json', 'nope')],
+    // "The deploy job accepts only well-formed region trees": an artifact without coverage.
+    ['no coverage', (a) => write(a.root, 'entry.json', JSON.stringify({ ...a.entry, coverage: undefined }))],
+    ['an empty coverage', (a) => write(a.root, 'entry.json', JSON.stringify({ ...a.entry, coverage: [] }))],
+    ['coverage not an array', (a) => write(a.root, 'entry.json', JSON.stringify({ ...a.entry, coverage: 'all' }))],
+    ['coverage holding ../x', (a) => write(a.root, 'entry.json', JSON.stringify({ ...a.entry, coverage: ['../x'] }))],
+    ['coverage holding 1_2_3', (a) => write(a.root, 'entry.json', JSON.stringify({ ...a.entry, coverage: ['1_2_3'] }))],
+    ['coverage holding 01_3', (a) => write(a.root, 'entry.json', JSON.stringify({ ...a.entry, coverage: ['01_3'] }))],
+    ['coverage holding -0_3', (a) => write(a.root, 'entry.json', JSON.stringify({ ...a.entry, coverage: ['-0_3'] }))],
+    ['coverage holding a number', (a) => write(a.root, 'entry.json', JSON.stringify({ ...a.entry, coverage: [158] }))],
+    ['coverage with an id twice', (a) => write(a.root, 'entry.json', JSON.stringify({ ...a.entry, coverage: ['0_0', '0_0'] }))],
   ]
   for (const [what, mutate] of cases) {
     const dirs = setup()
@@ -366,4 +378,55 @@ test('cell files', () => {
     'colorado/158_-425/317_-849.json',
     'colorado/158_-424.json',
   ])
+})
+
+// "The output is byte-stable": coverage order.
+test('an artifact\'s coverage out of order is written sorted', () => {
+  const dirs = setup()
+  artifact(dirs.artifactsDir, CO, [peak(1, -106.062, 39.603)], { entryOver: { coverage: ['159_-425', '158_-424', '158_-425'] } })
+  run(dirs)
+  const m = JSON.parse(readFileSync(join(dirs.outDir, 'manifest.json')))
+  assert.deepEqual(m.regions[0].coverage, ['158_-425', '158_-424', '159_-425'])
+})
+
+// "A failed region keeps its previous files": a kept entry and its coverage.
+test('a kept entry keeps its coverage ids, sorted, or its lack of one', () => {
+  const old = buildCells('colorado', [peak(1, -106.062, 39.603)])
+  const base = { id: 'colorado', name: 'Colorado', bounds: CO.bounds, dataDate: '2026-10-21', cells: old.cells, split: old.split }
+  const withCov = setup()
+  previous(withCov.previousDir, [{ ...base, coverage: ['159_-425', '158_-425', '158_-424'] }], [old.files])
+  artifact(withCov.artifactsDir, UT, [peak(9, -111.5, 40.5)])
+  run(withCov, [CO, UT])
+  const m1 = JSON.parse(readFileSync(join(withCov.outDir, 'manifest.json')))
+  assert.deepEqual(m1.regions[0].coverage, ['158_-425', '158_-424', '159_-425'])
+  const without = setup()
+  previous(without.previousDir, [base], [old.files])
+  artifact(without.artifactsDir, UT, [peak(9, -111.5, 40.5)])
+  run(without, [CO, UT])
+  const m2 = JSON.parse(readFileSync(join(without.outDir, 'manifest.json')))
+  assert.equal(m2.regions[0].id, 'colorado')
+  assert.equal('coverage' in m2.regions[0], false)
+  assert.deepEqual(m2.regions[1].coverage, ['0_0', '162_-446'])
+})
+
+// "The previous site is read from the data branch": a broken previous coverage.
+test('a previous coverage that is not an array of distinct cell ids fails, writing nothing', () => {
+  const old = buildCells('colorado', [peak(1, -106.062, 39.603)])
+  const base = { id: 'colorado', name: 'Colorado', bounds: CO.bounds, dataDate: '2026-10-21', cells: old.cells, split: old.split }
+  for (const coverage of ['all', ['../x'], ['158_-425', '158_-425']]) {
+    const dirs = setup()
+    previous(dirs.previousDir, [{ ...base, coverage }], [old.files])
+    artifact(dirs.artifactsDir, UT, [peak(9, -111.5, 40.5)])
+    assert.throws(() => run(dirs, [CO, UT]), /previous manifest/i, JSON.stringify(coverage))
+    assert.equal(existsSync(dirs.outDir), false)
+  }
+})
+
+test('the manifest form: coverage is optional, but when present holds distinct cell ids', () => {
+  const r = { id: 'colorado', name: 'C', bounds: CO.bounds, dataDate: '2026-10-28', cells: ['158_-425'] }
+  validateManifest({ attribution: 'a', regions: [r] })
+  validateManifest({ attribution: 'a', regions: [{ ...r, coverage: ['158_-425', '0_0'] }] })
+  for (const coverage of ['all', [1], ['01_2'], ['-0_2'], ['+1_2'], ['../x'], ['1_1', '1_1']]) {
+    assert.throws(() => validateManifest({ attribution: 'a', regions: [{ ...r, coverage }] }), JSON.stringify(coverage))
+  }
 })
