@@ -3,6 +3,8 @@
   "pins": {
     "osm-extract": {
       "A download is retried after a network failure": null,
+      "Network-level download failures": null,
+      "Each failed download attempt is logged on one line": null,
       "A failed or corrupt download publishes nothing new for the region": "6ba3e198c6e13d0eebb58abf46d7deb4b06af12df6d6d7e1734e443162812a66"
     }
   }

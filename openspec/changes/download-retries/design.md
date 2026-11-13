@@ -31,13 +31,16 @@ second into its PBF download, an hour after the same download had worked.
    - or it failed, before a response or while the body streamed, with one of these `cause` codes:
      - refused or reset: `ECONNREFUSED`, `ECONNRESET`, `EPIPE`, `UND_ERR_SOCKET`;
      - timeouts: `ETIMEDOUT`, `UND_ERR_CONNECT_TIMEOUT`, `UND_ERR_HEADERS_TIMEOUT`,
-       `UND_ERR_BODY_TIMEOUT`;
-     - unreachable network: `ENETUNREACH`, `EHOSTUNREACH`, `ENETDOWN`;
-     - a DNS lookup that failed for now: `EAI_AGAIN`.
+       `UND_ERR_BODY_TIMEOUT`.
+
+   That is the owner's two classes and nothing more. An unreachable network (`ENETUNREACH`,
+   `EHOSTUNREACH`) and a DNS lookup that failed for now (`EAI_AGAIN`) are neither, so they are not
+   retried; open question 4 asks whether they should be. The list is the requirement "Network-level
+   download failures".
 
    Every other failure ends the download:
-   - a cause with no code, or another code, such as `ENOTFOUND` or a TLS code like
-     `CERT_HAS_EXPIRED`;
+   - a cause with no code, or another code, such as `ENOTFOUND`, `EAI_AGAIN`, `ENETUNREACH` or a TLS
+     code like `CERT_HAS_EXPIRED`;
    - another HTTP status;
    - an error writing the file.
 
@@ -49,10 +52,12 @@ second into its PBF download, an hour after the same download had worked.
    today, so a failure on the polygon doesn't download the PBF again.
 6. **The log line**, one per failed attempt, is
    `Download attempt <n> of 3 for <url> failed: <reason>; retrying in <30 s|2 min>`.
-   - On the last attempt it ends with `; giving up` instead.
+   - On the last attempt, whether the third or one that isn't retried (a 404), it ends with
+     `; giving up` instead.
    - `<reason>` is the error text ADR 0031 already writes, a status or a cause, kept on one line by
      the same filter. So a hostile cause can't start a workflow command (an attack test pins it).
-   - The thrown error is unchanged: it still names the URL and the cause.
+   - The thrown error is the last attempt's, worded as today: the URL and that attempt's status or
+     cause. The earlier attempts' causes are in their log lines.
 7. **The wait is injectable.** `download` and `buildRegion` take a `sleep(ms)` that defaults to a
    `setTimeout` promise.
    - The tests pass a fake that records the waits and resolves at once, so no test waits.
@@ -88,7 +93,25 @@ assumption.
    - *Unaffected:* an MD5 mismatch on a complete download is the "corrupt or short file" the owner
      excluded, and is not retried.
 4. **Which no-response failures count as network-level.**
-   - *Assumption:* decision 3's code list.
-   - *Not on it:* `ENOTFOUND` (a name that doesn't exist) and TLS errors, so they fail at once.
+   - *Assumption:* decision 3's code list, only refused, reset and timed-out connections, as the
+     owner named them.
+   - *Not on it, so failing at once:*
+     - `ENOTFOUND` (a name that doesn't exist) and TLS errors;
+     - an unreachable network (`ENETUNREACH`, `EHOSTUNREACH`) and a DNS lookup that failed for now
+       (`EAI_AGAIN`). These are transient too; adding them would be a small follow-up change.
 5. **What gets the 3 attempts.**
    - *Assumption:* each file separately (decision 5).
+
+## Spec review
+
+Round 1: one blocker, A1, and four should-fix findings, all fixed in the delta.
+- **A1:** the design retried an unreachable network and `EAI_AGAIN`, which the requirement didn't
+  allow. They were dropped, to keep to the owner's words, and moved into open question 4.
+- **D1:** the code list is now the requirement "Network-level download failures".
+- **G1, E1:** the log line is now a requirement, "Each failed download attempt is logged on one
+  line": its fields, "giving up", and the one-line guard.
+- **D2:** the job's error is the last attempt's.
+
+Also fixed:
+- **C1:** "before or during the body" no longer reads as if it applied to a status.
+- **F1:** the proposal gives the worst-case time.
