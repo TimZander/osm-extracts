@@ -12,7 +12,7 @@
 
 ## 3. Decisions
 
-- [ ] 3.1 The bounds ADR, once the owner answers open question 1 — not done: waits for the owner's answer
+- [x] 3.1 The bounds ADR, once the owner answers open question 1 (ADR 0018: the owner accepted the assumption); ADR 0019 for open question 3, the merge order
 
 ## Workflow follow-up
 

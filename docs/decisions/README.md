@@ -23,3 +23,5 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0015](0015-no-empty-push.md) | A run whose manifest lists no region pushes nothing | accepted |
 | [0016](0016-colorado-bounds-inside-the-state-lines.md) | Colorado's bounds lie just inside the state lines | accepted |
 | [0017](0017-split-threshold-stays-4-mib.md) | The split threshold stays 4 MiB, with no second split level | accepted |
+| [0018](0018-wyoming-bounds-inside-the-state-lines.md) | Wyoming's bounds lie just inside the state lines | accepted |
+| [0019](0019-wyoming-publishes-after-multi-region-search.md) | Wyoming merges only after garmin-map searches every region a view overlaps | accepted |
