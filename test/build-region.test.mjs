@@ -84,8 +84,9 @@ test('the size report', () => {
     cells: 3,
     splitCells: 1,
     files: 6,
+    coverageCells: 7,
   })
-  for (const want of ['colorado', '12', '34', '5678', '158_-425', '999', '| 3 |', '| 1 |', '| 6 |']) {
+  for (const want of ['colorado', '12', '34', '5678', '158_-425', '999', '| 3 |', '| 1 |', '| 6 |', '| 7 |', 'Coverage cells']) {
     assert.ok(md.includes(want), want)
   }
   assert.equal(readdirSync(tmp()).length, 0)

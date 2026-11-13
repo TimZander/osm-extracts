@@ -114,3 +114,80 @@ export function polyFailure({ south, west, north, east }, rings) {
 export function rectInsidePoly(bounds, rings) {
   return polyFailure(bounds, rings) === null
 }
+
+// Coverage (spec: "Each region lists the cells it covers", "A clipped region covers its bounds'
+// cells"): the 0.25° cells whose square shares more than MIN_COVER_AREA square degrees with the
+// polygon's inside, outer rings added and holes taken away. A polygon meeting a cell only along an
+// edge or at a corner shares no area with it.
+export const MIN_COVER_AREA = 1e-12
+
+// Sutherland–Hodgman: the ring clipped to one half-plane, kept where keep(p) holds; cut(a, b) is
+// where edge a→b crosses the line, with the line's own coordinate set exactly.
+function clipHalf(points, keep, cut) {
+  const out = []
+  for (let i = 0; i < points.length; i++) {
+    const a = points[i]
+    const b = points[(i + 1) % points.length]
+    const ka = keep(a)
+    const kb = keep(b)
+    if (ka) out.push(a)
+    if (ka !== kb) out.push(cut(a, b))
+  }
+  return out
+}
+
+const atX = (x) => (a, b) => [x, a[1] + ((b[1] - a[1]) * (x - a[0])) / (b[0] - a[0])]
+const atY = (y) => (a, b) => [a[0] + ((b[0] - a[0]) * (y - a[1])) / (b[1] - a[1]), y]
+
+// The area of the ring inside the square [x0, x1] × [y0, y1].
+function areaInBox(points, x0, y0, x1, y1) {
+  let p = points
+  p = clipHalf(p, (q) => q[0] >= x0, atX(x0))
+  if (p.length < 3) return 0
+  p = clipHalf(p, (q) => q[0] <= x1, atX(x1))
+  if (p.length < 3) return 0
+  p = clipHalf(p, (q) => q[1] >= y0, atY(y0))
+  if (p.length < 3) return 0
+  p = clipHalf(p, (q) => q[1] <= y1, atY(y1))
+  if (p.length < 3) return 0
+  // Shoelace from the first point, so a ring flat along a cell line comes out exactly 0.
+  const [ox, oy] = p[0]
+  let twice = 0
+  for (let i = 1; i < p.length - 1; i++) {
+    twice += (p[i][0] - ox) * (p[i + 1][1] - oy) - (p[i + 1][0] - ox) * (p[i][1] - oy)
+  }
+  return Math.abs(twice) / 2
+}
+
+// Cell ids, sorted by row then column, each once. `${-0}` is "0", so no id is written as "-0".
+export function coveredCells(rings) {
+  let minX = Infinity
+  let minY = Infinity
+  let maxX = -Infinity
+  let maxY = -Infinity
+  for (const r of rings) {
+    if (r.hole) continue
+    for (const [x, y] of r.points) {
+      minX = Math.min(minX, x)
+      minY = Math.min(minY, y)
+      maxX = Math.max(maxX, x)
+      maxY = Math.max(maxY, y)
+    }
+  }
+  const ids = []
+  if (minX === Infinity) return ids
+  for (let row = Math.floor(minY * 4); row < Math.ceil(maxY * 4); row++) {
+    for (let col = Math.floor(minX * 4); col < Math.ceil(maxX * 4); col++) {
+      const box = [col / 4, row / 4, (col + 1) / 4, (row + 1) / 4]
+      let area = 0
+      for (const r of rings) area += (r.hole ? -1 : 1) * areaInBox(r.points, ...box)
+      if (area > MIN_COVER_AREA) ids.push(`${row}_${col}`)
+    }
+  }
+  return ids
+}
+
+// A clipped region's coverage: the cells its bounds rectangle shares area with.
+export function rectCells({ south, west, north, east }) {
+  return coveredCells([{ hole: false, points: [[west, south], [east, south], [east, north], [west, north]] }])
+}

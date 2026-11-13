@@ -3,7 +3,9 @@
 // "The extract holds exactly what the import's categories select", "Each feature's form", "Features
 // are filed into 0.25° cells", "A dense cell is split into its four quarters", "The data date is the
 // source's replication time", "A region's bounds lie inside its Geofabrik polygon", "A clipped region
-// is cut to its bounds", "The output is byte-stable", "The manifest lists exactly the files written".
+// is cut to its bounds", "The output is byte-stable", "The manifest lists exactly the files written",
+// "Each region lists the cells it covers", "A clipped region covers its bounds' cells", "The manifest
+// describes every region", "Each region job reports its size".
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { execFileSync } from 'node:child_process'
@@ -12,6 +14,7 @@ import { tmpdir } from 'node:os'
 import { join, relative } from 'node:path'
 import { createHash } from 'node:crypto'
 import { buildRegion } from '../src/build-region.mjs'
+import { coveredCells, parsePoly } from '../src/poly.mjs'
 
 let osmiumOk = true
 try {
@@ -103,7 +106,8 @@ test('the size report reaches the job summary', { skip }, async () => {
     const { stats } = await buildRegion({ id: 'sample', out: join(dir, 'out'), regions: [region()], local: makePbf(dir, '2026-10-28T20:21:02Z'), log: quiet })
     const text = readFileSync(summary, 'utf8')
     assert.match(text, /### Region sample/)
-    assert.ok(text.includes(`| ${stats.nodes} | ${stats.ways} | ${stats.totalBytes} | ${stats.largestCell.id} (${stats.largestCell.bytes} bytes) | ${stats.cells} | ${stats.splitCells} | ${stats.files} |`))
+    assert.ok(text.includes(`| ${stats.nodes} | ${stats.ways} | ${stats.totalBytes} | ${stats.largestCell.id} (${stats.largestCell.bytes} bytes) | ${stats.cells} | ${stats.splitCells} | ${stats.files} | ${stats.coverageCells} |`))
+    assert.match(text, /\| Coverage cells \|/)
   } finally {
     if (before === undefined) delete process.env.GITHUB_STEP_SUMMARY
     else process.env.GITHUB_STEP_SUMMARY = before
@@ -186,4 +190,48 @@ test('the job names a ring vertex, or a ring edge, that fails the bounds', { ski
       (e) => e.message === `region sample: its bounds reach outside its Geofabrik polygon: ${want}`,
     )
   }
+})
+
+// A polygon smaller than the data: 38.5 to 40.5 by -107.5 to -104.5 (8 rows × 12 columns). The peaks
+// at 40.6 and 40.7 lie north of it, in row 162.
+const SMALL_POLY = `small
+1
+   -107.5   38.5
+   -104.5   38.5
+   -104.5   40.5
+   -107.5   40.5
+   -107.5   38.5
+END
+END
+`
+
+test('the entry lists every cell its polygon covers, empty ones included, and no cell past it', { skip }, async () => {
+  const dir = tmp()
+  const poly = join(dir, 'small.poly')
+  writeFileSync(poly, SMALL_POLY)
+  const out = join(dir, 'out')
+  const { entry, stats } = await buildRegion({ id: 'sample', out, regions: [region()], local: { ...makePbf(dir, '2026-10-28T20:21:02Z'), poly }, log: quiet })
+  assert.deepEqual(Object.keys(entry), ['id', 'name', 'bounds', 'dataDate', 'cells', 'split', 'coverage'])
+  assert.deepEqual(entry.coverage, coveredCells(parsePoly(SMALL_POLY)))
+  assert.equal(entry.coverage.length, 96)
+  assert.equal(stats.coverageCells, 96)
+  // An empty covered cell: listed in coverage, not in cells, no file.
+  assert.ok(entry.coverage.includes('160_-420') && !entry.cells.includes('160_-420'))
+  assert.ok(!existsSync(join(out, 'sample/160_-420.json')))
+  // A cell with a file past the polygon: in cells, written, not in coverage.
+  const past = entry.cells.filter((c) => Number(c.split('_')[0]) >= 162)
+  assert.ok(past.length > 0)
+  for (const c of past) {
+    assert.ok(existsSync(join(out, `sample/${c}.json`)), c)
+    assert.ok(!entry.coverage.includes(c), c)
+  }
+  assert.deepEqual(JSON.parse(readFileSync(join(out, 'entry.json'))), entry)
+})
+
+test('a clipped region covers its bounds\' cells, not its polygon\'s', { skip }, async () => {
+  const dir = tmp()
+  const r = region({ clip: true, bounds: { south: 39.1, west: -106.6, north: 39.5, east: -106.0 } })
+  const { entry } = await buildRegion({ id: 'sample', out: join(dir, 'out'), regions: [r], local: makePbf(dir, '2026-10-28T20:21:02Z'), log: quiet })
+  const want = ['156_-427', '156_-426', '156_-425', '157_-427', '157_-426', '157_-425']
+  assert.deepEqual(entry.coverage, want)
 })

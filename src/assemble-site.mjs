@@ -7,7 +7,8 @@
 // job accepts only well-formed region trees", "A failed region keeps its previous files", "The
 // previous site is read from the data branch", "The site holds only the extract's files", "Files
 // dropped from the manifest stay one more run", "The site sets its CORS and cache headers", "A
-// missing file is a real 404", "The extract carries its licence notice".
+// missing file is a real 404", "The extract carries its licence notice", "Each region lists the cells
+// it covers" (the coverage form).
 import { copyFileSync, existsSync, lstatSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -65,7 +66,16 @@ function checkRegionEntry(r, { strict }) {
   if (r.split !== undefined && (!Array.isArray(r.split) || !r.split.every((c) => typeof c === 'string' && CELL_ID.test(c)))) {
     throw new Error(`${where}: split must be an array of cell ids`)
   }
+  // coverage: optional in a manifest (a kept entry built before it may lack it), and when present an
+  // array of distinct cell ids; a region job's artifact must carry a non-empty one.
+  if (r.coverage !== undefined) {
+    if (!Array.isArray(r.coverage) || !r.coverage.every((c) => typeof c === 'string' && CELL_ID.test(c))) {
+      throw new Error(`${where}: coverage must be an array of cell ids`)
+    }
+    if (new Set(r.coverage).size !== r.coverage.length) throw new Error(`${where}: coverage has a duplicate`)
+  }
   if (strict) {
+    if (r.coverage === undefined || r.coverage.length === 0) throw new Error(`${where}: coverage is missing or empty`)
     if (new Set(r.cells).size !== r.cells.length) throw new Error(`${where}: cells has a duplicate`)
     if (!Array.isArray(r.split)) throw new Error(`${where}: split is missing`)
     if (new Set(r.split).size !== r.split.length) throw new Error(`${where}: split has a duplicate`)
@@ -101,6 +111,7 @@ export function cellFiles(regionId, entry) {
 }
 
 function normalEntry(r) {
+  const coverage = r.coverage === undefined ? {} : { coverage: [...r.coverage].sort(compareCellIds) }
   return {
     id: r.id,
     name: r.name,
@@ -108,6 +119,7 @@ function normalEntry(r) {
     dataDate: r.dataDate,
     cells: [...r.cells].sort(compareCellIds),
     split: [...(r.split ?? [])].filter((c) => r.cells.includes(c)).sort(compareCellIds),
+    ...coverage,
   }
 }
 

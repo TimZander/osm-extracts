@@ -6,7 +6,7 @@
 // Spec: "A failed or corrupt download publishes nothing new for the region", "The data date is the
 // source's replication time", "A region's bounds lie inside its Geofabrik polygon", "A clipped
 // region is cut to its bounds", "No published file is over 20 MiB", "Each region job reports its
-// size". osmium is run with execFile, never a shell.
+// size", "Each region lists the cells it covers", "A clipped region covers its bounds' cells". osmium is run with execFile, never a shell.
 import { createReadStream, createWriteStream, mkdirSync, mkdtempSync, readFileSync, renameSync, rmSync, writeFileSync, appendFileSync, existsSync } from 'node:fs'
 import { createHash } from 'node:crypto'
 import { execFile } from 'node:child_process'
@@ -18,7 +18,7 @@ import { pipeline } from 'node:stream/promises'
 import { createInterface } from 'node:readline'
 import { fileURLToPath } from 'node:url'
 import { loadRegions, validateRegions, REGION_ID } from './regions.mjs'
-import { parsePoly, polyFailure } from './poly.mjs'
+import { parsePoly, polyFailure, coveredCells, rectCells } from './poly.mjs'
 import { osmiumFilters } from './categories.mjs'
 import { parseOplLine, featureFromOpl } from './features.mjs'
 import { buildCells, SPLIT_THRESHOLD, MAX_FILE_BYTES } from './cells.mjs'
@@ -64,9 +64,9 @@ export function summaryMarkdown(id, s) {
   return [
     `### Region ${id}`,
     '',
-    '| Matching nodes | Matching ways | Total bytes | Largest 0.25° cell (before splitting) | Cells | Split cells | Files |',
-    '| --- | --- | --- | --- | --- | --- | --- |',
-    `| ${s.nodes} | ${s.ways} | ${s.totalBytes} | ${s.largestCell.id} (${s.largestCell.bytes} bytes) | ${s.cells} | ${s.splitCells} | ${s.files} |`,
+    '| Matching nodes | Matching ways | Total bytes | Largest 0.25° cell (before splitting) | Cells | Split cells | Files | Coverage cells |',
+    '| --- | --- | --- | --- | --- | --- | --- | --- |',
+    `| ${s.nodes} | ${s.ways} | ${s.totalBytes} | ${s.largestCell.id} (${s.largestCell.bytes} bytes) | ${s.cells} | ${s.splitCells} | ${s.files} | ${s.coverageCells} |`,
     '',
   ].join('\n')
 }
@@ -113,7 +113,8 @@ export async function buildRegion({
       }
     }
     checkMd5(src.pbf, readFileSync(src.md5, 'utf8'))
-    const failure = polyFailure(region.bounds, parsePoly(readFileSync(src.poly, 'utf8')))
+    const rings = parsePoly(readFileSync(src.poly, 'utf8'))
+    const failure = polyFailure(region.bounds, rings)
     if (failure) throw new Error(`region ${id}: its bounds reach outside its Geofabrik polygon: ${failure}`)
     const { stdout: ts } = await run(osmium, ['fileinfo', '-g', 'header.option.osmosis_replication_timestamp', src.pbf])
     const dataDate = dataDateFrom(ts)
@@ -132,6 +133,9 @@ export async function buildRegion({
 
     const features = await readFeatures(opl, region.clip ? b : undefined)
     const built = buildCells(id, features, { threshold, maxFile })
+    // A clipped region's data stops at its bounds; an unclipped one's at its polygon.
+    const coverage = region.clip ? rectCells(b) : coveredCells(rings)
+    const stats = { ...built.stats, coverageCells: coverage.length }
 
     const staging = join(work, 'out')
     for (const [path, text] of built.files) {
@@ -139,16 +143,16 @@ export async function buildRegion({
       mkdirSync(dirname(file), { recursive: true })
       writeFileSync(file, text)
     }
-    const entry = { id, name: region.name, bounds: { south: b.south, west: b.west, north: b.north, east: b.east }, dataDate, cells: built.cells, split: built.split }
+    const entry = { id, name: region.name, bounds: { south: b.south, west: b.west, north: b.north, east: b.east }, dataDate, cells: built.cells, split: built.split, coverage }
     writeFileSync(join(staging, 'entry.json'), JSON.stringify(entry, null, 2) + '\n')
-    writeFileSync(join(staging, 'stats.json'), JSON.stringify({ id, dataDate, ...built.stats }, null, 2) + '\n')
+    writeFileSync(join(staging, 'stats.json'), JSON.stringify({ id, dataDate, ...stats }, null, 2) + '\n')
     mkdirSync(dirname(resolve(out)), { recursive: true })
     renameSync(staging, out)
 
-    const md = summaryMarkdown(id, built.stats)
+    const md = summaryMarkdown(id, stats)
     log(md)
     if (process.env.GITHUB_STEP_SUMMARY) appendFileSync(process.env.GITHUB_STEP_SUMMARY, md + '\n')
-    return { entry, stats: built.stats }
+    return { entry, stats }
   } finally {
     rmSync(work, { recursive: true, force: true })
   }
