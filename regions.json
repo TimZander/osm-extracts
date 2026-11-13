@@ -26,5 +26,12 @@
     "geofabrik": "north-america/us/idaho",
     "bounds": { "south": 42.01, "west": -117.02, "north": 43.75, "east": -111.06 },
     "clip": false
+  },
+  {
+    "id": "british-columbia",
+    "name": "British Columbia",
+    "geofabrik": "north-america/canada/british-columbia",
+    "bounds": { "south": 49.01, "west": -130.00, "north": 59.99, "east": -120.01 },
+    "clip": false
   }
 ]
