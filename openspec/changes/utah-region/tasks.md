@@ -17,7 +17,7 @@
 
 ## 4. Decisions
 
-- [ ] 4.1 ADRs for the owner's answers to design open questions 1–3 (bounds, order, merge timing), with the index updated
+- [ ] 4.1 ADRs for design open questions 1–3 (bounds, order, merge timing), with the index updated — 1 and 2 done (ADRs 0024, 0025); 3 waits on the owner
 
 ## Workflow follow-up
 

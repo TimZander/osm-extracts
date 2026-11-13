@@ -93,11 +93,11 @@ To be measured on the first run with Utah, into `docs/measurements.md`.
 
 ## Open Questions
 
-1. **Utah's bounds.** Options: (a) the south block, 37.01 / -114.03 / 40.99 / -109.06; (b) the west
+1. **Utah's bounds.** *Settled 2026-11-13 (ADR 0024): the owner considers it settled by coverage by cells, so the assumption, (a), is the change author's choice.* Options: (a) the south block, 37.01 / -114.03 / 40.99 / -109.06; (b) the west
    block, 37.01 / -114.03 / 41.99 / -111.06; (c) read `utah.poly` from a machine that can reach
    Geofabrik and set the largest rectangle from it. *Assumption:* (a), decision 2. The answer becomes
    an ADR.
-2. **The order.** Options: (a) after Wyoming, third; (b) alphabetical (`colorado`, `utah`,
+2. **The order.** *Settled 2026-11-13 (ADR 0025), likewise: (a).* Options: (a) after Wyoming, third; (b) alphabetical (`colorado`, `utah`,
    `wyoming`), which moves Wyoming. *Assumption:* (a); the app searches every region a view overlaps,
    so the order changes nothing it shows.
 3. **When to merge, given the weekly run.** Monday 2026-11-16 05:23 UTC is the first run with
