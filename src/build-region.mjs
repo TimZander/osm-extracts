@@ -39,10 +39,21 @@ export async function download(url, dest, fetchImpl = fetch) {
   try {
     res = await fetchImpl(url, { redirect: 'follow' })
   } catch (e) {
-    throw new Error(`download of ${url} failed: ${e.message}`)
+    throw new Error(`download of ${url} failed: ${e.message}${causeText(e.cause)}`)
   }
   if (!res.ok || !res.body) throw new Error(`download of ${url} failed: HTTP ${res.status}`)
-  await pipeline(Readable.fromWeb(res.body), createWriteStream(dest))
+  try {
+    await pipeline(Readable.fromWeb(res.body), createWriteStream(dest))
+  } catch (e) {
+    throw new Error(`download of ${url} failed while reading the body: ${e.message}`)
+  }
+}
+
+// The underlying error Node's fetch keeps in `cause`, as " (cause: CODE: message)", or "" with none.
+function causeText(cause) {
+  if (!cause) return ''
+  const message = cause.message ?? String(cause)
+  return ` (cause: ${cause.code ? `${cause.code}: ` : ''}${message})`
 }
 
 export function checkMd5(file, md5Text) {

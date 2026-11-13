@@ -47,6 +47,46 @@ test('a failed download throws, naming the URL and status', async () => {
   await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'y'), failing), /x\.pbf/)
 })
 
+// Scenario "A request that fails before any response".
+test('a request that fails before any response names the URL and its cause', async () => {
+  const dir = tmp()
+  const reset = async () => {
+    const cause = Object.assign(new Error('read ECONNRESET'), { code: 'ECONNRESET' })
+    throw new TypeError('fetch failed', { cause })
+  }
+  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'a'), reset), (e) => {
+    assert.match(e.message, /https:\/\/download\.geofabrik\.de\/x\.pbf/)
+    assert.match(e.message, /ECONNRESET: read ECONNRESET/)
+    return true
+  })
+  const noCode = async () => {
+    throw new TypeError('fetch failed', { cause: new Error('getaddrinfo failed') })
+  }
+  await assert.rejects(download('https://download.geofabrik.de/x.pbf', join(dir, 'b'), noCode), (e) => {
+    assert.match(e.message, /x\.pbf.*getaddrinfo failed/)
+    assert.doesNotMatch(e.message, /undefined/)
+    return true
+  })
+  const out = join(tmp(), 'out')
+  await assert.rejects(buildRegion({ id: 'colorado', out, fetchImpl: reset }), /colorado-latest\.osm\.pbf.*ECONNRESET: read ECONNRESET/)
+  assert.equal(existsSync(out), false)
+})
+
+// Scenario "A download cut off mid-stream".
+test('a download cut off mid-stream names the URL', async () => {
+  const dir = tmp()
+  const cut = async () => {
+    const body = new ReadableStream({
+      start(c) {
+        c.enqueue(new Uint8Array([1, 2]))
+        c.error(new Error('terminated'))
+      },
+    })
+    return new Response(body)
+  }
+  await assert.rejects(download('https://download.geofabrik.de/x.poly', join(dir, 'c'), cut), /x\.poly.*terminated/)
+})
+
 test('a region whose .md5 answers 404 fails and writes nothing', async () => {
   const out = join(tmp(), 'out')
   const pbf = new Uint8Array([1, 2, 3])
