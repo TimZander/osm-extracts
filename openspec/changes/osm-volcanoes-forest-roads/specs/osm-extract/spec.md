@@ -32,10 +32,10 @@ The categories, in catalog order, SHALL be: on nodes, `peaks` (`natural=peak|vol
 
 ### Requirement: Which ways are forest roads
 
-A way SHALL be in `forest_roads` exactly when its `highway` is `service`, `unclassified` or `track` and its
-`name` has as words one of `FSR`, `NFSR`, `Forest Service Road`, `Forest Service Rd`,
-`National Forest Development Road`, `Resource Road`, `Resource Rd`; or its `ref` one of `FS`, `FR`,
-`NF`, `NFSR`, `FSR`, `USFS`; or its `operator` one of `Forest Service`, `USFS`,
+A way SHALL be in `forest_roads` exactly when both hold: its `highway` is `service`, `unclassified`
+or `track`; and its `name` has as words one of `FSR`, `NFSR`, `Forest Service Road`,
+`Forest Service Rd`, `National Forest Development Road`, `Resource Road`, `Resource Rd`, or its `ref`
+one of `FS`, `FR`, `NF`, `NFSR`, `FSR`, `USFS`, or its `operator` one of `Forest Service`, `USFS`,
 `Ministry of Forests`, `BC Timber Sales`.
 
 #### Scenario: Marked by its name
@@ -70,8 +70,8 @@ A way SHALL be in `forest_roads` exactly when its `highway` is `service`, `uncla
 
 #### Scenario: A marked residential street
 
-- **WHEN** a way is tagged `highway=residential` and `name=Example FSR`
-- **THEN** the extract holds no feature for it
+- **WHEN** one way is tagged `highway=residential` and `name=Example FSR`, another `highway=residential` and `ref=FS 400`, and a third `highway=residential` and `operator=US Forest Service`
+- **THEN** the extract holds no feature for any of them
 
 ### Requirement: How a tag value has a phrase as words
 
@@ -93,6 +93,11 @@ word between them.
 #### Scenario: A mark joined to a number
 
 - **WHEN** a way is tagged `highway=service` and `ref=NF-123`
+- **THEN** its feature's `_osmCategories` is `["forest_roads"]`
+
+#### Scenario: A mark joined to a number by a non-ASCII dash
+
+- **WHEN** a way is tagged `highway=service` and `ref=FS–400` (an en dash, U+2013)
 - **THEN** its feature's `_osmCategories` is `["forest_roads"]`
 
 #### Scenario: A mark inside a longer word
