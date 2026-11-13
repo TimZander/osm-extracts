@@ -93,3 +93,41 @@ test('neighbours meeting on -109.05 both cover the column -437 cells', () => {
   assert.ok(!west.includes('148_-436'))
   assert.ok(!east.includes('148_-438'))
 })
+
+// "Each region lists the cells it covers", at Idaho's borders (idaho-region design decisions 4, 5).
+// -111.05, the Idaho–Wyoming line, lies inside column -445 (-111.25 to -111.0), so both sides list
+// that column's cells along it.
+test('neighbours meeting on -111.05 both cover the column -445 cells', () => {
+  const west = coveredCells([ring(rect(42.0, -112.0, 44.0, -111.05))])
+  const east = coveredCells([ring(rect(42.0, -111.05, 44.0, -110.0))])
+  for (const c of grid(range(168, 175), [-445])) {
+    assert.ok(west.includes(c), `west ${c}`)
+    assert.ok(east.includes(c), `east ${c}`)
+  }
+  assert.ok(!west.includes('168_-444'))
+  assert.ok(!east.includes('168_-446'))
+})
+
+// 42° N, the Idaho–Utah line, is a cell line (row 167 below, 168 above): polygons ending on it list
+// only their own row, and polygons reaching past it by a margin both list both rows.
+test('neighbours on 42 N share rows 167 and 168 only where their polygons cross the line', () => {
+  const cols = range(-456, -447)
+  const south = (n) => coveredCells([ring(rect(41.0, -114.0, n, -111.5))])
+  const north = (s) => coveredCells([ring(rect(s, -114.0, 43.0, -111.5))])
+  for (const c of grid([168], cols)) assert.ok(!south(42.0).includes(c), `on the line, south ${c}`)
+  for (const c of grid([167], cols)) assert.ok(!north(42.0).includes(c), `on the line, north ${c}`)
+  for (const c of grid([167, 168], cols)) {
+    assert.ok(south(42.01).includes(c), `margin, south ${c}`)
+    assert.ok(north(41.99).includes(c), `margin, north ${c}`)
+  }
+})
+
+// A panhandle: a wide south and a strip 1° wide to 49° N. The strip's cells are covered; the cells
+// east of it, inside the bounding box but outside the polygon, are not.
+test('a panhandle-shaped polygon covers its strip and nothing east of it', () => {
+  const pan = [[-117.0, 46.0], [-113.0, 46.0], [-113.0, 47.0], [-116.0, 47.0], [-116.0, 49.0], [-117.0, 49.0]]
+  const got = coveredCells([ring(pan)])
+  for (const c of grid(range(188, 195), range(-468, -465))) assert.ok(got.includes(c), `strip ${c}`)
+  for (const c of grid(range(188, 195), range(-464, -453))) assert.ok(!got.includes(c), `east ${c}`)
+  assert.equal(got.length, 4 * 16 + 4 * 8)
+})

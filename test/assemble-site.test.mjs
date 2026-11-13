@@ -244,9 +244,25 @@ test('colorado then wyoming, from the repository\'s list, publishes both in list
   assert.ok(existsSync(join(dirs.outDir, 'wyoming/172_-430.json')))
 })
 
-// Requirement "The regions list", scenario "Colorado, Wyoming and Utah".
-test('the repository\'s list, colorado, wyoming, utah, publishes all three in list order', () => {
+// Requirement "The regions list", scenario "Colorado, Wyoming, Utah and Idaho".
+test('the repository\'s list, colorado, wyoming, utah, idaho, publishes all four in list order', () => {
   const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url)))
+  const [co, wy, ut, id] = list
+  const dirs = setup()
+  artifact(dirs.artifactsDir, id, [peak(11, -116.2, 43.6)], { wrapped: true })
+  artifact(dirs.artifactsDir, ut, [peak(9, -111.5, 40.5)], { wrapped: true })
+  artifact(dirs.artifactsDir, co, [peak(1, -106.062, 39.603)], { wrapped: true })
+  artifact(dirs.artifactsDir, wy, [peak(7, -107.5, 43)], { wrapped: true })
+  run(dirs, list)
+  const m = JSON.parse(readFileSync(join(dirs.outDir, 'manifest.json')))
+  assert.deepEqual(m.regions.map((r) => r.id), ['colorado', 'wyoming', 'utah', 'idaho'])
+  assert.deepEqual(m.regions[3].bounds, id.bounds)
+  assert.ok(existsSync(join(dirs.outDir, 'idaho/174_-465.json')))
+})
+
+// Requirement "The regions list", scenario "Colorado, Wyoming and Utah".
+test('colorado, wyoming, utah, from the repository\'s list, publishes all three in list order', () => {
+  const list = JSON.parse(readFileSync(new URL('../regions.json', import.meta.url))).slice(0, 3)
   const [co, wy, ut] = list
   const dirs = setup()
   artifact(dirs.artifactsDir, ut, [peak(9, -111.5, 40.5)], { wrapped: true })
