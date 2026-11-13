@@ -8,9 +8,9 @@ Two small fixes the owner asked for on 2026-11-13 ("do the small fix before BC")
    `download of https://download.geofabrik.de/north-america/us/idaho-latest.osm.pbf failed: fetch failed`.
    Node's `fetch` puts the real error (a socket reset, a DNS failure, a TLS error) in `e.cause`, and
    `download()` dropped it, so the failure couldn't be diagnosed.
-2. **The region builder gets a 12 GiB heap.** The British Columbia lane measured that a large region
-   runs out of memory on Node's default heap at about 490 MB of output, and builds at
-   `--max-old-space-size=12288` (6.7 GB RSS for 1.3 GB of output; the runner has 16 GB). The owner
+2. **The region builder gets a 12 GiB heap.** The British Columbia lane measured, on synthetic input through the
+   real `buildCells`, that a build runs out of memory on Node's default heap between 324 and 486 MB of
+   output, and builds with a 12 GB heap (6.7 GB RSS for 1.3 GB of output; the runner has 16 GB). The owner
    chose that option (ADR 0030).
 
 ## What Changes

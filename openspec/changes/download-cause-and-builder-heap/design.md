@@ -8,7 +8,7 @@ before a response, and sets `cause` to the underlying error: a `SystemError` wit
 `UND_ERR_CONNECT_TIMEOUT`. `download()` reported `e.message` alone.
 
 The runner (`ubuntu-24.04`, standard GitHub-hosted, public repository) has 4 vCPUs and 16 GB of RAM.
-Node's default old-space limit on it is far below that, about 2–4 GB depending on version and memory.
+Node v22.23.4's default old-space limit was 2,096 MB where the BC lane measured it, far below that.
 
 ## Decisions
 
@@ -29,7 +29,8 @@ Node's default old-space limit on it is far below that, about 2–4 GB depending
 ## Risks / Trade-offs
 
 - **[Risk] A region needing more than 12 GiB** → the job fails out of memory as before, alone; the
-  others publish. The BC lane's measurement leaves about 9 GB of headroom on its largest output.
+  others publish. The BC lane measured about 5.2 bytes of RSS per output byte (synthetic input, in an
+  agent container; ADR 0030), so British Columbia's estimated 300–900 MB needs about 1.6–4.7 GB.
 - **[Trade-off] The runner's other processes** (osmium runs before the builder writes, not alongside
   it) get less room if the builder's heap grows to its limit; 12 GiB of 16 GB leaves about 4 GB.
 - **[Risk] Text in the error from the network** → the cause's message comes from Node's own errors,
