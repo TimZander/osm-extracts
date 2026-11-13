@@ -143,3 +143,38 @@ What the run confirms for Utah (change utah-region):
 - **Time:** Utah's job is the longest of the three, mostly the PBF download (1 min 27 s). The run
   took about 3 min 10 s from start to push, and the deploy job 34 s (the push 10 s). The site holds
   1,533 files, far under 19,000.
+
+## Runs 6 and 7: 2026-11-13, `workflow_dispatch` on `main`, Idaho's first runs (change idaho-region)
+
+**Run 6 (43362833261, at `5ef299e`): Idaho did not build.** Its job failed 1 s into the PBF
+download: `download of https://download.geofabrik.de/north-america/us/idaho-latest.osm.pbf failed:
+fetch failed`. Colorado, Wyoming and Utah downloaded from the same host in the same minute and built;
+the deploy job left Idaho out ("no build this run and none before") and pushed nothing, the site
+being unchanged. The cause wasn't logged; change download-cause-and-builder-heap makes the error
+carry it (ADR 0031).
+
+**Run 7 (43364250202, at `1f9e365`, the owner's one retry): all four built and Idaho is live.**
+`data` = `750226d`; Geofabrik data of 2026-11-12 for all four.
+
+| Measurement | Idaho |
+|---|---|
+| Matching nodes | 4,390 |
+| Matching ways | 214,352 |
+| Total bytes | 187,423,749 (about 179 MiB) |
+| Largest cell before splitting | `174_-466` (Boise), 17,847,985 |
+| Cells / split | 481 / 2 (`174_-466`, `174_-465`) |
+| Files | 487; largest `idaho/174_-466/348_-931.json`, 5,489,292 bytes |
+| Coverage cells | 469, rows 167–196, columns -469 to -445; 12 cells with files lie outside it |
+| Artifact, zipped | 42,168,637 |
+| Region job | 1 min 16 s, of which "Build the region" 57 s |
+
+What the run confirms for Idaho:
+
+- **The bounds guard passed** with 42.01 / -117.02 / 43.75 / -111.06 (ADR 0028). The design estimated
+  436–470 coverage cells from a rough outline; the polygon gives 469.
+- **49° N:** coverage reaches row 196 (49.0–49.25) through Geofabrik's margin: rows 195 and 196,
+  columns -469 to -465.
+- **The borders:** with Wyoming, 12 cells in both (column -445, rows 167–178); with Utah, 22 (row 167,
+  columns -457 to -445; row 168, columns -453 to -445); `167_-445` and `168_-445` are in all three.
+- **Time:** the run took about 4 min, set by Colorado's job (2 min 52 s); the deploy job 46 s (the
+  push 14 s). The site holds 2,020 files.
