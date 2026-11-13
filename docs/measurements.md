@@ -225,3 +225,115 @@ What the run confirms for British Columbia:
 - **The border with Idaho:** all 10 of Idaho's cells along 49° N (rows 195 and 196, columns -469 to
   -465) are in both regions' coverage, and both regions have files in all 10. The app reads both and
   dedupes by `_osmId`.
+
+## Run 9: 2026-11-13, `workflow_dispatch` on `main` at `05ccc0f` (run 43456313065), the first run with the category change (change osm-volcanoes-forest-roads)
+
+**Attempt 1 failed British Columbia on one refused connection; attempt 2 published it.** This run
+is the evidence for ADR 0037 (download retries) and ADR 0038 (Alberta's first run waits for them).
+
+- **Attempt 1, 15:48–15:51 UTC:**
+  - British Columbia's job failed 1 s into its PBF download, with `download of
+    https://download.geofabrik.de/north-america/canada/british-columbia-latest.osm.pbf failed: fetch
+    failed (cause: ECONNREFUSED: )`.
+  - The same download had worked on run 8, an hour and a quarter earlier. The other four regions
+    built.
+  - The deploy job still published, as "A failed or corrupt download publishes nothing new for the
+    region" says: `british-columbia: no build this run; keeping the previous one`. That gave
+    `data` = `2fe98c0`, with 4,048 files (British Columbia's 2,027 from run 8).
+- **Attempt 2, 15:56–16:03 UTC:**
+  - only British Columbia's job was re-run, once, and it built;
+  - its PBF download took 5 min 35 s (15:56:29 to 16:02:04);
+  - the deploy then published `data` = `57d81cf`, with 4,067 files;
+  - Geofabrik data of 2026-11-12 for all five regions.
+
+| Measurement | British Columbia (attempt 2) |
+|---|---|
+| Matching nodes | 12,894 |
+| Matching ways | 416,498 |
+| Total bytes | 250,703,634 (about 239 MiB) |
+| Largest cell before splitting | `196_-492` (Metro Vancouver), 14,331,712 |
+| Cells / split | 2,028 / 6 |
+| Files | 2,046; largest `british-columbia/197_-493/394_-985.json`, 7,389,942 bytes |
+| Coverage cells | 3,467 |
+| "Build the region" | 6 min 3 s |
+
+British Columbia grew from run 8 (238,328,669 bytes, 2,009 cells, 2,027 files). This is the first
+run with the `forest_roads` category (ADR 0034), and run 10 counts 6,540 forest roads in its files.
+The largest file is unchanged.
+
+## Run 10: 2026-11-13, `workflow_dispatch` on `main` at `81e256b` (run 43462859337), Alberta's first run (changes alberta-region and download-retries)
+
+**Alberta is published, the sixth region.**
+- All eight jobs succeeded on the first attempt.
+- `data` = `a31254b` (replacing `57d81cf`), with **5,116 files**.
+- Geofabrik data of 2026-11-12 for all six regions.
+- Manifest order colorado, wyoming, utah, idaho, british-columbia, alberta (ADR 0036).
+- It is the first run with download retries (ADR 0037). No job logged a failed download attempt in
+  the logs read (Alberta's and British Columbia's), and every job succeeded first time.
+
+| Measurement | Alberta |
+|---|---|
+| Matching nodes | 3,114 |
+| Matching ways | 210,793 |
+| Total bytes | 97,335,527 (about 93 MiB) |
+| Largest cell before splitting | `204_-457` (Calgary), 14,884,888 |
+| Cells / split | 1,034 / 5 |
+| Files | 1,049; largest `alberta/204_-457/408_-913.json`, 6,813,516 bytes |
+| Coverage cells | 1,605; 106 of them also in British Columbia's coverage |
+| Artifact, zipped | 17,745,316 |
+| Region job | 1 min 41 s, of which "Build the region" 1 min 18 s |
+
+Every region, from the published `data` tree and the job logs:
+
+| Region | Files | Bytes | Largest file (bytes) | "Build the region" |
+|---|---|---|---|---|
+| colorado | 551 | 259,268,042 | `colorado/158_-420/316_-839.json`, 14,873,616 | 1 min 31 s |
+| wyoming | 521 | 108,386,017 | `wyoming/164_-420.json`, 2,784,578 | 29 s |
+| utah | 457 | 204,315,599 | `utah/162_-448/325_-896.json`, 7,558,476 | 47 s |
+| idaho | 488 | 201,378,667 | `idaho/174_-466/348_-931.json`, 5,489,292 | 40 s |
+| british-columbia | 2,046 | 250,703,634 | `british-columbia/197_-493/394_-985.json`, 7,389,942 | 4 min 2 s |
+| alberta | 1,049 | 97,335,527 | `alberta/204_-457/408_-913.json`, 6,813,516 | 1 min 18 s |
+
+Features by category, counted once each by `_osmId` across a region's files:
+
+| Region | trails | forest_roads | peaks | parking | ridges | trailheads | huts | passes | hot_springs |
+|---|---|---|---|---|---|---|---|---|---|
+| colorado | 497,827 | 9,365 | 3,754 | 1,178 | 2,576 | 561 | 522 | 222 | 23 |
+| wyoming | 105,073 | 2,769 | 3,441 | 753 | 160 | 153 | 29 | 143 | 424 |
+| utah | 343,663 | 5,782 | 2,997 | 542 | 4,397 | 836 | 251 | 171 | 29 |
+| idaho | 213,944 | 8,382 | 3,398 | 361 | 408 | 324 | 95 | 195 | 46 |
+| british-columbia | 410,465 | 6,540 | 10,127 | 1,362 | 1,188 | 384 | 526 | 475 | 21 |
+| alberta | 210,366 | 0 | 2,283 | 461 | 427 | 80 | 163 | 128 | 1 |
+
+What the run confirms for Alberta:
+
+- **The bounds guard passed** with 49.60 / -114.60 / 59.99 / -110.01 (ADR 0035), as it did against
+  the polygon read through the agent's web-fetch tool before the change.
+- **Coverage:** 1,605 cells and 106 shared with British Columbia, both as computed from the two
+  polygons before the change. The shared cells are 52 along the Continental Divide and 54 along
+  120° W. The app reads both regions and dedupes by `_osmId`.
+- **Size:** well under the design's estimate (200–600 MB). That is about 0.15 KB per km², below
+  British Columbia's 0.25. As in British Columbia, most of the PBF is data no category selects, and
+  the prairie grid roads carry no forest-road mark.
+- **`forest_roads`: 0.**
+  - The marks are names, refs and operators: FSR, Forest Service Road, Resource Road, USFS,
+    Ministry of Forests and the like.
+  - Alberta's resource and lease roads carry none of them.
+  - They are `highway=track` where mapped as tracks, so they count as `trails`.
+- **Volcanoes** can't be counted from the files. A feature keeps only `title`, `_osmCategories` and
+  `_osmId`, so a `natural=volcano` summit is a peak like any other. Alberta has no known volcano.
+- **The split threshold:**
+  - 5 of 1,034 cells split: two in Calgary (`203_-457`, `204_-457`) and three in Edmonton
+    (`213_-455`, `214_-455`, `214_-454`).
+  - The largest file, a Calgary quarter, is about 32 % of the 20 MiB guard.
+  - Calgary's cell, 14.9 MB before splitting, is about the size of Metro Vancouver's.
+  - The threshold stays (ADR 0017).
+- **Memory:** by ADR 0030's 5.2 bytes of RSS per output byte, about 0.5 GB, far inside the 12 GiB heap.
+- **Time:**
+  - The PBF download took 63 s (16:27:45 to 16:28:48), and the `.md5` and `.poly` under 1 s.
+  - Osmium and the build took 14 s.
+  - The run took about 5 min 44 s from start to push, set by British Columbia's job (4 min 23 s).
+    Its PBF download took 3 min 35 s, against 6 min 9 s on run 8 and 5 min 35 s on run 9, and it
+    logged no failed attempt either.
+  - Plan 3 s, deploy 1 min 10 s (the push 5 s).
+- **The site:** 5,116 files, against the 19,000 guard and Cloudflare's free 20,000.
