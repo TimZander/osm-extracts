@@ -13,12 +13,12 @@
 
 ## 3. Review
 
-- [ ] 3.1 `/sdd:conformance-review osm-volcanoes-forest-roads`, findings routed with `/sdd:spec-fix`
-- [ ] 3.2 Scan the diff for private material (this repository is public; only the copied rule data and generic mentions of garmin-map)
+- [x] 3.1 `/sdd:conformance-review osm-volcanoes-forest-roads`, findings routed with `/sdd:spec-fix` (conforms with gaps: S1, the highway condition holds for every mark, and M1, a non-ASCII dash, both fixed through the spec and tests; the code already conformed, so the new tests passed on arrival)
+- [x] 3.2 Scan the diff for private material (this repository is public; only the copied rule data and generic mentions of garmin-map): only the rule data and generic mentions
 
 ## 4. Decisions
 
-- [ ] 4.1 ADR 0034 (rules as selectors of AND-ed conditions; one pre-filter expression per selector), with the index updated
+- [x] 4.1 ADR 0034 (rules as selectors of AND-ed conditions; one pre-filter expression per selector), with the index updated
 
 ## Workflow follow-up
 
