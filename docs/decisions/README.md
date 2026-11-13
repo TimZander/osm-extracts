@@ -27,4 +27,5 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0019](0019-wyoming-publishes-after-multi-region-search.md) | Wyoming merges only after garmin-map searches every region a view overlaps | accepted |
 | [0020](0020-coverage-by-cells.md) | A region's coverage is the 0.25° cells its state polygon touches, listed in the manifest | accepted |
 | [0021](0021-coverage-key-polygon-and-area-rule.md) | Coverage is a `coverage` list of cell ids, from Geofabrik's polygon, by shared area | accepted |
-| [0022](0022-clipped-coverage-and-no-size-limit.md) | A clipped region covers its bounds' cells; `coverage` has no size limit for now | proposed |
+| [0022](0022-clipped-region-covers-its-bounds-cells.md) | A clipped region covers its bounds' cells | proposed |
+| [0023](0023-no-size-limit-on-coverage.md) | The deploy job sets no limit on `coverage`'s size or extent, for now | accepted |

@@ -54,7 +54,7 @@ The owner accepted, on 2026-11-13:
 - **A failed region kept from before `coverage`** is published without it, and the app falls back to
   `bounds` for that entry.
 
-The clipped-region rule and a size limit are ADR 0022.
+The clipped-region rule is ADR 0022 (proposed); the size limit is ADR 0023.
 
 ### Consequences
 

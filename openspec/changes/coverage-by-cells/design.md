@@ -121,7 +121,7 @@ an app reading `coverage` falls back to `bounds`.
    `bounds`' cells in the deploy job; (c) leave such a region out of the manifest. *Assumption:* (a),
    which publishes nothing the region's job didn't compute and drops no data; it only matters on the
    first run after merge, for a region whose job fails.
-7. **A limit on `coverage`** *Owner, 2026-11-13: asked; the change builds on the assumption (ADR 0022, proposed).* (conformance review R1). The deploy job checks `coverage`'s form only:
+7. **A limit on `coverage`** *Owner, 2026-11-13: accepted, option (a) (ADR 0023).* (conformance review R1). The deploy job checks `coverage`'s form only:
    no limit on its length, and no check that it lies near the region's `bounds`; `manifest.json` has
    no size guard. Options: (a) none now; (b) at most a fixed count per region (e.g. 20,000 cells);
    (c) every covered cell within a margin of `bounds`. *Assumption:* (a). The ids come from this
@@ -129,8 +129,8 @@ an app reading `coverage` falls back to `bounds`.
    5 the manifest stays far from any limit. A limit is a new requirement, for its own change.
 
 ADR 0020 records the owner's decision of 2026-11-13 itself and supersedes ADR 0013. ADR 0021
-records the answers to questions 1–4 and 6 (accepted); ADR 0022 the assumptions of 5 and 7
-(proposed).
+records the answers to questions 1–4 and 6 (accepted); ADR 0022 the assumption of 5
+(proposed); ADR 0023 the answer to 7 (accepted).
 
 ## Spec review
 
