@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.550428,53.44104]},"properties":{"title":"Khawachen Mountain","_osmCategories":["peaks"],"_osmId":"node/4927951077"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.542895,53.283304]},"properties":{"title":"Black Dome","_osmCategories":["peaks"],"_osmId":"node/11631873243"}}
+]}

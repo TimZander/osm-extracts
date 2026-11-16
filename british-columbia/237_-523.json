@@ -1,0 +1,15 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.508811,59.274414]},"properties":{"title":"Ash Mountain","_osmCategories":["peaks"],"_osmId":"node/7567113763"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.511656,59.470264]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8629811460"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.526676,59.342688]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8633021215"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.510454,59.315455]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8633021216"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.514402,59.310637]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8633021217"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.544186,59.297251]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8633021218"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.519681,59.321805]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8633021219"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.596542,59.313331]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8633021220"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.566716,59.320338]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8633021221"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.673704,59.255439]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8633022048"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.527792,59.474994]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344231"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.596542,59.476259]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344593"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.614138,59.499878]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344594"}}
+]}

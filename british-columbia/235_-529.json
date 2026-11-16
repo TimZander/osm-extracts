@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.139435,58.764907]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8526234428"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.087804,58.85717]},"properties":{"title":"Nahlin Mountain","_osmCategories":["peaks"],"_osmId":"node/11571046555"}}
+]}

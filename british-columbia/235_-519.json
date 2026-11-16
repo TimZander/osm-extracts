@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.51918,58.966323]},"properties":{"title":"Mount Dalton","_osmCategories":["peaks"],"_osmId":"node/10938528253"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.732971,58.902757]},"properties":{"title":"Sphinx Mountain","_osmCategories":["peaks"],"_osmId":"node/10938560058"}}
+]}

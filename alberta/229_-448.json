@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-111.760162,57.278194]},"properties":{"title":"Moes moratorium","_osmCategories":["huts"],"_osmId":"node/12583067501"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-111.806585,57.308964],[-111.806284,57.309259],[-111.80508,57.310964],[-111.804801,57.31133],[-111.804213,57.31214],[-111.803464,57.312909],[-111.801946,57.31403]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/797162519"}}
+]}

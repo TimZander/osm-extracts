@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.968203,58.732031]},"properties":{"title":"Tahltan Highland","_osmCategories":["peaks"],"_osmId":"node/11563144533"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.771117,58.627591]},"properties":{"title":"Tahltan Highland","_osmCategories":["peaks"],"_osmId":"node/11563145033"}}
+]}

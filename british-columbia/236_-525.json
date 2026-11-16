@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.243878,59.177995]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8595722469"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.032562,59.158596]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8633020134"}}
+]}

@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.443879,54.798545]},"properties":{"title":"Mount Hudema","_osmCategories":["peaks"],"_osmId":"node/7793134997"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.360516,54.900007]},"properties":{"title":"Mount Voshell","_osmCategories":["peaks"],"_osmId":"node/7793135132"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.356895,54.767392]},"properties":{"title":"Mount Zbura","_osmCategories":["peaks"],"_osmId":"node/11441845439"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.324582,54.857853]},"properties":{"title":"Mount Warne","_osmCategories":["peaks"],"_osmId":"node/11441876790"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.358636,54.928284]},"properties":{"title":"Mount Hubert","_osmCategories":["peaks"],"_osmId":"node/11441943337"}}
+]}

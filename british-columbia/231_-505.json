@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.007808,57.871261]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10797547588"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.109978,57.936514]},"properties":{"title":"Scarcity Mountain","_osmCategories":["peaks"],"_osmId":"node/10797553203"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.195855,57.99843]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10797560415"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.189482,57.998859]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10797602921"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.008366,57.906852]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10797655653"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.243322,57.760119]},"properties":{"title":"Fox Peak","_osmCategories":["peaks"],"_osmId":"node/10797678561"}}
+]}

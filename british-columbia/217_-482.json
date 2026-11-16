@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.448002,54.46452]},"properties":{"title":"Mount Hamelin","_osmCategories":["peaks"],"_osmId":"node/1329184218"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.431422,54.427455]},"properties":{"title":"Mount Belcourt","_osmCategories":["peaks"],"_osmId":"node/1329259063"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.30921,54.366099]},"properties":{"title":"Secus Mountain","_osmCategories":["peaks"],"_osmId":"node/1331663811"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.434763,54.254726]},"properties":{"title":"Picture Mountain","_osmCategories":["peaks"],"_osmId":"node/1331749412"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.253376,54.30751]},"properties":{"title":"Nekik Mountain","_osmCategories":["peaks"],"_osmId":"node/1331766970"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.400298,54.33748]},"properties":{"title":"Muinok Mountain","_osmCategories":["peaks"],"_osmId":"node/1331789901"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.33743,54.260796]},"properties":{"title":"Meosin Mountain","_osmCategories":["peaks"],"_osmId":"node/1331834592"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.395611,54.266608]},"properties":{"title":"Mokasis Mountain","_osmCategories":["peaks"],"_osmId":"node/1331849541"}}
+]}

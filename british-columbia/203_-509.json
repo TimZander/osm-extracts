@@ -1,0 +1,15 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.057025,50.926428]},"properties":{"title":"Mount Kerr","_osmCategories":["peaks"],"_osmId":"node/10105734733"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.006064,50.859752]},"properties":{"title":"Mount Hulme (West Summit)","_osmCategories":["peaks"],"_osmId":"node/10105738257"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.125755,50.989248]},"properties":{"title":"Mount Ward","_osmCategories":["peaks"],"_osmId":"node/10105739062"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.022915,50.882926]},"properties":{"title":"Russell Hill","_osmCategories":["peaks"],"_osmId":"node/10105740290"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.172854,50.914034]},"properties":{"title":"Farmer Hill","_osmCategories":["peaks"],"_osmId":"node/10105762694"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.195536,50.932005]},"properties":{"title":"Mount Ellis","_osmCategories":["peaks"],"_osmId":"node/10105763821"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.085663,50.881864]},"properties":{"title":"Aylen Hill","_osmCategories":["peaks"],"_osmId":"node/10105765786"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.148408,50.940084]},"properties":{"title":"Amies Hill","_osmCategories":["peaks"],"_osmId":"node/10105769096"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.165305,50.982524]},"properties":{"title":"Mount Adams","_osmCategories":["peaks"],"_osmId":"node/10105772856"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.096068,50.926737]},"properties":{"title":"Mount Gardiner","_osmCategories":["peaks"],"_osmId":"node/10105789999"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.012221,50.850768]},"properties":{"title":"Herbert Peak","_osmCategories":["peaks"],"_osmId":"node/10105818200"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.110229,50.961428]},"properties":{"title":"Mount Bullock","_osmCategories":["peaks"],"_osmId":"node/10105819413"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.02377,50.863666]},"properties":{"title":"Mount Wynyard","_osmCategories":["peaks"],"_osmId":"node/10105820021"}}
+]}

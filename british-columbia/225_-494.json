@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.453031,56.345208]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/1407872650"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-123.342128,56.5],[-123.340911,56.49783]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/127159855"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-123.501753,56.497412],[-123.501299,56.497634],[-123.500352,56.497972],[-123.498882,56.498348],[-123.498576,56.498642],[-123.498484,56.49929],[-123.498352,56.499477],[-123.498011,56.499721],[-123.496975,56.499949],[-123.496317,56.500218]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/155670737"}}
+]}

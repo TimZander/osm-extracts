@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-131.253411,59.930333],[-131.252755,59.930127],[-131.251702,59.929885],[-131.250706,59.929909],[-131.25,59.929764]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/157722958"}}
+]}

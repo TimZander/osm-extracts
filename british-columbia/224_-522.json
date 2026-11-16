@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.46787,56.243053]},"properties":{"title":"Mount Willibert","_osmCategories":["peaks"],"_osmId":"node/263161306"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.426006,56.141561]},"properties":{"title":"Mount John Jay","_osmCategories":["peaks"],"_osmId":"node/263429251"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.35009,56.128542]},"properties":{"title":"Mount Upshur","_osmCategories":["peaks"],"_osmId":"node/263462187"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.365152,56.096143]},"properties":{"title":"Mount Wilson","_osmCategories":["peaks"],"_osmId":"node/11657090352"}}
+]}

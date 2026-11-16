@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.639626,58.981291]},"properties":{"title":"Eskona Mountain","_osmCategories":["peaks"],"_osmId":"node/10909307728"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.658255,58.847542]},"properties":{"title":"Inspector Peak","_osmCategories":["peaks"],"_osmId":"node/10909331085"}}
+]}

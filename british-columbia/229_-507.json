@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.67185,57.368062]},"properties":{"title":"Bend Mountain","_osmCategories":["peaks"],"_osmId":"node/8489726952"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.675541,57.428083]},"properties":{"title":"Bronlund Peak","_osmCategories":["peaks"],"_osmId":"node/9234643781"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.680792,57.423384]},"properties":{"title":"Bronlund Peak","_osmCategories":["peaks"],"_osmId":"node/10767583418"}}
+]}

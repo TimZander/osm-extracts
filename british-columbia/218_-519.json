@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.562323,54.745264]},"properties":{"title":"Mount Ponder","_osmCategories":["peaks"],"_osmId":"node/11445237802"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.548534,54.530679]},"properties":{"title":"Mount Suden","_osmCategories":["peaks"],"_osmId":"node/11445545953"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.562399,54.621855]},"properties":{"title":"Mount Hodgkinson","_osmCategories":["peaks"],"_osmId":"node/11445565343"}}
+]}

@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.45475,59.515774]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344694"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.454836,59.503101]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344696"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.482388,59.525744]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344697"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.446339,59.675412]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8648970508"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.385399,59.71582]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8648970509"}}
+]}

@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.948968,52.137529]},"properties":{"title":"Mount D'Arcy","_osmCategories":["peaks"],"_osmId":"node/10163390699"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.833427,52.145741]},"properties":{"title":"Salisbury Cone","_osmCategories":["peaks"],"_osmId":"node/10163400870"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.882598,52.039959]},"properties":{"title":"Codville Hill","_osmCategories":["peaks"],"_osmId":"node/10163405340"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.764563,52.165664]},"properties":{"title":"Corner Peak","_osmCategories":["peaks"],"_osmId":"node/10163474411"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-127.836549,52.062461],[-127.835643,52.062714],[-127.835343,52.062674],[-127.834935,52.0627],[-127.834506,52.062582],[-127.834013,52.062595],[-127.833498,52.062832],[-127.833069,52.062885],[-127.832425,52.063281],[-127.831803,52.063479],[-127.831223,52.063492],[-127.830515,52.063175],[-127.830043,52.062845],[-127.829721,52.062832],[-127.828874,52.063104]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/446737091"}}
+]}

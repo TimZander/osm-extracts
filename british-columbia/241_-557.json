@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-139.074818,60.352505]},"properties":{"title":"Mount Alverstone","_osmCategories":["peaks"],"_osmId":"node/322355390"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-139.072126,60.319429]},"properties":{"title":"Mount Hubbard","_osmCategories":["peaks"],"_osmId":"node/331670014"}}
+]}

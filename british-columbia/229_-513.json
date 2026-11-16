@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-128.197825,57.30547]},"properties":{"title":"Tuaton Peak","_osmCategories":["peaks"],"_osmId":"node/10974418087"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-128.11572,57.325295]},"properties":{"title":"Bowsprit Mountain","_osmCategories":["peaks"],"_osmId":"node/10974422197"}}
+]}

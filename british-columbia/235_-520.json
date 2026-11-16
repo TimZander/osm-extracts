@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.845673,58.888609]},"properties":{"title":"Pyramid Mountain","_osmCategories":["peaks"],"_osmId":"node/10938490851"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.875382,58.851039]},"properties":{"title":"Spike Mountain","_osmCategories":["peaks"],"_osmId":"node/10938534675"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.909023,58.90232]},"properties":{"title":"Chickens Neck Mountain","_osmCategories":["peaks"],"_osmId":"node/10938539482"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.92287,58.991435]},"properties":{"title":"Anvil Mountain (South Summit)","_osmCategories":["peaks"],"_osmId":"node/10938539972"}}
+]}

@@ -1,0 +1,11 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.583998,55.488726]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8784621686"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.649401,55.479924]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8784621687"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.658175,55.425135]},"properties":{"title":"Hans Hill","_osmCategories":["peaks"],"_osmId":"node/11707202291"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.521867,55.408967]},"properties":{"title":"Dawson Ridge","_osmCategories":["peaks"],"_osmId":"node/11707202379"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.645595,55.268827]},"properties":{"title":"Mount Huntingdon","_osmCategories":["peaks"],"_osmId":"node/11707208956"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.601504,55.426885]},"properties":{"title":"Dawson Ridge","_osmCategories":["peaks"],"_osmId":"node/11707265421"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.5563,55.490881]},"properties":{"title":"Chaloner Ridge","_osmCategories":["peaks"],"_osmId":"node/11707267907"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.639314,55.476671]},"properties":{"title":"Chaloner Ridge","_osmCategories":["peaks"],"_osmId":"node/11707278124"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.705683,55.490404]},"properties":{"title":"Campbell Ridge","_osmCategories":["peaks"],"_osmId":"node/11707283399"}}
+]}

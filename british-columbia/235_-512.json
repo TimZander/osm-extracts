@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.886401,58.830781]},"properties":{"title":"Deeh Ridge","_osmCategories":["peaks"],"_osmId":"node/10909286192"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.854881,58.801955]},"properties":{"title":"Deeh Ridge","_osmCategories":["peaks"],"_osmId":"node/10909330530"}}
+]}

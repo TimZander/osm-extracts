@@ -1,0 +1,12 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.971817,57.901024]},"properties":{"title":"Criccieth Mountain","_osmCategories":["peaks"],"_osmId":"node/7856342961"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.998235,57.895466]},"properties":{"title":"Mount Lloyd George (East Summit)","_osmCategories":["peaks"],"_osmId":"node/7856342977"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.861446,57.794556]},"properties":{"title":"Mount Bedaux","_osmCategories":["peaks"],"_osmId":"node/7856350961"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.998299,57.836233]},"properties":{"title":"Survey Peak","_osmCategories":["peaks"],"_osmId":"node/10841018935"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.786035,57.807963]},"properties":{"title":"Bruce Ridge","_osmCategories":["peaks"],"_osmId":"node/10841046036"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.965032,57.798158]},"properties":{"title":"Mount Crosby","_osmCategories":["peaks"],"_osmId":"node/10841078435"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.930856,57.884116]},"properties":{"title":"Bardsey Ridge","_osmCategories":["peaks"],"_osmId":"node/10841105019"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.831395,57.869711]},"properties":{"title":"Mount Walsh","_osmCategories":["peaks"],"_osmId":"node/10841130567"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.884301,57.903688]},"properties":{"title":"Mount Smythe","_osmCategories":["peaks"],"_osmId":"node/10841167250"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.909116,57.866639]},"properties":{"title":"Bardsey Ridge","_osmCategories":["peaks"],"_osmId":"node/10841175870"}}
+]}

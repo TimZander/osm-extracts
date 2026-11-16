@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.950699,57.136056]},"properties":{"title":"Cornice Mountain","_osmCategories":["peaks"],"_osmId":"node/11545329965"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.975395,57.218751]},"properties":{"title":"Mount Rufus","_osmCategories":["peaks"],"_osmId":"node/11545345552"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.855623,57.150041]},"properties":{"title":"Alpha Mountain","_osmCategories":["peaks"],"_osmId":"node/11548442566"}}
+]}

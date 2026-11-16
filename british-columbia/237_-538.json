@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.299592,59.339253]},"properties":{"title":"Mount Switzer","_osmCategories":["peaks"],"_osmId":"node/1701945383"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.358681,59.459216]},"properties":{"title":"White Moose Mountain","_osmCategories":["peaks"],"_osmId":"node/1701945420"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-134.250974,59.451985],[-134.25,59.451825]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/157977489"}}
+]}

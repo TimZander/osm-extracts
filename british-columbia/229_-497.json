@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.073792,57.332455]},"properties":{"title":"Mount Penelope","_osmCategories":["peaks"],"_osmId":"node/1783850068"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.093227,57.346396]},"properties":{"title":"Mount Ulysses","_osmCategories":["peaks"],"_osmId":"node/6050960023"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.098745,57.449151]},"properties":{"title":"Great Snow Mountain","_osmCategories":["peaks"],"_osmId":"node/10828443737"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.198861,57.366953]},"properties":{"title":"Cyclops Peak","_osmCategories":["peaks"],"_osmId":"node/10828452575"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.077144,57.386478]},"properties":{"title":"Mount Eurylochos","_osmCategories":["peaks"],"_osmId":"node/10828501392"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.033785,57.338721]},"properties":{"title":"Mount Telemachos","_osmCategories":["peaks"],"_osmId":"node/10828587862"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.117803,57.425556]},"properties":{"title":"Mount Circe","_osmCategories":["peaks"],"_osmId":"node/10828600105"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.071592,57.44491]},"properties":{"title":"Great Rock Peak","_osmCategories":["peaks"],"_osmId":"node/10828630929"}}
+]}

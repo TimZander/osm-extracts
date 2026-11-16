@@ -1,0 +1,20 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.487385,51.74053]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8756179767"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.261028,51.610142]},"properties":{"title":"Septentrion Spires","_osmCategories":["peaks"],"_osmId":"node/10124421486"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.258816,51.613676]},"properties":{"title":"Septentrion Spires","_osmCategories":["peaks"],"_osmId":"node/10124439137"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.284718,51.575275]},"properties":{"title":"Mount Zeus","_osmCategories":["peaks"],"_osmId":"node/10124443927"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.26613,51.608746]},"properties":{"title":"Septentrion Spires","_osmCategories":["peaks"],"_osmId":"node/10124447474"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.252529,51.569978]},"properties":{"title":"Manitou Peak","_osmCategories":["peaks"],"_osmId":"node/10124474521"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.353469,51.616813]},"properties":{"title":"The Cyclops","_osmCategories":["peaks"],"_osmId":"node/10124474846"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.269729,51.548107]},"properties":{"title":"Hephaestus Peak","_osmCategories":["peaks"],"_osmId":"node/10124480596"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.259347,51.508947]},"properties":{"title":"Bifrost Pass","_osmCategories":["passes"],"_osmId":"node/10124485336"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.291506,51.5165]},"properties":{"title":"Frontier Mountain","_osmCategories":["peaks"],"_osmId":"node/10124500626"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.346916,51.59533]},"properties":{"title":"Fenris Mountain","_osmCategories":["peaks"],"_osmId":"node/10124620735"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.285609,51.596678]},"properties":{"title":"Pegasus Peak","_osmCategories":["peaks"],"_osmId":"node/10124622866"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.324776,51.569446]},"properties":{"title":"Mount Thor","_osmCategories":["peaks"],"_osmId":"node/10124635242"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.300394,51.567183]},"properties":{"title":"Kali Peak","_osmCategories":["peaks"],"_osmId":"node/10124646199"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.252387,51.526508]},"properties":{"title":"Granite Pass","_osmCategories":["passes"],"_osmId":"node/12132808257"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.358137,51.547441]},"properties":{"title":"Trident Tower","_osmCategories":["peaks"],"_osmId":"node/12345513272"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.402345,51.522345]},"properties":{"title":"Sedna Peak","_osmCategories":["peaks"],"_osmId":"node/12345513278"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.419175,51.532815]},"properties":{"title":"Culbert Crag","_osmCategories":["peaks"],"_osmId":"node/12345535605"}}
+]}

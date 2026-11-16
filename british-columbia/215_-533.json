@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.13124,53.937577]},"properties":{"title":"Beehive Hill","_osmCategories":["peaks"],"_osmId":"node/3026061665"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.088312,53.979373]},"properties":{"title":"Conspicuous Cone","_osmCategories":["peaks"],"_osmId":"node/3026061666"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.128805,53.912279]},"properties":{"title":"Omega Mountain","_osmCategories":["peaks"],"_osmId":"node/3026061672"}}
+]}

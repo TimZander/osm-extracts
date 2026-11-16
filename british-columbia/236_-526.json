@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.45078,59.003936]},"properties":{"title":"Meehaz Mountain","_osmCategories":["peaks"],"_osmId":"node/8538197655"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.285248,59.175752]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8595722468"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.35211,59.207447]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8595722470"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.306706,59.079153]},"properties":{"title":"Isspah Butte","_osmCategories":["peaks"],"_osmId":"node/8595723062"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.322211,59.103387]},"properties":{"title":"Metah Mountain","_osmCategories":["peaks"],"_osmId":"node/11492847960"}}
+]}

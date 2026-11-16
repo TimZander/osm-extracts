@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.018671,54.695042]},"properties":{"title":"Intungidi Hill","_osmCategories":["peaks"],"_osmId":"node/7673901146"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.017053,54.691961]},"properties":{"title":"Intun Cone","_osmCategories":["peaks"],"_osmId":"node/11657090284"}}
+]}

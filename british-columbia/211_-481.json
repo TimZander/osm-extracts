@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.16808,52.934637]},"properties":{"title":"Mount Quanstrom","_osmCategories":["peaks"],"_osmId":"node/6345892731"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.090589,52.777343]},"properties":{"title":"Mount Goodall","_osmCategories":["peaks"],"_osmId":"node/6349046116"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.139613,52.875816]},"properties":{"title":"Mount Pierrway","_osmCategories":["peaks"],"_osmId":"node/7223521939"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.245125,52.797468]},"properties":{"title":"Mount Hogg","_osmCategories":["peaks"],"_osmId":"node/7231153193"}}
+]}

@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.033772,59.991833]},"properties":{"title":"Beavercrow Mountain","_osmCategories":["peaks"],"_osmId":"node/2004902972"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.058859,59.966962]},"properties":{"title":"Beavercrow Ridge","_osmCategories":["peaks"],"_osmId":"node/2004902976"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.150378,59.774417],[-125.146645,59.773235]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/189884151"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.130187,59.752676],[-125.128744,59.7517]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/189884152"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.140921,59.767546],[-125.139157,59.766519],[-125.138687,59.765572]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/189884154"}}
+]}

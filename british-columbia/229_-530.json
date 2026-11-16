@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.369791,57.349747]},"properties":{"title":"Unmarked Boundary Point 73","_osmCategories":["peaks"],"_osmId":"node/244246111"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.304598,57.393522]},"properties":{"title":"Mount Ratz","_osmCategories":["peaks"],"_osmId":"node/6039801101"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.3126,57.432025]},"properties":{"title":"Mussell Peak","_osmCategories":["peaks"],"_osmId":"node/11557983209"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.359542,57.431395]},"properties":{"title":"Noel Peak","_osmCategories":["peaks"],"_osmId":"node/11557997671"}}
+]}

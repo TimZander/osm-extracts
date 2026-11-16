@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.313318,54.989079]},"properties":{"title":"Gap Mountain","_osmCategories":["peaks"],"_osmId":"node/11657090195"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.480046,54.793912]},"properties":{"title":"Port Mountain","_osmCategories":["peaks"],"_osmId":"node/11749507370"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.465582,54.76939]},"properties":{"title":"Hat Mountain","_osmCategories":["peaks"],"_osmId":"node/11749533917"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.33581,54.943693],[-130.336247,54.94399]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1295871263"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.336247,54.94399],[-130.336368,54.944077],[-130.337353,54.944234],[-130.337626,54.944245],[-130.338232,54.94418],[-130.338648,54.944109],[-130.338935,54.944038],[-130.339166,54.943967],[-130.33952,54.943816],[-130.339665,54.943771],[-130.339699,54.943757],[-130.339775,54.943703],[-130.339848,54.943672],[-130.340135,54.943537],[-130.340276,54.943447],[-130.340424,54.943322],[-130.340479,54.943262],[-130.340572,54.943163],[-130.340675,54.943071],[-130.340644,54.943002],[-130.34056,54.942988],[-130.340472,54.943036],[-130.340448,54.943133],[-130.340479,54.943262]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1295871264"}}
+]}

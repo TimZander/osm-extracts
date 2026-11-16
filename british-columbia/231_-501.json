@@ -1,0 +1,12 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.138952,57.866482]},"properties":{"title":"Dryas Peak","_osmCategories":["peaks"],"_osmId":"node/10838744704"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.063701,57.882915]},"properties":{"title":"Columbine Peak","_osmCategories":["peaks"],"_osmId":"node/10838753109"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.139043,57.753705]},"properties":{"title":"Mount Chesterfield","_osmCategories":["peaks"],"_osmId":"node/10838758477"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.097857,57.844485]},"properties":{"title":"Lupin Ridge","_osmCategories":["peaks"],"_osmId":"node/10838771000"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.09956,57.773331]},"properties":{"title":"Little Cloudmaker Mountain","_osmCategories":["peaks"],"_osmId":"node/10838846679"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.09376,57.760428]},"properties":{"title":"Cloudmaker Mountain","_osmCategories":["peaks"],"_osmId":"node/10838853124"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.000408,57.836858]},"properties":{"title":"Survey Peak","_osmCategories":["peaks"],"_osmId":"node/10838883396"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.001033,57.8948]},"properties":{"title":"Mount Lloyd George (West Summit)","_osmCategories":["peaks"],"_osmId":"node/10838883436"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.030625,57.892536]},"properties":{"title":"Mount Glendower","_osmCategories":["peaks"],"_osmId":"node/10838888644"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.198702,57.80693]},"properties":{"title":"Grey Peak","_osmCategories":["peaks"],"_osmId":"node/10838928351"}}
+]}

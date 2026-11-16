@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.283527,57.088384]},"properties":{"title":"Mount Wright","_osmCategories":["peaks"],"_osmId":"node/10845074257"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.396556,57.025507]},"properties":{"title":"Mount Stearns","_osmCategories":["peaks"],"_osmId":"node/10845079462"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.276248,57.204801]},"properties":{"title":"Mount Wooliever","_osmCategories":["peaks"],"_osmId":"node/10845160287"}}
+]}

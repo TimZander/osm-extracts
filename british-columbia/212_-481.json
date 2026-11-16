@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.249497,53.161727]},"properties":{"title":"Chevron Peak","_osmCategories":["peaks"],"_osmId":"node/6345928292"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.101589,53.044944]},"properties":{"title":"Larissa Peak","_osmCategories":["peaks"],"_osmId":"node/6345955330"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.2324,53.22515]},"properties":{"title":"Mount Lucille","_osmCategories":["peaks"],"_osmId":"node/14205374756"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-120.091232,53.23001],[-120.091955,53.231352],[-120.092336,53.232774],[-120.092339,53.233342],[-120.09265,53.234212],[-120.093818,53.235316],[-120.094321,53.235919],[-120.095286,53.236688],[-120.095653,53.23717],[-120.09581,53.237533]]},"properties":{"title":"Castle Creek Forest Service Road","_osmCategories":["forest_roads"],"_osmId":"way/42964711"}}
+]}

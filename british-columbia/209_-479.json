@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.689844,52.277854]},"properties":{"title":"Northview Peak","_osmCategories":["peaks"],"_osmId":"node/7212158320"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.608326,52.2813]},"properties":{"title":"Murtle Peak","_osmCategories":["peaks"],"_osmId":"node/7212158321"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.702911,52.362603]},"properties":{"title":"Vimy Ridge","_osmCategories":["peaks"],"_osmId":"node/7212158322"}}
+]}

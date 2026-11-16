@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.569077,59.750775]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8648971325"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.606756,59.891822]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8656264868"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.743141,59.944265]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8661833993"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.736275,59.968287]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8661833994"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.68083,59.941263]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8661833996"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.725546,59.846734]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8661834043"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.605702,59.885089]},"properties":{"title":"Tootsee Ridge","_osmCategories":["peaks"],"_osmId":"node/11499228947"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.564857,59.956553]},"properties":{"title":"Tootsee Ridge","_osmCategories":["peaks"],"_osmId":"node/11499248578"}}
+]}

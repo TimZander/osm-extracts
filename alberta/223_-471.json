@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-117.545079,55.777798],[-117.542545,55.777863],[-117.539935,55.778207],[-117.53689,55.77822]]},"properties":{"title":"Township Road 784","_osmCategories":["trails"],"_osmId":"way/31035472"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-117.549892,55.776536],[-117.545078,55.77654]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/31037529"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-117.534268,55.766002],[-117.534478,55.76619],[-117.534578,55.766486],[-117.534866,55.766593],[-117.537465,55.766698],[-117.545046,55.766704]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/31040497"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-117.537877,55.771108],[-117.538166,55.771269],[-117.538613,55.77133],[-117.542868,55.771248],[-117.545073,55.771295]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/31041648"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-117.539366,55.781376],[-117.539152,55.78473],[-117.539442,55.785141],[-117.539892,55.785503]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1188463178"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-117.64828,55.750225],[-117.647535,55.750642],[-117.646757,55.750938],[-117.645212,55.751448],[-117.64401,55.751931],[-117.643297,55.752136],[-117.642117,55.752652],[-117.641988,55.752662],[-117.641827,55.752659]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1188463186"}}
+]}

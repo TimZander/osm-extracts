@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.445553,54.716949]},"properties":{"title":"Mount Leighton","_osmCategories":["peaks"],"_osmId":"node/7793134858"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.389571,54.531709]},"properties":{"title":"Morin Peak","_osmCategories":["peaks"],"_osmId":"node/11445586295"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.429435,54.512839]},"properties":{"title":"Keays Peak","_osmCategories":["peaks"],"_osmId":"node/11445592619"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.400094,54.587185]},"properties":{"title":"Mount Finley","_osmCategories":["peaks"],"_osmId":"node/11445598943"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.350536,54.677388]},"properties":{"title":"Morton Peak","_osmCategories":["peaks"],"_osmId":"node/11445648248"}}
+]}

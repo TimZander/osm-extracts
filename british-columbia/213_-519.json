@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.50172,53.442006]},"properties":{"title":"Mount Patterson","_osmCategories":["peaks"],"_osmId":"node/11674929334"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.557933,53.453929]},"properties":{"title":"Mount Frank","_osmCategories":["peaks"],"_osmId":"node/11674935285"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.537019,53.268595]},"properties":{"title":"Mount Hulke","_osmCategories":["peaks"],"_osmId":"node/11674996348"}}
+]}

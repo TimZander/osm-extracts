@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.123567,56.873648]},"properties":{"title":"Castle Mountain","_osmCategories":["peaks"],"_osmId":"node/244246043"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.127067,56.954485]},"properties":{"title":"Mount Pratt","_osmCategories":["peaks"],"_osmId":"node/11657090346"}}
+]}

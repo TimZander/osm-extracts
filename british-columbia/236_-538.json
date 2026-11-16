@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.443937,59.146358]},"properties":{"title":"Sparrow Peak","_osmCategories":["peaks"],"_osmId":"node/11574807422"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.446995,59.089228]},"properties":{"title":"Mount Service","_osmCategories":["peaks"],"_osmId":"node/11574815264"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.383157,59.041559]},"properties":{"title":"Mount London","_osmCategories":["peaks"],"_osmId":"node/11574823363"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.483878,59.132146]},"properties":{"title":"Mount Poletica","_osmCategories":["peaks"],"_osmId":"node/11574825067"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.409971,59.088446]},"properties":{"title":"Bicorn Peak","_osmCategories":["peaks"],"_osmId":"node/11574835009"}}
+]}

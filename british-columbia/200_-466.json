@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.341608,50.120049]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/4143720384"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.368065,50.124107]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/4143720385"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.391316,50.127919]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/4143720386"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.444369,50.116653]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/4143720387"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.478071,50.119492]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/4143720388"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.474788,50.116905]},"properties":{"title":"Mount Rowand","_osmCategories":["peaks"],"_osmId":"node/4143720389"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.481285,50.110752]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/4143720390"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-116.494427,50.088351]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/4143720391"}}
+]}

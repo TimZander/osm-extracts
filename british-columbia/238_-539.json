@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.550563,59.534683]},"properties":{"title":"Mount Lawson","_osmCategories":["peaks"],"_osmId":"node/1637163984"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.616329,59.69767]},"properties":{"title":"Tagish Highland","_osmCategories":["peaks"],"_osmId":"node/1637163985"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.62568,59.678556]},"properties":{"title":"Teepee Peak","_osmCategories":["peaks"],"_osmId":"node/1637163986"}}
+]}

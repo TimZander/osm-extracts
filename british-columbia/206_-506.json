@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.253254,51.560206]},"properties":{"title":"Mount Conery","_osmCategories":["peaks"],"_osmId":"node/10122053681"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.42061,51.525145]},"properties":{"title":"Mount Tran","_osmCategories":["peaks"],"_osmId":"node/10122100870"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.293688,51.704147]},"properties":{"title":"Mount Willoughby","_osmCategories":["peaks"],"_osmId":"node/10122103157"}}
+]}

@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.485266,57.395023]},"properties":{"title":"Ambition Mountain","_osmCategories":["peaks"],"_osmId":"node/9057276685"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.499938,57.422963]},"properties":{"title":"Endeavour Mountain","_osmCategories":["peaks"],"_osmId":"node/11535893938"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.485581,57.45255]},"properties":{"title":"Dokdaon Mountain","_osmCategories":["peaks"],"_osmId":"node/11535897122"}}
+]}

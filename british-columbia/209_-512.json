@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.89283,52.326087]},"properties":{"title":"Mount Keyes","_osmCategories":["peaks"],"_osmId":"node/8916074385"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.977632,52.333373]},"properties":{"title":"Mount Harington","_osmCategories":["peaks"],"_osmId":"node/10165283524"}}
+]}

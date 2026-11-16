@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.922785,56.865719]},"properties":{"title":"Mount Melvin","_osmCategories":["peaks"],"_osmId":"node/10813350058"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.97582,56.791838]},"properties":{"title":"Conical Peak","_osmCategories":["peaks"],"_osmId":"node/10813384929"}}
+]}

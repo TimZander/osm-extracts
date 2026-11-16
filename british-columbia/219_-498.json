@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.407845,54.900414]},"properties":{"title":"Sasklo Dome","_osmCategories":["peaks"],"_osmId":"node/1940281153"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.47046,54.898081]},"properties":{"title":"Sasklo Ridge","_osmCategories":["peaks"],"_osmId":"node/1940281158"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.492701,54.904232]},"properties":{"title":"Sasklo Ridge","_osmCategories":["peaks"],"_osmId":"node/1940281170"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-124.266626,54.994964],[-124.266239,54.995201],[-124.265805,54.995503],[-124.265574,54.99574],[-124.265124,54.99626],[-124.2647,54.996829]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/697587625"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-124.266058,54.992413],[-124.26625,54.992853],[-124.266443,54.993364],[-124.266524,54.993764],[-124.266604,54.994746],[-124.266626,54.994964],[-124.266765,54.995192],[-124.266931,54.995321],[-124.267253,54.995417],[-124.267806,54.995497],[-124.269737,54.995764]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/697587626"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.123042,51.599228]},"properties":{"title":"Dallery Peak","_osmCategories":["peaks"],"_osmId":"node/11135536416"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-127.186646,51.679065],[-127.186681,51.67918],[-127.186738,51.679365],[-127.186794,51.679602],[-127.186992,51.679944],[-127.187332,51.680488],[-127.188012,51.68191],[-127.188153,51.682279],[-127.188238,51.682498]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/627626304"}}
+]}

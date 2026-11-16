@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.567194,57.162638]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8511238857"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.504881,57.143784]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8511238862"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.508314,57.189251]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8511238863"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.707834,57.099191]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10821002211"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-120.717829,56.879136],[-120.717039,56.879481],[-120.716563,56.879782],[-120.71464,56.880663],[-120.713546,56.881039],[-120.713369,56.88107],[-120.71282,56.880999],[-120.712638,56.880812],[-120.712654,56.880458],[-120.712773,56.88026],[-120.713,56.880107]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/102118882"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-120.501546,56.75],[-120.5,56.74947]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/102128289"}}
+]}

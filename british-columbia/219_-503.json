@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.667717,54.979302]},"properties":{"title":"Tsitsutl Mountain","_osmCategories":["peaks"],"_osmId":"node/11424857912"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.546004,54.964269]},"properties":{"title":"Pyramid Peak","_osmCategories":["peaks"],"_osmId":"node/11424894551"}}
+]}

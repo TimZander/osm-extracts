@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.570881,53.954278]},"properties":{"title":"Snowcap Peak","_osmCategories":["peaks"],"_osmId":"node/11644114015"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.545217,53.972596]},"properties":{"title":"Redslide Mountain","_osmCategories":["peaks"],"_osmId":"node/11644115599"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.749199,53.75773]},"properties":{"title":"Mount Mortella","_osmCategories":["peaks"],"_osmId":"node/11644121702"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.631778,53.921128]},"properties":{"title":"Ob Peak","_osmCategories":["peaks"],"_osmId":"node/11644124936"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.627085,53.815629]},"properties":{"title":"Passage Peak","_osmCategories":["peaks"],"_osmId":"node/11644134556"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.587837,53.797769]},"properties":{"title":"Mount Bergeland","_osmCategories":["peaks"],"_osmId":"node/11644155662"}}
+]}

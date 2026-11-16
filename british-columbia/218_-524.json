@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.917429,54.520272]},"properties":{"title":"Mount Henry","_osmCategories":["peaks"],"_osmId":"node/11743004644"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.843404,54.536331]},"properties":{"title":"Mount Bonwick","_osmCategories":["peaks"],"_osmId":"node/11743065795"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.774433,54.612434]},"properties":{"title":"Slab Hill","_osmCategories":["peaks"],"_osmId":"node/11743107833"}}
+]}

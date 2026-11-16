@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.876736,59.136154]},"properties":{"title":"Unmarked Boundary Point 159","_osmCategories":["peaks"],"_osmId":"node/244247462"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.828728,59.15996]},"properties":{"title":"Unmarked Boundary Point 158","_osmCategories":["peaks"],"_osmId":"node/244247464"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.962985,59.101761]},"properties":{"title":"Mount Barnard","_osmCategories":["peaks"],"_osmId":"node/4190032000"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.875952,59.134167]},"properties":{"title":"Boundary Peak 159","_osmCategories":["peaks"],"_osmId":"node/11657090263"}}
+]}

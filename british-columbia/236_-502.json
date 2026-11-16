@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.327288,59.083393]},"properties":{"title":"Ewe Mountain","_osmCategories":["peaks"],"_osmId":"node/1761550440"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.440281,59.061825]},"properties":{"title":"Mount McLearn","_osmCategories":["peaks"],"_osmId":"node/1761550442"}}
+]}

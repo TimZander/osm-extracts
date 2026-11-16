@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.649219,57.158589]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8511238321"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.620829,57.11667]},"properties":{"title":"McGraw Peak","_osmCategories":["peaks"],"_osmId":"node/8511238322"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.536823,57.209105]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8514612710"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.709858,57.235544]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8514612711"}}
+]}

@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.820944,59.431939]},"properties":{"title":"Birch Mountain","_osmCategories":["peaks"],"_osmId":"node/8663509747"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.986883,59.480436]},"properties":{"title":"Tagish Highland","_osmCategories":["peaks"],"_osmId":"node/11575574797"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.967938,59.444178]},"properties":{"title":"Section Mountain","_osmCategories":["peaks"],"_osmId":"node/11575576002"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.869682,59.378711]},"properties":{"title":"Tagish Highland","_osmCategories":["peaks"],"_osmId":"node/11575576143"}}
+]}

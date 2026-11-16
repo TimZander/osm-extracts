@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.86879,57.755966]},"properties":{"title":"Mount McCook","_osmCategories":["peaks"],"_osmId":"node/10838480710"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.768589,57.887188]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10838502890"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.993989,57.842402]},"properties":{"title":"Mount Josefina","_osmCategories":["peaks"],"_osmId":"node/10838595081"}}
+]}

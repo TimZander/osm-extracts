@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.401418,57.564009]},"properties":{"title":"Mount Lavoie","_osmCategories":["peaks"],"_osmId":"node/10833140674"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.311125,57.570243]},"properties":{"title":"Mount Yuen","_osmCategories":["peaks"],"_osmId":"node/10833172410"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.329609,57.696001]},"properties":{"title":"Mount Luke","_osmCategories":["peaks"],"_osmId":"node/10833255488"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.40922,57.656523]},"properties":{"title":"Mount Alcock","_osmCategories":["peaks"],"_osmId":"node/10833259259"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.296382,57.706293]},"properties":{"title":"Mount Holben","_osmCategories":["peaks"],"_osmId":"node/10833284806"}}
+]}

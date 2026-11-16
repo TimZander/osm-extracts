@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.803078,55.138728]},"properties":{"title":"Mount Francis","_osmCategories":["peaks"],"_osmId":"node/11709614786"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.940908,55.032017]},"properties":{"title":"Mount Tomlinson","_osmCategories":["peaks"],"_osmId":"node/11709625538"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.844199,55.029586]},"properties":{"title":"Mount Woods","_osmCategories":["peaks"],"_osmId":"node/11709633344"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.988306,55.215858]},"properties":{"title":"Mount Dent","_osmCategories":["peaks"],"_osmId":"node/11709635947"}}
+]}
