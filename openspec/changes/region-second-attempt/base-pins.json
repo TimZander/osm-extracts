@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "pins": {
+    "osm-extract": {
+      "A failed region is built once more on a fresh runner": null,
+      "A region job hands its tree to the deploy job and writes nothing": "5bcc9f69c95e489c1b97b049f72cb1658d616e02effdce8e218289d78117ae77",
+      "A failed region keeps its previous files": "0b653c9af95039019238e303a4701438b9b5ede1d8acecdf426b9ea68ede2289",
+      "Every job has a time limit": "d58803b59f323f4c68c5f2d0596e06c6e6026e9581fe11e951ebb93207a78e1d",
+      "Only the deploy job can write the repository": "0b5eb312fc9f3f82146ff64f0beca5cf791e65b97c73f6a60d5ad912f2fcc1bf"
+    }
+  }
+}
