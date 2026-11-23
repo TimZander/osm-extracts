@@ -14,7 +14,7 @@ name: extract
 
 on:
   schedule:
-    - cron: "23 5 * * 1" # Mondays, 05:23 UTC
+    - cron: "23 14 * * 1" # Mondays, 14:23 UTC (ADR 0039)
   workflow_dispatch:
 
 permissions:
