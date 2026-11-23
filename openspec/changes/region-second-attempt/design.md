@@ -25,7 +25,12 @@ job accepts; a third attempt; a download mirror.
    when `!cancelled() && needs.plan.result == 'success' && needs.region.result != 'success'`, so it is
    skipped when every region succeeded. `!= 'success'` rather than `== 'failure'`: a leg stopped by its
    time limit or a lost runner may aggregate as `cancelled`, and `!cancelled()` already stops a run the
-   owner cancelled. `deploy` also needs it; its `if` already uses `!cancelled()`,
+   owner cancelled. GitHub's documentation (checked 2026-11-23, task 1.2) gives `needs.<job>.result`
+   only as one of `success`, `failure`, `cancelled` or `skipped`, and says nothing of how a matrix's
+   legs aggregate or how a timed-out leg reads; `cancelled()` "returns true if the workflow was
+   canceled", not when one job times out. `!= 'success'` is right under every aggregation.
+   The pinned `actions/download-artifact` throws `Artifact '<name>' not found` and fails the step
+   when the named artifact doesn't exist (`src/download-artifact.ts`, task 1.1). `deploy` also needs it; its `if` already uses `!cancelled()`,
    so a skipped `region-again` doesn't stop it.
    Rejected:
    - *Retrying inside the region job* (longer waits, a loop): same runner, same refused address.
