@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.368983,57.091513]},"properties":{"title":"Devils Thumb","_osmCategories":["peaks"],"_osmId":"node/244246084"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.302057,57.172395]},"properties":{"title":"Mount Burkett","_osmCategories":["peaks"],"_osmId":"node/12104662657"}}
+]}

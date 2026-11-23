@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.320816,51.959529]},"properties":{"title":"Mount Elfrida","_osmCategories":["peaks"],"_osmId":"node/10145677040"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.280604,51.785036]},"properties":{"title":"Mount Navey","_osmCategories":["peaks"],"_osmId":"node/10145702928"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.365989,51.96907]},"properties":{"title":"Mount Loretto","_osmCategories":["peaks"],"_osmId":"node/10145708436"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.390407,51.905895]},"properties":{"title":"Mount Daunt","_osmCategories":["peaks"],"_osmId":"node/10145723112"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.290192,51.765558]},"properties":{"title":"Mount Calloway","_osmCategories":["peaks"],"_osmId":"node/10145747934"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.285871,51.785809]},"properties":{"title":"Mount Sawitsky","_osmCategories":["peaks"],"_osmId":"node/10145751554"}}
+]}

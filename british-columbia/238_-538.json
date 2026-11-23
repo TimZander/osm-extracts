@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.35618,59.534295]},"properties":{"title":"Hale Mountain","_osmCategories":["peaks"],"_osmId":"node/1701945367"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.3537,59.728676]},"properties":{"title":"Mount Clive","_osmCategories":["peaks"],"_osmId":"node/1701945380"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.370335,59.685961]},"properties":{"title":"Tagish Highland","_osmCategories":["peaks"],"_osmId":"node/1701945412"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-134.250551,59.507166],[-134.250253,59.506617],[-134.25,59.50646]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/157977491"}}
+]}

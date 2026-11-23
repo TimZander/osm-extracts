@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.229031,52.509771]},"properties":{"title":"Mount Hugh Neave","_osmCategories":["peaks"],"_osmId":"node/6077881074"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.116401,52.701777]},"properties":{"title":"Mount Aves","_osmCategories":["peaks"],"_osmId":"node/7233646210"}}
+]}

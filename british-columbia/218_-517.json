@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.014664,54.677633]},"properties":{"title":"Mount Neilson","_osmCategories":["peaks"],"_osmId":"node/11445675086"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.149803,54.740936]},"properties":{"title":"Mount Hadden","_osmCategories":["peaks"],"_osmId":"node/11445675556"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.152127,54.611386]},"properties":{"title":"Mount William Brown","_osmCategories":["peaks"],"_osmId":"node/11447825839"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.102423,54.519556]},"properties":{"title":"Mount Morris","_osmCategories":["peaks"],"_osmId":"node/11447856006"}}
+]}

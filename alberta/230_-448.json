@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-111.869961,57.686309]},"properties":{"title":"Birch Mountains","_osmCategories":["peaks"],"_osmId":"node/11952828695"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-111.9015,57.591314]},"properties":{"title":"Birch Mountains","_osmCategories":["peaks"],"_osmId":"node/11952844480"}}
+]}

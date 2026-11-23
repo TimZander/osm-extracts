@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.507327,59.934087]},"properties":{"title":"Dawson Peaks","_osmCategories":["peaks"],"_osmId":"node/11583496828"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.576162,59.985217]},"properties":{"title":"Dawson Peaks","_osmCategories":["peaks"],"_osmId":"node/11583521719"}}
+]}

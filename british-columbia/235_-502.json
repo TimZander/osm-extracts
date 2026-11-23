@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.414347,58.850026]},"properties":{"title":"","_osmCategories":["parking"],"_osmId":"node/13204301020"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.403835,58.892467],[-125.403963,58.892584],[-125.404411,58.893067]]},"properties":{"title":"washout/flooded","_osmCategories":["trails"],"_osmId":"way/1449551759"}}
+]}

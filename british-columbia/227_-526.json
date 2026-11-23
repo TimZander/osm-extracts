@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.287865,56.771882]},"properties":{"title":"Hoodoo Mountain","_osmCategories":["peaks"],"_osmId":"node/9430697821"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.46799,56.789804]},"properties":{"title":"Surprise Mountain","_osmCategories":["peaks"],"_osmId":"node/11555454298"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.454216,56.916137]},"properties":{"title":"Pheno Mountain","_osmCategories":["peaks"],"_osmId":"node/11555472776"}}
+]}

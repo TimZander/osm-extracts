@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.323799,58.54282]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8524897707"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.366715,58.537982]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8524897708"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.255808,58.504631]},"properties":{"title":"Tahltan Highland","_osmCategories":["peaks"],"_osmId":"node/11562875292"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.483015,58.5573]},"properties":{"title":"Tahltan Highland","_osmCategories":["peaks"],"_osmId":"node/11562878718"}}
+]}

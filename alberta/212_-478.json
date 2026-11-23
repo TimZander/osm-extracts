@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.2614,53.1769]},"properties":{"title":"Mount Phillips","_osmCategories":["peaks"],"_osmId":"node/2699332827"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-119.285844,53.236715],[-119.28325,53.237438],[-119.281883,53.237915],[-119.273876,53.241071],[-119.271883,53.242425],[-119.271444,53.242943],[-119.271264,53.243212],[-119.270976,53.244519],[-119.271197,53.245095],[-119.272944,53.248465],[-119.274989,53.25]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/159941090"}}
+]}

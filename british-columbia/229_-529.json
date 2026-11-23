@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.008401,57.394173]},"properties":{"title":"Geology Ridge","_osmCategories":["peaks"],"_osmId":"node/11557983386"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.001799,57.362381]},"properties":{"title":"Geology Ridge","_osmCategories":["peaks"],"_osmId":"node/11558000637"}}
+]}

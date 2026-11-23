@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.972404,58.767369]},"properties":{"title":"Gisel Peak","_osmCategories":["peaks"],"_osmId":"node/11566099905"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.914226,58.804209]},"properties":{"title":"Nelles Peak","_osmCategories":["peaks"],"_osmId":"node/11566111591"}}
+]}

@@ -1,0 +1,9 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.463845,58.710966]},"properties":{"title":"Yellow Bluff","_osmCategories":["peaks"],"_osmId":"node/8665640139"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.376212,58.673859]},"properties":{"title":"Mount Jeanne","_osmCategories":["peaks"],"_osmId":"node/8665640140"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.456378,58.630211]},"properties":{"title":"Mount Ericksen","_osmCategories":["peaks"],"_osmId":"node/8665640141"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.452249,58.567762]},"properties":{"title":"Sittakanay Mountain","_osmCategories":["peaks"],"_osmId":"node/11565664764"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.414494,58.643534]},"properties":{"title":"Kwashona Mountain","_osmCategories":["peaks"],"_osmId":"node/11565787796"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.419223,58.745265]},"properties":{"title":"Tuskwa Mountain","_osmCategories":["peaks"],"_osmId":"node/11565805054"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.268948,58.664627]},"properties":{"title":"Niagara Mountain","_osmCategories":["peaks"],"_osmId":"node/11565829595"}}
+]}

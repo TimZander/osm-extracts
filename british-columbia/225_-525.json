@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.087348,56.406005]},"properties":{"title":"Mount Lewis Cass","_osmCategories":["peaks"],"_osmId":"node/244245929"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.173466,56.449524]},"properties":{"title":"Mount Pounder","_osmCategories":["peaks"],"_osmId":"node/244245944"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.08509,56.406006]},"properties":{"title":"Mount Lewis Cass","_osmCategories":["peaks"],"_osmId":"node/11710140215"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.0506,56.46628]},"properties":{"title":"Mount Zara","_osmCategories":["peaks"],"_osmId":"node/11710142205"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.175383,56.450243]},"properties":{"title":"Mount Pounder","_osmCategories":["peaks"],"_osmId":"node/11710145935"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.171942,56.472641]},"properties":{"title":"Mount Alex","_osmCategories":["peaks"],"_osmId":"node/11710153319"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.783813,54.438655]},"properties":{"title":"Coast Mound","_osmCategories":["peaks"],"_osmId":"node/11735638822"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.880448,54.294727],[-130.880353,54.294727],[-130.880269,54.294727],[-130.880216,54.294727]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1459178204"}}
+]}

@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.326628,56.315155]},"properties":{"title":"Mount Frank Mackie","_osmCategories":["peaks"],"_osmId":"node/1959653261"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.289328,56.269268]},"properties":{"title":"Mount Pearson","_osmCategories":["peaks"],"_osmId":"node/1959653269"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.402154,56.437268]},"properties":{"title":"Unuk Finger","_osmCategories":["peaks"],"_osmId":"node/2326687764"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.445446,56.46248]},"properties":{"title":"Mount Madge","_osmCategories":["peaks"],"_osmId":"node/2356531296"}}
+]}

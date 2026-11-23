@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.172311,58.153676]},"properties":{"title":"Unmarked Boundary Point 79","_osmCategories":["peaks"],"_osmId":"node/244246332"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.070095,58.000341]},"properties":{"title":"Mount Hill","_osmCategories":["peaks"],"_osmId":"node/1777468226"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-133.012469,58.033825]},"properties":{"title":"Bates Peak","_osmCategories":["peaks"],"_osmId":"node/11558895032"}}
+]}

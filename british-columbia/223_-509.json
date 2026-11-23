@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.206008,55.954953]},"properties":{"title":"Shelagyote Peak","_osmCategories":["peaks"],"_osmId":"node/11382874960"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.099748,55.854338]},"properties":{"title":"Nilkitkwa Peak","_osmCategories":["peaks"],"_osmId":"node/11382966298"}}
+]}

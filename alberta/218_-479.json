@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.632041,54.564155]},"properties":{"title":"The Nose","_osmCategories":["peaks"],"_osmId":"node/11076106861"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.574077,54.533443]},"properties":{"title":"Nose Mountain","_osmCategories":["peaks"],"_osmId":"node/11076106862"}}
+]}

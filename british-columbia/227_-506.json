@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.271486,56.779983]},"properties":{"title":"Fleet Peak","_osmCategories":["peaks"],"_osmId":"node/10222910815"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.383493,56.940815]},"properties":{"title":"Jensen Peak","_osmCategories":["peaks"],"_osmId":"node/10279381074"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.61049,57.249902]},"properties":{"title":"Mount Trimble (Southeast Summit)","_osmCategories":["peaks"],"_osmId":"node/10847286438"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.724996,57.197252]},"properties":{"title":"Mount Bertha","_osmCategories":["peaks"],"_osmId":"node/10847297729"}}
+]}

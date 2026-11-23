@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-113.363527,52.492232],[-113.363465,52.494364],[-113.363461,52.500065],[-113.363507,52.51392],[-113.363507,52.51411]]},"properties":{"title":"Range Road 242","_osmCategories":["trails"],"_osmId":"way/31930222"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-113.363507,52.51411],[-113.363534,52.521187],[-113.363539,52.521294]]},"properties":{"title":"Range Road 242","_osmCategories":["trails"],"_osmId":"way/31936328"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-113.363539,52.521294],[-113.363533,52.521447],[-113.363586,52.523633],[-113.363618,52.526784],[-113.3636,52.530118],[-113.363557,52.533424],[-113.363671,52.534726],[-113.36357,52.53587]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/116775359"}}
+]}

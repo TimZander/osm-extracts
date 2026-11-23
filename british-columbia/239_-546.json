@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.457206,59.85199]},"properties":{"title":"Mount Reilly","_osmCategories":["peaks"],"_osmId":"node/11715325046"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-136.428363,59.832837]},"properties":{"title":"Mount Kelsall","_osmCategories":["peaks"],"_osmId":"node/11715370381"}}
+]}

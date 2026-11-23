@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.89573,57.119695]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10847381088"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-123.925619,57.081185]},"properties":{"title":"Mount McCusker","_osmCategories":["peaks"],"_osmId":"node/10847420621"}}
+]}

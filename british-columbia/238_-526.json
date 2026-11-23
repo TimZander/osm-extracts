@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.448021,59.723709]},"properties":{"title":"Simpson Peak","_osmCategories":["peaks"],"_osmId":"node/8659745334"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.401343,59.749046]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8659745361"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.261019,59.737915]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8659745551"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.283489,59.738968]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8659745552"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.253994,59.727323]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8659745687"}}
+]}

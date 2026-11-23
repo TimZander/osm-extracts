@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.584994,54.406193]},"properties":{"title":"Kasiks Mountain","_osmCategories":["peaks"],"_osmId":"node/11448341812"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.739474,54.480495]},"properties":{"title":"Khyex Tower","_osmCategories":["peaks"],"_osmId":"node/11448376471"}}
+]}

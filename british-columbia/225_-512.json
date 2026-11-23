@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.88708,56.470598]},"properties":{"title":"Stephen Peak","_osmCategories":["peaks"],"_osmId":"node/8438829513"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.802772,56.297099]},"properties":{"title":"Babiche Hill","_osmCategories":["peaks"],"_osmId":"node/10798423963"}}
+]}

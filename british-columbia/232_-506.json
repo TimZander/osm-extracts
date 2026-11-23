@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.435744,58.244649]},"properties":{"title":"Mount New","_osmCategories":["peaks"],"_osmId":"node/10903854926"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.398578,58.172112]},"properties":{"title":"Bighorn Mountain","_osmCategories":["peaks"],"_osmId":"node/10903931376"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.280034,58.09616]},"properties":{"title":"Mount Mark","_osmCategories":["peaks"],"_osmId":"node/10903949174"}}
+]}

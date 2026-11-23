@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.699625,57.055389]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8394905157"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.635843,57.189096]},"properties":{"title":"Hankin Peak","_osmCategories":["peaks"],"_osmId":"node/11545243615"}}
+]}

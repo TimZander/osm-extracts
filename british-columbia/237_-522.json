@@ -1,0 +1,11 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.37871,59.411363]},"properties":{"title":"Gabrielse Cone","_osmCategories":["peaks"],"_osmId":"node/7578148471"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.482559,59.445642]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344595"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.444236,59.435605]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344596"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.396385,59.447868]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344689"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.402393,59.457072]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344690"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.404368,59.485761]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344691"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.415697,59.499529]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344692"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.436812,59.486632]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344693"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.444536,59.498004]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8638344695"}}
+]}

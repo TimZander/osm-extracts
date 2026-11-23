@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.70812,53.107091]},"properties":{"title":"Mount Blane","_osmCategories":["peaks"],"_osmId":"node/11629186915"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.654404,53.169689]},"properties":{"title":"Mount Gamsby","_osmCategories":["peaks"],"_osmId":"node/11629249375"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.725201,53.218471]},"properties":{"title":"Tsaytis Mountain","_osmCategories":["peaks"],"_osmId":"node/11629255740"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.641382,53.038086]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/14157169264"}}
+]}

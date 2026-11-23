@@ -1,0 +1,9 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.220474,58.842791]},"properties":{"title":"Blizzard Peak","_osmCategories":["peaks"],"_osmId":"node/2516574475"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.130181,58.807513]},"properties":{"title":"Mount Moore","_osmCategories":["peaks"],"_osmId":"node/2516574478"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.139794,58.772199]},"properties":{"title":"The Citadel","_osmCategories":["peaks"],"_osmId":"node/2516574486"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.229744,58.846166]},"properties":{"title":"Typhoon Peak","_osmCategories":["peaks"],"_osmId":"node/2516574496"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.235924,58.850166]},"properties":{"title":"Gale Peak","_osmCategories":["peaks"],"_osmId":"node/2516574503"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.123657,58.816407]},"properties":{"title":"Elephant Promontory","_osmCategories":["peaks"],"_osmId":"node/2516574506"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.122627,58.764456]},"properties":{"title":"Dipyramid","_osmCategories":["peaks"],"_osmId":"node/2516574520"}}
+]}

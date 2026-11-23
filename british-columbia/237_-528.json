@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.919022,59.483015]},"properties":{"title":"Mount Charlie Cole","_osmCategories":["peaks"],"_osmId":"node/8603323784"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.951037,59.395166]},"properties":{"title":"Hyland Hill","_osmCategories":["peaks"],"_osmId":"node/8603324587"}}
+]}

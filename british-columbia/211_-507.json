@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.647885,52.902474]},"properties":{"title":"Stick Pass Mountain","_osmCategories":["peaks"],"_osmId":"node/11625210933"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.711198,52.916814]},"properties":{"title":"Pisgah Mountain","_osmCategories":["peaks"],"_osmId":"node/11625212383"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.586555,52.968615]},"properties":{"title":"Jumble Mountain","_osmCategories":["peaks"],"_osmId":"node/11625232916"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.58914,52.879572]},"properties":{"title":"Sea Lion Peak","_osmCategories":["peaks"],"_osmId":"node/11625249325"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.562231,52.838395]},"properties":{"title":"Mount Berhardt","_osmCategories":["peaks"],"_osmId":"node/11625282383"}}
+]}

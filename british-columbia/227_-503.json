@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.696297,56.939309]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/5255461345"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.675011,56.921746]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/5255461346"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.649605,56.91083]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/5255461347"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.504291,56.883048]},"properties":{"title":"Ravenal Peak (West Summit)","_osmCategories":["peaks"],"_osmId":"node/10813377026"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.621511,56.81531]},"properties":{"title":"Forres Mountain","_osmCategories":["peaks"],"_osmId":"node/10813430341"}}
+]}

@@ -1,0 +1,11 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.184996,53.461411]},"properties":{"title":"Core Mountain","_osmCategories":["peaks"],"_osmId":"node/4368903660"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.214485,53.422219]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/4927951092"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.168168,53.491509]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/4927951094"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.050668,53.390326]},"properties":{"title":"Chikamin Mountain","_osmCategories":["peaks"],"_osmId":"node/4929333281"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.185922,53.359728]},"properties":{"title":"Arete Mountain","_osmCategories":["peaks"],"_osmId":"node/4929333282"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.149016,53.279542]},"properties":{"title":"Mount Musclow","_osmCategories":["peaks"],"_osmId":"node/11632128192"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.196423,53.25144]},"properties":{"title":"Smaby Peak","_osmCategories":["peaks"],"_osmId":"node/11632134761"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.059869,53.294171]},"properties":{"title":"Mount Haven","_osmCategories":["peaks"],"_osmId":"node/11632138388"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.202389,53.294665]},"properties":{"title":"Surel Peak","_osmCategories":["peaks"],"_osmId":"node/11632152712"}}
+]}

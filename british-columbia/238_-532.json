@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.759476,59.560549]},"properties":{"title":"Guardian Mountain","_osmCategories":["peaks"],"_osmId":"node/8680681669"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.989458,59.662272]},"properties":{"title":"Mount Weir","_osmCategories":["peaks"],"_osmId":"node/11580863372"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-132.981152,59.554495]},"properties":{"title":"Tintern Mountain","_osmCategories":["peaks"],"_osmId":"node/11580902547"}}
+]}

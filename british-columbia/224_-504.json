@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.944244,56.209502]},"properties":{"title":"Horn Peak","_osmCategories":["peaks"],"_osmId":"node/10809500968"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.924613,56.171044]},"properties":{"title":"Notch Peak","_osmCategories":["peaks"],"_osmId":"node/10809540401"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.993577,56.147136]},"properties":{"title":"Mount Ferris","_osmCategories":["peaks"],"_osmId":"node/10809576662"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.994628,56.177336]},"properties":{"title":"Echo Peak","_osmCategories":["peaks"],"_osmId":"node/10809586249"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.758458,56.060526],[-125.75921,56.060501],[-125.762193,56.061316],[-125.763824,56.061077],[-125.769403,56.060346],[-125.771248,56.059963],[-125.774124,56.059963],[-125.777643,56.059459],[-125.779101,56.059045],[-125.780694,56.059002]]},"properties":{"title":"Upper Osilinka Mainline","_osmCategories":["trails"],"_osmId":"way/718447239"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.780694,56.059002],[-125.781639,56.058652],[-125.782162,56.058296],[-125.782983,56.057958],[-125.783678,56.057747],[-125.784655,56.0576],[-125.785403,56.057555],[-125.785741,56.057463],[-125.785854,56.057371],[-125.785906,56.05724],[-125.785782,56.057131]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/780457014"}}
+]}

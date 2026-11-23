@@ -1,0 +1,8 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.076543,57.472668]},"properties":{"title":"Mount Bower","_osmCategories":["peaks"],"_osmId":"node/8512955285"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.041508,57.344495]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8512955287"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.230335,57.397532]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8512955288"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.127167,57.380417]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8512955289"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.108971,57.277837]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8512955291"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.221666,57.292727]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8512955292"}}
+]}

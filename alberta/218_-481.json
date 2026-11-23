@@ -1,0 +1,3 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-119.949872,54.631392],[-119.998924,54.649547],[-120.075721,54.670957]]},"properties":{"title":"Chinook Ridge","_osmCategories":["ridges"],"_osmId":"way/1193236605"}}
+]}

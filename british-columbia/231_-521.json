@@ -1,0 +1,9 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.208263,57.839983]},"properties":{"title":"Castle Rock","_osmCategories":["peaks"],"_osmId":"node/7570146414"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.106961,57.795178]},"properties":{"title":"Tuktsayda Mountain","_osmCategories":["peaks"],"_osmId":"node/9333142147"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.175721,57.844633]},"properties":{"title":"Tsazia Mountain","_osmCategories":["peaks"],"_osmId":"node/9333142149"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.071001,57.824217]},"properties":{"title":"Mount Poelzer","_osmCategories":["peaks"],"_osmId":"node/9333142150"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.021416,57.857751],[-130.021155,57.857994]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/904249683"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.019116,57.866129],[-130.01968,57.866357],[-130.020238,57.867142],[-130.020897,57.867458],[-130.021825,57.867749],[-130.023429,57.867858],[-130.024572,57.868152],[-130.025232,57.869433],[-130.025972,57.870098],[-130.026525,57.870317],[-130.028236,57.870468],[-130.029829,57.870971],[-130.030945,57.871093],[-130.033155,57.871861],[-130.034051,57.872434],[-130.03484,57.872722],[-130.035687,57.873093],[-130.036358,57.873507],[-130.037109,57.873655],[-130.037774,57.873695],[-130.039614,57.87345],[-130.041062,57.873028],[-130.042119,57.872525]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/971710601"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.0158,57.867151],[-130.019234,57.867601],[-130.020897,57.867458]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/971710602"}}
+]}

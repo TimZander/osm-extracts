@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.458186,56.974527]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8487390104"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.424765,56.825049]},"properties":{"title":"Mount Hoy","_osmCategories":["peaks"],"_osmId":"node/10312121764"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.342917,56.888818]},"properties":{"title":"Tatlatui Peak","_osmCategories":["peaks"],"_osmId":"node/10314128237"}}
+]}

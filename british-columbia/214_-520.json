@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.808367,53.745461]},"properties":{"title":"Twin Peaks","_osmCategories":["peaks"],"_osmId":"node/11680321388"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.906651,53.709218]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/14129950498"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.923861,53.707923]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/14129950499"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.86305,53.659212]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/14129950500"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.837601,53.661959]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/14129973601"}}
+]}

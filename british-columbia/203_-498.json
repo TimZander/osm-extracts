@@ -1,0 +1,15 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.27227,50.86204]},"properties":{"title":"Mount Gilbert","_osmCategories":["peaks"],"_osmId":"node/1778688355"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.269374,50.842637]},"properties":{"title":"Falcon Mountain","_osmCategories":["peaks"],"_osmId":"node/4242727385"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.254903,50.884153]},"properties":{"title":"Mount Brockenspectre","_osmCategories":["peaks"],"_osmId":"node/9739780057"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.271574,50.88905]},"properties":{"title":"Cleaver Peak","_osmCategories":["peaks"],"_osmId":"node/9739780058"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.252745,50.901067]},"properties":{"title":"Mount Ecclesiastes","_osmCategories":["peaks"],"_osmId":"node/9739780061"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.267794,50.904756]},"properties":{"title":"Windy Gap","_osmCategories":["peaks"],"_osmId":"node/9739780062"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.27399,50.909909]},"properties":{"title":"Mount Raleigh","_osmCategories":["peaks"],"_osmId":"node/9739780063"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.279576,50.910924]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/9739780064"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.315633,50.900467]},"properties":{"title":"Prophet Peak","_osmCategories":["peaks"],"_osmId":"node/9739780065"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.314162,50.92642]},"properties":{"title":"Mount Sisyphus","_osmCategories":["peaks"],"_osmId":"node/9739780066"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.303822,50.92967]},"properties":{"title":"Charon Peak","_osmCategories":["peaks"],"_osmId":"node/9739780067"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.3585,50.80104]},"properties":{"title":"Tavistock Mountain","_osmCategories":["peaks"],"_osmId":"node/10090851226"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.345492,50.78887]},"properties":{"title":"Mount Filer","_osmCategories":["peaks"],"_osmId":"node/10090886754"}}
+]}

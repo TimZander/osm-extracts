@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.258073,58.861036]},"properties":{"title":"Mount Ogilvie","_osmCategories":["peaks"],"_osmId":"node/244247110"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.336463,58.923414]},"properties":{"title":"Mount Bressler","_osmCategories":["peaks"],"_osmId":"node/244247133"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.313489,58.962182]},"properties":{"title":"Mount Nesselrode","_osmCategories":["peaks"],"_osmId":"node/244247156"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.406948,58.979345]},"properties":{"title":"Boundary Peak 99","_osmCategories":["peaks"],"_osmId":"node/11657089347"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.30738,58.901418]},"properties":{"title":"Boundary Peak 96","_osmCategories":["peaks"],"_osmId":"node/11657090328"}}
+]}

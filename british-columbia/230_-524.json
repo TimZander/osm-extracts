@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.757688,57.582479]},"properties":{"title":"Camp Hill","_osmCategories":["peaks"],"_osmId":"node/7570111620"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-130.858262,57.72255],[-130.857924,57.722316],[-130.857223,57.721671],[-130.857148,57.721435],[-130.857088,57.721074],[-130.856709,57.719841],[-130.856406,57.719377],[-130.856226,57.719035],[-130.856139,57.718691],[-130.855914,57.717703]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/692383828"}}
+]}

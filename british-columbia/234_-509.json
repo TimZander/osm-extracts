@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.242988,58.65733]},"properties":{"title":"Mount Winston","_osmCategories":["peaks"],"_osmId":"node/10908844113"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.071616,58.74925]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10908858008"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.003343,58.704917]},"properties":{"title":"Montagnes Rocheuses","_osmCategories":["peaks"],"_osmId":"node/10908872232"}}
+]}

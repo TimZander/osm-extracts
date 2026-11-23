@@ -1,0 +1,16 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.401991,54.130094]},"properties":{"title":"Etim Mountain","_osmCategories":["peaks"],"_osmId":"node/1675356681"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.386547,54.236509]},"properties":{"title":"Manitou Mountain","_osmCategories":["peaks"],"_osmId":"node/1675356685"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.369306,54.162591]},"properties":{"title":"Mount Carr-Hilton","_osmCategories":["peaks"],"_osmId":"node/1675356687"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.459576,54.131068]},"properties":{"title":"Ochakwin Mountain","_osmCategories":["peaks"],"_osmId":"node/1675356690"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.486877,54.216364]},"properties":{"title":"Watin Mountain","_osmCategories":["peaks"],"_osmId":"node/1675356692"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.39426,54.066663]},"properties":{"title":"Awasis Mountain","_osmCategories":["peaks"],"_osmId":"node/1676406403"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.357627,54.026223]},"properties":{"title":"Edgegrain Mountain","_osmCategories":["peaks"],"_osmId":"node/1676406416"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.375533,54.067085]},"properties":{"title":"Koona Mountain","_osmCategories":["peaks"],"_osmId":"node/1676406423"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.253974,54.122537]},"properties":{"title":"Moonias Mountain","_osmCategories":["peaks"],"_osmId":"node/1676406424"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.326926,54.057983]},"properties":{"title":"Mount Ida","_osmCategories":["peaks"],"_osmId":"node/1676406436"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.263121,54.001415]},"properties":{"title":"Mount St. George","_osmCategories":["peaks"],"_osmId":"node/1676406448"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.283933,54.005067]},"properties":{"title":"Mount St. Patrick","_osmCategories":["peaks"],"_osmId":"node/1676406449"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.335731,54.106121]},"properties":{"title":"Netim Mountain","_osmCategories":["peaks"],"_osmId":"node/1676406458"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-120.428544,54.068085]},"properties":{"title":"Walrus Mountain","_osmCategories":["peaks"],"_osmId":"node/1676406464"}}
+]}

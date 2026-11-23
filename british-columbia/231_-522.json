@@ -1,0 +1,11 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.474125,57.925974]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/1784300399"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.492945,57.798218]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8429385881"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.415182,57.793484]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8429385882"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.480714,57.868566]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8429775768"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.393596,57.896698]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8429775813"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.453162,57.898979]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8429775814"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.430932,57.892684]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8429775857"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.468505,57.922848]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8429775879"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-130.307818,57.818725]},"properties":{"title":"Coolridge Mountain","_osmCategories":["peaks"],"_osmId":"node/9333142148"}}
+]}

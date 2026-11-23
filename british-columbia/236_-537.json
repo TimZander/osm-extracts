@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.246134,59.177881]},"properties":{"title":"Mount Caplice","_osmCategories":["peaks"],"_osmId":"node/11574902711"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-134.066441,59.210609]},"properties":{"title":"Mount Mussen","_osmCategories":["peaks"],"_osmId":"node/11574962410"}}
+]}

@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.767328,52.794106]},"properties":{"title":"Nooskulla Peak","_osmCategories":["peaks"],"_osmId":"node/11625121430"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.937659,52.863921]},"properties":{"title":"Kimsquit Peak","_osmCategories":["peaks"],"_osmId":"node/11625128289"}}
+]}

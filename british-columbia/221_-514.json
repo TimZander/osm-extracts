@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-128.466756,55.368234]},"properties":{"title":"Kiteen Ridge","_osmCategories":["peaks"],"_osmId":"node/1715731958"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-128.434017,55.437624]},"properties":{"title":"Kiteen Ridge","_osmCategories":["peaks"],"_osmId":"node/1715731959"}}
+]}

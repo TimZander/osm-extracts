@@ -1,0 +1,10 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.482172,53.462398]},"properties":{"title":"Eyre Peak","_osmCategories":["peaks"],"_osmId":"node/4927951082"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.374635,53.434248]},"properties":{"title":"Douce Peak","_osmCategories":["peaks"],"_osmId":"node/4927951089"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.356679,53.374131]},"properties":{"title":"Mount Irma","_osmCategories":["peaks"],"_osmId":"node/4927951090"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.290585,53.436718]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/4927951091"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.265687,53.308026]},"properties":{"title":"Ptarmigan Peak","_osmCategories":["peaks"],"_osmId":"node/11631999353"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.252887,53.296611]},"properties":{"title":"Mount Stranack","_osmCategories":["peaks"],"_osmId":"node/11632010845"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.295641,53.369346]},"properties":{"title":"Lindquist Peak","_osmCategories":["peaks"],"_osmId":"node/11632016803"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-127.400151,53.426518]},"properties":{"title":"Sias Mountain","_osmCategories":["peaks"],"_osmId":"node/11632073091"}}
+]}

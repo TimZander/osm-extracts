@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.919167,55.375209]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8784621680"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.989349,55.467609]},"properties":{"title":"Mount Tournay","_osmCategories":["peaks"],"_osmId":"node/11707361320"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.929842,55.477266]},"properties":{"title":"Mount Clashmore","_osmCategories":["peaks"],"_osmId":"node/11707372735"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-129.953328,55.36914]},"properties":{"title":"Mount Newport","_osmCategories":["peaks"],"_osmId":"node/11707437002"}}
+]}

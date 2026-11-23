@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.815603,52.227831]},"properties":{"title":"Younghusband Peak","_osmCategories":["peaks"],"_osmId":"node/2698411917"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.798914,52.218877]},"properties":{"title":"Walcott Peak","_osmCategories":["peaks"],"_osmId":"node/12619896071"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.785822,52.216065]},"properties":{"title":"Lawrence Peak","_osmCategories":["peaks"],"_osmId":"node/12619896072"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.752921,52.204677]},"properties":{"title":"Gray Peak","_osmCategories":["peaks"],"_osmId":"node/12619896073"}}
+]}

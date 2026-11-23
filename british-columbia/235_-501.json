@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-125.180341,58.890487]},"properties":{"title":"Toad Mountain","_osmCategories":["peaks"],"_osmId":"node/10299531339"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.00069,58.9375],[-125,58.937944]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/164233142"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-125.001482,58.93699],[-125.00069,58.9375]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/164233144"}}
+]}

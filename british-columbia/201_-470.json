@@ -1,0 +1,9 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.317778,50.450172]},"properties":{"title":"The Ramparts","_osmCategories":["peaks"],"_osmId":"node/10707060054"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.28392,50.41293]},"properties":{"title":"Gallo Peak","_osmCategories":["peaks"],"_osmId":"node/10707060056"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.347063,50.442466]},"properties":{"title":"Mount Bentley","_osmCategories":["peaks"],"_osmId":"node/10707060059"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.304672,50.373712]},"properties":{"title":"Spyglass Mountain","_osmCategories":["peaks"],"_osmId":"node/10707060060"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.335392,50.400895]},"properties":{"title":"Tenderfoot Mountain","_osmCategories":["peaks"],"_osmId":"node/10707060061"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.298948,50.413403]},"properties":{"title":"Clark Peak","_osmCategories":["peaks"],"_osmId":"node/10707060062"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-117.427598,50.483883]},"properties":{"title":"Mount Wilkie","_osmCategories":["peaks"],"_osmId":"node/10707060063"}}
+]}

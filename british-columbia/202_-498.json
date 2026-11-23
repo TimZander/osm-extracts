@@ -1,0 +1,9 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.288147,50.674737]},"properties":{"title":"Portal Peak","_osmCategories":["peaks"],"_osmId":"node/9739780051"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.408798,50.714079]},"properties":{"title":"Tahumming Mountain","_osmCategories":["peaks"],"_osmId":"node/9739780052"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.470448,50.702579]},"properties":{"title":"Mamook Peak","_osmCategories":["peaks"],"_osmId":"node/9739780053"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.474863,50.726674]},"properties":{"title":"Nanitch Peak","_osmCategories":["peaks"],"_osmId":"node/9739780054"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.470618,50.741881]},"properties":{"title":"Kulakula Peak","_osmCategories":["peaks"],"_osmId":"node/9739780055"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-124.326959,50.616364]},"properties":{"title":"Interesting Mountain","_osmCategories":["peaks"],"_osmId":"node/11135523097"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-124.366276,50.499161],[-124.364512,50.500689],[-124.362918,50.501974],[-124.361947,50.502659],[-124.361881,50.502995]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1102274685"}}
+]}

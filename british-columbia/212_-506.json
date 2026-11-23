@@ -1,0 +1,7 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.454524,53.109489]},"properties":{"title":"Nadedikus Mountain","_osmCategories":["peaks"],"_osmId":"node/11628218727"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.497812,53.103787]},"properties":{"title":"Holmes Ridge","_osmCategories":["peaks"],"_osmId":"node/11628222882"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.320625,53.166714]},"properties":{"title":"Ice Hill","_osmCategories":["peaks"],"_osmId":"node/11628225574"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.320418,53.023679]},"properties":{"title":"Watut Mountain","_osmCategories":["peaks"],"_osmId":"node/11628260860"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-126.341664,53.084175]},"properties":{"title":"Holmes Ridge","_osmCategories":["peaks"],"_osmId":"node/11628274070"}}
+]}

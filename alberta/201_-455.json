@@ -1,0 +1,5 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-113.679501,50.267795]},"properties":{"title":"","_osmCategories":["parking"],"_osmId":"node/3594306013"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-113.682349,50.398783],[-113.68237,50.397563],[-113.682319,50.397488],[-113.681992,50.397467],[-113.681694,50.397467],[-113.681589,50.397456],[-113.681571,50.397416],[-113.681568,50.397246]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1466352122"}},
+{"type":"Feature","geometry":{"type":"LineString","coordinates":[[-113.613648,50.397263],[-113.613616,50.39457]]},"properties":{"title":"","_osmCategories":["trails"],"_osmId":"way/1466352129"}}
+]}

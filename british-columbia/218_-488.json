@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-121.79845,54.517582]},"properties":{"title":"Mount Sheba","_osmCategories":["peaks"],"_osmId":"node/1278495122"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-121.942289,54.649293]},"properties":{"title":"Tsahunga Mountain","_osmCategories":["peaks"],"_osmId":"node/1278528401"}}
+]}

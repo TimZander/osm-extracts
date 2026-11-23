@@ -1,0 +1,4 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.384577,56.99379]},"properties":{"title":"Halverson Ridge","_osmCategories":["peaks"],"_osmId":"node/11834108008"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-119.497718,56.97015]},"properties":{"title":"Halverson Ridge","_osmCategories":["peaks"],"_osmId":"node/11834144631"}}
+]}

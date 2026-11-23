@@ -1,0 +1,6 @@
+{"type":"FeatureCollection","features":[
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.994467,57.998615]},"properties":{"title":"","_osmCategories":["peaks"],"_osmId":"node/8518309104"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.840309,57.761385]},"properties":{"title":"Mount Barrington","_osmCategories":["peaks"],"_osmId":"node/11520879767"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.952702,57.783034]},"properties":{"title":"Mount Kitchener","_osmCategories":["peaks"],"_osmId":"node/11520917665"}},
+{"type":"Feature","geometry":{"type":"Point","coordinates":[-131.754949,57.842355]},"properties":{"title":"Mount Rowgeen","_osmCategories":["peaks"],"_osmId":"node/11520920926"}}
+]}
