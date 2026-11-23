@@ -3,7 +3,7 @@
 ### Requirement: A failed region is built once more on a fresh runner
 
 When any region job doesn't succeed, a second-attempt job SHALL run for every listed region once all
-region jobs end, unless the run was cancelled. Where it finds the region's artifact it SHALL build
+region jobs end, unless the run was cancelled or the regions list failed. Where it finds the region's artifact it SHALL build
 nothing; otherwise it SHALL build the region on its own runner as the region job does, ending with the
 same artifact. A second-attempt job that builds SHALL meet every rule for a region's job. When every region job succeeds, no second-attempt job SHALL run.
 
@@ -21,6 +21,11 @@ same artifact. A second-attempt job that builds SHALL meet every rule for a regi
 
 - **WHEN** `colorado`'s region job and its second-attempt job both fail
 - **THEN** there is no `region-colorado` artifact, and the deploy job keeps `colorado`'s previous files
+
+#### Scenario: The same build
+
+- **WHEN** the workflow file is read
+- **THEN** the second-attempt job's steps after its artifact check, their conditions set aside, equal the region job's steps
 
 #### Scenario: A region job stopped by its time limit
 
@@ -59,8 +64,8 @@ ends, unless the run was cancelled or the regions list failed.
 
 ### Requirement: A failed region keeps its previous files
 
-When a region fails both attempts, the other region jobs SHALL run to the end, the deploy job SHALL still
-publish the regions that succeeded, and it SHALL keep the failed region's previous manifest entry and
+When a region job or second-attempt job fails, the others SHALL run to the end; when a region fails
+both attempts, the deploy job SHALL still publish the regions that succeeded, and it SHALL keep the failed region's previous manifest entry and
 every file it lists from the previous `data` tree, the entry's `coverage` (or lack of one) included.
 A failed region that was never published, and a region no longer in the regions list, SHALL be left
 out of the manifest.
