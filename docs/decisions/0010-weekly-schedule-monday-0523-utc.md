@@ -1,5 +1,5 @@
 ---
-status: accepted
+status: superseded by 0039
 date: 2026-11-07
 decision-makers: the owner (answer to weekly-extract design open question 5)
 ---

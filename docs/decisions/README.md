@@ -15,7 +15,7 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0007](0007-workflow-security-model.md) | The workflow runs only on a schedule or by hand; only its deploy job writes | accepted |
 | [0008](0008-split-threshold-4-mib-until-measured.md) | The split threshold is 4 MiB until the first run measures the cells | superseded by 0017 |
 | [0009](0009-colorado-bounds-unclipped.md) | Colorado's bounds are the state's bounding box; not clipped | superseded by 0016 |
-| [0010](0010-weekly-schedule-monday-0523-utc.md) | Rebuilt every Monday at 05:23 UTC | accepted |
+| [0010](0010-weekly-schedule-monday-0523-utc.md) | Rebuilt every Monday at 05:23 UTC | superseded by 0039 |
 | [0011](0011-guards-20-mib-19000-files-one-day-artifacts.md) | Guards at 20 MiB per file and 19,000 files; artifacts kept one day | accepted |
 | [0012](0012-region-order-after-colorado-is-the-owners-call.md) | The region order after Colorado stays the owner's call | accepted |
 | [0013](0013-irregular-state-coverage-waits.md) | Coverage of non-rectangular states waits for garmin-map | superseded by 0020 |
@@ -44,3 +44,4 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0036](0036-alberta-sixth-in-the-regions-list.md) | Alberta goes sixth in the regions list, after British Columbia | accepted |
 | [0037](0037-network-download-failures-are-retried-twice.md) | A download that fails at the network level is retried twice, after 30 s and 2 min | accepted |
 | [0038](0038-alberta-first-run-waits-for-download-retries.md) | Alberta's first run waits for download retries, an exception to ADR 0027 | accepted |
+| [0039](0039-weekly-schedule-monday-1423-utc.md) | Rebuilt every Monday at 14:23 UTC, superseding ADR 0010 | accepted |
