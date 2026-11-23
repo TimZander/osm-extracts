@@ -3,7 +3,7 @@
 ## 1. Check the assumption
 
 - [ ] 1.1 Read the pinned `actions/download-artifact` source and confirm a missing `name` fails the step; if it doesn't, check the downloaded path instead and update design decision 2.
-- [ ] 1.2 Check GitHub's documentation for how `needs.<job>.result` aggregates a matrix with failed and timed-out legs; note it in design decision 1.
+- [ ] 1.2 Check GitHub's documentation for how `needs.<job>.result` aggregates a matrix with failed and timed-out legs, and that `cancelled()` stays false after a leg times out in a run nobody cancelled; note both in design decision 1.
 
 ## 2. Tests first (seen to fail)
 
@@ -20,5 +20,5 @@
 - [ ] 4.1 `npm test`, `bash scripts/sdd/check-specs.sh`.
 - [ ] 4.2 `/sdd:conformance-review region-second-attempt`.
 - [ ] 4.3 `/security-review` on the diff, and an attack test: the new job holds no write permission and no token, and runs on nothing but the extract's own triggers.
-- [ ] 4.4 ADRs: the second attempt; the refusals follow the runner, not the hour (ADR 0039's reasoning). Index both.
+- [ ] 4.4 ADRs: the second attempt; the refusals follow the runner, not the hour (ADR 0039's reasoning). Index both, and point ADR 0039's index row at the second.
 - [ ] 4.5 After merge, the next run that has a refused region shows it rebuilt by `region-again`; record it in `docs/measurements.md` — not done in the change's PR: it needs a run after merge.

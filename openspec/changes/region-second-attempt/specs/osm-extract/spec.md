@@ -5,7 +5,7 @@
 When any region job doesn't succeed, a second-attempt job SHALL run for every listed region once all
 region jobs end, unless the run was cancelled. Where it finds the region's artifact it SHALL build
 nothing; otherwise it SHALL build the region on its own runner as the region job does, ending with the
-same artifact. Both are a region's job. When every region job succeeds, no second-attempt job SHALL run.
+same artifact. A second-attempt job that builds SHALL meet every rule for a region's job. When every region job succeeds, no second-attempt job SHALL run.
 
 #### Scenario: One region refused on its first runner
 
@@ -31,7 +31,7 @@ same artifact. Both are a region's job. When every region job succeeds, no secon
 
 ### Requirement: A region job hands its tree to the deploy job and writes nothing
 
-Each region's job SHALL build its tree and manifest entry and, as its last step, hand them to the
+Each region job, and each second-attempt job that builds, SHALL build its tree and manifest entry and, as its last step, hand them to the
 deploy job as an Actions artifact named for the region, kept for one day; a region counts as
 succeeded exactly when its artifact exists, from either attempt. No region job or second-attempt job
 SHALL write the repository. The deploy job SHALL run after every region job and second-attempt job
@@ -232,7 +232,7 @@ without cancelling a run in progress, so two runs never publish at once.
 
 ### Requirement: Each region job reports its size
 
-Each region's job, and each second-attempt job that builds, SHALL report, in its log and job summary, its matching node and way counts, total
+Each region job, and each second-attempt job that builds, SHALL report, in its log and job summary, its matching node and way counts, total
 bytes written, its largest 0.25° cell before splitting (id and bytes), its cell, split-cell, file and
 coverage-cell counts.
 

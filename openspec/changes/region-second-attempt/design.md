@@ -73,6 +73,7 @@ Merge; the next scheduled or hand-started run uses it. Rollback is reverting the
 ## Open Questions
 
 - How does `needs.region.result` read when one leg fails and another is stopped by its time limit?
-  Decision 1's `!= 'success'` holds either way; task 1.2 checks GitHub's documentation.
+  Decision 1's `!= 'success'` holds either way; task 1.2 checks GitHub's documentation, and that
+  `cancelled()` stays false when a leg times out.
 - Does `actions/download-artifact` at the pinned SHA fail (not succeed with nothing) when the named
   artifact doesn't exist? Assumed yes; task 1.1 checks its source before the job relies on it.
