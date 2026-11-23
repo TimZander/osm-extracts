@@ -18,7 +18,7 @@
 ## 4. Review and records
 
 - [x] 4.1 `npm test`, `bash scripts/sdd/check-specs.sh`.
-- [ ] 4.2 `/sdd:conformance-review region-second-attempt`.
+- [x] 4.2 `/sdd:conformance-review region-second-attempt`.
 - [ ] 4.3 `/security-review` on the diff, and an attack test: the new job holds no write permission and no token, and runs on nothing but the extract's own triggers.
-- [ ] 4.4 ADRs: the second attempt; the refusals follow the runner, not the hour (ADR 0039's reasoning). Index both, and point ADR 0039's index row at the second.
+- [x] 4.4 ADRs: the second attempt; the refusals follow the runner, not the hour (ADR 0039's reasoning). Index both, and point ADR 0039's index row at the second.
 - [ ] 4.5 After merge, the next run that has a refused region shows it rebuilt by `region-again`; record it in `docs/measurements.md` — not done in the change's PR: it needs a run after merge.
