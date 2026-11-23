@@ -6,7 +6,15 @@
       "A region job hands its tree to the deploy job and writes nothing": "5bcc9f69c95e489c1b97b049f72cb1658d616e02effdce8e218289d78117ae77",
       "A failed region keeps its previous files": "0b653c9af95039019238e303a4701438b9b5ede1d8acecdf426b9ea68ede2289",
       "Every job has a time limit": "d58803b59f323f4c68c5f2d0596e06c6e6026e9581fe11e951ebb93207a78e1d",
-      "Only the deploy job can write the repository": "0b5eb312fc9f3f82146ff64f0beca5cf791e65b97c73f6a60d5ad912f2fcc1bf"
+      "Only the deploy job can write the repository": "0b5eb312fc9f3f82146ff64f0beca5cf791e65b97c73f6a60d5ad912f2fcc1bf",
+      "The data date is the source's replication time": "8a1cf98eb86ad64b8160652441bc0f3644864541b917855e30d18a818422926a",
+      "A region's bounds lie inside its Geofabrik polygon": "39538b6de113dd216989d1d45af1b1158b4bff209d33a4d2acd4aed4af0302a7",
+      "A failed or corrupt download publishes nothing new for the region": "5544b35de45ea89b7965621fd99a97f41fa634faeb5a08863be058bc92ea90d2",
+      "No published file is over 20 MiB": "a996e9c742e132380de25404e880326cdb3dd16c6aa2c0478cb72ec9d6f7fb8c",
+      "Publishing replaces the site with one orphan commit": "dbf6b176f56cf1a3439ed5ff46070522054f439c26d896f5fbc50a40d00a3f80",
+      "Each region job reports its size": "710c208788292eca3bbd3a55df7e5f645325e2bd9bcbebd51a11340d3e035dbd",
+      "The region builder has a 12 GiB heap": "a224dd199670ded87bd25dcfafe136739f2fc5abb751e267fb51cdf660955824",
+      "A download is retried after a network failure": "92ca1417e72d56be676f182d838c99b7f98ccd77fcdd8c734f2669f534e4a530"
     }
   }
 }

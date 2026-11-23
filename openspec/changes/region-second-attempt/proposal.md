@@ -30,7 +30,10 @@ only fail later.
 
 - `osm-extract`: adds the second attempt; "A region job hands its tree to the deploy job and writes
   nothing", "A failed region keeps its previous files", "Every job has a time limit" and "Only the
-  deploy job can write the repository" now cover the second-attempt job.
+  deploy job can write the repository" now cover the second-attempt job; the rules where a failing
+  region's job left "nothing of that region" changed (data date, bounds, failed download, 20 MiB,
+  download retries) now say the failing job hands over no artifact, so a second attempt can still
+  succeed; "Publishing replaces the site…", the size report and the 12 GiB heap name both attempts.
 
 ## Impact
 

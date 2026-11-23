@@ -22,8 +22,10 @@ job accepts; a third attempt; a download mirror.
 ## Decisions
 
 1. **A separate job, `region-again`, after `region`.** It needs `plan` and `region`, and runs only
-   when `!cancelled() && needs.plan.result == 'success' && needs.region.result == 'failure'`, so it is
-   skipped when every region succeeded. `deploy` also needs it; its `if` already uses `!cancelled()`,
+   when `!cancelled() && needs.plan.result == 'success' && needs.region.result != 'success'`, so it is
+   skipped when every region succeeded. `!= 'success'` rather than `== 'failure'`: a leg stopped by its
+   time limit or a lost runner may aggregate as `cancelled`, and `!cancelled()` already stops a run the
+   owner cancelled. `deploy` also needs it; its `if` already uses `!cancelled()`,
    so a skipped `region-again` doesn't stop it.
    Rejected:
    - *Retrying inside the region job* (longer waits, a loop): same runner, same refused address.
@@ -31,19 +33,21 @@ job accepts; a third attempt; a download mirror.
    - *A mirror*: a second outside source to trust, and none known to serve the same per-state files.
 2. **Which regions to rebuild: the ones with no artifact.** A job can't read which matrix legs failed
    (`needs.region.result` is one value for the whole matrix, and matrix legs' outputs overwrite each
-   other). So `region-again` has the same matrix, and its first step tries
-   `actions/download-artifact` for `region-<id>` with `continue-on-error: true`; every later step runs
-   only when that step failed. The download uses the runner's own artifact token, so the job keeps
+   other). So `region-again` has the same matrix, and its first step (`id: found`) tries
+   `actions/download-artifact` for `region-<id>` with `continue-on-error: true`; every later step has
+   `if: steps.found.outcome == 'failure'` (the `outcome`, since `continue-on-error` makes the
+   `conclusion` `success`). The download uses the runner's own artifact token, so the job keeps
    `contents: read` alone.
    Rejected: listing the run's artifacts through the REST API, which needs `actions: read` and a
    token passed to a step.
 3. **The build steps are the region job's, copied.** Checkout without credentials, install osmium,
    build with the 12 GiB heap, upload `region-<id>` as the last step. A test asserts they equal the
-   region job's steps, so the two can't drift. (YAML anchors would also work, but the tests and
+   region job's steps once their `if:` is set aside, so the two can't drift. (YAML anchors would also work, but the tests and
    reviewers read plain steps more easily.)
 4. **Every failure gets a second attempt, not only refused downloads.** The job can't tell why a leg
    failed without new outputs. A real build error (a bounds failure, a too-large file) just fails
-   twice; the cost is bounded by the 120-minute limit.
+   twice; the cost is bounded by the 120-minute limit. Assumption: the owner's "Yes" (2026-11-23)
+   covered this and decision 5; the ADR records them as assumptions the owner can overturn.
 5. **No wait before the second attempt.** The first attempt has already spent about 2.5 minutes in
    retries, and a new runner is the point; a wait adds time without adding a new address.
 6. **ADRs**: one for the second attempt (decisions 1–5), and one recording that the refusals follow
@@ -68,5 +72,7 @@ Merge; the next scheduled or hand-started run uses it. Rollback is reverting the
 
 ## Open Questions
 
+- How does `needs.region.result` read when one leg fails and another is stopped by its time limit?
+  Decision 1's `!= 'success'` holds either way; task 1.2 checks GitHub's documentation.
 - Does `actions/download-artifact` at the pinned SHA fail (not succeed with nothing) when the named
   artifact doesn't exist? Assumed yes; task 1.1 checks its source before the job relies on it.

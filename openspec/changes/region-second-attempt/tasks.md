@@ -3,11 +3,12 @@
 ## 1. Check the assumption
 
 - [ ] 1.1 Read the pinned `actions/download-artifact` source and confirm a missing `name` fails the step; if it doesn't, check the downloaded path instead and update design decision 2.
+- [ ] 1.2 Check GitHub's documentation for how `needs.<job>.result` aggregates a matrix with failed and timed-out legs; note it in design decision 1.
 
 ## 2. Tests first (seen to fail)
 
-- [ ] 2.1 `test/workflow.test.mjs`: jobs are `plan`, `region`, `region-again`, `deploy`; `region-again` needs `plan` and `region`, has the `if` of design decision 1, the region matrix with `fail-fast: false`, `timeout-minutes: 120` and `contents: read`; `deploy` needs all three.
-- [ ] 2.2 Its first step downloads `region-${{ matrix.region }}` with no token and `continue-on-error: true`; every later step runs only when that step failed, and those steps equal the region job's steps.
+- [ ] 2.1 `test/workflow.test.mjs`: jobs are `plan`, `region`, `region-again`, `deploy`; `region-again` needs `plan` and `region`, has `if: ${{ !cancelled() && needs.plan.result == 'success' && needs.region.result != 'success' }}`, the region matrix with `fail-fast: false`, `timeout-minutes: 120` and `contents: read`; `deploy` needs all three.
+- [ ] 2.2 Its first step downloads `region-${{ matrix.region }}` with no token, `id: found` and `continue-on-error: true`; every later step has `if: steps.found.outcome == 'failure'`, and those steps, `if:` set aside, equal the region job's steps.
 - [ ] 2.3 The existing permission, checkout, pinned-action and no-expression-in-`run` tests cover the new job (extend where they list jobs).
 
 ## 3. Workflow
@@ -20,4 +21,4 @@
 - [ ] 4.2 `/sdd:conformance-review region-second-attempt`.
 - [ ] 4.3 `/security-review` on the diff, and an attack test: the new job holds no write permission and no token, and runs on nothing but the extract's own triggers.
 - [ ] 4.4 ADRs: the second attempt; the refusals follow the runner, not the hour (ADR 0039's reasoning). Index both.
-- [ ] 4.5 After merge, the next run that has a refused region shows it rebuilt by `region-again`; record it in `docs/measurements.md`.
+- [ ] 4.5 After merge, the next run that has a refused region shows it rebuilt by `region-again`; record it in `docs/measurements.md` — not done in the change's PR: it needs a run after merge.
