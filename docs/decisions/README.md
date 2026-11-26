@@ -45,3 +45,4 @@ one. A superseded record stays, with its status set to `superseded by NNNN`.
 | [0037](0037-network-download-failures-are-retried-twice.md) | A download that fails at the network level is retried twice, after 30 s and 2 min | accepted |
 | [0038](0038-alberta-first-run-waits-for-download-retries.md) | Alberta's first run waits for download retries, an exception to ADR 0027 | accepted |
 | [0039](0039-weekly-schedule-monday-1423-utc.md) | Rebuilt every Monday at 14:23 UTC, superseding ADR 0010 | accepted |
+| [0040](0040-update-sdd-to-0-4-4.md) | Update sdd from 0.3.2 to 0.4.4 | accepted |
