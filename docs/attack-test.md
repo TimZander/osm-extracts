@@ -37,3 +37,16 @@ whose `data` held a placeholder. For each crafted site, `publish.sh prepare` ran
 
 **Every input was refused.** In the workflow, the push step runs only on `changed == 'true'`, so it
 doesn't even start in these cases.
+
+## region-second-attempt: the second-attempt job (2026-11-23)
+
+For change `region-second-attempt` (ADR 0041), which adds the `region-again` job. Each attack was
+checked against the workflow file and `test/workflow.test.mjs`, which reads it.
+
+| # | Attack | How | Result |
+|---|---|---|---|
+| 1 | The second-attempt job gets a token that can write | `test/workflow.test.mjs`, "permissions…" and "github.token reaches only the push step" | **Observed (test): refused.** `region-again` has `contents: read` alone, its checkout keeps no credential, its artifact check passes no `github-token`, and `github.token` still appears only in the deploy push step's `env`. |
+| 2 | Something outside the repository starts it, or picks its regions | Reasoned, from the triggers test and `src/plan.mjs` | **Refused.** It has no trigger of its own: it runs only after `region`, in a run started by `schedule` or `workflow_dispatch` (no inputs). Its matrix is the plan job's output, built from `regions.json` (ids `[a-z0-9-]`, no duplicates). The id reaches `run:` only as the quoted `REGION` variable. |
+| 3 | A second artifact for a region, to be published beside or instead of the first | Reasoned from `upload-artifact` (no `overwrite`) and `test/assemble-site.test.mjs` | **Refused.** A leg uploads only when its artifact check found none. If the check fails while the artifact exists, the upload fails on the duplicate name. The deploy job still accepts only one well-formed tree per listed region. |
+| 4 | The artifact the check downloads is run or built from | Reasoned from the steps test | **Refused.** It lands in `$RUNNER_TEMP/found`, which nothing reads, and every later step is skipped when the check succeeds. |
+| 5 | A different action, or one unpinned | `test/workflow.test.mjs`, "only GitHub's own actions, pinned by SHA" | **Observed (test): none.** The new `uses:` are the same three SHA pins already in the file. |

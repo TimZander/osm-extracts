@@ -2,7 +2,8 @@
 // "Nothing a pull request or a fork can cause runs the workflow", "The regions list", "A region job
 // hands its tree to the deploy job and writes nothing", "A failed region keeps its previous files",
 // "Publishing replaces the site with one orphan commit", "Only the deploy job can write the
-// repository", "The workflow uses no secret and only pinned actions".
+// repository", "The workflow uses no secret and only pinned actions", "A failed region is built once more on a
+// fresh runner", "Every job has a time limit".
 import { test } from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
@@ -27,14 +28,14 @@ test('triggers: a weekly schedule and a hand start with no inputs, nothing else'
   assert.ok(wf.on.workflow_dispatch === null || Object.keys(wf.on.workflow_dispatch).length === 0)
 })
 
-test('jobs: plan, one region job per listed region, deploy', () => {
-  assert.deepEqual(Object.keys(jobs), ['plan', 'region', 'deploy'])
+test('jobs: plan, one region job per listed region, a second attempt, deploy', () => {
+  assert.deepEqual(Object.keys(jobs), ['plan', 'region', 'region-again', 'deploy'])
   assert.match(jobs.plan.steps.at(-1).run, /node src\/plan\.mjs >> "\$GITHUB_OUTPUT"/)
   assert.equal(jobs.plan.outputs.regions, `\${{ steps.${jobs.plan.steps.at(-1).id}.outputs.regions }}`)
   assert.equal(jobs.region.needs, 'plan')
   assert.equal(jobs.region.strategy['fail-fast'], false)
   assert.equal(jobs.region.strategy.matrix.region, '${{ fromJSON(needs.plan.outputs.regions) }}')
-  assert.deepEqual(jobs.deploy.needs, ['plan', 'region'])
+  assert.deepEqual(jobs.deploy.needs, ['plan', 'region', 'region-again'])
   assert.equal(jobs.deploy.if, "${{ !cancelled() && needs.plan.result == 'success' }}")
 })
 
@@ -71,6 +72,7 @@ test('permissions: read everywhere, contents: write only on the deploy job', () 
   assert.deepEqual(wf.permissions, { contents: 'read' })
   assert.deepEqual(jobs.plan.permissions, { contents: 'read' })
   assert.deepEqual(jobs.region.permissions, { contents: 'read' })
+  assert.deepEqual(jobs['region-again'].permissions, { contents: 'read' })
   assert.deepEqual(jobs.deploy.permissions, { contents: 'write' })
 })
 
@@ -122,5 +124,28 @@ test('every job runs on a pinned image with its time limit', () => {
   for (const job of Object.keys(jobs)) assert.equal(jobs[job]['runs-on'], 'ubuntu-24.04', job)
   assert.equal(jobs.plan['timeout-minutes'], 5)
   assert.equal(jobs.region['timeout-minutes'], 120)
+  assert.equal(jobs['region-again']['timeout-minutes'], 120)
   assert.equal(jobs.deploy['timeout-minutes'], 30)
+})
+
+// Requirement "A failed region is built once more on a fresh runner".
+test('the second attempt runs only when a region job did not succeed, over the same regions', () => {
+  const again = jobs['region-again']
+  assert.deepEqual(again.needs, ['plan', 'region'])
+  assert.equal(again.if, "${{ !cancelled() && needs.plan.result == 'success' && needs.region.result != 'success' }}")
+  assert.equal(again.strategy['fail-fast'], false)
+  assert.deepEqual(again.strategy.matrix, jobs.region.strategy.matrix)
+})
+
+// Requirement "A failed region is built once more on a fresh runner", scenario "The same build".
+test('the second attempt looks for the region artifact first, then builds exactly as the region job', () => {
+  const [found, ...rest] = steps('region-again')
+  assert.ok(found.uses.startsWith('actions/download-artifact@'))
+  assert.equal(found.id, 'found')
+  assert.equal(found['continue-on-error'], true)
+  assert.equal(found.with.name, 'region-${{ matrix.region }}')
+  assert.ok(!('github-token' in found.with))
+  for (const s of rest) assert.equal(s.if, "steps.found.outcome == 'failure'", s.name ?? s.uses)
+  const strip = ({ if: _, ...s }) => s
+  assert.deepEqual(rest.map(strip), steps('region'))
 })

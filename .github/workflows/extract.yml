@@ -8,8 +8,8 @@
 #   `git push`; no other step is given it.
 # - Only GitHub's own actions, each pinned by commit SHA. No repository secret is used, and no
 #   expression appears inside `run:`.
-# - Region jobs parse third-party data with no write access; the deploy job checks their output
-#   before using it.
+# - Region jobs, and the second attempts that rebuild a failed region on a fresh runner, parse
+#   third-party data with no write access; the deploy job checks their output before using it.
 name: extract
 
 on:
@@ -72,8 +72,55 @@ jobs:
           retention-days: 1
           if-no-files-found: error
 
-  deploy:
+  # A region whose job didn't succeed gets one more build on a fresh runner (ADR 0041): Geofabrik
+  # refuses some runners outright while letting others through. Every leg first looks for its
+  # region's artifact with the runner's own artifact token, and builds only when there is none.
+  region-again:
     needs: [plan, region]
+    if: ${{ !cancelled() && needs.plan.result == 'success' && needs.region.result != 'success' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 120
+    permissions:
+      contents: read
+    strategy:
+      fail-fast: false
+      matrix:
+        region: ${{ fromJSON(needs.plan.outputs.regions) }}
+    steps:
+      # No github-token input. Fails, so the build below runs, when the region has no artifact.
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        id: found
+        continue-on-error: true
+        with:
+          name: region-${{ matrix.region }}
+          path: ${{ runner.temp }}/found
+      # From here on, the region job's steps, unchanged (a test keeps them equal).
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        if: steps.found.outcome == 'failure'
+        with:
+          persist-credentials: false
+      - name: Install osmium-tool
+        if: steps.found.outcome == 'failure'
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y -q --no-install-recommends osmium-tool
+          osmium --version | head -n 1
+          node --version
+      - name: Build the region
+        if: steps.found.outcome == 'failure'
+        env:
+          REGION: ${{ matrix.region }}
+        run: node --max-old-space-size=12288 src/build-region.mjs "$REGION" --out "$RUNNER_TEMP/out/region-$REGION"
+      - uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        if: steps.found.outcome == 'failure'
+        with:
+          name: region-${{ matrix.region }}
+          path: ${{ runner.temp }}/out/
+          retention-days: 1
+          if-no-files-found: error
+
+  deploy:
+    needs: [plan, region, region-again]
     if: ${{ !cancelled() && needs.plan.result == 'success' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 30
