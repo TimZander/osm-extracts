@@ -308,7 +308,7 @@ A PBF without that timestamp SHALL fail the region's job.
 #### Scenario: An undated file
 
 - **WHEN** the PBF header has no replication timestamp
-- **THEN** the region's job fails, and nothing of that region changes
+- **THEN** the region's job fails and hands over no artifact for the region
 
 ### Requirement: A region's bounds lie inside its Geofabrik polygon
 
@@ -320,7 +320,7 @@ outside. Otherwise the region's job SHALL fail before its files are built, namin
 #### Scenario: Bounds reaching outside
 
 - **WHEN** a region's `bounds` has a corner outside its Geofabrik polygon
-- **THEN** the region's job fails naming the region, and nothing of that region changes
+- **THEN** the region's job fails naming the region, and hands over no artifact for the region
 
 #### Scenario: Bounds inside
 
@@ -355,7 +355,7 @@ cells lie within its `bounds` apart from the parts of those ways.
 
 ### Requirement: A failed or corrupt download publishes nothing new for the region
 
-A region's job SHALL fail, and nothing of that region SHALL change, when the download of its PBF, its
+A region's job SHALL fail, handing over no artifact for the region, when the download of its PBF, its
 `.md5` or its polygon fails on its last attempt, or the PBF's MD5 differs from the `.md5`. A failed
 download's error SHALL name its URL and, when the last attempt's failure has an underlying error
 (before any response or while the body streams), that error's message, after its code when it has one.
@@ -363,32 +363,32 @@ download's error SHALL name its URL and, when the last attempt's failure has an 
 #### Scenario: The checksum can't be fetched
 
 - **WHEN** the `.md5` download answers 404
-- **THEN** the region's job fails, and nothing of that region changes
+- **THEN** the region's job fails and hands over no artifact for the region
 
 #### Scenario: An MD5 mismatch
 
 - **WHEN** the downloaded PBF's MD5 differs from Geofabrik's `.md5`
-- **THEN** the region's job fails, none of its files change, and the manifest keeps its previous entry for it
+- **THEN** the region's job fails and hands over no artifact for the region
 
 #### Scenario: A request that fails before any response
 
 - **WHEN** every attempt at the PBF's request fails with no response, and the underlying error has code `ECONNRESET` and message `read ECONNRESET`
-- **THEN** the region's job fails with an error naming the PBF's URL, `ECONNRESET` and `read ECONNRESET`, and nothing of that region changes
+- **THEN** the region's job fails with an error naming the PBF's URL, `ECONNRESET` and `read ECONNRESET`, and hands over no artifact for the region
 
 #### Scenario: A download cut off mid-stream
 
 - **WHEN** on every attempt the polygon's response starts, and its body fails before the end with an underlying error of code `ECONNRESET` and message `read ECONNRESET`
-- **THEN** the region's job fails with an error naming the polygon's URL, `ECONNRESET` and `read ECONNRESET`, and nothing of that region changes
+- **THEN** the region's job fails with an error naming the polygon's URL, `ECONNRESET` and `read ECONNRESET`, and hands over no artifact for the region
 
 ### Requirement: No published file is over 20 MiB
 
 A region whose files include one larger than 20 MiB (20,971,520 bytes) SHALL fail its job, naming the
-file and its size, and nothing of that region SHALL change.
+file and its size, and hand over no artifact for the region.
 
 #### Scenario: A 21 MiB quarter
 
 - **WHEN** a region writes a 21 MiB file
-- **THEN** its job fails naming the file and its size, and nothing of that region changes
+- **THEN** its job fails naming the file and its size, and hands over no artifact for the region
 
 ### Requirement: The site holds at most 19,000 files
 
@@ -402,20 +402,27 @@ the file count of each region and of the whole site.
 
 ### Requirement: Every job has a time limit
 
-The plan job SHALL be stopped after 5 minutes, a region job after 120 minutes and the deploy job after
-30 minutes. A region job stopped this way SHALL count as a failed region.
+The plan job SHALL be stopped after 5 minutes, a region job and a second-attempt job after 120
+minutes each, and the deploy job after 30 minutes. A region job stopped this way SHALL count as a
+failed first attempt, and a second-attempt job stopped this way as a failed second attempt.
 
 #### Scenario: A region job that runs too long
 
 - **WHEN** a region job is still building after 120 minutes
+- **THEN** it is stopped, it uploads no artifact, and the region gets its second attempt
+
+#### Scenario: A second attempt that runs too long
+
+- **WHEN** a second-attempt job is still building after 120 minutes
 - **THEN** it is stopped, it uploads no artifact, and the deploy job keeps that region's previous files
 
 ### Requirement: A region job hands its tree to the deploy job and writes nothing
 
-Each region's job SHALL build its tree and manifest entry and, as its last step, hand them to the
+Each region job, and each second-attempt job that builds, SHALL build its tree and manifest entry and, as its last step, hand them to the
 deploy job as an Actions artifact named for the region, kept for one day; a region counts as
-succeeded exactly when its artifact exists. No region job SHALL write the repository. The deploy job
-SHALL run after every region job ends, unless the run was cancelled or the regions list failed.
+succeeded exactly when its artifact exists, from either attempt. No region job or second-attempt job
+SHALL write the repository. The deploy job SHALL run after every region job and second-attempt job
+ends, unless the run was cancelled or the regions list failed.
 
 #### Scenario: Two regions
 
@@ -431,6 +438,11 @@ SHALL run after every region job ends, unless the run was cancelled or the regio
 
 - **WHEN** the owner cancels a run while a region job is building
 - **THEN** the deploy job doesn't run, and `data` doesn't change
+
+#### Scenario: A region built on its second attempt
+
+- **WHEN** `colorado`'s region job fails and its second-attempt job uploads `region-colorado`
+- **THEN** the deploy job publishes this run's `colorado`
 
 ### Requirement: The deploy job accepts only well-formed region trees
 
@@ -467,15 +479,15 @@ not treated as a failed region.
 
 ### Requirement: A failed region keeps its previous files
 
-When a region's job fails, the other region jobs SHALL run to the end, the deploy job SHALL still
-publish the regions that succeeded, and it SHALL keep the failed region's previous manifest entry and
+When a region job or second-attempt job fails, the others SHALL run to the end; when a region fails
+both attempts, the deploy job SHALL still publish the regions that succeeded, and it SHALL keep the failed region's previous manifest entry and
 every file it lists from the previous `data` tree, the entry's `coverage` (or lack of one) included.
 A failed region that was never published, and a region no longer in the regions list, SHALL be left
 out of the manifest.
 
 #### Scenario: One region fails
 
-- **WHEN** `colorado` published last week and its job fails this week
+- **WHEN** `colorado` published last week and both its attempts fail this week
 - **THEN** the new manifest holds last week's `colorado` entry, and every file it lists is in the new tree
 
 #### Scenario: A region taken off the list
@@ -485,7 +497,7 @@ out of the manifest.
 
 #### Scenario: A kept entry and its coverage
 
-- **WHEN** `colorado`'s job fails, and last week's `colorado` entry has a `coverage`, or has none because it was built before `coverage` existed
+- **WHEN** both of `colorado`'s attempts fail, and last week's `colorado` entry has a `coverage`, or has none because it was built before `coverage` existed
 - **THEN** the new manifest's `colorado` entry has the same `coverage` ids, sorted, or none
 
 ### Requirement: The previous site is read from the data branch
@@ -562,7 +574,7 @@ without cancelling a run in progress, so two runs never publish at once.
 
 #### Scenario: No region at all
 
-- **WHEN** every region job fails and the previous site lists no region, so the new manifest lists none (whether or not the tree changed)
+- **WHEN** every region fails both attempts and the previous site lists no region, so the new manifest lists none (whether or not the tree changed)
 - **THEN** nothing is pushed, the log says the manifest lists no region, the deploy job succeeds, and `data` stays as it was
 
 #### Scenario: No valid manifest
@@ -614,10 +626,10 @@ region's data date, and linking this repository as the source of the derivation.
 
 ### Requirement: Only the deploy job can write the repository
 
-The workflow's top-level `permissions` SHALL be `contents: read` alone. Region jobs SHALL have
-`contents: read` alone and check out with `persist-credentials: false`. Only the deploy job SHALL have
-`contents: write`; its token SHALL be passed to no step but its checkout and its push, and SHALL
-not be stored in the git config.
+The workflow's top-level `permissions` SHALL be `contents: read` alone. Region jobs and second-attempt
+jobs SHALL have `contents: read` alone and check out with `persist-credentials: false`. Only the
+deploy job SHALL have `contents: write`; its token SHALL be passed to no step but its checkout and its
+push, and SHALL not be stored in the git config.
 
 #### Scenario: Reading the permissions
 
@@ -631,7 +643,7 @@ not be stored in the git config.
 
 #### Scenario: A compromised region job
 
-- **WHEN** code in a region job tries to push
+- **WHEN** code in a region job or a second-attempt job tries to push
 - **THEN** it holds no credential that can push
 
 ### Requirement: The workflow uses no secret and only pinned actions
@@ -647,7 +659,7 @@ commit SHA. No `${{ }}` expression SHALL appear inside a `run:` script.
 
 ### Requirement: Each region job reports its size
 
-Each region's job SHALL report, in its log and job summary, its matching node and way counts, total
+Each region job, and each second-attempt job that builds, SHALL report, in its log and job summary, its matching node and way counts, total
 bytes written, its largest 0.25° cell before splitting (id and bytes), its cell, split-cell, file and
 coverage-cell counts.
 
@@ -739,7 +751,7 @@ along an edge or at a corner is not covered.
 
 ### Requirement: The region builder has a 12 GiB heap
 
-The region job SHALL run `src/build-region.mjs` with Node's old-space heap limit set to 12,288 MiB
+The region job and the second-attempt job SHALL run `src/build-region.mjs` with Node's old-space heap limit set to 12,288 MiB
 (`--max-old-space-size=12288`), so a region whose build needs more than Node's default heap can still
 build on the runner's 16 GB.
 
@@ -849,7 +861,7 @@ its own attempts.
 #### Scenario: A server error on every attempt
 
 - **WHEN** every request for the `.md5` answers HTTP 503
-- **THEN** it is requested 3 times, with waits of 30 seconds and then 2 minutes between, and the region's job fails with nothing of that region changed
+- **THEN** it is requested 3 times, with waits of 30 seconds and then 2 minutes between, and the region's job fails and hands over no artifact for the region
 
 #### Scenario: Too many requests
 
@@ -934,3 +946,35 @@ before the next attempt, or "giving up". Characters U+0000–U+001F and U+007F S
 
 - **WHEN** an attempt fails with an underlying error whose code and message hold carriage returns, line feeds and `::warning::`
 - **THEN** the log line for it is one line, and no line of the log starts with `::`
+
+### Requirement: A failed region is built once more on a fresh runner
+
+When any region job doesn't succeed, a second-attempt job SHALL run for every listed region once all
+region jobs end, unless the run was cancelled or the regions list failed. Where it finds the region's artifact it SHALL build
+nothing; otherwise it SHALL build the region on its own runner as the region job does, ending with the
+same artifact. A second-attempt job that builds SHALL meet every rule for a region's job. When every region job succeeds, no second-attempt job SHALL run.
+
+#### Scenario: One region refused on its first runner
+
+- **WHEN** `colorado`'s region job fails after its downloads were refused, and `idaho`'s succeeds
+- **THEN** a second-attempt job builds `colorado` on another runner and uploads `region-colorado`, and the one for `idaho` builds nothing
+
+#### Scenario: Every region succeeds
+
+- **WHEN** every region's job uploads its artifact
+- **THEN** no second-attempt job runs, and the deploy job runs as before
+
+#### Scenario: Both attempts fail
+
+- **WHEN** `colorado`'s region job and its second-attempt job both fail
+- **THEN** there is no `region-colorado` artifact, and the deploy job keeps `colorado`'s previous files
+
+#### Scenario: The same build
+
+- **WHEN** the workflow file is read
+- **THEN** the second-attempt job's steps after its artifact check, their conditions set aside, equal the region job's steps
+
+#### Scenario: A region job stopped by its time limit
+
+- **WHEN** `colorado`'s region job is stopped after 120 minutes, and the run wasn't cancelled
+- **THEN** a second-attempt job builds `colorado`
