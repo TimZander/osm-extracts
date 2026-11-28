@@ -40,7 +40,7 @@ doesn't even start in these cases.
 
 ## region-second-attempt: the second-attempt job (2026-11-23)
 
-For change `region-second-attempt` (ADR 0040), which adds the `region-again` job. Each attack was
+For change `region-second-attempt` (ADR 0041), which adds the `region-again` job. Each attack was
 checked against the workflow file and `test/workflow.test.mjs`, which reads it.
 
 | # | Attack | How | Result |

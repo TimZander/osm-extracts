@@ -22,7 +22,7 @@ had British Columbia refused in the afternoon as well.
 
 Chosen option: "record that the refusals follow the runner, keep 14:23 UTC". The hour wasn't the
 cause, and 14:23 does no harm. ADR 0039's decision stands. This record corrects its reasoning, and
-ADR 0040 is the fix.
+ADR 0041 is the fix.
 
 ### Consequences
 

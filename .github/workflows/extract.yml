@@ -72,7 +72,7 @@ jobs:
           retention-days: 1
           if-no-files-found: error
 
-  # A region whose job didn't succeed gets one more build on a fresh runner (ADR 0040): Geofabrik
+  # A region whose job didn't succeed gets one more build on a fresh runner (ADR 0041): Geofabrik
   # refuses some runners outright while letting others through. Every leg first looks for its
   # region's artifact with the runner's own artifact token, and builds only when there is none.
   region-again:

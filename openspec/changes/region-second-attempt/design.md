@@ -74,7 +74,7 @@ job accepts; a third attempt; a download mirror.
 - [A run that the second attempt rescued still ends red] → the region job's failure stands, and
   GitHub has no way to clear it without hiding real failures. Accepted (conformance review S1):
   `region-again`'s result tells them apart. If it built and uploaded every failed region, the run
-  published everything. ADR 0040 says so.
+  published everything. ADR 0041 says so.
 
 ## Migration Plan
 
